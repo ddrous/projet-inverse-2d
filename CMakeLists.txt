@@ -22,23 +22,36 @@
 #
 #
 
-cmake_minimum_required(VERSION 3.12)
-project(myproject VERSION 0.1.0)
-set(PROJECT_SHORTNAME "p")
+# cmake_minimum_required(VERSION 3.12)
+# project(myproject VERSION 0.1.0)
+# set(PROJECT_SHORTNAME "p")
 
-include(GNUInstallDirs)
+# include(GNUInstallDirs)
 
-add_subdirectory( src )
-add_subdirectory( docs )
+# add_subdirectory( src )
+# add_subdirectory( docs )
 
-# extra ignored files
-list(APPEND CPACK_SOURCE_IGNORE_FILES
-  .git
-  .gitignore
-  .travis.yml
-  .appveyor.yml
-  )
-set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}")
-set(CPACK_GENERATOR "TGZ")
-set(CPACK_SOURCE_GENERATOR "TGZ")
+# # extra ignored files
+# list(APPEND CPACK_SOURCE_IGNORE_FILES
+#   .git
+#   .gitignore
+#   .travis.yml
+#   .appveyor.yml
+#   )
+# set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}")
+# set(CPACK_GENERATOR "TGZ")
+# set(CPACK_SOURCE_GENERATOR "TGZ")
+# include(CPack)
+
+cmake_minimum_required(VERSION 3.0.0)
+project(Spreading VERSION 0.1.0)
+
+include(CTest)
+enable_testing()
+
+add_executable(Spreading main.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+
