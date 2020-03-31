@@ -2,4 +2,4 @@
 
 Pour la résolution du problème inverse de propagation de la lumière par la méthode des volumes finis.
 
-Exécuter la commande g++ -I ./eigen-3.3.7 spreading.cpp maille.cpp -o spreading && spreading (sous WINDOWS) ou g++ -I ./eigen-3.3.7 spreading.cpp maille.cpp -o spreading && ./spreading (LINUX) pour lancer le programme.
+Exécuter la commande `g++ -I ./eigen-3.3.7 spreading.cpp solveur.cpp maille.cpp -o spreading && ./spreading` pour lancer le programme. Les résultats sont exportés dans le fichier `log.csv`.
