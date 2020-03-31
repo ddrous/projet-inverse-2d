@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/a.hpp
+iostream
+-
+vector
+-
+cmath
+-
+
+/workspaces/VSCode/src/test_debug.cpp
+a.hpp
+-
+

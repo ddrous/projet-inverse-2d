@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%% author.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for your "contribution" to a contributed volume
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[graybox]{svmult}
+ \documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{a4wide}
+\usepackage{enumerate}
+
+\usepackage{amsmath,hhline}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+%
+\usepackage[colorlinks=true,citecolor=red,linkcolor=blue,%
+urlcolor=RubineRed,pdfpagetransition=Blinds,pdftoolbar=false,pdfmenubar=false]{hyperref}
+%
+%\usepackage{showkeys}
+\usepackage{color}
+%\usepackage{cancel}
+\usepackage{dsfont}
+\usepackage{float}
+
+\usepackage{tikz}
+\usepackage{standalone}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.12}
+
+%\usepackage{refcheck}
+
+
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}%[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+%
+%
+%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\newcommand{\field}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\C}{\field{C}\xspace}
+\newcommand{\Z}{\field{Z}\xspace}
+\newcommand{\F}{\field{F}\xspace}
+\newcommand{\Q}{\field{Q}\xspace}
+\newcommand{\R}{\field{R}\xspace}
+\newcommand{\N}{\field{N}\xspace}
+\newcommand{\intdoble}{\displaystyle \int \!\!\!\! \int}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Projets de M1}
+
+\maketitle
+
+
+\section{Cadre commun}
+Dans cette section, nous décrirons le cadre commun aux deux projets en termes de modèles et de méthodes. En effet les deux modèles appartiennent à la même famille d'équations et les méthodes numériques aussi.
+
+\subsection{Equations hyperboliques}
+Dans ces projets, on s'intéresse à des équations dite \textbf{hyperboliques} avec termes sources qui peuvent s'écrire en 1d sous cette forme:
+\begin{equation}\label{hyper}
+\partial_t \mathbf{U} + \partial_x \mathbf{F}(\mathbf{U}) = \mathbf{R}(\mathbf{U})
+\end{equation}
+avec $\mathbf{U}$ un vecteur de $n$ fonctions de $\mathbb{R}$ dans  $\mathbb{R}$ qui sont les inconnues. $\mathbf{F}$ et $\mathbf{R}$ sont des fonctions nonlineaires ou linéaires de $\mathbf{U}$. Exemple: l'équation de Burgers
+$$
+\partial_t \rho + \partial_x \left(\frac{\rho^2}{2}\right)=0 
+$$
+On parle aussi de loi de conservations. On considère $\mathbf{F}(\mathbf{U})=0$ au bord. En intégrant l'équation (\ref{hyper}) sans source (terme de droite) en espace, on obtient
+$$
+\partial_t \int_{x_g}^{x_d}\mathbf{U} + \int_{x_g}^{x_d}\partial_x \mathbf{F}(\mathbf{U}) = 0
+$$
+$$
+\partial_t \int_{x_g}^{x_d}\mathbf{U} + \mathbf{F}(\mathbf{U}(x_d)) - \mathbf{F}(\mathbf{U}(x_g)) = 0
+$$
+On en déduit que $\partial_t \int_{x_g}^{x_d}\mathbf{U}=0$ et donc que l'intégrale des variables est conservée en temps. Ces équations sont très présentes en mécaniques des fluides, pour décrire la propagation d'ondes, en biologie ou en modèle de populations. Contrairement aux EDP elliptiques (équation de Poisson) ou paraboliques (équation de la chaleur), ces équations ne sont pas régularisantes. Si on part d'une fonction discontinue, elle le restera en temps (idem si continue). Dans le cas nonlinéaire, elles peuvent même générer des discontinuités. La gestion de ces discontinuités est un problème majeur lié à ces EDP. En général, elles vivent dans un domaine invariant. C'est à dire qu'elles sont bien définies seulement si les fonctions restent dans un ensemble convexe. Par exemple: une densité doit être positive. Préserver cela au niveau discrets est aussi un challenge numérique.\\
+Références:
+\begin{itemize}
+\item cours \url{http://seguin.perso.math.cnrs.fr/DOCS/cours.pdf}
+\end{itemize}
+Ces équations sont des équations de transport/ondes au sens ou des quantités nonlinéaire assez complexes sont propagées à des vitesses elles-mêmes non linéaires. Les vitesses de propagation de ses ondes sont données par les valeurs propres de  la matrice Jacobienne du flux $\partial_{\partial \mathbf{U}} \mathbf{F}(\mathbf{U})$. Les quantités propagées sont reliées aux vecteurs propres et s'appellent des invariants de Riemann.
+\subsection{Méthodes de volumes finis}
+La gestion des discontinuités et des contraintes du domaine invariant fait qu'on ne peut pas utiliser toutes les méthodes numériques. On va introduire la méthode de type \textbf{Volumes finis}. En 1D sur maillage uniforme, elle est très proche des différences finies étudiées en M1. Cependant la méthode de construction est différente et elle permet de construire des schémas différents des schémas standard en différence finie. L'idée est d'utiliser le fait qu'on regarde une \textbf{loi de conservation}. C'est une méthode qui approxime les fonction par une fonction \textbf{constante par morceaux}. \\\\
+On discrétise le domaine $[a,b]$ en $N$ mailles ($N+1$ points). Pour la maille $j$ on note $x_j$ le centre de maille, $\Delta x_j= \Delta x$ (maillage uniforme) le volume de maille, $x_{j-\frac12}$ et $x_{j+\frac12}$ les deux points frontière de la maille.\\\\
+Maintenant on intègre l'équation sur une maille $j$:
+$$
+\partial_t  \int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{U}+ \int_{x_{j-\frac12}}^{x_{j+\frac12}}\partial_x \mathbf{F}(\mathbf{U}) = \int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{R}(\mathbf{U})
+$$
+On considère que sur chaque maille l'approximation est constante. On a donc une approximation globale constante par morceaux et pas forcément continue. On pose
+$$
+\mathbf{U}_j(t)=\frac{1}{\Delta x}\int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{U}(x,t) dx, \quad \forall j \in \left\{1,\ldots,N\right\}
+$$
+les valeurs moyennes qui forment les inconnues du schéma. On obtient
+$$
+\Delta x\, \partial_t \mathbf{U}_j(t)+ \int_{x_{j-\frac12}}^{x_{j+\frac12}}\partial_x \mathbf{F}(\mathbf{U}) = \int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{R}(\mathbf{U})
+$$
+Maintenant on intègre la dérivée. Afin obtenir:
+$$
+ \partial_t \mathbf{U}_j(t) + \frac{1}{\Delta x} \left(\mathbf{F}(\mathbf{U}(x_{j+\frac12})) - \mathbf{F}(\mathbf{U}(x_{j-\frac12}))\right) = \int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{R}(\mathbf{U})
+$$
+Le premier problème vient du fait que les valeurs ne sont pas des inconnues $\mathbf{F}(\mathbf{U}(x_{j\pm\frac12}))$ donc le schéma est incomplet. L'idée est d'approcher le flux $\mathbf{F}(\mathbf{U}(x_{j+\frac12}))$ par un \textbf{flux numérique} de la façon suivante
+$$
+\mathbf{F}(\mathbf{U}(x_{j+\frac12}))  = \mathbf{G}(\mathbf{U}_j(t),\mathbf{U}_{j+1}(t))
+$$ 
+idem en $j-\frac12$. Une fois ce flux numérique donné, le schéma est presque fini. Il suffit d’approcher
+$$
+\int_{x_{j-\frac12}}^{x_{j+\frac12}}\mathbf{R}(\mathbf{U}) 
+$$
+par $\Delta x \mathbf{R}(\mathbf{U}_j) $ pour conclure. On peut utiliser des approximations différentes. À la fin le schéma est donné par:
+$$
+ \partial_t \mathbf{U}_j(t)+ \frac{\mathbf{G}(\mathbf{U}_j,\mathbf{U}_{j+1})-\mathbf{G}(\mathbf{U}_{j},\mathbf{U}_{j-1})}{\Delta x} = \mathbf{R}(\mathbf{U}_j)
+$$
+Une fois cette forme obtenue, il faut \textbf{un schéma en temps comme Euler explicite} et un flux numérique.
+\subsubsection{Flux numériques}
+Le choix du flux numérique est le problème principal. Il existe un nombre énorme de flux. Certains flux sont génériques. D'autres sont spécifiques à des équations ou des problèmes précis. Dans la plupart des cas, on peut réécrire le schéma sous la forme suivante
+$$
+\frac{G(\mathbf{U}_j,\mathbf{U}_{j+1})-G(\mathbf{U}_{j},\mathbf{U}_{j-1})}{\Delta x} = \frac{\mathbf{F}(\mathbf{U}_{j+1})-\mathbf{F}(\mathbf{U}_{j-1})}{2 \Delta x} -D
+$$
+avec
+$$
+D =- \frac{\Delta x}{2}\left(A(\mathbf{U}_j,\mathbf{U}_{j+1})\frac{\mathbf{U}_{j+1}-\mathbf{U}_{j}}{\Delta x}-A(\mathbf{U}_{j-1},\mathbf{U}_{j})\frac{\mathbf{U}_{j}-\mathbf{U}_{j-1}}{\Delta x}\right)
+$$
+Ce qui veut dire que la consistance d'un schéma  de volumes finis  s'écrit en général sous la forme:
+$$
+\partial_t \mathbf{U}+ \partial_x\mathbf{F}(\mathbf{U})- \frac{\Delta x}{2}\partial_x (A(\mathbf{U})\partial_x\mathbf{U}) + O(\Delta x^2)
+$$
+Ce terme d'erreur en $\Delta x$ est appelé \textbf{diffusion numérique} car il s'agit d'un opérateur de diffusion et elle vient uniquement du schéma. Ce terme à tendance à lisser les solutions numériques. Elle est l'erreur dominante et sera importante pour la suite. \\
+Exemple classique de flux générique. Le flux de Rusanov:
+$$
+\mathbf{G}(\mathbf{U}_l,\mathbf{U}_r)=\frac12\left(\mathbf{F}(\mathbf{U}_l)+\mathbf{F}(\mathbf{U}_r) \right) - \frac{\lambda}{2}\left( \mathbf{U}_r -\mathbf{U}_l\right) 
+$$
+with $\lambda > \max_x \rho (\partial_{\mathbf{U}} \mathbf{F}(U(x))} $ (où $\rho$ désigne ici le rayon spectral de la matrice).
+\begin{itemize}
+\item cours \url{https://www.i2m.univ-amu.fr/perso/raphaele.herbin/TELE/M1/chap6.pdf}
+\end{itemize}
+\subsection{Réseaux de Neurones}
+Les réseaux de Neurones sont une méthode d'apprentissage très puissante. Imaginons une fonction
+$$
+\mathbf{Y} = \mathcal{F}(\mathbf{X})
+$$
+en grande dimension et inconnue. L'idée de l'apprentissage supervisé est de construire une approximation de $\mathcal{F}$ appelée
+$$
+\mathcal{N}_{\mathbf{\omega}}(\mathbf{X})
+$$
+paramétrer par $\mathbf{\omega}$ tel que l'erreur un échantillon connu ($\mathbf{X}_{ref},\mathbf{Y}_{ref})$ entre les deux fonctions sont minimal. Les réseaux de Neurones sont un exemple de fonction $\mathcal{N}_{\mathbf{\omega}}$. On notera que les plus classiques sont les Multi-perceptron (MPC), les réseaux convolutifs, les réseaux récurrents.
+\begin{itemize}
+\item cours \url{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-m-app-rn.pdf}
+\item Cours de Vincent Vigon M1 et M2
+\end{itemize}
+\section{Projet 1: Tsunami}
+Ici on s'intéresse à la modélisation des tsunamis. Les centres d'alerte des tsunamis doivent être capables d'annoncer une vague en 10 à 20 minutes, soit quasiment en temps réel.  Une simulation raisonnable de tsunamis c'est de l'ordre de plusieurs heures. On ne peut donc pas utiliser cette solution. Une solution est de faire des modèles réduits utilisant l'IA sur des données. Mais on a très peu de données donc on propose de faire des modèles réduits d'IA sur des données issues de simulations. On se place dans un cadre 1D : on peut voir cela comme une coupe d'une mer comme la méditerranée. On suppose deux zones sèches (à gauche et à droite) représentant les 2 rives. 
+
+\subsection{Modèle de départ}
+Le premier modèle pour décrire les tsunamis s'appelle les équations de Saint Venant. Il s’agit d'un modèle approché supposant la hauteur faible par rapport à la longueur du domaine. Pour un tsunami, on parle de domaine de milliers de kilomètres pour une profondeur 1 à 10 km donc c'est bien le cas. Le modèle est donné par
+$$
+\left\{\begin{array}{l}
+\partial_t h + \partial_x (hu) =0, \\
+\partial_t hu + \partial_x \left(hu^2 + \frac12gh^2\right) = -gh\partial_x z,\end{array}\right.
+$$
+avec $h(t,x) \in \mathbb{R}$ la hauteur d'eau, $u(t,x) \in \mathbb{R}$ la vitesse et $z(x) \in \mathbb{R}$ la topographie du fond marin (supposé constante en temps). Il existe une propriété importante. Les solutions du type "lac au repos" :
+\begin{equation}\label{equi}
+u(x)=0, \quad z(x)+h(x)=cste.
+\end{equation}
+sont préservées au cours du temps.  Au niveau discret, cela ne sera pas toujours vrai et cela pourra poser problème.
+Les vitesses d'ondes du système (valeur propre de la Jacobienne) sont
+$$
+\left\{u-\sqrt{hg},u,u+\sqrt{hg}\right\}.
+$$
+Les deux ondes extrêmes sont appelées ondes de gravité. Il s'agit d'une propagation d'une perturbation de la hauteur d'eau $h$ (exactement un tsunami) notamment dans l'équilibre $z+h=cts$. On en déduit que le tsunami va plus vite dans l'océan que sur les côtes.
+
+\begin{itemize}
+\item Exercice: démontrer que (\ref{equi}) est un équilibre de équations.
+\end{itemize}
+
+\begin{itemize}
+\item cours: \url{http://www.lmm.jussieu.fr/~lagree/COURS/MFEnv/MFEnv.pdf}
+\end{itemize}
+\subsection{Schémas numériques}
+Comme expliqué précédemment, un schéma numérique, qui par définition commet une erreur, peut ne pas préserver un état d'équilibre type
+$$
+ z(x)+h(x)=cste
+$$
+C'est notamment le cas des schémas standards qui ont une viscosité numérique en $h$, ce qui crée une perturbation de $h$ par rapport à l'équilibre et génère des vagues parasites d'ampleur $O(\sqrt{hg}\Delta x)$.
+Pendant une simulation de tsunami, imaginons qu'on soit dans une situation de lac au repos ou presque, $u \ll 1$, on va créer partout des vagues en $O(\sqrt{hg}\Delta x)$. Pour ne pas trop polluer la simulation, il faudrait $u\geq \sqrt{hg}\Delta x$. En pratique, on est souvent dans une configuration $u \ll \sqrt{hg}$  il faut donc prendre $\Delta x$ très petit. Cependant il existe des schémas préservant l'état du lac au repos et nettement plus précis dans les configurations proches cet état de lac au repos ($u \ll 1$). On parle de schéma \textbf{Well-Balanced}. \\\\
+Dans le schéma proposé, on tient compte du terme source dans les flux. Le schéma est clairement détaillé dans papier référencé ci-dessous.
+ Les formules sont données (2.7) page 3, (2.17)-(2.20)-(2.21) page 5, (2.27) page 6. Des cas tests sont aussi détaillés dans le même papier.
+Le schéma admet une condition CFL de la forme: $\Delta t < \frac{\Delta x}{\mid u \mid +\sqrt{hg}}$. 
+
+\begin{itemize}
+\item Possible exo: démontrer que (\ref{equi}) dans chaque maille n'est pas un équilibre du schéma de Rusanov, mais est bien un équilibre du nouveau schéma.
+\end{itemize}
+Le schéma admet une CFL $\Delta t < \frac{\Delta x}{\mid u \mid +\sqrt{hg}}$. 
+
+\begin{itemize}
+\item Papier schéma WB \url{https://hal.archives-ouvertes.fr/hal-01083364/file/simple_wellbalanced_positive_ARS.pdf}
+\end{itemize}
+Niveau simulation, l'idée est de partir de cas tests de lac au repos avec une grosse variation de hauteur d'eau à un endroit.
+
+\subsection{Réduction de modèle et réseaux de neurones}
+Le but est de prévoir la hauteur des vagues (notamment la première) et la position du front de cette vague. On peut considérer que la vague en temps est caractérisée par le maximum de la hauteur d'eau $h_m(t)= \max_x h(t,x)$ et le front d'onde $f(t)=x$ où $x$ désigne la position du maximum.
+L'idée est donc de construire un \textbf{modèle réduit} permettant d'estimer ses fonctions connaissant un certain nombre de données: 
+\begin{itemize}
+\item la fonction dans les premiers temps,
+\item la topographie et la hauteur d'eau initiale.
+\end{itemize}
+L'idée serait de construire des réseaux de neurones estimant ces 2 fonctions en temps. On pourrait utiliser des réseaux récurrents ou convolutifs, voir les 2 en même temps.
+
+\subsection{Modèles plus évolués (pas avant stage)}
+Le modèle de Saint Venant n'est pas le modèle le plus complet pour décrire un tsunami. Il est très précis sur la vitesse de la vague. Par contre, il n'est pas assez précis sur la hauteur, car il néglige des effets dits \textbf{dispersifs}. Le modèle tenant compte de cet effet est le modèle de Green-Nagdhi. Le modèle et le schéma sont donnés dans le papier suivant. Il réutilise le schéma de Saint Venant.
+
+\begin{itemize}
+\item Papier Green-Nagdhi: \url{https://hal.archives-ouvertes.fr/hal-00482564/document}
+\end{itemize}
+
+
+
+\section{Projet 2: propagation lumière et problème inverse}
+Ici on s'intéresse à un problème de tomographie médicale par infrarouge. Il s'agit d'imagerie médicale : on envoie un faisceau lumineux dans un corps ou un organe et mesurant le signal sur une partie de l'organe en tout temps, on souhaite reconstruire les propriétés optiques de l'organe que le faisceau a traversé (diffraction, absorption, etc.). L'idée étant qu’ une tumeur aura des propriétés optiques différentes de celle de l'organe. On parle ici \textbf{de problème inverse}. Au lieu de connaitre une condition initiale et des paramètres d'une EDP pour calculer la solution en temps, on connait la solution initiale et la solution en temps sur une partie du domaine et on souhaite retrouver les paramètres. Afin de résoudre des problèmes inverses, il faut commencer par résoudre des \textbf{problèmes directs}, c'est à dire simuler les EDP connaissant les propriétés optiques.
+
+\subsection{Modèle de départ}
+La propagation de photon est décrite par une EDP dite cinétique appelée l'équation de transport radiatif. Elle décrit la probabilité de présence d'un photon à une position donnée et dans une direction donnée (on obtient donc une EDP 6D, 3D pour la position et 3D pour la direction). L'EDP décrit 3 phénomènes : le transport des photons à la vitesse de la lumière, le scattering (interaction avec le milieu) qui décrit les changements de direction du fait de l'interaction avec le milieu, l'absorption/émission qui décrit l'absorption d'un photon par le milieu et la réémission de ce photon dans une direction différente.  Le dernier phénomène décrit un échange de chaleur. \\\\
+Le modèle étant trop lourd, on définit un modèle simplifié appelé modèle $P_1$:
+\begin{equation}\label{P11}
+\left\{\begin{array}{l}
+\displaystyle \partial_t E + c\partial_x F = c\sigma_a(\rho,T) \big(aT^4-E\big), \\
+\displaystyle\partial_t F + \frac{c}{3}\partial_x E = - c\sigma_c(\rho,T)F,\\
+\displaystyle\rho C_v \partial_t T = c\sigma_a(\rho,T)\big(E-aT^4\big),
+\end{array}\right.
+\end{equation}
+avec $T(t,x) > 0$ la température du milieu, $E(t,x) \in \mathbb{R}$ l'énergie des photons, $F(t,x) \in \mathbb{R}$ le flux des photons, $\rho(x) > 0$ la densité du milieu, $\sigma_a(\rho, T) > 0$ l'opacité d'absorption et $\sigma_c(\rho,T) > 0$ l'opacité de scattering. Maintenant on souhaite regarder une propriété particulière de ce modèle. On commence par le réécrire sous la forme suivante
+\begin{equation}\label{P12}
+\left\{\begin{array}{l}
+\displaystyle \partial_t \big(E + \rho(x)C_v \partial_t T\big) + c\partial_x F = 0 \\
+\displaystyle\partial_t F + \frac{c}{3}\partial_x E = - c\sigma_c(\rho,T)F\\
+\displaystyle\rho C_v \partial_t T = c\sigma_a(\rho,T)(E-aT^4)
+\end{array}\right.
+\end{equation}
+Cette dernière équation est obtenue juste en sommant les équations 1 et 3 de (\ref{P11}).\\
+On considère un temps de simulation $t_0$ et une longueur de domaine $L_0$. On peut définir une vitesse caractéristique ou de référence $v_0 = \frac{L_0}{t_0}$. On suppose à présent deux choses :
+\begin{itemize}
+\item $c \gg v_0$ : la vitesse de la lumière est grande par rapport à la vitesse du phénomène observé,
+\item $\sigma_c, \sigma_a \approx \frac{c}{v_0}$ : le nombre de collisions est important.
+\end{itemize}
+  Le modèle se réécrit
+\begin{equation}\label{P13}
+\left\{\begin{array}{l}
+\displaystyle \partial_t (E + \rho C_v \partial_t T) + c\partial_x F = 0 \\
+\displaystyle \frac{1}{c \sigma_c}\partial_t F + \frac{c}{3\sigma_c}\partial_x E = - (\rho,T)F\\
+\displaystyle \frac{1}{c \sigma_a}\rho C_v \partial_t T = (E-aT^4)
+\end{array}\right.
+\end{equation}
+En considérant que $\frac{1}{c}$ (idem pour $\frac{1}{\sigma_a}\approx \frac{1}{c}$) se rapproche fortement de zéro, on en déduit deux relations valides dans cette limite
+$$
+(E-aT^4)\approx 0, \quad E \approx a T^{4} + O\left(\frac{1}{c^2}\right)
+$$
+et
+$$
+\frac{1}{3\sigma_c}\partial_x E \approx -(\rho,T)F + O\left(\frac{1}{c^2}\right)
+$$
+En incorporant ceci dans la première équation de (\ref{P13}), on obtient 
+\begin{equation}\label{limit}
+ \partial_t (a T^4 + \rho C_v \partial_t T) - \partial_x \left(\frac{c}{3\sigma_c}\partial_x a T^4 \right) = O\left(\frac{1}{c}\right)
+\end{equation}
+On remarque que le coefficient de diffusion satisfait $\frac{c}{3\sigma_c}\approx O(1)$ dans notre modèle limite. Ce modèle est appelé \texbf{limite ou approximation} de diffusion. Comme pour les équations de Saint Venant, les méthodes standard ne sont pas capables de respecter cette  propriété.
+
+
+\begin{itemize}
+\item Thèse photonique: \url{https://tel.archives-ouvertes.fr/file/index/docid/744371/filename/theseFranckv3.pdf}
+\item cours: \url{http://www.cmap.polytechnique.fr/~allaire/map567/M1TranspDiff.pdf}
+\end{itemize}
+
+\subsection{Schémas numériques}
+Comme rapidement introduit précédemment, on voit que lorsque les opacités sont grandes (de l'ordre de $c$), le modèle $P_1$ tend vers une équation de diffusion. Le schéma standard comme le schéma de Rusanov par exemple ne sont pas adaptés pour bien capturer cette propriété. En effet, la diffusion numérique du schéma de Rusanov est de l'ordre de $\frac{c \Delta x}{2}$ donc si $\Delta x \gg \frac{1}{c}$, la diffusion numérique est plus grande que la diffusion physique en $\frac{c}{3\omega_c}$ (qui est de l'ordre de 1).
+
+\begin{itemize}
+\item Possible exo: écrire le schéma de Rusanov pour le modèle et montrer la forme de la viscosité.
+\end{itemize}
+
+Un schéma possible est défini dans le chapitre 5 de la thèse dans un formalisme différent. On le rappelle ici. Il s'agit d'un schéma en 2 étapes (ou schéma de splitting). On résout d'abord la partie dite équilibre:
+$$
+\left\{\begin{array}{l}
+\displaystyle \partial_t E = c\sigma_a(\rho,T)(aT^4-E) \\
+\displaystyle\rho C_v \partial_t T = c\sigma_a(\rho,T)(E-aT^4)
+\end{array}\right.
+$$
+avec dans chaque maille ce système a résoudre de façon itérative
+$$
+\left\{\begin{array}{l}
+\displaystyle \frac{E^{q+1}-E^n}{\Delta t} = c\sigma_a(\rho,T^n)(\Theta^{q+1}-E^{q+1}) \\
+\displaystyle\rho C_v \mu_q\frac{\Theta^{q+1}-\Theta^n}{\Delta t} = c\sigma_a(\rho,T^n)(E^{q+1}-\Theta^{q+1})
+\end{array}\right.
+$$
+On a défini $\Theta = aT^4$, le schéma est une méthode de point fixe : on doit itérer sur $q$ jusqu'à ce que la différence entre deux itérations de $\Theta$ et de $E$ soit très petite. Pour obtenir un algorithme de Picard bien posé, on utilise
+$$
+\mu_q = \frac{1}{T^{3,n} + T^n T^{2,q} + T^q T^{2,n}+ T^{3,q}}
+$$
+Une fois que l'algorithme a convergé, on obtient $E^*=E^q$ et $T^*=T^q$ et on peut résoudre la seconde étape
+$$
+\left\{\begin{array}{l}
+\displaystyle \frac{E_j^{n+1}-E_j^*}{\Delta t} + c\frac{F_{j+\frac12}-F_{j-\frac12}}{\Delta x}= 0 \\
+\displaystyle \frac{F_j^{n+1}-F_j^*}{\Delta t} + c\frac{E_{j+\frac12}-E_{j-\frac12}}{\Delta x}=  cS_j \\
+
+\displaystyle\rho_jC_v \mu_q\frac{T_j^{n+1}-T_j^n}{\Delta t} = 0
+\end{array}\right.
+$$
+avec 
+$$
+F_{j+\frac12}= M\left(\frac{F_{j+1}^n+F_j^n}{2}-\frac{E_{j+1}^n-E_j^n}{2}\right)
+$$
+$$
+E_{j+\frac12}= M\left(\frac{E_{j+1}^n+E_j^n}{2}-\frac{F_{j+1}^n-F_j^n}{2}\right)
+$$
+et $S_j = - M \sigma_x(\rho,T^n) F_j^{n+1}$. Le coefficient M est donné par
+$$
+M=\frac{2}{2+ \Delta x\sigma}
+$$
+Le schéma admet une CFL $\Delta t < \frac{\Delta x}{c}$.
+
+\begin{itemize}
+\item Possible exo: Montrer que la viscosité est bonne dans la limite $\sigma_c \approx c$
+\end{itemize}
+
+\begin{itemize}
+\item Thèse photonique \url{https://tel.archives-ouvertes.fr/file/index/docid/744371/filename/theseFranckv3.pdf}
+\end{itemize}
+\subsection{Réduction de modèle et réseaux de neurones}
+Dans un premier temps, le but est connaissant $E(t,x)$, $F(t,x)$ et $E(t,x)$, $T(t,x)$ au bord droit du domaine en tout temps de reconstruire la densité $\rho(x)$ dans le domaine. Pour cela, on pourrait regarder des réseaux de neurones convolutifs comme des réseaux MPC classiques. Il prendrait comme entrée les quantités temporelles aux bords ainsi que peut être d'autres données: longueur du domaine, forme des opacités, etc.\\
+
+Dans un second temps (plus dur), on souhaiterait aussi reconstruire les fonctions $\sigma_c(\rho,T)$ et $\sigma_a(\rho,T)$
+
+\subsection{Modèles plus évolués (pas avant stage)}
+Dans un premier temps, on pourrait ajouter la dépendance en fréquence. En effet, les photons ont différentes fréquences (associées à des couleurs). En général, on ne décrit pas la dépendance fréquentielle de façon continue (en faisant dépendre $E$, $F$ et les opacités de la fréquence), mais en écrivant un modèle $P_1$ par groupe de fréquence. Par exemple si on considère 5 plages de fréquence, on obtient 5 modèles P1 couplés entre eux par les opacités. Dans un second temps, on pourrait aussi utiliser des modèles plus précis que $P_1$ pour décrire l'évolution de la lumière.
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{article}
+
+\end{document}

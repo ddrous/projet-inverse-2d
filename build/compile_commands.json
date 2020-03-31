@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/workspaces/VSCode/build/src",
+  "command": "/bin/g++-9   -I/workspaces/VSCode/src  -g   -o CMakeFiles/test_debug.dir/test_debug.cpp.o -c /workspaces/VSCode/src/test_debug.cpp",
+  "file": "/workspaces/VSCode/src/test_debug.cpp"
+},
+{
+  "directory": "/workspaces/VSCode/build/src",
+  "command": "/bin/g++-9    -g   -o CMakeFiles/myapp.dir/main.cpp.o -c /workspaces/VSCode/src/main.cpp",
+  "file": "/workspaces/VSCode/src/main.cpp"
+}
+]
