@@ -13,7 +13,7 @@ using namespace std;
 /************************************************
  * Constructeur
  */ 
-Solver::Solver(UniformMesh *new_mesh,
+Solver::Solver(Mesh *new_mesh,
                 double new_a,
                 double new_C_v,
                 std::string new_rho,
@@ -46,256 +46,170 @@ Solver::Solver(UniformMesh *new_mesh,
     E_x_0_expr = new_E_x_0;                // Energie des photons
     E_0_t_expr = new_E_0_t;                // Sur le bord droit
     E_N_t_expr = new_E_N_t;                // Sur le bord gauche
-    E = VectorXd(mesh->N);
+    E = VectorXd(mesh->N+2);
     F_x_0_expr = new_F_x_0;                // Flux
     F_0_t_expr = new_F_0_t;                // Flux
     F_N_t_expr = new_F_N_t;                // Flux
-    F = VectorXd(mesh->N);
+    F = VectorXd(mesh->N+2);
     T_x_0_expr = new_T_x_0;
     T_0_t_expr = new_T_0_t;
     T_N_t_expr = new_T_N_t;
-    T = VectorXd(mesh->N);
+    T = VectorXd(mesh->N+2);
     // a l'nistant t
 } 
 
-
 /***************
- * Fonction pour mettrecalculer rho
+ * Fonction pour calculer rho
  */
 double rho(double x){
     // parse rho_str
-    return 10;       // calcule siga_a pour la maille j a l'instant T_n+1
+    return 1062;       // densite moyenne du corps humain
 }
 
-
 /***************
- * Fonction pour mettre a jour sigma_a pour le temps T_n+1
+ * Fonction pour calculer jour sigma_a
  */
 double sigma_a(double rho, double T){
     // parse sigma_a_str
-    return 299792458;       // calcule siga_a pour la maille j a l'instant T_n+1
+    return 299792458;
 }
 
 /***************
- * Fonction pour mettre a jour sigma_c pour le temps T_n+1
+ * Fonction pour calculer jour sigma_c
  */
 double sigma_c(double rho, double T){
     // parse sigma_c_str
-    return 299792458;       // Proche de c
+    return 299792458;
 }
 
-
 /**
- * Calcule alpha pour la maille j
+ * Calcule sigma_c_j_plus_un_demi
  */ 
-double update_alpha(double dt, double c, double sigma_a){
-    return (1/dt)*1/((1/dt)+c*sigma_a);
+double flux_sigma_c(double sigma_c_left, double sigma_c_right){
+    return 0.5 * (sigma_c_left + sigma_c_right);
 }
 
 /**
- * Calcule alpha pour la maille j
+ * Calcule M_j_plus_un_demi
  */ 
-double update_beta(double dt, double c, double sigma_a){
-    return 1;
+double flux_M(double Delta_x, double flux_sigma_c){
+    return 2 / (2 + Delta_x * flux_sigma_c);
 }
 
 /**
- * Calcule alpha pour la maille j
+ * Calcule E_j_plus_un_demi
  */ 
-double update_gamma(double dt, double c, double sigma_a, double rho, double mu_q){
-    return 1;
+double flux_E(double flux_M, double E_left, double E_right, double F_left, double F_right){
+    return flux_M * (0.5*(E_right + E_left) - 0.5*(F_right - F_left));
 }
 
 /**
- * Calcule alpha pour la maille j
+ * Calcule F_j_plus_un_demi
  */ 
-double update_delta(double dt, double c, double sigma_a, double rho, double mu_q){
-    return 1;
+double flux_F(double flux_M, double F_left, double F_right, double E_left, double E_right){
+    return flux_M * (0.5*(F_right + F_left) - 0.5*(E_right - E_left));
 }
 
 /**
- * Calcule mu_q
- */ 
-double update_mu_q(double T_n){
-    return 1;
-}
-
-// /**
-//  * Mets a jour A
-//  */ 
-// void update_A_C(SparseMatrix<double> *A, int N, double alpha){
-//     for (size_t i = 0; i < N-1; i++)
-//         A->insert(i, i+1) = alpha;
-//     for (size_t i = 1; i < N; i++)
-//         A->insert(i, i-1) = alpha;
-//     for (size_t i = 0; i < N; i++)
-//         A->insert(i, i) = alpha*(-2+1/alpha);
-// }
-
-// /**
-//  * Mets a jour A
-//  */ 
-// void update_B_D(SparseMatrix<double> *B, int N, double alpha){
-//     for (size_t i = 0; i < N-1; i++)
-//         B->insert(i, i+1) = -alpha;
-//     for (size_t i = 1; i < N; i++)
-//         B->insert(i, i-1) = alpha;
-//     for (size_t i = 0; i < N; i++)
-//         B->insert(i, i) = 0;
-// }
-
-// void update_Sigma_a(SparseMatrix<double> &Sigma_a, VectorXd &sigma_a, int N){
-//     for (size_t j = 0; j < N; i++)
-//         Sigma_a.coeffRef(j, j) = sigma_a(j);    
-// }
-
-/**
- * Calcule T_0_t
- */ 
-double update_M(double dx, double sigma_c){
-    return 1;
-}
-
-/**
- * Calcule T_0_t
- */ 
-double update_Alpha(double M, double c, double dt, double dx){
-    return 1;
-}
-
-/**
- * Update M
- */ 
-double update_Beta(double M, double c, double dt, double dx, double sigma_c){
-    return 1;
-}
-
-
-/**
- * Calcule E_x_0 au temps initial
+ * Calcule E(x, 0), energie a la position x au temps initial
  */ 
 double E_x_0(double x){
     return 1;
 }
 
-
 /**
- * Calcule E_0_t, energie a la position initiale, au temps t
+ * Calcule E(x_0, t), energie sur le bord gauche, au temps t
+ * Correspond a l'energie sur la maille fantome de gauche au temps t
  */ 
 double E_0_t(double t){
-    return 1;
+    return 0;
 }
 
 /**
- * Calcule E_N_t,
+ * Calcule E(x_N, t), energie sur le bord droit, au temps t
+ * Correspond a l'energie sur la maille fantome de droite au temps t
  */ 
 double E_N_t(double t){
-    return 1;
+    return 0;
 }
 
 /**
- * Calcule 
+ * Calcule F(x, 0)
  */ 
 double F_x_0(double x){
     return 1;
 }
 
 /**
- * Calcule F_0_t
+ * Calcule F(x_0, t)
  */ 
 double F_0_t(double t){
-    return 1;
+    return 0;
 }
 
 /**
- * Calcule F_N_t
+ * Calcule F(x_N, t)
  */ 
 double F_N_t(double t){
-    return 1;
+    return 0;
 }
 
-
 /**
- * Calcule E_0_t, energie a la position initiale, au temps t
+ * Calcule T(x, 0)
  */ 
 double T_x_0(double x){
     return 1;
 }
 
 /**
- * Calcule T_0_t
+ * Calcule T(x_0, t)
  */ 
 double T_0_t(double t){
-    return 1;
+    return 0;
 }
 
 /**
- * Calcule T_0_t
+ * Calcule T(x_N, t)
  */ 
 double T_N_t(double t){
-    return 1;
+    return 0;
 }
-
-
-
-// /**
-//  * Mets a jour G
-//  */ 
-// void update_G(VectorXd *G, double E_0_t){
-//     G->coeffRef(0) = E_0_t;
-// }
-
-
-// /***************
-//  * retourne sigma_a a tout instant
-//  */
-// double Solver::sigma_a(double rho, double T_n){
-//     return 299792458;       // Proche de c
-// }
-
-// /***************
-//  * retourne sigma_c a tout instant
-//  */
-// double Solver::sigma_c(double rho, double T_n){
-//     return 299792458;       // Proche de c
-// }
 
 /***************************************************
  * Utilise les etape 1 et 2 de facon iterative
  */
 void Solver::solve(){
-    // Nombre de mailles
+    // Les constantes
     int N = mesh->N;
     double dx = mesh->dx;
-    // Coefficients pour la resolutions iterative de l'etape 1
-    double Theta, rho_tmp, sigma_a_tmp, sigma_c_tmp, mu_q, alpha, beta, gamma, delta;
-    // Matrices pour la resolutions iterative de l'etape 2
-    double M, Alpha, Beta;
-    // SparseMatrix<double> M(N, N), Sigma_a(N, N), Sigma_c(N, N), Alpha(N, N), Beta(N, N), A(N, N), B(N, N), C(N, N), D(N, N);
-    VectorXd E_suiv(N), F_suiv(N), T_suiv(N);
-    
-    // Assemblage initial des matrices
-    // M.reserve(VectorXi::Constant(N,1));
-    // Sigma_a.reserve(VectorXi::Constant(N,1));
-    // Sigma_c.reserve(VectorXi::Constant(N,1));
-    // Alpha.reserve(VectorXi::Constant(N,1));
-    // Beta.reserve(VectorXi::Constant(N,1));
-    // A.reserve(VectorXi::Constant(N,3));
-    // B.reserve(VectorXi::Constant(N,3));
-    // C.reserve(VectorXi::Constant(N,3));
-    // D.reserve(VectorXi::Constant(N,3));
+    double c = 299792458;
 
-    // Autres parametres
-    double c = 299792458;       //m.s-1
+    // Les varaibles pour l'etape 1
+    double E_n, T_n, F_n, Theta, Theta_n;
+    // Les variables pour l'etape 2
+    VectorXd E_etoile(N+2), F_etoile(N+2), T_etoile(N+2);
+    VectorXd E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
 
-    // Initialisation
-    for (int j = 0; j < N; j++){
+    /**
+     * Initialisation
+     */
+    // Maille fantome a gauche
+    E(0) = E_x_0(mesh->cells(1, 1));
+    F(0) = F_x_0(mesh->cells(1, 1));
+    T(0) = T_x_0(mesh->cells(1, 1));
+    // Mailles du milieux
+    for (int j = 1; j < N+1; j++){
         E(j) = E_x_0(mesh->cells(j, 1));
         F(j) = F_x_0(mesh->cells(j, 1));
         T(j) = T_x_0(mesh->cells(j, 1));
     }
-    double dt = CFL*dx/c;
+    // Maille fantome a droite
+    E(N+1) = E_x_0(mesh->cells(N, 1));
+    F(N+1) = F_x_0(mesh->cells(N, 1));
+    T(N+1) = T_x_0(mesh->cells(N, 1));
+
     double t = 0;
+    double dt = CFL*dx/c;
     /**
      * Boucle de resolution
      */
@@ -307,54 +221,78 @@ void Solver::solve(){
          * Etape 1
          */
         // E = E_0;
-        for (size_t j = 0; j < N; j++){
-            rho_tmp = rho(mesh->cells(j, 1));
-            Theta = a * std::pow(T(j), 4);
-            while (std::abs(E(j) - Theta) > epsilon){
-                sigma_a_tmp = sigma_a(rho_tmp, T(j));
-                sigma_c_tmp = sigma_c(rho_tmp, T(j));       // Inutile
-                mu_q = update_mu_q(t);
-                alpha = update_alpha(dt, c, sigma_a_tmp);
-                beta = update_beta(dt, c, sigma_a_tmp);
-                gamma = update_gamma(dt, c, sigma_a_tmp, rho_tmp, mu_q);
-                delta = update_delta(dt, c, sigma_a_tmp, rho_tmp, mu_q);
+        for (size_t j = 1; j < N+1; j++){
+            // Initialisation etape 1
+            E_n = E(j);
+            F_n = F(j);
+            T_n = T(j);
+            Theta_n = a * std::pow(T(j), 4);
+            Theta = Theta_n;
+            while (abs(E(j) - Theta) > epsilon){
+                double rho_tmp = rho(mesh->cells(j, 2));
+                double sigma_a_tmp = sigma_a(rho_tmp, T(j));
+                double tmp_1 = (1/dt) + c*sigma_a_tmp;
+                double alpha = 1/dt/tmp_1;
+                double beta = c*sigma_a_tmp/tmp_1;
+                double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T(j), 2) + T(j)*pow(T_n, 2) + pow(T(j), 3));
+                double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
+                double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
+                double delta = c*sigma_a_tmp/tmp_2;
 
-                E(j) = alpha*E(j) + beta*Theta;
-                Theta = gamma*Theta + delta*E(j);
+                E(j) = alpha*E_n + beta*Theta;
+                F(j) = F_n;
+                Theta = gamma*Theta_n + delta*E(j);
 
-                T(j) = pow(Theta/4, 0.25);
+                T(j) = pow(Theta/a, 0.25);      //Necessaire pour les autres...
             }
-
+            
         }
+
+
         
+        /**
+         * Remplissage des maiiles fantomes
+         */
+        // for (int i = 1; i < N+1; i++)
+        //     E(0) = E_0_t(t);
+        E(0) = E(1);
+        F(0) = F(1);
+        T(0) = T(1);
+        E(N+1) = E(N);
+        F(N+1) = F(N);
+        T(N+1) = T(N);
+
+        // Initialisation etape 2
+        E_etoile = E;
+        F_etoile = F;
+        T_etoile = T;
+
         /***********
          * Etape 2
          */
-        for (size_t j = 0; j < N; j++){
-            sigma_a_tmp = sigma_a(rho(mesh->cells(j, 1)), T(j));       //Inutile
-            sigma_c_tmp = sigma_c(rho(mesh->cells(j, 1)), T(j));
-            M = update_M(sigma_c_tmp, dx);
-            Alpha = update_Alpha(M, c, dt, dx);
-            Beta = update_Beta(M, c, dt, dx, sigma_c_tmp);
+        for (size_t j = 1; j < N+1; j++){
+            double x_left = mesh->cells(j-1, 1);
+            double x_center = mesh->cells(j, 1);
+            double x_right = mesh->cells(j+1, 1);
+            double sigma_c_left = sigma_c(rho(x_left), T(j-1));
+            double sigma_c_center = sigma_c(rho(x_center), T(j));
+            double sigma_c_right = sigma_c(rho(x_right), T(j+1));
 
-            if (j == 0){
-                E_suiv(j) = Alpha*(E_0_t(t) + (-2+1/Alpha)*E(j) + E(j+1)) + Alpha*(F_0_t(t) - F(j+1));
-                F_suiv(j) = Beta*(F_0_t(t) + (-2+1/Beta)*F(j) + F(j+1)) + Beta*(E_0_t(t) - E(j+1));
-            }else if(j == N-1){
-                E_suiv(j) = Alpha*(E(j-1) + (-2+1/Alpha)*E(j) + E_N_t(t)) + Alpha*(F(j-1) - F_N_t(t));
-                F_suiv(j) = Beta*(E(j-1) + (-2+1/Beta)*E(j) + F_N_t(t)) + Beta*(E(j-1) - E_N_t(t));
-            } else{       
-                E_suiv(j) = Alpha*(E(j-1) + (-2+1/Alpha)*E(j) + E(j+1)) + Alpha*(F(j-1) - F(j+1));  
-                E_suiv(j) = Beta*(F(j-1) + (-2+1/Beta)*F(j) + F(j+1)) + Beta*(E(j-1) - E(j+1));  
-            }
+            double flux_sigma_c_left = flux_sigma_c(sigma_c_left, sigma_c_center);
+            double flux_sigma_c_right = flux_sigma_c(sigma_c_center, sigma_c_right);
+            double flux_M_left = flux_M(dx, flux_sigma_c_left);
+            double flux_M_right = flux_M(dx, flux_sigma_c_right);
 
-            T_suiv(j) = T(j);
+            double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
+            double Alpha = 1/dt/tmp;
+            double Beta = c/dx/tmp;
+
+            E_suiv(j) = E_etoile(j) - (c*dt/dx)*(flux_F(flux_M_right, F(j), F(j+1), E(j), E(j+1)) - flux_F(flux_M_left, F(j-1), F(j), E(j-1), E(j)));
+
+            F_suiv(j) = Alpha*F_etoile(j) - Beta*(flux_E(flux_M_right, E(j), E(j+1), F(j), F(j+1)) - flux_F(flux_M_left, E(j-1), E(j), F(j-1), F(j)));
+
+            T_suiv(j) = T_etoile(j);
         }
-        // update_Sigma_a(Sigma_a, sigma_a, N);         // Place les sigma sur la diag
-        // update_Sigma_c(Sigma_c, sigma_c, N);
-        // update_M(&M, &Sigma_c, dx, N);
-        // update_Alpha(&Alpha, &M, &Sigma_c, c, dt, dx, N);
-        // update_Beta(&Beta, &M, &Sigma_c, N);
 
         E = E_suiv;
         F = F_suiv;
@@ -368,7 +306,21 @@ void Solver::solve(){
  * Affiche sur la console
  */
 void Solver::dislay(){
-    cout << endl << E << endl << F << endl << T << endl;
+    cout << "\nE:\t" ;
+    for (int j = 1; j < mesh->N+1; j++)
+        cout << E(j) << "  ";
+
+    cout << "\nF:\t" ;
+    for (int j = 1; j < mesh->N+1; j++)
+        cout << F(j) << "  ";
+
+    cout << "\nT:\t" ;
+    for (int j = 1; j < mesh->N+1; j++)
+        cout << T(j) << "  ";
+
+    cout << "\n";
+
+    // cout << endl << E << endl << F << endl << T << endl;
 };
 
 /***************************************************
@@ -378,9 +330,9 @@ void Solver::export_csv(std::string nom_fichier){
 
     ofstream log_file(nom_fichier);
     if(log_file){
-        log_file << "x\t" <<  "E\t"  << "F\t"  << "T\n"; 
-        for (int j = 0; j < mesh->N; j++)
-            log_file << mesh->cells(j, 1) << "\t" << E(j) << "\t" << F(j) << "\t" << T(j) << "\n"; 
+        log_file << "x" << ", " << "E" << ", " << "F"  << ", " << "T\n"; 
+        for (int j = 1; j < mesh->N+1; j++)
+            log_file << mesh->cells(j, 1) << ", " << E(j) << ", " << F(j) << ", " << T(j) << "\n"; 
         log_file.close();
     }else {throw string ("Erreur d'ouverture de fichier");}
 };

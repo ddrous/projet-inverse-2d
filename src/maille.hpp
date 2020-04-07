@@ -20,38 +20,19 @@ class Mesh{
         double a;
         double b;
         int N;
+        double dx;       
+        Eigen::MatrixXd cells;
 
     // public:
+
         // Constructeur
         Mesh(double a_hat, double b_hat, int N_hat);
-        
-        // Destructeur
-        virtual ~ Mesh(){};
-
-};
-
-
-/**************************************************
- * Classe derivees pour les maillages uniformes
- */ 
-class UniformMesh: public Mesh{
-    // private:                                         // protected.. ceci apres!
-    public:
-        // Le volume de la maille/cellule
-        double dx;       
-        // Les differents mailles du maillage                    
-        // double **cells;
-        // try{
-        // Eigen::MatrixXd cells = Eigen::MatrixXd(N, 3);
-        Eigen::MatrixXd cells;
-        // }catch(std::exception& e ){}
-    // public:
-        UniformMesh(double a, double b, int N);
 
         void create_cells();
+        
+        // Destructeur
+        virtual ~ Mesh();
 
-        virtual ~UniformMesh();
 };
-
 
 #endif

@@ -17,7 +17,7 @@
 class Solver{
     public:
         // Maillage du probleme
-        Mesh *mesh;
+        UniformMesh *mesh;
         // Parametres physiques du probleme
         double a;
         double C_v;
@@ -51,7 +51,7 @@ class Solver{
         /***************
          * Constructeur
          */
-        Solver(Mesh *new_mesh,
+        Solver(UniformMesh *new_mesh,
                 double new_a,
                 double new_C_v,
                 std::string new_rho,
