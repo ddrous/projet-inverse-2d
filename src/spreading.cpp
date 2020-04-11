@@ -34,17 +34,15 @@ int main(int argc, char * argv[]){
     double x_max = 1;
     int N = 10;
 
-
-    // try{
     
     Mesh m1 = Mesh(x_min, x_max, N);
  
     CHK_EX(
         
-    m1.create_cells();
+        m1.create_cells();
 
-    std::cout << "my mesh" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
-    std::cout << "Mailles: \n" << m1.cells << std::endl;
+        std::cout << "my mesh" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
+        std::cout << "Mailles: \n" << m1.cells << std::endl;
 
     );
 
@@ -71,9 +69,9 @@ int main(int argc, char * argv[]){
 
     CHK_EX(
 
-    s1.solve("../data/log.dat");
-    s1.dislay();
-    s1.export_csv("../data/log.csv");
+        s1.solve("../data/log.dat");
+        s1.dislay();
+        s1.export_csv("../data/log.csv");
     
     );
     
