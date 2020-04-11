@@ -88,7 +88,7 @@ class Solver{
         /***************
          * Resout de facon iterative
          */
-        void solve();
+        void solve(std::string nom_fichier);
 
         /***************
          * Affiche les resultats sur la console
@@ -100,7 +100,8 @@ class Solver{
          * Exporte les resultats au format CSV
          */
         void export_csv(std::string nom_fichier);
-        
+
+
         /***************
          * Destructeur
          */

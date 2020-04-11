@@ -63,7 +63,8 @@ Solver::Solver(Mesh *new_mesh,
  */
 double rho(double x){
     // parse rho_str
-    return 1062;       // densite moyenne du corps humain
+    // return 1062;       // Densite moyenne du corps humain
+    return 3821.4;       // Cas test de Olson-Auer-hall
 }
 
 /***************
@@ -71,7 +72,7 @@ double rho(double x){
  */
 double sigma_a(double rho, double T){
     // parse sigma_a_str
-    return 299792458;
+    return 299792458;       // Approximation de diffusion
 }
 
 /***************
@@ -79,7 +80,7 @@ double sigma_a(double rho, double T){
  */
 double sigma_c(double rho, double T){
     // parse sigma_c_str
-    return 299792458;
+    return 299792458;       // Approximation de diffusion
 }
 
 /**
@@ -114,7 +115,7 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
  * Calcule E(x, 0), energie a la position x au temps initial
  */ 
 double E_x_0(double x){
-    return 1;
+    return 0;
 }
 
 /**
@@ -137,7 +138,7 @@ double E_N_t(double t){
  * Calcule F(x, 0)
  */ 
 double F_x_0(double x){
-    return 1;
+    return 0;
 }
 
 /**
@@ -155,10 +156,12 @@ double F_N_t(double t){
 }
 
 /**
- * Calcule T(x, 0)
+ * Calcule T(x, 0)      // Eviter T(x) == 0, mu_q devient inf 
  */ 
 double T_x_0(double x){
-    return 1;
+    // return 0.56234 * 11.6*1e6;       // Cas test de Olson-Auer-hall
+    // return 300 ;       // Cas test de Marshak lineaire 
+    return (0.4<=x && x<=0.6)? 310:297 ;       // Interieur/exterieur du corps humain
 }
 
 /**
@@ -178,7 +181,7 @@ double T_N_t(double t){
 /***************************************************
  * Utilise les etape 1 et 2 de facon iterative
  */
-void Solver::solve(){
+void Solver::solve(std::string nom_fichier){
     // Les constantes
     int N = mesh->N;
     double dx = mesh->dx;
@@ -191,9 +194,9 @@ void Solver::solve(){
     VectorXd E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
 
     /**
-     * Initialisation
+     * Initialisation de la boucle
      */
-    // Maille fantome a gauche
+    // Maille fantome a gauche ==> meme valeur que la maille d'a cote
     E(0) = E_x_0(mesh->cells(1, 1));
     F(0) = F_x_0(mesh->cells(1, 1));
     T(0) = T_x_0(mesh->cells(1, 1));
@@ -203,13 +206,24 @@ void Solver::solve(){
         F(j) = F_x_0(mesh->cells(j, 1));
         T(j) = T_x_0(mesh->cells(j, 1));
     }
-    // Maille fantome a droite
+    // Maille fantome a droite ==> meme valeur que la maille d'a cote
     E(N+1) = E_x_0(mesh->cells(N, 1));
     F(N+1) = F_x_0(mesh->cells(N, 1));
     T(N+1) = T_x_0(mesh->cells(N, 1));
-
+    
+    // Temps courant de delta t
     double t = 0;
     double dt = CFL*dx/c;
+
+    // Pour l'criture dans le fichier
+    ofstream log_file;
+    // log_file.open(nom_fichier, ios_base::app);      // Ajout
+    log_file.open(nom_fichier);      // Ecraser
+    if(!log_file)
+        throw string ("Erreur d'ouverture du fichier dat");
+    log_file << "t, " << "E_0, " << "E_N, " << "F_0, " << "F_N, "  << "T_0, " << "T_N\n"; 
+    log_file << t << ", " << E(1) << ", " << E(N) << ", " << F(1) << ", " << F(N) << ", " << T(1) << ", " << T(N) << "\n";
+
     /**
      * Boucle de resolution
      */
@@ -226,7 +240,7 @@ void Solver::solve(){
             E_n = E(j);
             F_n = F(j);
             T_n = T(j);
-            Theta_n = a * std::pow(T(j), 4);
+            Theta_n = a * pow(T(j), 4);
             Theta = Theta_n;
             while (abs(E(j) - Theta) > epsilon){
                 double rho_tmp = rho(mesh->cells(j, 2));
@@ -247,8 +261,6 @@ void Solver::solve(){
             }
             
         }
-
-
         
         /**
          * Remplissage des maiiles fantomes
@@ -297,8 +309,13 @@ void Solver::solve(){
         E = E_suiv;
         F = F_suiv;
         T = T_suiv;
+
+        // Ajout des solution aux bords a cet instant dans le fichier dat
+        log_file << t << ", " << E(1) << ", " << E(N) << ", " << F(1) << ", " << F(N) << ", " << T(1) << ", " << T(N) << "\n";
     }
 
+    // fermeture du fichier  
+    log_file.close();
 
 };
 
