@@ -14,7 +14,7 @@ A partir du 29 avril
 
 
 ### Ce que le programme peut faire en ce moment
-- Résoudre numériquement l'EDP du transfert radiatif: mais le programme ne semble pas fonctionner correctement. On n'observe pas de phénomène de diffusion aux limites. Ceci parceque la valeur de E, F, ou de T sur une maille ne se propagent pas sur les mailes voisines a priori ...
+- Résoudre numériquement l'EDP du transfert radiatif
 - Exporter les données   
 
 

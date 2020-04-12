@@ -101,14 +101,14 @@ double flux_M(double Delta_x, double flux_sigma_c){
  * Calcule E_j_plus_un_demi
  */ 
 double flux_E(double flux_M, double E_left, double E_right, double F_left, double F_right){
-    return flux_M * (0.5*(E_right + E_left) - 0.5*(F_right - F_left));
+    return flux_M * ((E_right + E_left)/2 - (F_right - F_left)/2);
 }
 
 /**
  * Calcule F_j_plus_un_demi
  */ 
 double flux_F(double flux_M, double F_left, double F_right, double E_left, double E_right){
-    return flux_M * (0.5*(F_right + F_left) - 0.5*(E_right - E_left));
+    return flux_M * ((F_right + F_left)/2 - (E_right - E_left)/2);
 }
 
 /**
@@ -188,7 +188,7 @@ void Solver::solve(std::string nom_fichier){
     double c = 299792458;
 
     // Les varaibles pour l'etape 1
-    double E_n, T_n, F_n, Theta, Theta_n;
+    double E_n, E_next, T_n, F_n, F_next, Theta, Theta_n, Theta_next;
     // Les variables pour l'etape 2
     VectorXd E_etoile(N+2), F_etoile(N+2), T_etoile(N+2);
     VectorXd E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
@@ -240,10 +240,36 @@ void Solver::solve(std::string nom_fichier){
             E_n = E(j);
             F_n = F(j);
             T_n = T(j);
-            Theta_n = a * pow(T(j), 4);
+            Theta_n = a * pow(T_n, 4);
             Theta = Theta_n;
-            while (abs(E(j) - Theta) > epsilon){
-                double rho_tmp = rho(mesh->cells(j, 2));
+            // while (abs(E(j) - Theta) > epsilon){
+            //     double rho_tmp = rho(mesh->cells(j, 1));
+            //     double sigma_a_tmp = sigma_a(rho_tmp, T(j));
+            //     double tmp_1 = (1/dt) + c*sigma_a_tmp;
+            //     double alpha = 1/dt/tmp_1;
+            //     double beta = c*sigma_a_tmp/tmp_1;
+            //     double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T(j), 2) + T(j)*pow(T_n, 2) + pow(T(j), 3));
+            //     double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
+            //     double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
+            //     double delta = c*sigma_a_tmp/tmp_2;
+
+            //     E(j) = alpha*E_n + beta*Theta;
+            //     F(j) = F_n;
+            //     Theta = gamma*Theta_n + delta*E(j);
+
+            //     T(j) = pow(Theta/a, 0.25);      // Necessaire pour les calculs
+            // }
+
+            E_next = E(j);
+            F_next = F(j);
+            Theta_next = Theta;
+            do{
+                E(j) = E_next;
+                F(j) = F_next;
+                Theta = Theta_next;
+                T(j) = pow(Theta/a, 0.25);      // Necessaire pour les calculs
+
+                double rho_tmp = rho(mesh->cells(j, 1));
                 double sigma_a_tmp = sigma_a(rho_tmp, T(j));
                 double tmp_1 = (1/dt) + c*sigma_a_tmp;
                 double alpha = 1/dt/tmp_1;
@@ -253,17 +279,20 @@ void Solver::solve(std::string nom_fichier){
                 double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
                 double delta = c*sigma_a_tmp/tmp_2;
 
-                E(j) = alpha*E_n + beta*Theta;
-                F(j) = F_n;
-                Theta = gamma*Theta_n + delta*E(j);
+                // E_next = alpha*E_n + beta*Theta;
+                // F_next = F_n;
+                // Theta_next = gamma*Theta_n + delta*E_next;
 
-                T(j) = pow(Theta/a, 0.25);      //Necessaire pour les autres...
-            }
+                E_next = (alpha*E_n + gamma*beta*Theta_n) / (1 - beta*delta);
+                F_next = F_n;
+                Theta_next = (gamma*Theta_n + alpha*delta*E_next) / (1-beta*delta);
+
+            } while (abs(E_next-E(j)) > epsilon && abs(Theta_next-Theta) > epsilon);
             
         }
         
         /**
-         * Remplissage des maiiles fantomes
+         * Remplissage des mailles fantomes
          */
         // for (int i = 1; i < N+1; i++)
         //     E(0) = E_0_t(t);
@@ -295,13 +324,13 @@ void Solver::solve(std::string nom_fichier){
             double flux_M_left = flux_M(dx, flux_sigma_c_left);
             double flux_M_right = flux_M(dx, flux_sigma_c_right);
 
-            double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
+            double tmp = (1/dx) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
             double Alpha = 1/dt/tmp;
             double Beta = c/dx/tmp;
 
             E_suiv(j) = E_etoile(j) - (c*dt/dx)*(flux_F(flux_M_right, F(j), F(j+1), E(j), E(j+1)) - flux_F(flux_M_left, F(j-1), F(j), E(j-1), E(j)));
 
-            F_suiv(j) = Alpha*F_etoile(j) - Beta*(flux_E(flux_M_right, E(j), E(j+1), F(j), F(j+1)) - flux_F(flux_M_left, E(j-1), E(j), F(j-1), F(j)));
+            F_suiv(j) = Alpha*F_etoile(j) - Beta*(flux_E(flux_M_right, E(j), E(j+1), F(j), F(j+1)) - flux_E(flux_M_left, E(j-1), E(j), F(j-1), F(j)));
 
             T_suiv(j) = T_etoile(j);
         }

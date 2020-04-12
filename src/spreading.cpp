@@ -53,7 +53,7 @@ int main(int argc, char * argv[]){
     string sigma_c = "sigma_c(rho, T)";
     double CFL = 0.99;
     double epsilon = 1e-6;
-    double Temps_max = 1e-6;
+    double Temps_max = 1e-5;
     string E_x_0 = "E(0, x)";
     string E_0_t = "E(t, 0)";
     string E_N_t = "E(t, N)";   // A mesurer a droite du domaine
