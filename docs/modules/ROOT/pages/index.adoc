@@ -1,6 +1,0 @@
-= MyProject
-
-== Introduction
-
-== Context
-
