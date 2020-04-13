@@ -242,23 +242,6 @@ void Solver::solve(std::string nom_fichier){
             T_n = T(j);
             Theta_n = a * pow(T_n, 4);
             Theta = Theta_n;
-            // while (abs(E(j) - Theta) > epsilon){
-            //     double rho_tmp = rho(mesh->cells(j, 1));
-            //     double sigma_a_tmp = sigma_a(rho_tmp, T(j));
-            //     double tmp_1 = (1/dt) + c*sigma_a_tmp;
-            //     double alpha = 1/dt/tmp_1;
-            //     double beta = c*sigma_a_tmp/tmp_1;
-            //     double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T(j), 2) + T(j)*pow(T_n, 2) + pow(T(j), 3));
-            //     double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
-            //     double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
-            //     double delta = c*sigma_a_tmp/tmp_2;
-
-            //     E(j) = alpha*E_n + beta*Theta;
-            //     F(j) = F_n;
-            //     Theta = gamma*Theta_n + delta*E(j);
-
-            //     T(j) = pow(Theta/a, 0.25);      // Necessaire pour les calculs
-            // }
 
             E_next = E(j);
             F_next = F(j);
@@ -278,10 +261,6 @@ void Solver::solve(std::string nom_fichier){
                 double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
                 double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
                 double delta = c*sigma_a_tmp/tmp_2;
-
-                // E_next = alpha*E_n + beta*Theta;
-                // F_next = F_n;
-                // Theta_next = gamma*Theta_n + delta*E_next;
 
                 E_next = (alpha*E_n + gamma*beta*Theta_n) / (1 - beta*delta);
                 F_next = F_n;
