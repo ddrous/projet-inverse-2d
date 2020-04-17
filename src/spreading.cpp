@@ -30,6 +30,7 @@ using namespace std;
 
 int main(int argc, char * argv[]){
 
+    // Config du maillage
     double x_min = 0;
     double x_max = 1;
     int N = 10;
@@ -41,11 +42,12 @@ int main(int argc, char * argv[]){
         
         m1.create_cells();
 
-        std::cout << "my mesh" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
-        std::cout << "Mailles: \n" << m1.cells << std::endl;
+        std::cout << "\nLes config du maillage:" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
+        std::cout << "Les volumes: left - center - right \n" << m1.cells << std::endl;
 
     );
 
+    // Pour le solveur
     double a = 5.670374419*1e-8;            // Constante de Boltzmann
     double C_v = 3500;          // Capacite thermique moyenne du coprs humain
     string rho = "rho(x)";      // Fonction a definir
@@ -53,7 +55,7 @@ int main(int argc, char * argv[]){
     string sigma_c = "sigma_c(rho, T)";
     double CFL = 0.99;
     double epsilon = 1e-6;
-    double Temps_max = 1e-5;
+    double Temps_max = 1e-8;
     string E_x_0 = "E(0, x)";
     string E_0_t = "E(t, 0)";
     string E_N_t = "E(t, N)";   // A mesurer a droite du domaine
@@ -69,9 +71,10 @@ int main(int argc, char * argv[]){
 
     CHK_EX(
 
-        s1.solve("../data/log.dat");
+        s1.solve("./data/log.dat");
+        cout << "\nSignaux au temps final:" << endl;
         s1.dislay();
-        s1.export_csv("../data/log.csv");
+        s1.export_csv("./data/log.csv");
     
     );
     

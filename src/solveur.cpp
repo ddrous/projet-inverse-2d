@@ -331,7 +331,7 @@ void Solver::solve(std::string nom_fichier){
  * Affiche sur la console
  */
 void Solver::dislay(){
-    cout << "\nE:\t" ;
+    cout << "E:\t" ;
     for (int j = 1; j < mesh->N+1; j++)
         cout << E(j) << "  ";
 

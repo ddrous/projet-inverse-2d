@@ -3,7 +3,9 @@
 Pour la résolution du problème inverse de propagation de la lumière par l'utilisation de la méthode des volumes finis et des réseaux de neurones.
 
 ## __1ere partie: Résolution de l'EDP__    
-Pour lancer le programme, on pourra exécuter la commande: `g++ -I ./eigen-3.3.7 spreading.cpp solveur.cpp maille.cpp -o spreading && ./spreading` a partir du répertoire `src`.  
+Pour lancer le programme, on pourra exécuter la commande: `g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp -o build/spreading && build/spreading`.  
+
+Les exécutables sont générés dans le repertoire `build`.  
 
 Les résultats sont exportés dans les fichiers `data/log.dat` pour les signaux aux bords du domaine a tous temps; et `data/log.csv` pour les signaux en tout x au temps final.
 
