@@ -1,6 +1,8 @@
 # csmi-m1-2020-moco-inverse
 
-Pour la résolution du problème inverse de propagation de la lumière par l'utilisation de la méthode des volumes finis et des réseaux de neurones.
+Pour la résolution du problème inverse de propagation de la lumière par l'utilisation de la méthode des volumes finis et des réseaux de neurones.  
+
+Les différent rapports se trouvent dans le repertoire `doc`.
 
 ## __1ere partie: Résolution de l'EDP__    
 Pour lancer le programme, on pourra exécuter la commande: `g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp -o build/spreading && build/spreading` a partir du repertoire racine du projet.    
