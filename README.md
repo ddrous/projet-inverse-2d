@@ -5,7 +5,8 @@ Pour la résolution du problème inverse de propagation de la lumière par l'uti
 Les différent rapports se trouvent dans le repertoire `doc`.
 
 ## __1ere partie: Résolution de l'EDP__    
-Pour lancer le programme, on pourra exécuter la commande: `g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config.cfg` a partir du repertoire racine du projet.    
+Pour lancer le programme, on pourra exécuter à partir du repertoire racine du projet:  
+`g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config.cfg`     
 
 Les fichiers source et les fichiers de configurations sont dans le repertoire `src`. 
 
