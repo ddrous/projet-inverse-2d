@@ -7,7 +7,6 @@
 #define DEJA_INCLU_SOLVEUR
 
 #include <Eigen/Dense>
-// #include <Eigen/Sparse>
 
 
 /************************************************
@@ -18,7 +17,11 @@ class Solver{
     public:
         // Maillage du probleme
         Mesh *mesh;
+        // Destination des donnes
+        std::string export_1;            // Signaux en tout temps aux bords
+        std::string export_2;            // Signaux au temps final en tout x
         // Parametres physiques du probleme
+        double c;
         double a;
         double C_v;
         std::string rho_expr;         // Suppposons constant pour la premiere partie
@@ -41,54 +44,35 @@ class Solver{
         std::string T_0_t_expr;
         std::string T_N_t_expr;
         Eigen::VectorXd T;                // Temperature des photons
-        // // Coefficients pour la resolutions iterative de l'etape 1
-        // double alpha, beta, gamma, delta;
-        // // Matrices pour la resolutions iterative de l'etape 2
-        // Eigen::SparseMatrix<double> A, B, C, D;
-        // Eigen::VectorXd G_1, G_2, G_3, G_4;
 
+
+        /***************
+         * Les fonctions-parametres utilsees
+         */
+        double rho(double x);
+        double sigma_a(double rho, double T);
+        double sigma_c(double rho, double T);
+        double E_x_0(double x);
+        double E_0_t(double t);
+        double E_N_t(double t);
+        double F_x_0(double x);
+        double F_0_t(double t);
+        double F_N_t(double t);
+        double T_x_0(double x);
+        double T_0_t(double t);
+        double T_N_t(double t);
 
         /***************
          * Constructeur
          */
-        Solver(Mesh *new_mesh,
-                double new_a,
-                double new_C_v,
-                std::string new_rho,
-                std::string new_sigma_a,
-                std::string new_sigma_c,
-                double new_CFL,
-                double new_epsilon,
-                double new_Temps_max,
-                std::string new_E_x_0,
-                std::string new_E_0_t,
-                std::string new_E_N_t,
-                std::string new_F_x_0,
-                std::string new_F_0_t,
-                std::string new_F_N_t,
-                std::string new_T_x_0,        // tests sur la validite des donnees
-                std::string new_T_0_t,        // tests sur la validite des donnees
-                std::string new_T_N_t);        // tests sur la validite des donnees
+        Solver(Mesh *new_mesh, double *double_values, std::string *str_values);
 
-        // /***************
-        //  * Initialise les talbeaux du solveur
-        //  */
-        // void init_solve();
-
-        // /***************
-        //  * retourne sigma_a a tout instant
-        //  */
-        // double sigma_a(double rho, double T_n);
-
-        // /***************
-        //  * retourne sigma_c a tout instant
-        //  */
-        // double sigma_c(double rho, double T_n);
 
         /***************
-         * Resout de facon iterative
+         * Resout le probleme et exporte les resultats au fur et a mesure
          */
-        void solve(std::string nom_fichier);
+        void solve();
+
 
         /***************
          * Affiche les resultats sur la console
@@ -97,9 +81,9 @@ class Solver{
 
 
         /***************
-         * Exporte les resultats au format CSV
+         * Exporte les resultats au temps final
          */
-        void export_csv(std::string nom_fichier);
+        void export_final();
 
 
         /***************

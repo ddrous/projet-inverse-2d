@@ -4,3 +4,4 @@ spreading.exe
 .vscode/settings.json
 spreading
 build/*
+thirdparty/eigen-3.3.7/build/*

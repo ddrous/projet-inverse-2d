@@ -17,8 +17,12 @@
 class Solver{
     public:
         // Maillage du probleme
-        UniformMesh *mesh;
+        Mesh *mesh;
+        // Destination des donnes
+        std::string export_1;            // Signaux en tout temps aux bords
+        std::string export_2;            // Signaux au temps final en tout x
         // Parametres physiques du probleme
+        double c;
         double a;
         double C_v;
         std::string rho_expr;         // Suppposons constant pour la premiere partie
@@ -51,7 +55,10 @@ class Solver{
         /***************
          * Constructeur
          */
-        Solver(UniformMesh *new_mesh,
+        Solver(Mesh *new_mesh,
+                std::string export_1_new,
+                std::string export_2_new,
+                double new_c,
                 double new_a,
                 double new_C_v,
                 std::string new_rho,
@@ -70,25 +77,26 @@ class Solver{
                 std::string new_T_0_t,        // tests sur la validite des donnees
                 std::string new_T_N_t);        // tests sur la validite des donnees
 
-        // /***************
-        //  * Initialise les talbeaux du solveur
-        //  */
-        // void init_solve();
-
-        // /***************
-        //  * retourne sigma_a a tout instant
-        //  */
-        // double sigma_a(double rho, double T_n);
-
-        // /***************
-        //  * retourne sigma_c a tout instant
-        //  */
-        // double sigma_c(double rho, double T_n);
+        /***************
+         * Les fonctions-parametres utilsees
+         */
+        double rho(double x);
+        double sigma_a(double rho, double T);
+        double sigma_c(double rho, double T);
+        double E_x_0(double x);
+        double E_0_t(double t);
+        double E_N_t(double t);
+        double F_x_0(double x);
+        double F_0_t(double t);
+        double F_N_t(double t);
+        double T_x_0(double x);
+        double T_0_t(double t);
+        double T_N_t(double t);
 
         /***************
          * Resout de facon iterative
          */
-        void solve();
+        void solve(std::string nom_fichier);
 
         /***************
          * Affiche les resultats sur la console
@@ -97,10 +105,11 @@ class Solver{
 
 
         /***************
-         * Exporte les resultats au format CSV
+         * Exporte les resultats au temps final
          */
-        void export_csv(std::string nom_fichier);
-        
+        void export_final();
+
+
         /***************
          * Destructeur
          */

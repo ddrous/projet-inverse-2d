@@ -6,81 +6,73 @@
 
 #include "solveur.hpp"
 
-// using Eigen::MatrixXd;
 using namespace Eigen;
 using namespace std;
 
 /************************************************
  * Constructeur
  */ 
-Solver::Solver(Mesh *new_mesh,
-                double new_a,
-                double new_C_v,
-                std::string new_rho,
-                std::string new_sigma_a,
-                std::string new_sigma_c,
-                double new_CFL,
-                double new_epsilon,
-                double new_Temps_max,
-                std::string new_E_x_0,
-                std::string new_E_0_t,
-                std::string new_E_N_t,
-                std::string new_F_x_0,
-                std::string new_F_0_t,
-                std::string new_F_N_t,
-                std::string new_T_x_0,        // tests sur la validite des donnees
-                std::string new_T_0_t,        // tests sur la validite des donnees
-                std::string new_T_N_t){
-    mesh = new_mesh;
-    a = new_a;
-    C_v = new_C_v;
-    // rho = VectorXd(mesh.N);
-    rho_expr = new_rho;
-    // sigma_a = VectorXd(mesh.N);
-    sigma_a_expr = new_sigma_a;
-    // sigma_c = VectorXd(mesh.N);
-    sigma_c_expr = new_sigma_c;
-    CFL = new_CFL;
-    epsilon = new_epsilon;
-    Temps_max = new_Temps_max;
-    E_x_0_expr = new_E_x_0;                // Energie des photons
-    E_0_t_expr = new_E_0_t;                // Sur le bord droit
-    E_N_t_expr = new_E_N_t;                // Sur le bord gauche
-    E = VectorXd(mesh->N+2);
-    F_x_0_expr = new_F_x_0;                // Flux
-    F_0_t_expr = new_F_0_t;                // Flux
-    F_N_t_expr = new_F_N_t;                // Flux
-    F = VectorXd(mesh->N+2);
-    T_x_0_expr = new_T_x_0;
-    T_0_t_expr = new_T_0_t;
-    T_N_t_expr = new_T_N_t;
-    T = VectorXd(mesh->N+2);
-    // a l'nistant t
+Solver::Solver(Mesh *new_mesh, double *double_values, std::string *str_values){
+    mesh = new_mesh;    // Correspondant a double_values[0], [1], et [2]
+
+    c = double_values[3];               // Vitesse de la lumiere
+    a = double_values[4];               // Constante de Boltzmann
+
+    C_v = double_values[5];             // Propriete du domaine
+
+    CFL = double_values[6];             // Paremetres du probleme
+    epsilon = double_values[7];
+    Temps_max = double_values[8];
+
+    rho_expr = str_values[0];           // Les autres proprites
+    sigma_a_expr = str_values[1];
+    sigma_c_expr = str_values[2];
+
+    E = VectorXd(mesh->N+2);              // Les energies des photons
+    E_x_0_expr = str_values[3];
+    E_0_t_expr = str_values[4];
+    E_N_t_expr = str_values[5];
+
+    F = VectorXd(mesh->N+2);              // Les flux des photons
+    F_x_0_expr = str_values[6];
+    F_0_t_expr = str_values[7];
+    F_N_t_expr = str_values[8];
+
+    T = VectorXd(mesh->N+2);              // Les temperatures
+    T_x_0_expr = str_values[9];
+    T_0_t_expr = str_values[10];
+    T_N_t_expr = str_values[11];
+
+    export_1 = str_values[12];          // Les fichiersa exporter
+    export_2 = str_values[13];
 } 
 
-/***************
+/**
  * Fonction pour calculer rho
  */
-double rho(double x){
+double Solver::rho(double x){
     // parse rho_str
     // return 1062;       // Densite moyenne du corps humain
-    return 3821.4;       // Cas test de Olson-Auer-hall
+    // return 3821.4;       // Cas test de Olson-Auer-hall
+    return atof(rho_expr.c_str());       // Cas test de Olson-Auer-hall
 }
 
-/***************
+/**
  * Fonction pour calculer jour sigma_a
  */
-double sigma_a(double rho, double T){
+double Solver::sigma_a(double rho, double T){
     // parse sigma_a_str
-    return 299792458;       // Approximation de diffusion
+    // return 299792458;       // Approximation de diffusion
+    return atof(sigma_a_expr.c_str());       // trandport
 }
 
-/***************
+/**
  * Fonction pour calculer jour sigma_c
  */
-double sigma_c(double rho, double T){
+double Solver::sigma_c(double rho, double T){
     // parse sigma_c_str
-    return 299792458;       // Approximation de diffusion
+    // return 299792458;       // Approximation de diffusion
+    return atof(sigma_c_expr.c_str());       // Approximation de diffusion
 }
 
 /**
@@ -114,78 +106,80 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
 /**
  * Calcule E(x, 0), energie a la position x au temps initial
  */ 
-double E_x_0(double x){
-    return 0;
+double Solver::E_x_0(double x){
+    // return 0;
+    return atof(E_x_0_expr.c_str());
 }
 
 /**
  * Calcule E(x_0, t), energie sur le bord gauche, au temps t
  * Correspond a l'energie sur la maille fantome de gauche au temps t
  */ 
-double E_0_t(double t){
-    return 0;
+double Solver::E_0_t(double t){
+    return atof(E_0_t_expr.c_str());
 }
 
 /**
  * Calcule E(x_N, t), energie sur le bord droit, au temps t
  * Correspond a l'energie sur la maille fantome de droite au temps t
  */ 
-double E_N_t(double t){
-    return 0;
+double Solver::E_N_t(double t){
+    return atof(E_N_t_expr.c_str());
 }
 
 /**
  * Calcule F(x, 0)
  */ 
-double F_x_0(double x){
-    return 0;
+double Solver::F_x_0(double x){
+    // return 0;
+    return atof(F_x_0_expr.c_str());
 }
 
 /**
  * Calcule F(x_0, t)
  */ 
-double F_0_t(double t){
-    return 0;
+double Solver::F_0_t(double t){
+    return atof(F_0_t_expr.c_str());
 }
 
 /**
  * Calcule F(x_N, t)
  */ 
-double F_N_t(double t){
-    return 0;
+double Solver::F_N_t(double t){
+    return atof(F_N_t_expr.c_str());
 }
 
 /**
  * Calcule T(x, 0)      // Eviter T(x) == 0, mu_q devient inf 
  */ 
-double T_x_0(double x){
+double Solver::T_x_0(double x){
     // return 0.56234 * 11.6*1e6;       // Cas test de Olson-Auer-hall
     // return 300 ;       // Cas test de Marshak lineaire 
-    return (0.4<=x && x<=0.6)? 310:297 ;       // Interieur/exterieur du corps humain
+    // return (0.4<=x && x<=0.6)? 310:297 ;       // Interieur/exterieur du corps humain
+    return atof(T_x_0_expr.c_str());
 }
 
 /**
  * Calcule T(x_0, t)
  */ 
-double T_0_t(double t){
-    return 0;
+double Solver::T_0_t(double t){
+    return atof(T_0_t_expr.c_str());
 }
 
 /**
  * Calcule T(x_N, t)
  */ 
-double T_N_t(double t){
-    return 0;
+double Solver::T_N_t(double t){
+    return atof(T_N_t_expr.c_str());
 }
 
-/***************************************************
- * Utilise les etape 1 et 2 de facon iterative
+/*******************************************************************************
+ * Reosus le probleme. Utilise les etape 1 et 2 de facon iterative
  */
-void Solver::solve(std::string nom_fichier){
+void Solver::solve(){
     // Les constantes
     int N = mesh->N;
     double dx = mesh->dx;
-    double c = 299792458;
 
     // Les varaibles pour l'etape 1
     double E_n, E_next, T_n, F_n, F_next, Theta, Theta_n, Theta_next;
@@ -215,12 +209,14 @@ void Solver::solve(std::string nom_fichier){
     double t = 0;
     double dt = CFL*dx/c;
 
-    // Pour l'criture dans le fichier
+    /**
+     * Pour l'export de la solution au temps t aux bords du domaine
+     */
     ofstream log_file;
-    // log_file.open(nom_fichier, ios_base::app);      // Ajout
-    log_file.open(nom_fichier);      // Ecraser
+    // log_file.open(export_1, ios_base::app);      // Ajout
+    log_file.open(export_1);                            // Ecraser
     if(!log_file)
-        throw string ("Erreur d'ouverture du fichier dat");
+        throw string ("Erreur d'ouverture du fichier " + export_1);
     log_file << "t, " << "E_0, " << "E_N, " << "F_0, " << "F_N, "  << "T_0, " << "T_N\n"; 
     log_file << t << ", " << E(1) << ", " << E(N) << ", " << F(1) << ", " << F(N) << ", " << T(1) << ", " << T(N) << "\n";
 
@@ -231,10 +227,9 @@ void Solver::solve(std::string nom_fichier){
     {
         t += dt;
 
-        /***********
+        /*********************************
          * Etape 1
          */
-        // E = E_0;
         for (size_t j = 1; j < N+1; j++){
             // Initialisation etape 1
             E_n = E(j);
@@ -269,6 +264,7 @@ void Solver::solve(std::string nom_fichier){
             } while (abs(E_next-E(j)) > epsilon && abs(Theta_next-Theta) > epsilon);
             
         }
+        //*********************************
         
         /**
          * Remplissage des mailles fantomes
@@ -287,7 +283,7 @@ void Solver::solve(std::string nom_fichier){
         F_etoile = F;
         T_etoile = T;
 
-        /***********
+        /***********************************
          * Etape 2
          */
         for (size_t j = 1; j < N+1; j++){
@@ -317,17 +313,18 @@ void Solver::solve(std::string nom_fichier){
         E = E_suiv;
         F = F_suiv;
         T = T_suiv;
+        //*********************************
 
-        // Ajout des solution aux bords a cet instant dans le fichier dat
+        // Ajout des solution aux bords a cet instant dans le fichier export1
         log_file << t << ", " << E(1) << ", " << E(N) << ", " << F(1) << ", " << F(N) << ", " << T(1) << ", " << T(N) << "\n";
     }
 
     // fermeture du fichier  
     log_file.close();
-
 };
 
-/***************************************************
+
+/*******************************************************************************
  * Affiche sur la console
  */
 void Solver::dislay(){
@@ -344,20 +341,19 @@ void Solver::dislay(){
         cout << T(j) << "  ";
 
     cout << "\n";
-
-    // cout << endl << E << endl << F << endl << T << endl;
 };
 
-/***************************************************
- * Export
- */
-void Solver::export_csv(std::string nom_fichier){
 
-    ofstream log_file(nom_fichier);
+/*******************************************************************************
+ * Export de la solution au temps final en tout point
+ */
+void Solver::export_final(){
+
+    ofstream log_file(export_2);
     if(log_file){
         log_file << "x" << ", " << "E" << ", " << "F"  << ", " << "T\n"; 
         for (int j = 1; j < mesh->N+1; j++)
             log_file << mesh->cells(j, 1) << ", " << E(j) << ", " << F(j) << ", " << T(j) << "\n"; 
         log_file.close();
-    }else {throw string ("Erreur d'ouverture de fichier");}
+    }else {throw string ("Erreur d'ouverture de fichier " + export_2);}
 };

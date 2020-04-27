@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/eigen-3.3.7"
+                "${workspaceFolder}/thirdparty/eigen-3.3.7"
             ],
             "defines": [
                 "_DEBUG",
