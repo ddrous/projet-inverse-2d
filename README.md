@@ -8,9 +8,11 @@ Les différent rapports se trouvent dans le repertoire `doc`.
 Pour lancer le programme, on pourra exécuter à partir du repertoire racine du projet:  
 `g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config.cfg`     
 
-Les fichiers source et les fichiers de configurations sont dans le repertoire `src`. 
+Les fichiers sources sont dans le repertoire `src`.   
 
-Les exécutables sont générés dans le repertoire `build`.  
+Le fichier de configuration `config.cfg` se trouve dans le repertoire `src`.   
+
+Les exécutables sont générés dans le repertoire `build`.    
 
 Les résultats sont exportés dans les fichiers `data/log1.csv` pour les signaux aux bords du domaine a tous temps; et `data/log2.csv` pour les signaux en tout x au temps final.
 
