@@ -50,7 +50,7 @@ int main(int argc, char * argv[]){
     );
    
     // Resolution du probleme
-    Solver s1 = Solver(&m1, cfg1.valeurs, cfg1.fonctions);
+    Solver s1 = Solver(&m1, &cfg1.valeurs[3], cfg1.fonctions);
 
     CHK_EX(
         s1.solve();

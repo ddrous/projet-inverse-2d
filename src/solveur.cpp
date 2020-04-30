@@ -13,16 +13,16 @@ using namespace std;
  * Constructeur
  */ 
 Solver::Solver(Mesh *new_mesh, double *double_values, std::string *str_values){
-    mesh = new_mesh;    // Correspondant a double_values[0], [1], et [2]
+    mesh = new_mesh;
 
-    c = double_values[3];               // Vitesse de la lumiere
-    a = double_values[4];               // Constante de Boltzmann
+    c = double_values[0];               // Vitesse de la lumiere
+    a = double_values[1];               // Constante de Boltzmann
 
-    C_v = double_values[5];             // Propriete du domaine
+    C_v = double_values[2];             // Propriete du domaine
 
-    CFL = double_values[6];             // Paremetres du probleme
-    epsilon = double_values[7];
-    Temps_max = double_values[8];
+    CFL = double_values[3];             // Paremetres du probleme
+    epsilon = double_values[4];
+    Temps_max = double_values[5];
 
     rho_expr = str_values[0];           // Les autres proprites
     sigma_a_expr = str_values[1];
@@ -230,7 +230,7 @@ void Solver::solve(){
         /*********************************
          * Etape 1
          */
-        for (size_t j = 1; j < N+1; j++){
+        for (int j = 1; j < N+1; j++){
             // Initialisation etape 1
             E_n = E(j);
             F_n = F(j);
@@ -286,7 +286,7 @@ void Solver::solve(){
         /***********************************
          * Etape 2
          */
-        for (size_t j = 1; j < N+1; j++){
+        for (int j = 1; j < N+1; j++){
             double x_left = mesh->cells(j-1, 1);
             double x_center = mesh->cells(j, 1);
             double x_right = mesh->cells(j+1, 1);
