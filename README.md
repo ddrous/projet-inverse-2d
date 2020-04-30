@@ -6,11 +6,11 @@ Les différent rapports se trouvent dans le repertoire `doc`.
 
 ## __1ere partie: Résolution de l'EDP__    
 Pour lancer le programme, on pourra exécuter à partir du repertoire racine du projet:  
-`g++ -I thirdparty/eigen-3.3.7 src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config.cfg`     
+`g++ -I thirdparty/eigen-3.3.7 -I thirdparty/exprtk src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config_1.cfg`     
 
 Les fichiers sources sont dans le repertoire `src`.   
 
-Le fichier de configuration `config.cfg` se trouve dans le repertoire `src`.   
+Les fichiers de configuration `config_*.cfg` se trouve aussi dans le repertoire `src`.   
 
 Les exécutables sont générés dans le repertoire `build`.    
 
@@ -25,15 +25,13 @@ A partir du 29 avril
 - Résoudre numériquement l'EDP du transfert radiatif
 - Exporter les données   
 - Admettre un fichier de configuration
-
+- Prendre en entrée des fonction a t=0 pour E, F, et T 
 
 ### Ce que le programme ne peut pas encore faire  
-- Prendre en entrée des fonction a t=0 pour E, F, et T 
 - Compiler avec CMAKE
 - Prédire a laide des réseaux de neurones   
 
 ### Links to some ressources:
 - For vector operations: [Eigen](https://eigen.tuxfamily.org/dox/GettingStarted.html) 
-- For function parsing: [cparse](https://github.com/cparse/cparse/wiki/Getting-Started)
-
+- For function parsing: [ExprTk](http://www.partow.net/programming/exprtk/)
 

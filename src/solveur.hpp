@@ -6,8 +6,10 @@
 #ifndef DEJA_INCLU_SOLVEUR     
 #define DEJA_INCLU_SOLVEUR
 
+// #include "../thirdparty/muparser-2.2.6/include/muParser.h"
+// #include "../thirdparty/muparser-2.2.6/include/muParserTemplateMagic.h"
+#include "exprtk.hpp"
 #include <Eigen/Dense>
-
 
 /************************************************
  * Classe pour créer le solveur

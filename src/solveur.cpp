@@ -6,6 +6,7 @@
 
 #include "solveur.hpp"
 
+using namespace exprtk;
 using namespace Eigen;
 using namespace std;
 
@@ -47,32 +48,73 @@ Solver::Solver(Mesh *new_mesh, double *double_values, std::string *str_values){
     export_2 = str_values[13];
 } 
 
+
 /**
  * Fonction pour calculer rho
  */
 double Solver::rho(double x){
-    // parse rho_str
-    // return 1062;       // Densite moyenne du corps humain
-    // return 3821.4;       // Cas test de Olson-Auer-hall
-    return atof(rho_expr.c_str());       // Cas test de Olson-Auer-hall
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("x", x);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(rho_expr,expression);
+    }
+
+    return expression.value();
+
+    // // return 1062;       // Densite moyenne du corps humain
+    // // return 3821.4;       // Cas test de Olson-Auer-hall
+    // return atof(rho_expr.c_str());       // Cas test de Olson-Auer-hall
 }
 
 /**
  * Fonction pour calculer jour sigma_a
  */
 double Solver::sigma_a(double rho, double T){
-    // parse sigma_a_str
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("rho", rho);
+        symbol_table.add_variable("T", T);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(sigma_a_expr,expression);
+    }
+
+    return expression.value();
+
     // return 299792458;       // Approximation de diffusion
-    return atof(sigma_a_expr.c_str());       // trandport
+    // return atof(sigma_a_expr.c_str());       // trandport
 }
 
 /**
  * Fonction pour calculer jour sigma_c
  */
 double Solver::sigma_c(double rho, double T){
-    // parse sigma_c_str
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("rho", rho);
+        symbol_table.add_variable("T", T);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(sigma_c_expr,expression);
+    }
+
+    return expression.value();
     // return 299792458;       // Approximation de diffusion
-    return atof(sigma_c_expr.c_str());       // Approximation de diffusion
+    // return atof(sigma_c_expr.c_str());       // Approximation de diffusion
 }
 
 /**
@@ -107,8 +149,21 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
  * Calcule E(x, 0), energie a la position x au temps initial
  */ 
 double Solver::E_x_0(double x){
-    // return 0;
-    return atof(E_x_0_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("x", x);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(E_x_0_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(E_x_0_expr.c_str());
 }
 
 /**
@@ -116,7 +171,21 @@ double Solver::E_x_0(double x){
  * Correspond a l'energie sur la maille fantome de gauche au temps t
  */ 
 double Solver::E_0_t(double t){
-    return atof(E_0_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(E_0_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(E_0_t_expr.c_str());
 }
 
 /**
@@ -124,53 +193,150 @@ double Solver::E_0_t(double t){
  * Correspond a l'energie sur la maille fantome de droite au temps t
  */ 
 double Solver::E_N_t(double t){
-    return atof(E_N_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(E_N_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(E_N_t_expr.c_str());
 }
 
 /**
  * Calcule F(x, 0)
  */ 
 double Solver::F_x_0(double x){
-    // return 0;
-    return atof(F_x_0_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("x", x);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(F_x_0_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(F_x_0_expr.c_str());
 }
 
 /**
  * Calcule F(x_0, t)
  */ 
 double Solver::F_0_t(double t){
-    return atof(F_0_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(F_0_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(F_0_t_expr.c_str());
 }
 
 /**
  * Calcule F(x_N, t)
  */ 
 double Solver::F_N_t(double t){
-    return atof(F_N_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(F_N_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(F_N_t_expr.c_str());
 }
 
 /**
  * Calcule T(x, 0)      // Eviter T(x) == 0, mu_q devient inf 
  */ 
 double Solver::T_x_0(double x){
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("x", x);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(T_x_0_expr,expression);
+    }
+
+    return expression.value();
+
     // return 0.56234 * 11.6*1e6;       // Cas test de Olson-Auer-hall
     // return 300 ;       // Cas test de Marshak lineaire 
     // return (0.4<=x && x<=0.6)? 310:297 ;       // Interieur/exterieur du corps humain
-    return atof(T_x_0_expr.c_str());
+    // return atof(T_x_0_expr.c_str());
 }
 
 /**
  * Calcule T(x_0, t)
  */ 
 double Solver::T_0_t(double t){
-    return atof(T_0_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(T_0_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(T_0_t_expr.c_str());
 }
 
 /**
  * Calcule T(x_N, t)
  */ 
 double Solver::T_N_t(double t){
-    return atof(T_N_t_expr.c_str());
+    static int call = 0;
+
+    static expression<double> expression;
+
+    if (call == 0){                             // seulement au 1er appel
+        symbol_table<double> symbol_table;
+        parser<double> parser;
+        symbol_table.add_variable("t", t);
+        expression.register_symbol_table(symbol_table);
+        parser.compile(T_N_t_expr,expression);
+    }
+
+    return expression.value();
+
+    // return atof(T_N_t_expr.c_str());
 }
 
 /*******************************************************************************
