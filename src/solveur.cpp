@@ -299,7 +299,7 @@ void Solver::solve(){
             double flux_M_left = flux_M(dx, flux_sigma_c_left);
             double flux_M_right = flux_M(dx, flux_sigma_c_right);
 
-            double tmp = (1/dx) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
+            double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
             double Alpha = 1/dt/tmp;
             double Beta = c/dx/tmp;
 
