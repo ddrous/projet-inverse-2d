@@ -25,15 +25,15 @@ Les résultats sont exportés dans les fichiers `data/log1.csv` pour les signaux
 A partir du 5 mai.
 
 
-### Ce que le programme peut faire en ce moment
+### Ce que le programme peut faire
 - Résoudre numériquement l'EDP du transfert radiatif
 - Exporter les données   
 - Admettre un fichier de configuration
 - Prendre en entrée des fonction a t=0 pour E, F, et T 
 
-### Ce que le programme ne peut pas encore faire  
+### Ce que le programme ne peut pas faire  
 - Compiler avec CMAKE
-- Prédire a laide des réseaux de neurones   
+- Statistique descriptive sur les données   
 
 ### Links to some ressources:
 - For vector operations: [Eigen](https://eigen.tuxfamily.org/dox/GettingStarted.html) 
