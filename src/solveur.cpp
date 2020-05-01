@@ -498,6 +498,8 @@ void Solver::dislay(){
  * Export de la solution au temps final en tout point
  */
 void Solver::export_final(){
+    // ofstream log_file;
+    // log_file.open(export_2, ios_base::app);      // Pour l'ajout
 
     ofstream log_file(export_2);
     if(log_file){

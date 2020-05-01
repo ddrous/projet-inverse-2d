@@ -5,10 +5,9 @@ Pour la résolution du problème inverse de propagation de la lumière par l'uti
 Les différent rapports se trouvent dans le repertoire `doc`.
 
 ## __1ere partie: Résolution de l'EDP__    
-Les commandes indiquées sont exécutées à partir du repertoire racine du projet.   
+Les commandes indiquées sont a exécuter à partir du repertoire racine du projet.   
 
-Pour lancer le programme:  
-`build/spreading tools/config_1.cfg`     
+Pour lancer le programme: `build/spreading tools/config_1.cfg`     
 
 Les fichiers de configuration `config_*.cfg` se trouvent dans le repertoire `tools`.   
 
@@ -19,7 +18,7 @@ Pour compiler le programme:
 
 Les exécutables sont générés dans le repertoire `build`.    
 
-Les résultats sont exportés dans les fichiers `data/log1.csv` pour les signaux aux bords du domaine a tous temps; et `data/log2.csv` pour les signaux en tout x au temps final.
+Les résultats sont exportés dans les fichiers `data/log1.csv` pour les signaux aux bords du domaine en tous temps; et `data/log2.csv` pour les signaux sur tout le domaine au temps final.
 
 
 ## __2ème partie: Analyse des données__   

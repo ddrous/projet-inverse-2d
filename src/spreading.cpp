@@ -61,8 +61,8 @@ int main(int argc, char * argv[]){
         s1.export_final();
     );
 
-    cout << "\nSignaux au temps final en tout x exportes dans '" << s1.export_2 << "'"  << endl;
-    cout << "Signaux en tout temps aux bords du domaine exportes dans '" << s1.export_1 << "'"  << endl << endl;
+    cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << s1.export_1 << "'"  << endl;
+    cout << "Signaux au temps final sur tout le domaine exportes dans '" << s1.export_2 << "'"  << endl << endl;
 
     return 0;
 }
