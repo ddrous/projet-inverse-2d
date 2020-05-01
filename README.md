@@ -5,12 +5,17 @@ Pour la résolution du problème inverse de propagation de la lumière par l'uti
 Les différent rapports se trouvent dans le repertoire `doc`.
 
 ## __1ere partie: Résolution de l'EDP__    
-Pour lancer le programme, on pourra exécuter à partir du repertoire racine du projet:  
-`g++ -I thirdparty/eigen-3.3.7 -I thirdparty/exprtk src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading && build/spreading src/config_1.cfg`     
+Les commandes indiquées sont exécutées à partir du repertoire racine du projet.   
+
+Pour lancer le programme:  
+`build/spreading tools/config_1.cfg`     
+
+Les fichiers de configuration `config_*.cfg` se trouvent dans le repertoire `tools`.   
 
 Les fichiers sources sont dans le repertoire `src`.   
 
-Les fichiers de configuration `config_*.cfg` se trouve aussi dans le repertoire `src`.   
+Pour compiler le programme: 
+`g++ -I thirdparty/eigen-3.3.7 -I thirdparty/exprtk src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading`   
 
 Les exécutables sont générés dans le repertoire `build`.    
 
@@ -18,7 +23,7 @@ Les résultats sont exportés dans les fichiers `data/log1.csv` pour les signaux
 
 
 ## __2ème partie: Analyse des données__   
-A partir du 29 avril
+A partir du 5 mai.
 
 
 ### Ce que le programme peut faire en ce moment

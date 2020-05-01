@@ -46,19 +46,23 @@ int main(int argc, char * argv[]){
     CHK_EX(
         m1.create_cells();
         std::cout << "\n\nLes config du maillage:" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
-        std::cout << "Les volumes: left - center - right \n" << m1.cells << std::endl;
+        // std::cout << "Les volumes: \nleft - center - right \n" << m1.cells << std::endl;
     );
    
     // Resolution du probleme
     Solver s1 = Solver(&m1, &cfg1.valeurs[3], cfg1.fonctions);
 
     CHK_EX(
+        cout << "\nResolution en cours ..." << endl;
         s1.solve();
-        cout << "\nSignaux au temps final:" << endl;
-        s1.dislay();
+        cout << "Resolution OK!" << endl;
+        // cout << "\nSignaux au temps final:" << endl;
+        // s1.dislay();
         s1.export_final();
-    
     );
-    
+
+    cout << "\nSignaux au temps final en tout x exportes dans '" << s1.export_2 << "'"  << endl;
+    cout << "Signaux en tout temps aux bords du domaine exportes dans '" << s1.export_1 << "'"  << endl << endl;
+
     return 0;
 }
