@@ -1,14 +1,8 @@
-/***********************************************
- * Attention si le fichier maille.hpp est deja inclu
- */ 
 #ifndef DEJA_INCLU_MAILLE     
 #define DEJA_INCLU_MAILLE
 
-#include <Eigen/Dense>
-
-/************************************************
- * Classe pour créer le maillage, apres on aura solver
- * 
+/*****************************************
+ * Classe pour créer le maillage
  */
 class Mesh{
     public:
@@ -17,12 +11,12 @@ class Mesh{
         double b;
         int N;
         double dx;       
-        Eigen::MatrixXd cells;
+        double **cells;
 
         // Constructeur
         Mesh(double a_hat, double b_hat, int N_hat);
 
-        // Creation des volumes
+        // Creation des differents volumes uniformes
         void create_cells();
         
         // Destructeur

@@ -1,39 +1,37 @@
-#include <iostream>
-#include <iomanip>
 #include <string>
 
 #include "maille.hpp"
 
-using namespace Eigen;
 using namespace std;
 
 
-/************************************************
- * ClasseMesh
- */ 
 Mesh::Mesh(double a_hat, double b_hat, int N_hat){
-    assert (a_hat < b_hat && N_hat > 0);
-    // assert ( a_hat >= b_hat || N_hat <= 0 && "ERREUR: Vérifier que a<b et N>0");)
-    // throw string("ERREUR: Vérifier que a<b et N>0");
+    if (a > b || N < 0)
+        throw std::string("ERREUR: Vérifier que a < b et N > 0");
     
     a = a_hat; b = b_hat; N = N_hat;
-    cells = MatrixXd(N+2, 3);
 
+    // dx correspond a \Delta x
+    dx = (b-a)/N;       
+
+    cells = new double*[N+2];
+    for (int j = 0; j < N+2; j++)
+        cells[j] = new double[3];
 }
+
 
 void Mesh::create_cells(){
-        
-        // dx correspond a \Delta x
-        dx = (b-a)/N;       
-
-        for (int j = 0; j < N+2; j++){     // Les mailles fantomes sont indicees 0 et N+1
-            cells(j, 0) = (j-1)*dx;
-            cells(j, 1) = (j-1)*dx + dx/2.;
-            cells(j, 2) = (j)*dx;         // Optimiser ceci!!
-        }
-
+    // Les mailles fantomes sont indicees 0 et N+1
+    for (int j = 0; j < N+2; j++){
+        cells[j][0] = (j-1)*dx;
+        cells[j][1] = (j-1)*dx + dx/2.;
+        cells[j][2] = (j)*dx;
+    }
 }
 
-Mesh::~Mesh(){
 
+Mesh::~Mesh(){
+    for (int j = 0; j < N+2; j++)
+        delete[] cells[j];
+    delete[] cells;
 }

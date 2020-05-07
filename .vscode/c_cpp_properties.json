@@ -4,8 +4,6 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/thirdparty/eigen-3.3.7",
-                "${workspaceFolder}/thirdparty/muparser-2.2.6/include",
                 "${workspaceFolder}/thirdparty/exprtk"
             ],
             "defines": [
