@@ -5,64 +5,48 @@
 #include "solveur.hpp"
 #include "config.hpp"
 
-/************************************************
- * Macro pour vérifier les exceptions
- * 
- */
-#define CHK_EX(v)         \
-    do{                 \
-        try {v}           \
-        catch(const std::string& e){        \
-            std::cerr << e << std::endl;        \
-            exit(1);                            \
-        }                           \
-        catch(const std::exception& e){                  \
-            std::cerr << #v << std::endl << e.what() << std::endl;       \
-            exit(1);        \
-        }                       \
-    } while (0)
-
-
-using namespace Eigen;
 using namespace std;
 
 int main(int argc, char * argv[]){
+    cout << endl;
 
+    try {
+        if(argc < 2)
+        throw string("Fournissez un fichier de configuration");
 
-    if(argc < 2)
-        CHK_EX(throw string("Fournissez un fichier de configuration"););
+        // Lecture du fichier config
+        Config cfg1 = Config(argv[1]);
+        cfg1.read();
 
-    // Lecture du fichier config
-    Config cfg1 = Config(argv[1]);
-    CHK_EX(cfg1.read(););
-
-    // Config du maillage
-    double x_min = cfg1.valeurs[0];
-    double x_max = cfg1.valeurs[1];
-    int N = (int)cfg1.valeurs[2];
-
-    // Affichage du maillage
-    Mesh m1 = Mesh(x_min, x_max, N);
-    CHK_EX(
+        // Creation d'un maillage uniforme
+        double x_min = cfg1.valeurs[0];
+        double x_max = cfg1.valeurs[1];
+        int N = (int)cfg1.valeurs[2];
+        Mesh m1 = Mesh(x_min, x_max, N);
         m1.create_cells();
-        std::cout << "\n\nLes config du maillage:" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << std::endl;
-        // std::cout << "Les volumes: \nleft - center - right \n" << m1.cells << std::endl;
-    );
-   
-    // Resolution du probleme
-    Solver s1 = Solver(&m1, &cfg1.valeurs[3], cfg1.fonctions);
-
-    CHK_EX(
+        cout << "\nLes configurations du maillage:" << "\ta = "<< m1.a << "\tb = "<< m1.b << "\tN = "<< m1.N << "\tdx = " << m1.dx << endl;
+    
+        // Resolution du probleme
+        Solver s1 = Solver(&m1, &cfg1.valeurs[3], cfg1.fonctions);
         cout << "\nResolution en cours ..." << endl;
         s1.solve();
         cout << "Resolution OK!" << endl;
         // cout << "\nSignaux au temps final:" << endl;
         // s1.dislay();
         s1.export_final();
-    );
 
-    cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << s1.export_1 << "'"  << endl;
-    cout << "Signaux au temps final sur tout le domaine exportes dans '" << s1.export_2 << "'"  << endl << endl;
+        cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << s1.export_1 << "'"  << endl;
+        cout << "Signaux au temps final sur tout le domaine exportes dans '" << s1.export_2 << "'"  << endl;
+    }
+    catch(const string& e){
+        cerr << e << endl;
+        exit(1);
+    }
+    catch(const exception& e){
+        cerr << e.what() << endl;
+        exit(1);
+    }
 
+    cout << endl;
     return 0;
 }
