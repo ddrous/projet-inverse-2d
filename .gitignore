@@ -4,4 +4,4 @@ spreading.exe
 .vscode/settings.json
 spreading
 build/*
-!build/spreading
+!build/transfer
