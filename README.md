@@ -19,8 +19,9 @@ Pour compiler le programme:
 L'exécutable __`transfer`__ est généré dans le répertoire `build`.    
 
 Les résultats sont exportés dans le répertoire `data`:
-- `dataframe_1.csv` pour les signaux aux bords du domaine en tous temps. Les colonnes sont `t, E_0, E_N, F_0, F_N, T_0, T_N`
-- `dataframe_2.csv` pour les signaux sur tout le domaine au temps final. Les colonnes sont `x, E, F, T`
+> `df_temporal.csv` pour les signaux aux bords du domaine en tous temps. 
+Les colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_exp, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, E_0, E_N, F_0, F_N, T_0, T_N`
+> `df_spatial.csv` pour les signaux sur tout le domaine au temps final. Les colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, x, rho_exp, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, rho, sigma_a, sigma_c, E_x_0, E, F_x_0, F, T_x_0, T`
 
 
 ## __2ème partie: Analyse des données__   

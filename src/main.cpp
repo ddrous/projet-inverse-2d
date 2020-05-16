@@ -31,10 +31,13 @@ int main(int argc, char * argv[]){
     
         // Resolution du probleme
         Solver s = Solver(&m, &cfg.doubles[3], cfg.strings);
-        cout << "\nResolution de l'equation et exportation des resultats en cours ..." << endl;
+        cout << "\nResolution de l'equation en cours ..." << endl;
         s.solve();
         cout << "Resolution OK !" << endl;
-        s.export_final();
+
+        cout << "\nExportation des resultats en cours ..." << endl;
+        s.export_temporal();
+        s.export_spatial();
         cout << "Export OK !" << endl;
 
         // cout << "\nSignaux au temps final:" << endl;

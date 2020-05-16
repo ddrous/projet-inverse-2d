@@ -16,6 +16,9 @@ class Solver{
         // Maillage des volumes finis pour le probleme
         Mesh *mesh;
 
+        // Nombre d'iterations en temps
+        int time_steps;
+
         // Parametres physiques
         double c;                   // Vitesse de la lumiere
         double a;                   // Constante de Boltzmann
@@ -36,20 +39,20 @@ class Solver{
         // Energies des photons
         std::vector<double> E;          // Solution du probleme: E(x, t)
         std::string E_x_0_expr;         // Au temps initial E(x, 0)
-        std::string E_0_t_expr;         // Sur le bord droit: E(x_0, t)
-        std::string E_N_t_expr;         // Sur le bord gauche: E(x_N, t)
+        std::vector<double> E_0;        // Sur le bord gauche: E(x_0, t)
+        std::vector<double> E_N;        // Sur le bord droit: E(x_N, t)
 
         // Flux de photons
         std::vector<double> F;          // Solution du problme: F(x, t)
         std::string F_x_0_expr;         // Au temps initial F(x, 0)
-        std::string F_0_t_expr;         // Sur le bord droit: F(x_0, t)
-        std::string F_N_t_expr;         // Sur le bord gauche: F(x_N, t)
+        std::vector<double> F_0;        // Sur le bord gauche: F(x_0, t)
+        std::vector<double> F_N;        // Sur le bord droit: F(x_N, t)
 
         // Temperatures du milieux
         std::vector<double> T;          // Solution du problme: T(x, t)
         std::string T_x_0_expr;         // Au temps initial T(x, 0)
-        std::string T_0_t_expr;         // Sur le bord droit: T(x_0, t)
-        std::string T_N_t_expr;         // Sur le bord gauche: T(x_N, t)
+        std::vector<double> T_0;        // Sur le bord gauche: T(x_0, t)
+        std::vector<double> T_N;        // Sur le bord droit: T(x_N, t)
 
         // Fichiers ou sont exportes les donnees
         std::string export_1;            // Signaux en tout temps aux bords
@@ -83,46 +86,14 @@ class Solver{
         double E_x_0(double x);
 
         /***************
-         * Calcule E(x_0, t), energie sur le bord gauche, au temps t
-         * Correspond a l'energie sur la maille fantome de gauche au temps t
-         */ 
-        double E_0_t(double t);
-
-        /***************
-         * Calcule E(x_N, t), energie sur le bord droit, au temps t
-         * Correspond a l'energie sur la maille fantome de droite au temps t
-         */ 
-        double E_N_t(double t);
-
-        /***************
          * Calcule F(x, 0)
          */ 
         double F_x_0(double x);
 
         /***************
-         * Calcule F(x_0, t)
-         */ 
-        double F_0_t(double t);
-
-        /***************
-         * Calcule F(x_N, t)
-         */ 
-        double F_N_t(double t);
-
-        /***************
          * Calcule T(x, 0)      // Eviter T(x) == 0, mu_q devient inf 
          */ 
         double T_x_0(double x);
-
-        /***************
-         * Calcule T(x_0, t)
-         */ 
-        double T_0_t(double t);
-
-        /***************
-         * Calcule T(x_N, t)
-         */ 
-        double T_N_t(double t);
 
         /***************
          * Resout le probleme et exporte les resultats au fur et a mesure
@@ -135,15 +106,14 @@ class Solver{
         void display();
 
         /***************
-         * Exporte les resultats au temps courant aux bords du domaine
-         * @param file: le fichier (deja ouvert) dans lequel on ecrit
+         * Exporte les resultats en tout temps aux bords du domaine
          */
-        void export_current(double t, std::ofstream &file);
+        void export_temporal();
 
         /***************
-         * Exporte les resultats au temps final sur tout le domaine
+         * Exporte les resultats sur tout le domaine au temps final
          */
-        void export_final();
+        void export_spatial();
 
         /***************
          * Destructeur vide

@@ -22,20 +22,14 @@ Config::Config(string file_path){
     names["sigma_a"] = 10;
     names["sigma_c"] = 11;
     names["E_x_0"] = 12;
-    names["E_0_t"] = 13;
-    names["E_N_t"] = 14;
-    names["F_x_0"] = 15;
-    names["F_0_t"] = 16;
-    names["F_N_t"] = 17;
-    names["T_x_0"] = 18;
-    names["T_0_t"] = 19;
-    names["T_N_t"] = 20;
-    names["export_1"] = 21;
-    names["export_2"] = 22;
+    names["F_x_0"] = 13;
+    names["T_x_0"] = 14;
+    names["export_temporal"] = 15;
+    names["export_spatial"] = 16;
 
     size = names.size();
     doubles = new double[9];
-    strings = new string[14];
+    strings = new string[8];
 }
 
 
