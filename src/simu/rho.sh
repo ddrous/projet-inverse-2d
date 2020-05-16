@@ -18,8 +18,8 @@ fi
 
 # Pour generer 'rho' entre rho_min et rho_max
 rho_min=0
-rho_max=5
-nbiter=10
+rho_max=50
+nbiter=100
 i=0
 a=$(awk -v i="${i}" -v nbiter="${nbiter}" -v rho_min="${rho_min}" -v rho_max="${rho_max}" 'BEGIN{print ((rho_max-rho_min)/(nbiter-i))}')
 b=$(awk -v rho_min="${rho_min}" 'BEGIN{print (rho_min)}')
