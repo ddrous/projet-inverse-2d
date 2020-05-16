@@ -9,11 +9,17 @@ project(Inverse)
 # tell CMake to use CTest extension
 enable_testing()
 
-# Include the exprtk subdirectory
-include_directories(thirdparty/exprtk)
+# Include the muParser subdirectory
+include_directories(thirdparty/muparser/include)
 
 # Add source files needed
-add_executable(transfer src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp)
+add_executable(transfer src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp 
+thirdparty/muparser/src/muParser.cpp
+thirdparty/muparser/src/muParserBase.cpp
+thirdparty/muparser/src/muParserBytecode.cpp
+thirdparty/muparser/src/muParserCallback.cpp
+thirdparty/muparser/src/muParserError.cpp
+thirdparty/muparser/src/muParserTokenReader.cpp)
 
 # add_test(spreading spreading) - register the executable with CTest
 add_test(NAME simple_run COMMAND transfer ../src/config/test.cfg)

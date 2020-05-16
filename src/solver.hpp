@@ -6,7 +6,6 @@
 #include <fstream>
 
 #include "mesh.hpp"
-#include "exprtk.hpp"       // Pour transformer des expressions (chaines de caracteres) en fonctions
 
 /************************************************
  * Classe pour resoudre le probleme

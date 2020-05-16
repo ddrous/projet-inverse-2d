@@ -6,7 +6,9 @@
 
 #include "solver.hpp"
 
-using namespace exprtk;
+#include "muParser.h"       // Pour transformer des expressions (chaines de caracteres) en fonctions
+
+using namespace mu;
 using namespace std;
 
 Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
@@ -58,105 +60,81 @@ Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
 
 double Solver::rho(double x){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
-    if (first_call == 1){                             // seulement au 1er appel
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("x", x);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(rho_expr,expression);
-        first_call = 0;
+    if (first_call == 1){           // Seulement au 1er appel
+        p.DefineVar("x", &x); 
+        p.SetExpr(rho_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
 double Solver::sigma_a(double rho, double T){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
     if (first_call == 1){
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("rho", rho);
-        symbol_table.add_variable("T", T);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(sigma_a_expr,expression);
-        first_call = 0;
+        p.DefineVar("rho", &rho); 
+        p.DefineVar("T", &T); 
+        p.SetExpr(sigma_a_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
 double Solver::sigma_c(double rho, double T){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
     if (first_call == 1){
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("rho", rho);
-        symbol_table.add_variable("T", T);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(sigma_c_expr,expression);
-        first_call = 0;
+        p.DefineVar("rho", &rho); 
+        p.DefineVar("T", &T); 
+        p.SetExpr(sigma_c_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
 double Solver::E_x_0(double x){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
     if (first_call == 1){
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("x", x);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(E_x_0_expr,expression);
-        first_call = 0;
+        p.DefineVar("x", &x); 
+        p.SetExpr(E_x_0_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
 double Solver::F_x_0(double x){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
     if (first_call == 1){
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("x", x);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(F_x_0_expr,expression);
-        first_call = 0;
+        p.DefineVar("x", &x); 
+        p.SetExpr(F_x_0_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
 double Solver::T_x_0(double x){
     static int first_call = 1;
-    static expression<double> expression;
+    static Parser p;
 
     if (first_call == 1){
-        symbol_table<double> symbol_table;
-        parser<double> parser;
-        symbol_table.add_variable("x", x);
-        expression.register_symbol_table(symbol_table);
-        parser.compile(T_x_0_expr,expression);
-        first_call = 0;
+        p.DefineVar("x", &x); 
+        p.SetExpr(T_x_0_expr);
     }
 
-    return expression.value();
+    return p.Eval();
 }
 
 
@@ -214,7 +192,7 @@ void Solver::solve(){
 
     // Temps courant et indice de l'iteration
     double t = 0;
-    int step = -1;      // pour l'initialisation
+    int step = -1;      // -1 pour une initialisation a 0
 
     /**
      * Boucle de resolution

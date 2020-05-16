@@ -5,7 +5,10 @@
 #include "solver.hpp"
 #include "config.hpp"
 
+#include "muParser.h"
+
 using namespace std;
+using namespace mu;
 
 int main(int argc, char * argv[]){
     try {
@@ -52,8 +55,12 @@ int main(int argc, char * argv[]){
         cerr << endl << e << endl << endl;
         exit(1);
     }
+    catch (Parser::exception_type &e){
+        cerr << endl << "ERREUR: Analyseur de fonction \n" << e.GetMsg() << endl << endl;
+        exit(1);
+    }
     catch(const exception& e){
-        cerr << endl << e.what() << endl << endl;
+        cerr << endl << "ERREUR: \n" << e.what() << endl << endl;
         exit(1);
     }
 
