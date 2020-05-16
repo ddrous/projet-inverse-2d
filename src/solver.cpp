@@ -21,7 +21,8 @@ Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
     epsilon = doubles[4];
     t_final = doubles[5];
 
-    time_steps = (int)(t_final / (CFL*mesh->dx/c)) + 1;
+    dt = CFL * mesh->dx/c;
+    time_steps = (int)(t_final / dt) + 1;
 
     rho_expr = strings[0];
     sigma_a_expr = strings[1];
@@ -192,12 +193,11 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
 
 
 void Solver::solve(){
-    // Les constantes
+    // Raccourcissons les noms des constantes
     int N = mesh->N;            // Nombre effectif de mailles
     double dx = mesh->dx;       // Delta x
-    double dt = CFL*dx/c;       // Delta t
 
-    // Les varaibles pour l'etape 1
+    // Les variables pour l'etape 1
     double E_n, E_next, T_n, F_n, F_next, Theta, Theta_n, Theta_next;
     
     // Les variables pour l'etape 2
@@ -274,7 +274,7 @@ void Solver::solve(){
         F_etoile = F;
         T_etoile = T;
 
-        // Remplissage des mailles fantomes -> flux naturel
+        // Remplissage des mailles fantomes -> neumann naturel
         E[0] = E[1];
         F[0] = F[1];
         T[0] = T[1];
@@ -338,9 +338,9 @@ void Solver::export_temporal(){
     ofstream file;
     file.open(export_1, ios_base::app);             // Ajout dans le fichier
     if(!file)
-        throw string ("ERREUR: Erreur d'ouverture du fichier " + export_1);
+        throw string ("ERREUR: Erreur d'ouverture du fichier '" + export_1 + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\"," << dt << "," << time_steps << ",";
 
     file << "\"[";
     for (int n = 0; n < time_steps; n++){
@@ -398,9 +398,9 @@ void Solver::export_spatial(){
     ofstream file;
     file.open(export_2, ios_base::app);             // Ajout dans le fichier
     if(!file)
-        throw string ("ERREUR: Erreur d'ouverture du fichier " + export_2);
+        throw string ("ERREUR: Erreur d'ouverture du fichier '" + export_2 + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\"," << dt << "," << time_steps << ",";
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){

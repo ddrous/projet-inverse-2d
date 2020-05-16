@@ -16,9 +16,6 @@ class Solver{
         // Maillage des volumes finis pour le probleme
         Mesh *mesh;
 
-        // Nombre d'iterations en temps
-        int time_steps;
-
         // Parametres physiques
         double c;                   // Vitesse de la lumiere
         double a;                   // Constante de Boltzmann
@@ -57,6 +54,10 @@ class Solver{
         // Fichiers ou sont exportes les donnees
         std::string export_1;            // Signaux en tout temps aux bords
         std::string export_2;            // Signaux au temps final en tout x
+
+        // Autres parametres du probleme
+        double dt;                      // Pas de temps
+        int time_steps;                 // Nombre d'iterations en temps
 
         /***************
          * Constructeur

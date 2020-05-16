@@ -31,7 +31,7 @@ int main(int argc, char * argv[]){
     
         // Resolution du probleme
         Solver s = Solver(&m, &cfg.doubles[3], cfg.strings);
-        cout << "\nResolution de l'equation en cours ..." << endl;
+        cout << "\nExecution des " << s.time_steps << " iterations en cours ..." << endl;
         s.solve();
         cout << "Resolution OK !" << endl;
 

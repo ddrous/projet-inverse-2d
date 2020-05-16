@@ -1,1 +1,0 @@
-x_min,x_max,N,c,a,C_v,CFL,epsilon,t_final,rho_exp,sigma_a_expr,sigma_c_expr,E_x_0_expr,F_x_0_expr,T_x_0_expr,E_0,E_N,F_0,F_N,T_0,T_N
