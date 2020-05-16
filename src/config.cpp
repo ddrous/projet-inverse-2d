@@ -6,85 +6,102 @@
 using namespace std;
 
 
-Config::Config(string nom_du_fichier){
-    nom_fichier = nom_du_fichier;
-    valeurs = new double[9];
-    fonctions = new string[14];
+Config::Config(string file_path){
+    file_name = file_path;
+
+    names["x_min"] = 0;
+    names["x_max"] = 1;
+    names["N"] = 2;
+    names["c"] = 3;
+    names["a"] = 4;
+    names["C_v"] = 5;
+    names["CFL"] = 6;
+    names["epsilon"] = 7;
+    names["t_final"] = 8;
+    names["rho"] = 9;
+    names["sigma_a"] = 10;
+    names["sigma_c"] = 11;
+    names["E_x_0"] = 12;
+    names["E_0_t"] = 13;
+    names["E_N_t"] = 14;
+    names["F_x_0"] = 15;
+    names["F_0_t"] = 16;
+    names["F_N_t"] = 17;
+    names["T_x_0"] = 18;
+    names["T_0_t"] = 19;
+    names["T_N_t"] = 20;
+    names["export_1"] = 21;
+    names["export_2"] = 22;
+
+    size = names.size();
+    doubles = new double[9];
+    strings = new string[14];
 }
 
 
 void Config::read(){
-    // iterateur pour la "map" des variables
     map<string, int> :: iterator it;
 
-    noms["xmin"] = 0;
-    noms["xmax"] = 1;
-    noms["N"] = 2;
+    string name;                        // nom de la variable en cours de traitement
 
-    noms["c"] = 3;
-    noms["a"] = 4;
-    noms["C_v"] = 5;
-    noms["CFL"] = 6;
-    noms["epsilon"] = 7;
-    noms["Temps_max"] = 8;
+    bool read_unkown = false;           // lecture d'une varaible inconnue
+    string unkown_name;                 // nom de l'inconnu
 
-    noms["rho"] = 9;
-    noms["sigma_a"] = 10;
-    noms["sigma_c"] = 11;
-    noms["E_x_0"] = 12;
-    noms["E_0_t"] = 13;
-    noms["E_N_t"] = 14;
-    noms["F_x_0"] = 15;
-    noms["F_0_t"] = 16;
-    noms["F_N_t"] = 17;
-    noms["T_x_0"] = 18;
-    noms["T_0_t"] = 19;
-    noms["T_N_t"] = 20;
+    int *read_count = new int[size];    // compte les occurence de chaque variable dans le fichier
+    for (int i = 0; i < size; i++) 
+        read_count[i] = 0;
+    bool not_found = false;             // indique s'il manque une ou plusieurs variables
+    bool duplicate = false;             // indique si une variables est definie plus d'une fois
 
-    noms["export_1"] = 21;
-    noms["export_2"] = 22;
-
-    bool read_success = true;   // indique le succes de la lecture du fichier
-    string nom;    // nom de la variable en cours de traitement
-
-    ifstream file(nom_fichier);
-
+    ifstream file(file_name);
     if(file){
-        cout << nom << "Lecture des parametres en cours ... ";
-        
-        int i = 0;
         while(!file.eof()){
-            file >> nom;
-            it = noms.find(nom);
-            if (it != noms.end()){
+            file >> name;
+            it = names.find(name);
+            if (it != names.end()){
+
+                read_count[it->second] ++ ;
+
                 if (it->second < 9){
-                    file >> valeurs[it->second];
-                    cout << "\n" << nom << " = " << valeurs[it->second] << "";
+                    file >> doubles[it->second];
+                    cout << "    " << name << " = " << doubles[it->second] << endl;
                 }
                 else{
-                    file >> fonctions[it->second - 9];
-                    cout << "\n" << nom << " = " << fonctions[it->second - 9] << "";   
+                    file >> strings[it->second - 9];
+                    cout << "    " << name << " = " << strings[it->second - 9] << endl;
                 }
+            } 
+            else{
+                read_unkown = true;
+                unkown_name = name;
+                break;
             }
-            else
-                read_success = false;
-            i++;
         }
         
         file.close();
     
-    }else
-        throw string ("Erreur d'ouverture de fichier du fichier de configurations");
-
-    if (read_success == true){
-        cout << "\nLecture des 23 parametres OK!" << endl;
     } else
-        throw string ("Fichier config mal ecrit");
+        throw string ("ERREUR: Erreur d'ouverture du fichier de configuration");
 
+    if (read_unkown == true)
+        throw string ("ERREUR: Variable inconnue '" + unkown_name + "' dans le fichier de configuration");
+
+    for (int i = 0; i < size; i++){
+        if (read_count[i] < 1)
+            not_found = true;
+        if (read_count[i] > 1)
+            duplicate = true;
+    }
+    if (not_found == true)
+        throw string ("ERREUR: Variable(s) manquante(s) dans le fichier de configuration");
+    if (duplicate == true)
+        throw string ("ERREUR: Variable(s) dupliquee(s) dans le fichier de configuration");
+
+    delete[] read_count;
 }
 
 
 Config::~Config(){
-    delete[] valeurs;
-    delete[] fonctions;
+    delete[] doubles;
+    delete[] strings;
 }

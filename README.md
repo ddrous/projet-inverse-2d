@@ -7,20 +7,20 @@ Les différent rapports se trouvent dans le répertoire `doc`.
 ## __1ere partie: Résolution de l'EDP__    
 Les commandes indiquées sont a exécuter à partir du répertoire racine du projet.   
 
-Pour lancer le programme: `build/spreading tools/config_1.cfg`     
+Pour lancer le programme: `build/transfer src/config/rho.cfg`     
 
-Les fichiers de configuration `config_*.cfg` se trouvent dans le répertoire `tools`.   
+Les fichiers de configuration `*.cfg` se trouvent dans le répertoire `src/config`.   
 
 Les fichiers sources sont dans le répertoire `src`.   
 
 Pour compiler le programme: 
-`g++ -I thirdparty/exprtk src/spreading.cpp src/solveur.cpp src/maille.cpp src/config.cpp -o build/spreading`   
+`g++ -I thirdparty/exprtk src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp -o build/transfer`   
 
-L'exécutable __`spreading`__ est généré dans le répertoire `build`.    
+L'exécutable __`transfer`__ est généré dans le répertoire `build`.    
 
 Les résultats sont exportés dans le répertoire `data`:
-- `log1.csv` pour les signaux aux bords du domaine en tous temps. Les colonnes sont `t, E_0, E_N, F_0, F_N, T_0, T_N`
-- `log2.csv` pour les signaux sur tout le domaine au temps final. Les colonnes sont `x, E, F, T`
+- `dataframe_1.csv` pour les signaux aux bords du domaine en tous temps. Les colonnes sont `t, E_0, E_N, F_0, F_N, T_0, T_N`
+- `dataframe_2.csv` pour les signaux sur tout le domaine au temps final. Les colonnes sont `x, E, F, T`
 
 
 ## __2ème partie: Analyse des données__   

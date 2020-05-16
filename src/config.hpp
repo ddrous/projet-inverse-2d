@@ -1,5 +1,5 @@
-#ifndef DEJA_INCLU_CONFIG     
-#define DEJA_INCLU_CONFIG
+#ifndef INCLUDED_CONFIG
+#define INCLUDED_CONFIG
 
 #include <map>
 
@@ -9,18 +9,20 @@
 class Config{
     public:
         // nom du fichier config
-        std::string nom_fichier;
+        std::string file_name;
         // noms des variables et leurs identifiants
-        std::map<std::string, int> noms;
-        // valeurs des parametres qui sont des flotants
-        double *valeurs;
-        // valeurs des parametres qui sont des expressions (fonctions)
-        std::string *fonctions;
+        std::map<std::string, int> names;
+        // nombre de variables a lire
+        int size;
+        // valeurs des parametres qui sont des nombres
+        double *doubles;
+        // valeurs des parametres qui sont des chaines de caracteres (expressons de fonctions)
+        std::string *strings;
 
         /***************
          * Constructeur
          */
-        Config(std::string nom_du_fichier);
+        Config(std::string file_path);
 
         /**************
          * Fonction pour lire le fichier .cfg
