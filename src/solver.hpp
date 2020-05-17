@@ -91,7 +91,7 @@ class Solver{
         double F_x_0(double x);
 
         /***************
-         * Calcule T(x, 0)      // Eviter T(x) == 0, mu_q devient inf 
+         * Calcule T(x, 0)
          */ 
         double T_x_0(double x);
 

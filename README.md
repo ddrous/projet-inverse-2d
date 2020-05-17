@@ -16,7 +16,7 @@ L'exécutable `transfer` est généré dans le répertoire `build`. Les fichiers
 
 Les résultats sont exportés dans le répertoire `data`. Par exemple:
 - __`df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps. 
-Ses colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_expr, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, dt, time_steps, E_0, E_N, F_0, F_N, T_0, T_N`
+Ses colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_expr, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, dt, time_steps, E_left, E_right, F_left, F_right, T_left, T_right`
 
 - __`df_spatial.csv`__ pour les signaux sur tout le domaine au temps final. 
 Ses colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_expr, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, dt, time_steps, x, rho, sigma_a, sigma_c, E_init, E_final, F_init, F_final, T_init, T_final`
