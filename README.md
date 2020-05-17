@@ -21,7 +21,7 @@ Ses colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_expr, 
 - __`df_spatial.csv`__ pour les signaux sur tout le domaine au temps final. 
 Ses colonnes sont `x_min, x_max, N, c, a, C_v, CFL, epsilon, t_final, rho_expr, sigma_a_expr, sigma_c_expr, E_x_0_expr, F_x_0_expr, T_x_0_expr, dt, time_steps, x, rho, sigma_a, sigma_c, E_init, E_final, F_init, F_final, T_init, T_final`
 
-Pour generer plusieurs lignes dans les fichier d'export d'un seul coup, on peut executer le script `bash src/simu/rho.sh`. Ce script lance une simulation qui fait varier `rho` entre `rho_min` et `rho_max` (voir `src/simu/rho_1.txt`) tout en gardant le reste des parametres constants (voir `src/simu/rho_2.txt`). 
+Pour generer plusieurs lignes dans les fichier d'export d'un seul coup, on peut executer le script `bash src/simu/data_dump.sh`. Ce script lance une simulation qui fait varier `rho`, `sigma_a` et `sigma_a` (voir `src/simu/cfg_part_1.txt`) tout en gardant le reste des parametres constants (voir `src/simu/cfg_part_2.txt`). 
 
 
 ## __2ème partie: Analyse des données__   
