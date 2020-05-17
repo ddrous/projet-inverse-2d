@@ -10,9 +10,9 @@ class Config{
     public:
         // nom du fichier config
         std::string file_name;
-        // noms des variables et leurs identifiants
+        // noms des parametres et leurs identifiants
         std::map<std::string, int> names;
-        // nombre de variables a lire
+        // nombre de parametres a lire
         int size;
         // valeurs des parametres qui sont des nombres
         double *doubles;

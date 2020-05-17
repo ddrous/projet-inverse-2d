@@ -14,8 +14,8 @@ int main(int argc, char * argv[]){
     try {
         cout << "\n======== Resolution de l'equation du transfer radiatif ========" << endl;
 
-        if(argc < 2)
-        throw string("ERREUR: Fournissez un fichier de configuration");
+        if(argc < 2 || argc > 2)
+            throw string("ERREUR: Fournissez un (et un seul) fichier de configuration");
 
         // Lecture du fichier config
         Config cfg = Config(argv[1]);
@@ -51,7 +51,7 @@ int main(int argc, char * argv[]){
 
         // cout << "======== Desmond Roussel Ngueguin ========"  << endl << endl;
     }
-    catch(const string& e){
+    catch(const string &e){
         cerr << endl << e << endl << endl;
         exit(1);
     }
@@ -59,7 +59,7 @@ int main(int argc, char * argv[]){
         cerr << endl << "ERREUR: Analyseur de fonction \n" << e.GetMsg() << endl << endl;
         exit(1);
     }
-    catch(const exception& e){
+    catch(const exception &e){
         cerr << endl << "ERREUR: \n" << e.what() << endl << endl;
         exit(1);
     }

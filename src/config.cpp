@@ -36,16 +36,16 @@ Config::Config(string file_path){
 void Config::read(){
     map<string, int> :: iterator it;
 
-    string name;                        // nom de la variable en cours de traitement
+    string name;                        // nom du parametre en cours de traitement
 
-    bool read_unkown = false;           // lecture d'une varaible inconnue
+    bool read_unkown = false;           // lecture d'un parametre inconnue
     string unkown_name;                 // nom de l'inconnu
 
-    int *read_count = new int[size];    // compte les occurence de chaque variable dans le fichier
+    int *read_count = new int[size];    // compte les occurence de chaque parametre dans le fichier
     for (int i = 0; i < size; i++) 
         read_count[i] = 0;
-    bool not_found = false;             // indique s'il manque une ou plusieurs variables
-    bool duplicate = false;             // indique si une variables est definie plus d'une fois
+    bool not_found = false;             // indique s'il manque un ou plusieurs parametre
+    bool duplicate = false;             // indique si un parametre est definie plus d'une fois
 
     ifstream file(file_name);
     if(file){
@@ -75,10 +75,10 @@ void Config::read(){
         file.close();
     
     } else
-        throw string ("ERREUR: Erreur d'ouverture du fichier de configuration");
+        throw string ("ERREUR: Erreur d'ouverture du fichier de configuration '" + file_name + "'");
 
     if (read_unkown == true)
-        throw string ("ERREUR: Variable inconnue '" + unkown_name + "' dans le fichier de configuration");
+        throw string ("ERREUR: Parametre inconnu '" + unkown_name + "' dans le fichier de configuration");
 
     for (int i = 0; i < size; i++){
         if (read_count[i] < 1)
@@ -87,9 +87,9 @@ void Config::read(){
             duplicate = true;
     }
     if (not_found == true)
-        throw string ("ERREUR: Variable(s) manquante(s) dans le fichier de configuration");
+        throw string ("ERREUR: Parametre(s) manquant(s) dans le fichier de configuration");
     if (duplicate == true)
-        throw string ("ERREUR: Variable(s) dupliquee(s) dans le fichier de configuration");
+        throw string ("ERREUR: Parametre(s) duplique(s) dans le fichier de configuration");
 
     delete[] read_count;
 }

@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 
-# Go to [https://ncona.com/2019/03/building-a-cpp-project-with-cmake/] for details 
-# also [https://raymii.org/s/tutorials/Cpp_project_setup_with_cmake_and_unit_tests.html]
-
-# set the project name
+# Set the project name
 project(Inverse)
 
-# tell CMake to use CTest extension
+# Tell CMake to use CTest extension
 enable_testing()
 
 # Include the muParser subdirectory
@@ -21,6 +18,10 @@ thirdparty/muparser/src/muParserCallback.cpp
 thirdparty/muparser/src/muParserError.cpp
 thirdparty/muparser/src/muParserTokenReader.cpp)
 
-# add_test(spreading spreading) - register the executable with CTest
-add_test(NAME simple_run COMMAND transfer ../src/config/test.cfg)
-# more tests to come
+# A test that works correctly
+add_test(NAME simple_run COMMAND transfer ../src/config/test_1.cfg)
+# Tests that return non-zeros to make sure the program doesnt crash
+add_test(NAME no_config COMMAND transfer)
+add_test(NAME bad_param COMMAND transfer ../src/config/test_2.cfg)
+add_test(NAME unparsable COMMAND transfer ../src/config/test_3.cfg)
+set_tests_properties(no_config bad_param unparsable PROPERTIES WILL_FAIL TRUE)
