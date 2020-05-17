@@ -10,17 +10,22 @@ enable_testing()
 include_directories(thirdparty/muparser/include)
 
 # Add source files needed
-add_executable(transfer src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp 
-thirdparty/muparser/src/muParser.cpp
-thirdparty/muparser/src/muParserBase.cpp
-thirdparty/muparser/src/muParserBytecode.cpp
-thirdparty/muparser/src/muParserCallback.cpp
-thirdparty/muparser/src/muParserError.cpp
-thirdparty/muparser/src/muParserTokenReader.cpp)
+add_executable(transfer 
+    src/main.cpp 
+    src/solver.cpp 
+    src/mesh.cpp 
+    src/config.cpp
 
-# A test that works correctly
+    thirdparty/muparser/src/muParser.cpp
+    thirdparty/muparser/src/muParserBase.cpp
+    thirdparty/muparser/src/muParserBytecode.cpp
+    thirdparty/muparser/src/muParserCallback.cpp
+    thirdparty/muparser/src/muParserError.cpp
+    thirdparty/muparser/src/muParserTokenReader.cpp)
+
+# A simple test that works perfectly
 add_test(NAME simple_run COMMAND transfer ../src/config/test_1.cfg)
-# Tests that return non-zeros to make sure the program doesnt crash
+# Tests that should fail to make sure the program doesnt crash
 add_test(NAME no_config COMMAND transfer)
 add_test(NAME bad_param COMMAND transfer ../src/config/test_2.cfg)
 add_test(NAME unparsable COMMAND transfer ../src/config/test_3.cfg)

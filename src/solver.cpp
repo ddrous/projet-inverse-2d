@@ -24,37 +24,38 @@ Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
     t_final = doubles[5];
 
     dt = CFL * mesh->dx/c;
-    time_steps = (int)(t_final / dt) + 1;
+    step_count = (int)(t_final / dt) + 1;
+    time_steps = vector<double>(step_count);
 
     rho_expr = strings[0];
     sigma_a_expr = strings[1];
     sigma_c_expr = strings[2];
 
     E = vector<double>(mesh->N+2);
-    E_x_0_expr = strings[3];
-    E_0 = vector<double>(time_steps);
-    E_N = vector<double>(time_steps);
+    E_init_expr = strings[3];
+    E_left = vector<double>(step_count);
+    E_right = vector<double>(step_count);
 
     F = vector<double>(mesh->N+2);
-    F_x_0_expr = strings[4];
-    F_0 = vector<double>(time_steps);
-    F_N = vector<double>(time_steps);
+    F_init_expr = strings[4];
+    F_left = vector<double>(step_count);
+    F_right = vector<double>(step_count);
 
     T = vector<double>(mesh->N+2);
-    T_x_0_expr = strings[5];
-    T_0 = vector<double>(time_steps);
-    T_N = vector<double>(time_steps);
+    T_init_expr = strings[5];
+    T_left = vector<double>(step_count);
+    T_right = vector<double>(step_count);
 
     export_1 = strings[6];
     export_2 = strings[7];
 
     // Validite des proprietes du probleme
     if (CFL <= 0)
-        throw std::string("ERREUR: Vérifiez que CFL > 0");
+        throw string("ERREUR: Vérifiez que CFL > 0");
     if (epsilon <= 0)
-        throw std::string("ERREUR: Vérifiez que epsilon > 0");
+        throw string("ERREUR: Vérifiez que epsilon > 0");
     if (t_final <= 0)
-        throw std::string("ERREUR: Vérifiez que t_final > 0");
+        throw string("ERREUR: Vérifiez que t_final > 0");
 } 
 
 
@@ -62,9 +63,10 @@ double Solver::rho(double x){
     static int first_call = 1;
     static Parser p;
 
-    if (first_call == 1){           // Seulement au 1er appel
-        p.DefineVar("x", &x); 
+    p.DefineVar("x", &x); 
+    if (first_call == 1){           // Un essai d'optimisation
         p.SetExpr(rho_expr);
+        first_call = 0;
     }
 
     return p.Eval();
@@ -75,10 +77,11 @@ double Solver::sigma_a(double rho, double T){
     static int first_call = 1;
     static Parser p;
 
-    if (first_call == 1){
-        p.DefineVar("rho", &rho); 
-        p.DefineVar("T", &T); 
-        p.SetExpr(sigma_a_expr);
+    p.DefineVar("rho", &rho); 
+    p.DefineVar("T", &T); 
+    if (first_call == 1){ 
+        p.SetExpr(sigma_a_expr); 
+        first_call = 0;
     }
 
     return p.Eval();
@@ -89,49 +92,53 @@ double Solver::sigma_c(double rho, double T){
     static int first_call = 1;
     static Parser p;
 
+    p.DefineVar("rho", &rho); 
+    p.DefineVar("T", &T); 
     if (first_call == 1){
-        p.DefineVar("rho", &rho); 
-        p.DefineVar("T", &T); 
         p.SetExpr(sigma_c_expr);
+        first_call = 0;
     }
 
     return p.Eval();
 }
 
 
-double Solver::E_x_0(double x){
+double Solver::E_init(double x){
     static int first_call = 1;
     static Parser p;
 
+    p.DefineVar("x", &x); 
     if (first_call == 1){
-        p.DefineVar("x", &x); 
-        p.SetExpr(E_x_0_expr);
+        p.SetExpr(E_init_expr);
+        first_call = 0;
     }
 
     return p.Eval();
 }
 
 
-double Solver::F_x_0(double x){
+double Solver::F_init(double x){
     static int first_call = 1;
     static Parser p;
 
+    p.DefineVar("x", &x); 
     if (first_call == 1){
-        p.DefineVar("x", &x); 
-        p.SetExpr(F_x_0_expr);
+        p.SetExpr(F_init_expr);
+        first_call = 0;
     }
 
     return p.Eval();
 }
 
 
-double Solver::T_x_0(double x){
+double Solver::T_init(double x){
     static int first_call = 1;
     static Parser p;
 
+    p.DefineVar("x", &x); 
     if (first_call == 1){
-        p.DefineVar("x", &x); 
-        p.SetExpr(T_x_0_expr);
+        p.SetExpr(T_init_expr);
+        first_call = 0;
     }
 
     return p.Eval();
@@ -172,7 +179,7 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
 
 void Solver::solve(){
     // Raccourcissons les noms des constantes
-    int N = mesh->N;            // Nombre effectif de mailles
+    int N = mesh->N;            // Nombre de mailles interieures
     double dx = mesh->dx;       // Delta x
 
     // Les variables pour l'etape 1
@@ -185,29 +192,29 @@ void Solver::solve(){
     // Initialisation de la doucle de resolution
     for (int j = 1; j < N+1; j++){
         double x = mesh->cells[j][1];           // Centre de la maille
-        E[j] = E_x_0(x);
-        F[j] = F_x_0(x);
-        T[j] = T_x_0(x);
+        E[j] = E_init(x);
+        F[j] = F_init(x);
+        T[j] = T_init(x);
     }
 
     // Temps courant et indice de l'iteration
     double t = 0;
-    int step = -1;      // -1 pour une initialisation a 0
+    int n = 0;
 
     /**
      * Boucle de resolution
      */
     while (t < t_final){
-        t += dt;
-        step += 1;
+        // Ajout du temps courant
+        time_steps[n] = t;
 
-        // Signaux aux bords pour ce pas d'iteration en vue de l'export
-        E_0[step] = E[1];
-        F_0[step] = F[1];
-        T_0[step] = T[1];
-        E_N[step] = E[N];
-        F_N[step] = F[N];
-        T_N[step] = T[N];
+        // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
+        E_left[n] = E[1];
+        F_left[n] = F[1];
+        T_left[n] = T[1];
+        E_right[n] = E[N];
+        F_right[n] = F[N];
+        T_right[n] = T[N];
 
         for (int j = 1; j < N+1; j++){
             // Initialisation etape 1
@@ -242,7 +249,7 @@ void Solver::solve(){
 
                 E_next = (alpha*E_n + gamma*beta*Theta_n) / (1 - beta*delta);
                 F_next = F_n;
-                Theta_next = (gamma*Theta_n + alpha*delta*E_n) / (1-beta*delta);
+                Theta_next = (gamma*Theta_n + alpha*delta*E_n) / (1 - beta*delta);
 
             } while (abs(E_next-E[j]) > epsilon && abs(Theta_next-Theta) > epsilon);
         }
@@ -264,9 +271,9 @@ void Solver::solve(){
          * Etape 2
          */
         for (int j = 1; j < N+1; j++){
-            double x_left = mesh->cells[j-1][1];
-            double x_center = mesh->cells[j][1];
-            double x_right = mesh->cells[j+1][1];
+            double x_left = mesh->cells[j-1][1];        // Centre de la maille de gauche
+            double x_center = mesh->cells[j][1];        // Centre de cette maille
+            double x_right = mesh->cells[j+1][1];       // Centre de la maille de droite
 
             double sigma_c_left = sigma_c(rho(x_left), T[j-1]);
             double sigma_c_center = sigma_c(rho(x_center), T[j]);
@@ -278,12 +285,13 @@ void Solver::solve(){
             double flux_M_right = flux_M(dx, flux_sigma_c_right);
 
             double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
-            double Alpha = 1/dt/tmp;
-            double Beta = c/dx/tmp;
+            double Alpha = c*dt/dx;
+            double Beta = 1/dt/tmp;
+            double Gamma = c/dx/tmp;
 
-            E_suiv[j] = E_etoile[j] - (c*dt/dx)*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
+            E_suiv[j] = E_etoile[j] - Alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
 
-            F_suiv[j] = Alpha*F_etoile[j] - Beta*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
+            F_suiv[j] = Beta*F_etoile[j] - Gamma*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
 
             T_suiv[j] = T_etoile[j];
         }
@@ -291,6 +299,9 @@ void Solver::solve(){
         E = E_suiv;
         F = F_suiv;
         T = T_suiv;
+
+        t += dt;
+        n += 1;
     }
 };
 
@@ -318,52 +329,60 @@ void Solver::export_temporal(){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + export_1 + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\"," << dt << "," << time_steps << ",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_init_expr << "\",\"" << F_init_expr << "\",\"" << T_init_expr << "\"," << dt << "," << step_count << ",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << E_0[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << time_steps[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << E_N[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << E_left[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << F_0[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << E_right[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << F_N[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << F_left[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << T_0[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << F_right[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\",";
 
     file << "\"[";
-    for (int n = 0; n < time_steps; n++){
-        file << T_N[n];
-        if (n != time_steps-1)
+    for (int n = 0; n < step_count; n++){
+        file << T_left[n];
+        if (n != step_count-1)
+            file << ", ";
+    }
+    file << "]\",";
+
+    file << "\"[";
+    for (int n = 0; n < step_count; n++){
+        file << T_right[n];
+        if (n != step_count-1)
             file << ", ";
     }
     file << "]\"\n";
@@ -378,7 +397,7 @@ void Solver::export_spatial(){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + export_2 + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_x_0_expr << "\",\"" << F_x_0_expr << "\",\"" << T_x_0_expr << "\"," << dt << "," << time_steps << ",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << epsilon << "," << t_final << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_init_expr << "\",\"" << F_init_expr << "\",\"" << T_init_expr << "\"," << dt << "," << step_count << ",";
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
@@ -414,7 +433,7 @@ void Solver::export_spatial(){
      
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << E_x_0(mesh->cells[j][1]);
+        file << E_init(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }
@@ -430,7 +449,7 @@ void Solver::export_spatial(){
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << F_x_0(mesh->cells[j][1]);
+        file << F_init(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }
@@ -446,7 +465,7 @@ void Solver::export_spatial(){
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << T_x_0(mesh->cells[j][1]);
+        file << T_init(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }

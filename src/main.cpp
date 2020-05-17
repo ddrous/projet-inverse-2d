@@ -12,7 +12,7 @@ using namespace mu;
 
 int main(int argc, char * argv[]){
     try {
-        cout << "\n======== Resolution de l'equation du transfer radiatif ========" << endl;
+        cout << "\n======== Equation du transfer radiatif ========" << endl;
 
         if(argc < 2 || argc > 2)
             throw string("ERREUR: Fournissez un (et un seul) fichier de configuration");
@@ -34,7 +34,7 @@ int main(int argc, char * argv[]){
     
         // Resolution du probleme
         Solver s = Solver(&m, &cfg.doubles[3], cfg.strings);
-        cout << "\nExecution des " << s.time_steps << " iterations en cours ..." << endl;
+        cout << "\nResolution (" << s.step_count << " iterations) en cours ..." << endl;
         s.solve();
         cout << "Resolution OK !" << endl;
 
@@ -49,14 +49,14 @@ int main(int argc, char * argv[]){
         cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << s.export_1 << "'"  << endl;
         cout << "Signaux au temps final sur tout le domaine exportes dans '" << s.export_2 << "'"  << endl << endl;
 
-        // cout << "======== Desmond Roussel Ngueguin ========"  << endl << endl;
+        cout << "================================================"  << endl << endl;
     }
     catch(const string &e){
         cerr << endl << e << endl << endl;
         exit(1);
     }
     catch (Parser::exception_type &e){
-        cerr << endl << "ERREUR: Analyseur de fonction \n" << e.GetMsg() << endl << endl;
+        cerr << endl << "ERREUR: Dans l'analyseur de fonctions: " << e.GetMsg() << endl << endl;
         exit(1);
     }
     catch(const exception &e){

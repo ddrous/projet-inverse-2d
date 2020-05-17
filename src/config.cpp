@@ -21,9 +21,9 @@ Config::Config(string file_path){
     names["rho"] = 9;
     names["sigma_a"] = 10;
     names["sigma_c"] = 11;
-    names["E_x_0"] = 12;
-    names["F_x_0"] = 13;
-    names["T_x_0"] = 14;
+    names["E_init"] = 12;
+    names["F_init"] = 13;
+    names["T_init"] = 14;
     names["export_temporal"] = 15;
     names["export_spatial"] = 16;
 
@@ -58,11 +58,11 @@ void Config::read(){
 
                 if (it->second < 9){
                     file >> doubles[it->second];
-                    cout << "    " << name << " = " << doubles[it->second] << endl;
+                    cout << "   -- " << name << " : " << doubles[it->second] << endl;
                 }
                 else{
                     file >> strings[it->second - 9];
-                    cout << "    " << name << " = " << strings[it->second - 9] << endl;
+                    cout << "   -- " << name << " : " << strings[it->second - 9] << endl;
                 }
             } 
             else{

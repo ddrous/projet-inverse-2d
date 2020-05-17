@@ -19,15 +19,15 @@ fi
 # Pour generer 'rho' entre rho_min et rho_max
 rho_min=0
 rho_max=5
-nbiter_rho=10
+nbiter_rho=5
 i=0
 a1=$(awk -v i="${i}" -v nbiter="${nbiter_rho}" -v min="${rho_min}" -v max="${rho_max}" 'BEGIN{print ((max-min)/(nbiter-i))}')
 b1=$(awk -v min="${rho_min}" 'BEGIN{print (min)}')
 
 # Pour generer 'sigma_a' entre sigma_a_min et sigma_a_max
-sigma_a_min=0
+sigma_a_min=1
 sigma_a_max=5
-nbiter_sigma_a=10
+nbiter_sigma_a=1
 j=0
 a2=$(awk -v j="${j}" -v nbiter="${nbiter_sigma_a}" -v min="${sigma_a_min}" -v max="${sigma_a_max}" 'BEGIN{print ((max-min)/(nbiter-j))}')
 b2=$(awk -v min="${sigma_a_min}" 'BEGIN{print (min)}')
@@ -35,7 +35,7 @@ b2=$(awk -v min="${sigma_a_min}" 'BEGIN{print (min)}')
 # Pour generer 'sigma_c' entre sigma_c_min et sigma_c_max
 sigma_c_min=0
 sigma_c_max=5
-nbiter_sigma_c=10
+nbiter_sigma_c=1
 k=0
 a3=$(awk -v k="${k}" -v nbiter="${nbiter_sigma_c}" -v min="${sigma_c_min}" -v max="${sigma_c_max}" 'BEGIN{print ((max-min)/(nbiter-k))}')
 b3=$(awk -v min="${sigma_c_min}" 'BEGIN{print (min)}')

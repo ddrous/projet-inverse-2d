@@ -17,7 +17,7 @@ class Solver{
 
         // Parametres physiques
         double c;                   // Vitesse de la lumiere
-        double a;                   // Constante de Boltzmann
+        double a;                   // Constante de Stefen-Boltzmann
 
         // Propriete du domaine
         double C_v;                 // Capacite calorifique a volume constant
@@ -33,22 +33,22 @@ class Solver{
         std::string sigma_c_expr;       // Expression de l'opacite de scatering
 
         // Energies des photons
-        std::vector<double> E;          // Solution du probleme: E(x, t)
-        std::string E_x_0_expr;         // Au temps initial E(x, 0)
-        std::vector<double> E_0;        // Sur le bord gauche: E(x_0, t)
-        std::vector<double> E_N;        // Sur le bord droit: E(x_N, t)
+        std::vector<double> E;              // Solution du probleme: E(x, t)
+        std::string E_init_expr;            // Au temps initial E(x, 0)
+        std::vector<double> E_left;         // Sur le bord gauche: E(x_0, t)
+        std::vector<double> E_right;        // Sur le bord droit: E(x_N, t)
 
         // Flux de photons
-        std::vector<double> F;          // Solution du problme: F(x, t)
-        std::string F_x_0_expr;         // Au temps initial F(x, 0)
-        std::vector<double> F_0;        // Sur le bord gauche: F(x_0, t)
-        std::vector<double> F_N;        // Sur le bord droit: F(x_N, t)
+        std::vector<double> F;              // Solution du problme: F(x, t)
+        std::string F_init_expr;            // Au temps initial F(x, 0)
+        std::vector<double> F_left;         // Sur le bord gauche: F(x_0, t)
+        std::vector<double> F_right;        // Sur le bord droit: F(x_N, t)
 
         // Temperatures du milieux
-        std::vector<double> T;          // Solution du problme: T(x, t)
-        std::string T_x_0_expr;         // Au temps initial T(x, 0)
-        std::vector<double> T_0;        // Sur le bord gauche: T(x_0, t)
-        std::vector<double> T_N;        // Sur le bord droit: T(x_N, t)
+        std::vector<double> T;              // Solution du problme: T(x, t)
+        std::string T_init_expr;            // Au temps initial T(x, 0)
+        std::vector<double> T_left;         // Sur le bord gauche: T(x_0, t)
+        std::vector<double> T_right;        // Sur le bord droit: T(x_N, t)
 
         // Fichiers ou sont exportes les donnees
         std::string export_1;            // Signaux en tout temps aux bords
@@ -56,7 +56,8 @@ class Solver{
 
         // Autres parametres du probleme
         double dt;                      // Pas de temps
-        int time_steps;                 // Nombre d'iterations en temps
+        int step_count;                 // Nombre d'iterations en temps
+        std::vector<double> time_steps; // Les temps a chaque pas
 
         /***************
          * Constructeur
@@ -83,17 +84,17 @@ class Solver{
         /***************
          * Calcule E(x, 0), energie a la position x au temps initial
          */ 
-        double E_x_0(double x);
+        double E_init(double x);
 
         /***************
          * Calcule F(x, 0)
          */ 
-        double F_x_0(double x);
+        double F_init(double x);
 
         /***************
          * Calcule T(x, 0)
          */ 
-        double T_x_0(double x);
+        double T_init(double x);
 
         /***************
          * Resout le probleme et exporte les resultats au fur et a mesure
