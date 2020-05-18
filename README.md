@@ -1,4 +1,4 @@
-# csmi-m1-2020-moco-inverse
+# Transfer Radiatif Inverse (MOCO)
 
 ### Objectif
 Résolution du problème inverse de propagation de la lumière par l'utilisation de la méthode des volumes finis et des réseaux de neurones.
@@ -9,15 +9,15 @@ Résolution du problème inverse de propagation de la lumière par l'utilisation
 - Rapport version 1: `doc/rapport_v1.pdf`
 
 ## __1ère partie: Résolution de l'EDP__    
-_Les commandes sont a exécuter à partir du répertoire racine du projet._
+_Les commandes sont à exécuter à partir du répertoire racine du projet._
 
 ### Compilation
-- Utiliser Cmake: `cmake --build build`
-- Utiliser g++: `g++ -I thirdparty/muparser/include src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp thirdparty/muparser/src/muParser.cpp thirdparty/muparser/src/muParserBase.cpp thirdparty/muparser/src/muParserBytecode.cpp thirdparty/muparser/src/muParserCallback.cpp thirdparty/muparser/src/muParserError.cpp thirdparty/muparser/src/muParserTokenReader.cpp -o build/transfer`   
+- Avec Cmake: `cmake --build build`
+- Avec g++: `g++ -I thirdparty/muparser/include src/main.cpp src/solver.cpp src/mesh.cpp src/config.cpp thirdparty/muparser/src/muParser.cpp thirdparty/muparser/src/muParserBase.cpp thirdparty/muparser/src/muParserBytecode.cpp thirdparty/muparser/src/muParserCallback.cpp thirdparty/muparser/src/muParserError.cpp thirdparty/muparser/src/muParserTokenReader.cpp -o build/transfer`   
 
 ### Exécution
 - Pour une seule exécution: __`build/transfer src/config/dump.cfg`__ [Voir fichiers de configuration](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)
-- Pour générer les donnes a étudier: `bash src/simu/data_dump.sh`
+- Pour générer les données a étudier: __`bash src/simu/data_dump.sh`__
 
 Les résultats sont exportés dans le répertoire `data`:
 - __`df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps. 
