@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script pour generer les donnees en variant 'rho', 'sigma_a', et 'sigma_a'
+# Script pour generer les donnees en variant 'rho', 'sigma_a', et 'sigma_c'
 #   Ces variables ainsi sont ecrites dans 'cfg_part_1.txt'
 #   Les constantes pour cette simulation sont ecrites dans 'cfg_part_2.txt'
 #   Les fichiers 'cfg_part_1.txt' et 'cfg_part_2.txt' forment le fichier de configuaration dans 'src/config/dump.cfg'
