@@ -17,7 +17,7 @@ _Les commandes sont à exécuter à partir du répertoire racine du projet._
 
 ### Exécution
 - Pour une seule exécution: __`build/transfer src/config/dump.cfg`__ [Voir fichiers de configuration](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)
-- Pour générer les données a étudier: __`bash src/simu/data_dump.sh`__
+- Pour générer les données à étudier: __`bash src/simu/data_dump.sh`__
 
 Les résultats sont exportés dans le répertoire `data`:
 - __`df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps. 
