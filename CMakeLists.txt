@@ -15,7 +15,6 @@ add_executable(transfer
     src/solver.cpp 
     src/mesh.cpp 
     src/config.cpp
-
     thirdparty/muparser/src/muParser.cpp
     thirdparty/muparser/src/muParserBase.cpp
     thirdparty/muparser/src/muParserBytecode.cpp
