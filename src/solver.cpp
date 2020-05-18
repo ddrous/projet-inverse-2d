@@ -23,6 +23,14 @@ Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
     epsilon = doubles[4];
     t_final = doubles[5];
 
+    // Verifications preliminaires
+    if (CFL <= 0)
+        throw string("ERREUR: Vérifiez que CFL > 0");
+    if (epsilon <= 0)
+        throw string("ERREUR: Vérifiez que epsilon > 0");
+    if (t_final <= 0)
+        throw string("ERREUR: Vérifiez que t_final > 0");
+
     dt = CFL * mesh->dx/c;
     step_count = (int)(t_final / dt) + 1;
     time_steps = vector<double>(step_count);
@@ -48,14 +56,6 @@ Solver::Solver(Mesh *new_mesh, double *doubles, std::string *strings){
 
     export_1 = strings[6];
     export_2 = strings[7];
-
-    // Validite des proprietes du probleme
-    if (CFL <= 0)
-        throw string("ERREUR: Vérifiez que CFL > 0");
-    if (epsilon <= 0)
-        throw string("ERREUR: Vérifiez que epsilon > 0");
-    if (t_final <= 0)
-        throw string("ERREUR: Vérifiez que t_final > 0");
 } 
 
 
@@ -204,10 +204,7 @@ void Solver::solve(){
     /**
      * Boucle de resolution
      */
-    while (t < t_final){
-        // Ajout du temps courant
-        time_steps[n] = t;
-
+    while (t <= t_final){
         // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
         E_left[n] = E[1];
         F_left[n] = F[1];
@@ -300,6 +297,7 @@ void Solver::solve(){
         F = F_suiv;
         T = T_suiv;
 
+        time_steps[n] = t;
         t += dt;
         n += 1;
     }
