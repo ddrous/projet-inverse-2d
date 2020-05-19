@@ -1,4 +1,9 @@
+c 10000
+sigma_c 10000
+
 rho 1
 sigma_a 0
-sigma_c 1000
-c 1000
+
+export_temporal data/df_temporal_dirac.csv
+export_spatial data/df_spatial_dirac.csv
+
