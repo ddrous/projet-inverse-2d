@@ -357,8 +357,7 @@ void Solver::solve(){
         F = F_suiv;
         T = T_suiv;
 
-        // time_steps[n] = t+t_init;
-        time_steps[n] = t;               // ERREUR VOLONTAIRE!
+        time_steps[n] = t;
         t += dt;
         n += 1;
     }
@@ -450,7 +449,7 @@ void Solver::export_temporal(std::string file_name){
 
     file << "\"[";
     for (int n = 0; n < step_count; n++){
-        file << E_exact(time_steps[n], mesh->cells[mesh->N/2][1]);          // ERREUR VOLONTAIRE!
+        file << E_exact(time_steps[n], mesh->cells[mesh->N][1]);
         if (n != step_count-1) file << ", ";
     }
     file << "]\",";
