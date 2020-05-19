@@ -1,0 +1,4 @@
+rho 1
+sigma_a 0
+sigma_c 100
+c 100

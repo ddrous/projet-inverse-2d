@@ -24,8 +24,9 @@ class Solver{
 
         // Parametres du probleme
         double CFL;                 // Condition CFL: dt=CFL*dx/c
-        double epsilon;             // Precision sur les calculs
-        double t_final;             // Temps de la simulation
+        double precision;           // Precision sur les calculs
+        double t_init;              // Temps de depart de la simulation
+        double t_simu;              // Temps de la simulation
 
         // Autres proprietes du domaine
         std::string rho_expr;           // Expression de la densite du domaine
@@ -33,26 +34,25 @@ class Solver{
         std::string sigma_c_expr;       // Expression de l'opacite de scatering
 
         // Energies des photons
-        std::vector<double> E;              // Solution du probleme: E(x, t)
-        std::string E_init_expr;            // Au temps initial E(x, 0)
-        std::vector<double> E_left;         // Sur le bord gauche: E(x_0, t)
-        std::vector<double> E_right;        // Sur le bord droit: E(x_N, t)
+        std::vector<double> E;              // Solution numerique du problme: E(t, x)
+        std::string E_exact_expr;           // Solution exacte: E_exact(t, x)
+        std::string E_init_expr;            // Au temps initial: E(t_init, x)
+        std::vector<double> E_left;         // Sur le bord gauche: E(t, x_0)
+        std::vector<double> E_right;        // Sur le bord droit: E(t, n_N)
 
         // Flux de photons
-        std::vector<double> F;              // Solution du problme: F(x, t)
-        std::string F_init_expr;            // Au temps initial F(x, 0)
-        std::vector<double> F_left;         // Sur le bord gauche: F(x_0, t)
-        std::vector<double> F_right;        // Sur le bord droit: F(x_N, t)
+        std::vector<double> F;              // Solution numerique du problme: F(t, x)
+        std::string F_exact_expr;           // Solution exacte: F_exact(t, x)
+        std::string F_init_expr;            // Au temps initial: F(t_init, x)
+        std::vector<double> F_left;         // Sur le bord gauche: F(t, x_0)
+        std::vector<double> F_right;        // Sur le bord droit: F(t, x_N)
 
         // Temperatures du milieux
-        std::vector<double> T;              // Solution du problme: T(x, t)
-        std::string T_init_expr;            // Au temps initial T(x, 0)
-        std::vector<double> T_left;         // Sur le bord gauche: T(x_0, t)
-        std::vector<double> T_right;        // Sur le bord droit: T(x_N, t)
-
-        // Fichiers ou sont exportes les donnees
-        std::string export_1;            // Signaux en tout temps aux bords
-        std::string export_2;            // Signaux au temps final en tout x
+        std::vector<double> T;              // Solution numerique du problme: T(t, x)
+        std::string T_exact_expr;           // Solution exacte: T_exact(t, x)
+        std::string T_init_expr;            // Au temps initial: T(t_init, x)
+        std::vector<double> T_left;         // Sur le bord gauche: T(t, x_0)
+        std::vector<double> T_right;        // Sur le bord droit: T(t, x_N)
 
         // Autres parametres du probleme
         double dt;                      // Pas de temps
@@ -61,10 +61,9 @@ class Solver{
 
         /***************
          * Constructeur
-         * @param doubles: les parametres qui sont doubles dans l'ordre ci-haut
-         * @param strings: les autres parametres (expressions pour creer les fonctions, et noms des fichiers pour les exports)
+         * @param params: les parametres du solveur autres que le maillage
          */
-        Solver(Mesh *new_mesh, double *doubles, std::string *strings);
+        Solver(Mesh *new_mesh, std::string *params);
 
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
@@ -82,17 +81,32 @@ class Solver{
         double sigma_c(double rho, double T);
 
         /***************
-         * Calcule E(x, 0), energie a la position x au temps initial
+         * Calcule E(t, x), solution exacte
+         */ 
+        double E_exact(double t, double x);
+
+        /***************
+         * Calcule E(t_init, x), energie a la position x au temps initial
          */ 
         double E_init(double x);
 
         /***************
-         * Calcule F(x, 0)
+         * Calcule F(t, x), solution exacte
+         */ 
+        double F_exact(double t, double x);
+
+        /***************
+         * Calcule F(t_init, x)
          */ 
         double F_init(double x);
 
         /***************
-         * Calcule T(x, 0)
+         * Calcule T(t, x), solution exacte
+         */ 
+        double T_exact(double t, double x);
+
+        /***************
+         * Calcule T(t_init, x)
          */ 
         double T_init(double x);
 
@@ -109,12 +123,12 @@ class Solver{
         /***************
          * Exporte les resultats en tout temps aux bords du domaine
          */
-        void export_temporal();
+        void export_temporal(std::string file_name);
 
         /***************
          * Exporte les resultats sur tout le domaine au temps final
          */
-        void export_spatial();
+        void export_spatial(std::string file_name);
 
         /***************
          * Destructeur vide

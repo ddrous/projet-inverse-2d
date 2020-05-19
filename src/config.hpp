@@ -12,12 +12,10 @@ class Config{
         std::string file_name;
         // noms des parametres et leurs identifiants
         std::map<std::string, int> names;
-        // nombre de parametres a lire
+        // nombre de parametres
         int size;
-        // valeurs des parametres qui sont des nombres
-        double *doubles;
-        // valeurs des parametres qui sont des chaines de caracteres (expressons de fonctions)
-        std::string *strings;
+        // valeurs des parametres (tous comme des chaines de caracteres)
+        std::string *values;
 
         /***************
          * Constructeur

@@ -27,7 +27,7 @@ b1=$(awk -v min="${rho_min}" 'BEGIN{print (min)}')
 # Pour generer 'sigma_a' entre sigma_a_min et sigma_a_max
 sigma_a_min=0
 sigma_a_max=5
-nbiter_sigma_a=10
+nbiter_sigma_a=1
 j=0
 a2=$(awk -v j="${j}" -v nbiter="${nbiter_sigma_a}" -v min="${sigma_a_min}" -v max="${sigma_a_max}" 'BEGIN{print ((max-min)/(nbiter-j))}')
 b2=$(awk -v min="${sigma_a_min}" 'BEGIN{print (min)}')
@@ -49,8 +49,8 @@ for (( i = 0 ; i <= $nbiter_rho; i++ )); do
         sigma_a=$(awk -v j="${j}" -v a="${a2}" -v b="${b2}" 'BEGIN{print (a*j+b)}')
         for (( k = 0 ; k <= $nbiter_sigma_c; k++ )); do
             sigma_c=$(awk -v k="${k}" -v a="${a3}" -v b="${b3}" 'BEGIN{print (a*k+b)}')
-            echo -e "rho $rho\nsigma_a $sigma_a\nsigma_c $sigma_c\n" > src/simu/cfg_part_1.txt
-            cat src/simu/cfg_part_1.txt src/simu/cfg_part_2.txt > src/config/dump.cfg
+            echo -e "rho $rho\nsigma_a $sigma_a\nsigma_c $sigma_c\n" > src/simu/gauss_part_1.txt
+            cat src/simu/gauss_part_1.txt src/simu/gauss_part_2.txt > src/config/dump.cfg
             build/transfer src/config/dump.cfg > /dev/null
         done
     done
