@@ -18,16 +18,16 @@ fi
 
 # Pour generer 'rho' entre rho_min et rho_max
 rho_min=0
-rho_max=5
-nbiter_rho=5
+rho_max=1
+nbiter_rho=2
 i=0
 a1=$(awk -v i="${i}" -v nbiter="${nbiter_rho}" -v min="${rho_min}" -v max="${rho_max}" 'BEGIN{print ((max-min)/(nbiter-i))}')
 b1=$(awk -v min="${rho_min}" 'BEGIN{print (min)}')
 
 # Pour generer 'sigma_a' entre sigma_a_min et sigma_a_max
-sigma_a_min=1
+sigma_a_min=0
 sigma_a_max=5
-nbiter_sigma_a=1
+nbiter_sigma_a=10
 j=0
 a2=$(awk -v j="${j}" -v nbiter="${nbiter_sigma_a}" -v min="${sigma_a_min}" -v max="${sigma_a_max}" 'BEGIN{print ((max-min)/(nbiter-j))}')
 b2=$(awk -v min="${sigma_a_min}" 'BEGIN{print (min)}')
