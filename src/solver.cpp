@@ -357,7 +357,8 @@ void Solver::solve(){
         F = F_suiv;
         T = T_suiv;
 
-        time_steps[n] = t+t_init;
+        // time_steps[n] = t+t_init;
+        time_steps[n] = t;               // ERREUR VOLONTAIRE!
         t += dt;
         n += 1;
     }

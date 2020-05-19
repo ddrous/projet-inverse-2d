@@ -1,5 +1,5 @@
-c 10000
-sigma_c 10000
+c 1000
+sigma_c 1000
 
 rho 1
 sigma_a 0

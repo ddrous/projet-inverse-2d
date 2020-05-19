@@ -34,7 +34,7 @@ b2=$(awk -v min="${sigma_a_min}" 'BEGIN{print (min)}')
 
 # Pour generer 'sigma_c' entre sigma_c_min et sigma_c_max
 sigma_c_min=1000
-sigma_c_max=10000
+sigma_c_max=1000
 nbiter_sigma_c=1
 k=0
 a3=$(awk -v k="${k}" -v nbiter="${nbiter_sigma_c}" -v min="${sigma_c_min}" -v max="${sigma_c_max}" 'BEGIN{print ((max-min)/(nbiter-k))}')
