@@ -317,12 +317,16 @@ void Solver::solve(){
         T_etoile = T;
 
         // Remplissage des mailles fantomes -> neumann naturel
-        E[0] = E[1];
-        F[0] = F[1];
-        T[0] = T[1];
+        // E[0] = E[1];
+        // F[0] = F[1];
+        F[0] = 0;                   // ERREUR VOLONTAIRE
+        // T[0] = T[1];
+        T[0] = 1;                   // ERREUR VOLONTAIRE
         E[N+1] = E[N];
         F[N+1] = F[N];
         T[N+1] = T[N];
+
+        E[0] = a*pow(T[0], 4);                   // ERREUR VOLONTAIRE
 
         /***********************************
          * Etape 2

@@ -106,7 +106,7 @@ class Solver{
         double T_exact(double t, double x);
 
         /***************
-         * Calcule T(t_0, x)
+         * Calcule T(t_0, x)        // Eviter T_0 = 0 !
          */ 
         double T_0(double x);
 
