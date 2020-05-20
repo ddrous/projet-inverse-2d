@@ -1,6 +1,6 @@
 #include <string>
 
-#include "mesh.hpp"
+#include "include/mesh.hpp"
 
 using namespace std;
 

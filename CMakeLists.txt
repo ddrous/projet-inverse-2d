@@ -7,11 +7,13 @@ project(Inverse)
 enable_testing()
 
 # Include the muParser subdirectory
+include_directories(src/include)
 include_directories(thirdparty/muparser/include)
 
 # Add source files needed
 add_executable(transfer 
     src/main.cpp 
+    src/exporter.cpp 
     src/solver.cpp 
     src/mesh.cpp 
     src/config.cpp

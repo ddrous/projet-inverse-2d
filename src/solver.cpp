@@ -4,25 +4,49 @@
 #include <cmath>
 #include <fstream>
 
-#include "solver.hpp"
+#include "include/solver.hpp"
 
 #include "muParser.h"       // Pour transformer des expressions (chaines de caracteres) en fonctions
 
 using namespace mu;
 using namespace std;
 
-Solver::Solver(Mesh *new_mesh, std::string *params){
+Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
     mesh = new_mesh;
 
-    c = atof(params[0].c_str());
-    a = atof(params[1].c_str());
+    c = atof(params["c"].c_str());
+    a = atof(params["a"].c_str());
 
-    C_v = atof(params[2].c_str());
+    C_v = atof(params["C_v"].c_str());
 
-    CFL = atof(params[3].c_str());
-    precision = atof(params[4].c_str());
-    t_0 = atof(params[5].c_str());
-    t_f = atof(params[6].c_str());
+    CFL = atof(params["CFL"].c_str());
+    precision = atof(params["precision"].c_str());
+    t_0 = atof(params["t_0"].c_str());
+    t_f = atof(params["t_f"].c_str());
+
+    rho_expr = params["rho"];
+    sigma_a_expr = params["sigma_a"];
+    sigma_c_expr = params["sigma_c"];
+
+    E = vector<double>(mesh->N+2);
+    F = vector<double>(mesh->N+2);
+    T = vector<double>(mesh->N+2);
+
+    E_0_expr = params["E_0"];
+    F_0_expr = params["F_0"];
+    T_0_expr = params["T_0"];
+
+    E_l_expr = params["E_l"];
+    F_l_expr = params["F_l"];
+    T_l_expr = params["T_l"];
+
+    E_r_expr = params["E_r"];
+    F_r_expr = params["F_r"];
+    T_r_expr = params["T_r"];
+
+    E_exact_expr = params["E_exact"];
+    F_exact_expr = params["F_exact"];
+    T_exact_expr = params["T_exact"];
 
     // Verifications preliminaires
     if (c <= 0)
@@ -44,39 +68,31 @@ Solver::Solver(Mesh *new_mesh, std::string *params){
     step_count = (int)(t_f / dt) + 1;
     time_steps = vector<double>(step_count);
 
-    rho_expr = params[7];
-    sigma_a_expr = params[8];
-    sigma_c_expr = params[9];
-
-    E = vector<double>(mesh->N+2);
-    E_exact_expr = params[10];
-    E_0_expr = params[11];
+    // A exporter
     E_left = vector<double>(step_count);
-    E_right = vector<double>(step_count);
-
-    F = vector<double>(mesh->N+2);
-    F_exact_expr = params[12];
-    F_0_expr = params[13];
-    F_left = vector<double>(step_count);
-    F_right = vector<double>(step_count);
-
-    T = vector<double>(mesh->N+2);
-    T_exact_expr = params[14];
-    T_0_expr = params[15];
     T_left = vector<double>(step_count);
+    F_left = vector<double>(step_count);
+
+    F_right = vector<double>(step_count);
+    E_right = vector<double>(step_count);
     T_right = vector<double>(step_count);
+
+    E_evol = new double *[3];
+    for (int i = 0; i < 3; i++)
+        E_evol[i] = new double[step_count];
+    
+    T_evol = new double *[5];
+    for (int i = 0; i < 5; i++)
+        T_evol[i] = new double[mesh->N];
 } 
 
 
 double Solver::rho(double x){
     static int first_call = 1;
+    
     static Parser p;
-
     p.DefineVar("x", &x); 
-    if (first_call == 1){           // Un essai d'optimisation
-        p.SetExpr(rho_expr);
-        first_call = 0;
-    }
+    if (first_call == 1){ p.SetExpr(rho_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -84,14 +100,11 @@ double Solver::rho(double x){
 
 double Solver::sigma_a(double rho, double T){
     static int first_call = 1;
-    static Parser p;
 
+    static Parser p;
     p.DefineVar("rho", &rho); 
     p.DefineVar("T", &T); 
-    if (first_call == 1){ 
-        p.SetExpr(sigma_a_expr); 
-        first_call = 0;
-    }
+    if (first_call == 1){ p.SetExpr(sigma_a_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -99,30 +112,11 @@ double Solver::sigma_a(double rho, double T){
 
 double Solver::sigma_c(double rho, double T){
     static int first_call = 1;
-    static Parser p;
 
+    static Parser p;
     p.DefineVar("rho", &rho); 
     p.DefineVar("T", &T); 
-    if (first_call == 1){
-        p.SetExpr(sigma_c_expr);
-        first_call = 0;
-    }
-
-    return p.Eval();
-}
-
-
-double Solver::E_exact(double t, double x){
-    static int first_call = 1;
-    static Parser p;
-
-    p.DefineVar("t", &t);
-    p.DefineVar("x", &x);
-    p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(E_exact_expr);
-        first_call = 0;
-    }
+    if (first_call == 1){ p.SetExpr(sigma_c_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -130,30 +124,11 @@ double Solver::E_exact(double t, double x){
 
 double Solver::E_0(double x){
     static int first_call = 1;
-    static Parser p;
 
+    static Parser p;
     p.DefineVar("x", &x);
     p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(E_0_expr);
-        first_call = 0;
-    }
-
-    return p.Eval();
-}
-
-
-double Solver::F_exact(double t, double x){
-    static int first_call = 1;
-    static Parser p;
-
-    p.DefineVar("t", &t);
-    p.DefineVar("x", &x);
-    p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(F_exact_expr);
-        first_call = 0;
-    }
+    if (first_call == 1){ p.SetExpr(E_0_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -161,30 +136,11 @@ double Solver::F_exact(double t, double x){
 
 double Solver::F_0(double x){
     static int first_call = 1;
-    static Parser p;
 
+    static Parser p;
     p.DefineVar("x", &x); 
     p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(F_0_expr);
-        first_call = 0;
-    }
-
-    return p.Eval();
-}
-
-
-double Solver::T_exact(double t, double x){
-    static int first_call = 1;
-    static Parser p;
-
-    p.DefineVar("t", &t);
-    p.DefineVar("x", &x);
-    p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(T_exact_expr);
-        first_call = 0;
-    }
+    if (first_call == 1){ p.SetExpr(F_0_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -192,14 +148,145 @@ double Solver::T_exact(double t, double x){
 
 double Solver::T_0(double x){
     static int first_call = 1;
-    static Parser p;
 
+    static Parser p;
     p.DefineVar("x", &x); 
     p.DefineVar("t_0", &t_0);
-    if (first_call == 1){
-        p.SetExpr(T_0_expr);
-        first_call = 0;
+    if (first_call == 1){ p.SetExpr(T_0_expr); first_call = 0; }
+
+    return p.Eval();
+}
+
+
+double Solver::E_l(double t){
+    static int first_call = 1;
+    static int neumann = E_l_expr.compare("neumann");
+
+    if (neumann == 0)
+        return E[1];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x_min", &mesh->cells[1][0]);
+        if (first_call == 1){ p.SetExpr(E_l_expr); first_call = 0; }
+        return p.Eval();
     }
+}
+
+
+double Solver::F_l(double t){
+    static int first_call = 1;
+    static int neumann = F_l_expr.compare("neumann");
+
+    if (neumann == 0)
+        return F[1];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t); 
+        p.DefineVar("x_min", &mesh->cells[1][0]);
+        if (first_call == 1){ p.SetExpr(F_l_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::T_l(double t){
+    static int first_call = 1;
+    static int neumann = T_l_expr.compare("neumann");
+
+    if (neumann == 0)
+        return T[1];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t); 
+        p.DefineVar("x_min", &mesh->cells[1][0]);
+        if (first_call == 1){ p.SetExpr(T_l_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::E_r(double t){
+    static int first_call = 1;
+    static int neumann = E_r_expr.compare("neumann");
+
+    if (neumann == 0)
+        return E[mesh->N];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        if (first_call == 1){ p.SetExpr(E_r_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::F_r(double t){
+    static int first_call = 1;
+    static int neumann = F_r_expr.compare("neumann");
+    if (neumann == 0)
+        return F[mesh->N];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t); 
+        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        if (first_call == 1){ p.SetExpr(F_r_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::T_r(double t){
+    static int first_call = 1;
+    static int neumann = T_r_expr.compare("neumann");
+
+    if (neumann == 0)
+        return T[mesh->N];
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t); 
+        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        if (first_call == 1){ p.SetExpr(T_r_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::E_exact(double t, double x){
+    static int first_call = 1;
+
+    static Parser p;
+    p.DefineVar("t", &t);
+    p.DefineVar("x", &x);
+    p.DefineVar("t_0", &t_0);
+    if (first_call == 1){ p.SetExpr(E_exact_expr); first_call = 0; }
+
+    return p.Eval();
+}
+
+
+double Solver::F_exact(double t, double x){
+    static int first_call = 1;
+
+    static Parser p;
+    p.DefineVar("t", &t);
+    p.DefineVar("x", &x);
+    p.DefineVar("t_0", &t_0);
+    if (first_call == 1){ p.SetExpr(F_exact_expr); first_call = 0; }
+
+    return p.Eval();
+}
+
+
+double Solver::T_exact(double t, double x){
+    static int first_call = 1;
+
+    static Parser p;
+    p.DefineVar("t", &t);
+    p.DefineVar("x", &x);
+    p.DefineVar("t_0", &t_0);
+    if (first_call == 1){ p.SetExpr(T_exact_expr); first_call = 0; }
 
     return p.Eval();
 }
@@ -273,6 +360,23 @@ void Solver::solve(){
         F_right[n] = F[N];
         T_right[n] = T[N];
 
+        // Evolution de l'energie en 3 points
+        E_evol[0][n] = E[1];
+        E_evol[1][n] = E[(N+1)/2];
+        E_evol[2][n] = E[N];
+
+        // Evolution de la temperature sur tout le domaine
+        if (n == 1) 
+            for (int j = 1; j < N+1; j++) T_evol[0][j] = T[j];
+        else if (n == 1*step_count/4)
+            for (int j = 1; j < N+1; j++) T_evol[1][j] = T[j];
+        else if (n == 2*step_count/4)
+            for (int j = 1; j < N+1; j++) T_evol[2][j] = T[j];
+        else if (n == 3*step_count/4)
+            for (int j = 1; j < N+1; j++) T_evol[3][j] = T[j];
+        else if (n == step_count-1)
+            for (int j = 1; j < N+1; j++) T_evol[4][j] = T[j];
+
         for (int j = 1; j < N+1; j++){
             // Initialisation etape 1
             E_n = E[j];
@@ -316,17 +420,13 @@ void Solver::solve(){
         F_etoile = F;
         T_etoile = T;
 
-        // Remplissage des mailles fantomes -> neumann naturel
-        // E[0] = E[1];
-        // F[0] = F[1];
-        F[0] = 0;                   // ERREUR VOLONTAIRE
-        // T[0] = T[1];
-        T[0] = 1;                   // ERREUR VOLONTAIRE
-        E[N+1] = E[N];
-        F[N+1] = F[N];
-        T[N+1] = T[N];
-
-        E[0] = a*pow(T[0], 4);                   // ERREUR VOLONTAIRE
+        // Remplissage des mailles fantomes
+        E[0] = E_l(t);
+        F[0] = F_l(t);
+        T[0] = T_l(t);
+        E[N+1] = E_r(t);
+        F[N+1] = F_r(t);
+        T[N+1] = T_r(t);
 
         /***********************************
          * Etape 2
@@ -385,223 +485,12 @@ void Solver::display(){
 };
 
 
-void Solver::export_temporal(std::string file_name){
-    ofstream file;
-    file.open(file_name, ios_base::app);             // Ajout dans le fichier
-    if(!file)
-        throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
+Solver::~ Solver(){
+    for (int i = 0; i < 3; i++)
+        delete[] E_evol[i];
+    delete[] E_evol;
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_0 << "," << t_f << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_0_expr << "\",\"" << F_0_expr << "\",\"" << T_0_expr << "\"," << dt << "," << step_count << ",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << time_steps[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    //************************** Sol numerique
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << E_left[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << E_right[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << F_left[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << F_right[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << T_left[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << T_right[n];
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    //************************** Sol exacte
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << E_exact(time_steps[n], mesh->cells[1][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << E_exact(time_steps[n], mesh->cells[mesh->N][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << F_exact(time_steps[n], mesh->cells[1][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << F_exact(time_steps[n], mesh->cells[mesh->N][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << T_exact(time_steps[n], mesh->cells[1][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int n = 0; n < step_count; n++){
-        file << T_exact(time_steps[n], mesh->cells[mesh->N][1]);
-        if (n != step_count-1) file << ", ";
-    }
-    file << "]\"\n";
-
-    file.close();
-};
-
-
-void Solver::export_spatial(std::string file_name){
-    ofstream file;
-    file.open(file_name, ios_base::app);             // Ajout dans le fichier
-    if(!file)
-        throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
-
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_0 << "," << t_f << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_0_expr << "\",\"" << F_0_expr << "\",\"" << T_0_expr << "\"," << dt << "," << step_count << ",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << mesh->cells[j][1];
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << rho(mesh->cells[j][1]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << sigma_a(rho(mesh->cells[j][1]), T[j]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << sigma_c(rho(mesh->cells[j][1]), T[j]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-     
-    //************************** Sol initiale
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << E_0(mesh->cells[j][1]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << F_0(mesh->cells[j][1]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << T_0(mesh->cells[j][1]);
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    //************************** Sol numerique finale
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << E[j];
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << F[j];
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << T[j];
-        if (j != mesh->N)
-            file << ", ";
-    }
-    file << "]\",";
-
-    //************************** Sol exacte finale
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << E_exact(time_steps[step_count-1], mesh->cells[j][1]);
-        if (j != mesh->N) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << F_exact(time_steps[step_count-1], mesh->cells[j][1]);
-        if (j != mesh->N) file << ", ";
-    }
-    file << "]\",";
-
-    file << "\"[";
-    for (int j = 1; j < mesh->N+1; j++){
-        file << T_exact(time_steps[step_count-1], mesh->cells[j][1]);
-        if (j != mesh->N) file << ", ";
-    }
-    file << "]\"\n";
-
-    file.close();
+    for (int i = 0; i < 5; i++)
+        delete[] T_evol[i];
+    delete[] T_evol;
 };

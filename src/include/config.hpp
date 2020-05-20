@@ -10,12 +10,10 @@ class Config{
     public:
         // nom du fichier config
         std::string file_name;
-        // noms des parametres et leurs identifiants
-        std::map<std::string, int> names;
+        // noms des parametres et leurs valeurs
+        std::map<std::string, std::string> values;
         // nombre de parametres
         int size;
-        // valeurs des parametres (tous comme des chaines de caracteres)
-        std::string *values;
 
         /***************
          * Constructeur

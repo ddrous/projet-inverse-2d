@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 
-#include "mesh.hpp"
-#include "solver.hpp"
-#include "config.hpp"
+#include "include/mesh.hpp"
+#include "include/solver.hpp"
+#include "include/config.hpp"
+#include "include/exporter.hpp"
 
 #include "muParser.h"
 
@@ -24,32 +25,40 @@ int main(int argc, char * argv[]){
         cout << "Lecture OK !" << endl;
 
         // Creation d'un maillage uniforme
-        double x_min = atof(cfg.values[0].c_str());
-        double x_max = atof(cfg.values[1].c_str());
-        int N = atoi(cfg.values[2].c_str());
+        double x_min = atof(cfg.values["x_min"].c_str());
+        double x_max = atof(cfg.values["x_max"].c_str());
+        int N = atoi(cfg.values["N"].c_str());
         Mesh m = Mesh(x_min, x_max, N);
         cout << "\nCreation des " << m.N+2 << " mailles en cours ... " << endl;
         m.create_cells();
         cout << "Creation OK !" << endl;
     
         // Resolution du probleme
-        Solver s = Solver(&m, &cfg.values[3]);
+        Solver s = Solver(&m, cfg.values);
         cout << "\nResolution (" << s.step_count << " iterations) en cours ..." << endl;
         s.solve();
         cout << "Resolution OK !" << endl;
-
-        cout << "\nExportation des resultats en cours ..." << endl;
-        s.export_temporal(cfg.values[19]);
-        s.export_spatial(cfg.values[20]);
-        cout << "Export OK !" << endl;
-
         // cout << "\nSignaux au temps final:" << endl;
         // s.display();
 
-        cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << cfg.values[19] << "'"  << endl;
-        cout << "Signaux au temps final sur tout le domaine exportes dans '" << cfg.values[20] << "'"  << endl << endl;
+        // Exportation
+        Exporter ex = Exporter(&s);
+        cout << "\nExportation des resultats en cours ..." << endl;
+        // ex.spatial(cfg.values["export_spatial"], "append");
+        // ex.temporal(cfg.values["export_temporal"], "append");
+        ex.case_1("data/case_1_spatial.csv", "data/case_1_temporal.csv");
+        ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
+        ex.case_3("data/case_3_spatial.csv", "data/case_3_temporal.csv");
+        cout << "Export OK !" << endl;
 
-        cout << "================================================"  << endl << endl;
+        cout << "\nResultats du cas test 1 dans:  -- 'data/case_1_spatial.csv'  -- 'data/case_1_temporal.csv'" << endl;
+        cout << "Resultats du cas test 2 dans:  -- 'data/case_2_spatial.csv'  -- 'data/case_2_temporal.csv'" << endl;
+        cout << "Resultats du cas test 3 dans:  -- 'data/case_3_spatial.csv'" << endl;
+
+        // cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << cfg.values["export_spatial"] << "'"  << endl;
+        // cout << "Signaux au temps final sur tout le domaine exportes dans '" << cfg.values["export_temporal"] << "'"  << endl;
+
+        cout << "\n================================================"  << endl << endl;
     }
     catch(const string &e){
         cerr << endl << e << endl << endl;

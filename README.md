@@ -15,8 +15,8 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Avec Cmake: `cmake --build build`
 
 ### Exécution
-- Pour une simple exécution: __`build/transfer src/config/dump.cfg`__ [Voir les autres fichiers de configuration](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)
-- Pour générer les données à étudier: __`bash src/simu/gauss_dump.sh`__
+- Pour une simple exécution: __`build/transfer src/config/case_1.cfg`__ [Voir case_2 et case_3 pour les autres cas test](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)
+- Pour générer un tas de données à étudier: __`bash src/simu/gauss_dump.sh`__
 
 ### Résultats
 - __`data/df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps.
