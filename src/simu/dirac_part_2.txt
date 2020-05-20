@@ -6,13 +6,13 @@ a 1
 C_v 1
 CFL 0.99
 precision 1e-6
-t_init 0.002
-t_simu 0.02
+t_0 0.002
+t_f 0.02
 
-E_init exp(-((x-0.5)^2)/(4*1*(t_init)))/(2*sqrt(_pi*1*(t_init)))
-F_init 0
-T_init 0
+E_0 exp(-((x-0.5)^2)/(4*1*(t_0)))/(2*sqrt(_pi*1*(t_0)))
+F_0 0
+T_0 0
 
-E_exact exp(-((x-0.5)^2)/(4*1*(t+t_init)))/(2*sqrt(_pi*1*(t+t_init)))
+E_exact exp(-((x-0.5)^2)/(4*1*(t+t_0)))/(2*sqrt(_pi*1*(t+t_0)))
 F_exact 0
 T_exact 1

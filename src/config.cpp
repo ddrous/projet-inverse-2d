@@ -17,17 +17,17 @@ Config::Config(string file_path){
     names["C_v"] = 5;
     names["CFL"] = 6;
     names["precision"] = 7;
-    names["t_init"] = 8;
-    names["t_simu"] = 9;
+    names["t_0"] = 8;
+    names["t_f"] = 9;
     names["rho"] = 10;
     names["sigma_a"] = 11;
     names["sigma_c"] = 12;
     names["E_exact"] = 13;
-    names["E_init"] = 14;
+    names["E_0"] = 14;
     names["F_exact"] = 15;
-    names["F_init"] = 16;
+    names["F_0"] = 16;
     names["T_exact"] = 17;
-    names["T_init"] = 18;
+    names["T_0"] = 18;
     names["export_temporal"] = 19;
     names["export_spatial"] = 20;
 

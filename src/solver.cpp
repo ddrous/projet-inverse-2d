@@ -21,8 +21,8 @@ Solver::Solver(Mesh *new_mesh, std::string *params){
 
     CFL = atof(params[3].c_str());
     precision = atof(params[4].c_str());
-    t_init = atof(params[5].c_str());
-    t_simu = atof(params[6].c_str());
+    t_0 = atof(params[5].c_str());
+    t_f = atof(params[6].c_str());
 
     // Verifications preliminaires
     if (c <= 0)
@@ -35,13 +35,13 @@ Solver::Solver(Mesh *new_mesh, std::string *params){
         throw string("ERREUR: Vérifiez que CFL > 0");
     if (precision <= 0)
         throw string("ERREUR: Vérifiez que la precision est > 0");
-    if (t_init < 0)
-        throw string("ERREUR: Vérifiez que t_init >= 0");
-    if (t_simu <= 0)
-        throw string("ERREUR: Vérifiez que t_simu > 0");
+    if (t_0 < 0)
+        throw string("ERREUR: Vérifiez que t_0 >= 0");
+    if (t_f <= 0)
+        throw string("ERREUR: Vérifiez que t_f > 0");
 
     dt = CFL * mesh->dx/c;
-    step_count = (int)(t_simu / dt) + 1;
+    step_count = (int)(t_f / dt) + 1;
     time_steps = vector<double>(step_count);
 
     rho_expr = params[7];
@@ -50,19 +50,19 @@ Solver::Solver(Mesh *new_mesh, std::string *params){
 
     E = vector<double>(mesh->N+2);
     E_exact_expr = params[10];
-    E_init_expr = params[11];
+    E_0_expr = params[11];
     E_left = vector<double>(step_count);
     E_right = vector<double>(step_count);
 
     F = vector<double>(mesh->N+2);
     F_exact_expr = params[12];
-    F_init_expr = params[13];
+    F_0_expr = params[13];
     F_left = vector<double>(step_count);
     F_right = vector<double>(step_count);
 
     T = vector<double>(mesh->N+2);
     T_exact_expr = params[14];
-    T_init_expr = params[15];
+    T_0_expr = params[15];
     T_left = vector<double>(step_count);
     T_right = vector<double>(step_count);
 } 
@@ -118,7 +118,7 @@ double Solver::E_exact(double t, double x){
 
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
         p.SetExpr(E_exact_expr);
         first_call = 0;
@@ -128,14 +128,14 @@ double Solver::E_exact(double t, double x){
 }
 
 
-double Solver::E_init(double x){
+double Solver::E_0(double x){
     static int first_call = 1;
     static Parser p;
 
     p.DefineVar("x", &x);
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
-        p.SetExpr(E_init_expr);
+        p.SetExpr(E_0_expr);
         first_call = 0;
     }
 
@@ -149,7 +149,7 @@ double Solver::F_exact(double t, double x){
 
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
         p.SetExpr(F_exact_expr);
         first_call = 0;
@@ -159,14 +159,14 @@ double Solver::F_exact(double t, double x){
 }
 
 
-double Solver::F_init(double x){
+double Solver::F_0(double x){
     static int first_call = 1;
     static Parser p;
 
     p.DefineVar("x", &x); 
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
-        p.SetExpr(F_init_expr);
+        p.SetExpr(F_0_expr);
         first_call = 0;
     }
 
@@ -180,7 +180,7 @@ double Solver::T_exact(double t, double x){
 
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
         p.SetExpr(T_exact_expr);
         first_call = 0;
@@ -190,14 +190,14 @@ double Solver::T_exact(double t, double x){
 }
 
 
-double Solver::T_init(double x){
+double Solver::T_0(double x){
     static int first_call = 1;
     static Parser p;
 
     p.DefineVar("x", &x); 
-    p.DefineVar("t_init", &t_init);
+    p.DefineVar("t_0", &t_0);
     if (first_call == 1){
-        p.SetExpr(T_init_expr);
+        p.SetExpr(T_0_expr);
         first_call = 0;
     }
 
@@ -252,19 +252,19 @@ void Solver::solve(){
     // Initialisation de la doucle de resolution
     for (int j = 1; j < N+1; j++){
         double x = mesh->cells[j][1];           // Centre de la maille
-        E[j] = E_init(x);
-        F[j] = F_init(x);
-        T[j] = T_init(x);
+        E[j] = E_0(x);
+        F[j] = F_0(x);
+        T[j] = T_0(x);
     }
 
-    // Temps courant (translate de t_init) et indice de l'iteration
+    // Temps courant (translate de t_0) et indice de l'iteration
     double t = 0;
     int n = 0;
 
     /**
      * Boucle de resolution
      */
-    while (t <= t_simu){
+    while (t <= t_f){
         // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
         E_left[n] = E[1];
         F_left[n] = F[1];
@@ -387,7 +387,7 @@ void Solver::export_temporal(std::string file_name){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_init << "," << t_simu << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_init_expr << "\",\"" << F_init_expr << "\",\"" << T_init_expr << "\"," << dt << "," << step_count << ",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_0 << "," << t_f << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_0_expr << "\",\"" << F_0_expr << "\",\"" << T_0_expr << "\"," << dt << "," << step_count << ",";
 
     file << "\"[";
     for (int n = 0; n < step_count; n++){
@@ -449,7 +449,7 @@ void Solver::export_temporal(std::string file_name){
 
     file << "\"[";
     for (int n = 0; n < step_count; n++){
-        file << E_exact(time_steps[n], mesh->cells[mesh->N][1]);
+        file << E_exact(time_steps[n], mesh->cells[mesh->N/2][1]);                  // ERREUR VOLONTAIRE!
         if (n != step_count-1) file << ", ";
     }
     file << "]\",";
@@ -492,7 +492,7 @@ void Solver::export_spatial(std::string file_name){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_init << "," << t_simu << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_init_expr << "\",\"" << F_init_expr << "\",\"" << T_init_expr << "\"," << dt << "," << step_count << ",";
+    file << mesh->x_min << "," << mesh->x_max << "," << mesh->N << "," << c << "," << a << "," << C_v << ","<< CFL << "," << precision << "," << t_0 << "," << t_f << ",\"" << rho_expr << "\",\"" << sigma_a_expr << "\",\"" << sigma_c_expr << "\",\"" << E_0_expr << "\",\"" << F_0_expr << "\",\"" << T_0_expr << "\"," << dt << "," << step_count << ",";
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
@@ -529,7 +529,7 @@ void Solver::export_spatial(std::string file_name){
     //************************** Sol initiale
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << E_init(mesh->cells[j][1]);
+        file << E_0(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }
@@ -537,7 +537,7 @@ void Solver::export_spatial(std::string file_name){
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << F_init(mesh->cells[j][1]);
+        file << F_0(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }
@@ -545,7 +545,7 @@ void Solver::export_spatial(std::string file_name){
 
     file << "\"[";
     for (int j = 1; j < mesh->N+1; j++){
-        file << T_init(mesh->cells[j][1]);
+        file << T_0(mesh->cells[j][1]);
         if (j != mesh->N)
             file << ", ";
     }
