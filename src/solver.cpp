@@ -77,11 +77,11 @@ Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
     E_right = vector<double>(step_count);
     T_right = vector<double>(step_count);
 
-    E_evol = new double *[3];
+    E_evol = new double*[3];
     for (int i = 0; i < 3; i++)
         E_evol[i] = new double[step_count];
     
-    T_evol = new double *[5];
+    T_evol = new double*[5];
     for (int i = 0; i < 5; i++)
         T_evol[i] = new double[mesh->N];
 } 

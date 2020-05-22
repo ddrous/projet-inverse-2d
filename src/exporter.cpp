@@ -102,7 +102,7 @@ void Exporter::case_3(std::string file_spatial, std::string file_temporal){
 
 void Exporter::spatial(std::string file_name, std::string mode){
     ofstream file;
-    if ((mode == "append") == 0)
+    if (mode.compare("append") == 0)
         file.open(file_name, ios_base::app);
     else
         file.open(file_name, ios_base::trunc);
@@ -205,7 +205,7 @@ void Exporter::spatial(std::string file_name, std::string mode){
 
 void Exporter::temporal(std::string file_name, std::string mode){
     ofstream file;
-    if ((mode == "append") == 0)
+    if (mode.compare("append") == 0)
         file.open(file_name, ios_base::app);
     else
         file.open(file_name, ios_base::trunc);
@@ -267,7 +267,7 @@ void Exporter::temporal(std::string file_name, std::string mode){
         file << s.T_right[n];
         if (n != s.step_count-1) file << ", ";
     }
-    file << "]\",";
+    file << "]\"\n";
 
     file.close();
 }

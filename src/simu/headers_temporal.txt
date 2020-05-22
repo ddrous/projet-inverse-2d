@@ -1,1 +1,1 @@
-x_min,x_max,N,c,a,C_v,CFL,precision,t_0,t_f,rho_expr,sigma_a_expr,sigma_c_expr,E_0_expr,F_0_expr,T_0_expr,dt,step_count,t,E_left,E_right,F_left,F_right,T_left,T_right,E_exact_left,E_exact_right,F_exact_left,F_exact_right,T_exact_left,T_exact_right
+x_min,x_max,N,c,a,C_v,CFL,precision,t_0,t_f,rho_expr,sigma_a_expr,sigma_c_expr,E_0_expr,F_0_expr,T_0_expr,dt,step_count,t,E_left,E_right,F_left,F_right,T_left,T_right
