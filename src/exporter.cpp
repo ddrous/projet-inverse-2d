@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 
+#include <cmath>
 #include "include/exporter.hpp"
 
 using namespace std;
@@ -90,10 +91,15 @@ void Exporter::case_3(std::string file_spatial, std::string file_temporal){
     Solver &s = *solver;        // Pou raccourcir
     int n = s.step_count;
 
-    file << "x, t=" << 0 << ", t=t_f/4, t=t_f/2, t=3*t_f/4, t=t_f" << "\n";
+    // file << "x, t=" << 0 << ", t=t_f/4, t=t_f/2, t=3*t_f/4, t=t_f" << "\n";
+    // file << "x, T, E" << "\n";
+    file << "x, T_radiation, T_matter" << "\n";
 
     for (int j = 1; j < s.mesh->N+1; j++){
-        file << s.mesh->cells[j][1] << "," << s.T_evol[0][j] << "," << s.T_evol[1][j] << "," << s.T_evol[2][j] << "," << s.T_evol[3][j] << "," << s.T_evol[4][j] << "\n" ;
+        // file << s.mesh->cells[j][1] << "," << s.T_evol[0][j] << "," << s.T_evol[1][j] << "," << s.T_evol[2][j] << "," << s.T_evol[3][j] << "," << s.T_evol[4][j] << "\n" ;
+        // file << s.mesh->cells[j][1] << "," << s.T[j] << "," << s.E[j] << "\n" ;
+        file << s.mesh->cells[j][1] << "," << s.T[j] << "," << pow(s.E[j]/s.a, 0.25) << "\n" ;
+        // file << s.mesh->cells[j][1] << "," << s.T[j] << "," << s.T[j] << "\n";
     }
 
     file.close();
