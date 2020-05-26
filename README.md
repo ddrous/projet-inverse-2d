@@ -15,7 +15,7 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Avec Cmake: `cmake --build build`
 
 ### Exécution
-- Pour une simple exécution: __`build/transfer src/config/case_1.cfg`__ [Voir case_2 et case_3 pour les autres cas test](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)
+- Pour une simple exécution: __`build/transfer src/config/case_1.cfg`__ [Voir case_2 et case_3 pour les autres cas test](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)     
 Explication du format des fichiers de configuration:  
 ![Instructions for configuration](data/img/config.png)
 
