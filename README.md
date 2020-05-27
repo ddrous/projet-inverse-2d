@@ -4,9 +4,8 @@
 Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis et les réseaux de neurones.
 
 ### Documents
-- Indications et travail à faire: `doc/projetM1.pdf`
-- Rapport version 0: `doc/rapport_v0.pdf`
-- Rapport version 1: `doc/rapport_v1.pdf`
+- Indications et travail à faire: `doc/projetM1.pdf`  
+- Rapport version finale: `doc/rapport_vfinale.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
@@ -16,7 +15,8 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 
 ### Exécution
 - Pour une simple exécution: __`build/transfer src/config/case_1.cfg`__ [Voir case_2 et case_3 pour les autres cas test](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)     
-Explication du format des fichiers de configuration:  
+
+__Format des fichiers de configuration:__  
 ![Instructions for configuration](data/img/config.png)
 
 - Pour générer un tas de données à étudier: __`bash src/simu/gauss_dump.sh`__ 
