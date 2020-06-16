@@ -158,6 +158,11 @@ class Solver{
          */ 
         double T_exact(double t, double x);
 
+        /**
+         * Exporte les solution spatiale a un pas de temps precis
+         */
+        void save_animation(int time_step);
+
         /***************
          * Resout le probleme et exporte les resultats au fur et a mesure
          */

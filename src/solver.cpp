@@ -65,7 +65,11 @@ Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
         throw string("ERREUR: Vérifiez que t_f > 0");
 
     dt = CFL * mesh->dx/c;
-    step_count = (int)(t_f / dt) + 1;
+    double tmp = t_f / dt;
+    if (tmp == floor(tmp))        // si entier
+        step_count = floor(tmp);
+    else
+        step_count = floor(tmp) + 1;
     time_steps = vector<double>(step_count);
 
     // A exporter
@@ -86,15 +90,84 @@ Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
         T_evol[i] = new double[mesh->N];
 } 
 
+/**
+ * Laplacian smoothing (k-means) d'un vecteur
+ */ 
+vector<double> smooth(vector<double>& input){
+    int size = input.size();
+    vector<double> output(size);
+    
+    output[0] = (input[0]+input[1]+input[2]) / 3;
+    for (int j = 1; j < size-1; j++){
+        output[j] = (input[j-1]+input[j]+input[j+1]) / 3;
+    }
+    output[size-1] = (input[size-3]+input[size-2]+input[size-1]) / 3;
+
+    return output;
+}
+
+/**
+ * Calcule rho sous forme de fonction crenaux
+ */ 
+double niche(double x, int nb, double y_min, double y_max, Mesh* mesh, int smooth_nb){
+    static int first_call = 1;
+
+    // Vecteur contenant le signal
+    static vector<double> values(mesh->N+2);
+
+    if (first_call==1){
+        // Les attributs des crenaux pris au hazard
+        double ** attr = new double*[nb];
+        for (int i = 0; i < nb; i++)
+            attr[i] = new double[3];
+
+        srand(time(NULL));
+        for (int k = 0; k < nb; k++){
+            attr[k][0] = rand() % mesh->N + 1;                     // position
+            attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
+            attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
+        }
+        
+        // Recherche des pics dans le vecteur d'entre
+        for (int j = 0; j < mesh->N+2; j++){
+            values[j] = y_min;
+            for (int k = 0; k < nb; k++){
+                if (abs(j - attr[k][0]) <= attr[k][1]){
+                    values[j] = attr[k][2];
+                    break;
+                }
+            }
+        }
+
+        // Suppression des attributs maintenatn inutiles
+        for (int j = 0; j < nb; j++)
+            delete[] attr[j];
+        delete[] attr;
+
+        // Lissage du signal
+        for (int i = 0; i < smooth_nb; i++)
+            values = smooth(values);
+
+    first_call = 0;
+    }
+
+    int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));
+    return values[index + 1];
+}
+
 
 double Solver::rho(double x){
     static int first_call = 1;
-    
-    static Parser p;
-    p.DefineVar("x", &x); 
-    if (first_call == 1){ p.SetExpr(rho_expr); first_call = 0; }
+    static int rho_niche = rho_expr.compare("crenaux");
 
-    return p.Eval();
+    if (rho_niche == 0)
+        return niche(x, 1, 1, 300, mesh, 50);
+    else{
+        static Parser p;
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(rho_expr); first_call = 0; }
+        return p.Eval();
+    }
 }
 
 
@@ -324,6 +397,24 @@ double flux_F(double flux_M, double F_left, double F_right, double E_left, doubl
 }
 
 
+void Solver::save_animation(int time_step){
+    string file_name = "data/anim/animation." + to_string(time_step) + ".csv";
+    ofstream file;
+    file.open(file_name, ios_base::trunc);
+
+    if(!file)
+        throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
+
+    file << "x,rho,E,F,T\n";
+
+    for (int j = 1; j < mesh->N+1; j++){
+        file << mesh->cells[j][1] << "," << rho(mesh->cells[j][1]) << "," << E[j] << "," << F[j] << "," << T[j] << "\n";
+    }
+
+    file.close();
+}
+
+
 void Solver::solve(){
     // Raccourcissons les noms des constantes
     int N = mesh->N;            // Nombre de mailles interieures
@@ -460,6 +551,8 @@ void Solver::solve(){
         E = E_suiv;
         F = F_suiv;
         T = T_suiv;
+
+        this->save_animation(n);
 
         time_steps[n] = t;
         t += dt;
