@@ -123,9 +123,14 @@ double niche(double x, int nb, double y_min, double y_max, Mesh* mesh, int smoot
 
         srand(time(NULL));
         for (int k = 0; k < nb; k++){
-            attr[k][0] = rand() % mesh->N + 1;                     // position
-            attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
-            attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
+            // attr[k][0] = rand() % mesh->N + 1;                     // position
+            // attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
+            // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
+            
+            /* pour 1 creneau et N = 500 */
+            attr[k][0] = 350;                     // position
+            attr[k][1] = 25;                  // largeur
+            attr[k][2] = y_max;    // hauteur
         }
         
         // Recherche des pics dans le vecteur d'entre
@@ -161,7 +166,7 @@ double Solver::rho(double x){
     static int rho_niche = rho_expr.compare("crenaux");
 
     if (rho_niche == 0)
-        return niche(x, 1, 1, 300, mesh, 50);
+        return niche(x, 1, 1, 10.0, mesh, 50);
     else{
         static Parser p;
         p.DefineVar("x", &x);
@@ -187,7 +192,7 @@ double Solver::sigma_c(double rho, double T){
     static int first_call = 1;
 
     static Parser p;
-    p.DefineVar("rho", &rho); 
+    p.DefineVar("rho", &rho);
     p.DefineVar("T", &T); 
     if (first_call == 1){ p.SetExpr(sigma_c_expr); first_call = 0; }
 
@@ -405,10 +410,10 @@ void Solver::save_animation(int time_step){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    file << "x,rho,E,F,T\n";
+    file << "x,rho,E,F,T,Tr\n";
 
     for (int j = 1; j < mesh->N+1; j++){
-        file << mesh->cells[j][1] << "," << rho(mesh->cells[j][1]) << "," << E[j] << "," << F[j] << "," << T[j] << "\n";
+        file << mesh->cells[j][1] << "," << rho(mesh->cells[j][1]) << "," << E[j] << "," << F[j] << "," << T[j] << "," << pow(E[j]/a, 0.25) << "\n";
     }
 
     file.close();
@@ -495,6 +500,8 @@ void Solver::solve(){
                 double alpha = 1/dt/tmp_1;
                 double beta = c*sigma_a_tmp/tmp_1;
                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
+                if (isnan(mu_q))
+                    cerr << "ATTENTION! mu = " << mu_q << endl;
                 double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
                 double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
                 double delta = c*sigma_a_tmp/tmp_2;
