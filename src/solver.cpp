@@ -448,6 +448,9 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
+        // Sauvegarde de l'animation
+        this->save_animation(n);
+
         // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
         E_left[n] = E[1];
         F_left[n] = F[1];
@@ -558,8 +561,6 @@ void Solver::solve(){
         E = E_suiv;
         F = F_suiv;
         T = T_suiv;
-
-        this->save_animation(n);
 
         time_steps[n] = t;
         t += dt;

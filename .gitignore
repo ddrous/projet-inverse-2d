@@ -5,3 +5,4 @@ spreading.exe
 spreading
 build/*
 !build/transfer
+data/anim/*
