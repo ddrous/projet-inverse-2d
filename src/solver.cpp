@@ -128,8 +128,8 @@ double niche(double x, int nb, double y_min, double y_max, Mesh* mesh, int smoot
             // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
             
             /* pour 1 creneau et N = 500 */
-            attr[k][0] = 350;                     // position
-            attr[k][1] = 25;                  // largeur
+            attr[k][0] = (int)(0.7*mesh->N);                     // position
+            attr[k][1] = (int)(0.05*mesh->N);                  // largeur
             attr[k][2] = y_max;    // hauteur
         }
         
@@ -166,7 +166,7 @@ double Solver::rho(double x){
     static int rho_niche = rho_expr.compare("crenaux");
 
     if (rho_niche == 0)
-        return niche(x, 1, 1, 10.0, mesh, 50);
+        return niche(x, 1, 1, 10.0, mesh, (int)(0.1*mesh->N));
     else{
         static Parser p;
         p.DefineVar("x", &x);
