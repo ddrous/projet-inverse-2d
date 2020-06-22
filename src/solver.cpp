@@ -383,8 +383,8 @@ double flux_sigma_c(double sigma_c_left, double sigma_c_right){
 /**
  * Calcule les flux M_{j+1/2} et M_{j-1/2}
  */ 
-double flux_M(double Delta_x, double flux_sigma_c){
-    return 2 / (2 + Delta_x * flux_sigma_c);
+double flux_M(double dx, double flux_sigma_c){
+    return 2 / (2 + dx * flux_sigma_c);
 }
 
 
@@ -392,7 +392,7 @@ double flux_M(double Delta_x, double flux_sigma_c){
  * Calcule les flux E_{j+1/2} et E_{j-1/2}
  */ 
 double flux_E(double flux_M, double E_left, double E_right, double F_left, double F_right){
-    return flux_M * ((E_right + E_left)/2 - (F_right - F_left)/2);
+    return flux_M * ((E_right + E_left) / 2 - (F_right - F_left) / 2);
 }
 
 
@@ -400,7 +400,7 @@ double flux_E(double flux_M, double E_left, double E_right, double F_left, doubl
  * Calcule les flux F_{j+1/2} et F_{j-1/2}
  */ 
 double flux_F(double flux_M, double F_left, double F_right, double E_left, double E_right){
-    return flux_M * ((F_right + F_left)/2 - (E_right - E_left)/2);
+    return flux_M * ((F_right + F_left) / 2 - (E_right - E_left) / 2);
 }
 
 
@@ -422,14 +422,14 @@ void Solver::save_animation(int time_step){
 }
 
 
-void Solver::step_1(vector_t &E, vector_t &F, vector_t &T){
+void Solver::phase_1(){
     /* Des variables necessaires pour cette etape */
     double Theta;       // Theta = a*T^4 
     double E_n, F_n, T_n, Theta_n; 
     double E_next, F_next, Theta_next;
     
     for (int j = 1; j < mesh->N+1; j++){
-        // Initialisation etape 1
+        // Initialisation etape 1 
         E_n = E[j];
         F_n = F[j];
         T_n = T[j];
@@ -444,17 +444,19 @@ void Solver::step_1(vector_t &E, vector_t &F, vector_t &T){
             E[j] = E_next;
             F[j] = F_next;
             Theta = Theta_next;
+            
             T[j] = pow(Theta/a, 0.25);
-
             double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
             if (isnan(mu_q))
                 cerr << "ATTENTION! mu = nan" << endl;
 
             double rho_tmp = rho(mesh->cells[j][1]);
             double sigma_a_tmp = sigma_a(rho_tmp, T[j]);
+
             double tmp_1 = (1/dt) + c*sigma_a_tmp;
             double alpha = 1/dt/tmp_1;
             double beta = c*sigma_a_tmp/tmp_1;
+
             double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
             double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
             double delta = c*sigma_a_tmp/tmp_2;
@@ -468,7 +470,53 @@ void Solver::step_1(vector_t &E, vector_t &F, vector_t &T){
 };
 
 
-void Solver::step_2(vector_t &E, vector_t &F, vector_t &T){
+void Solver::phase_1_equilibre(){
+    /* Des variables necessaires pour cette etape */
+    double Theta;       // Theta = a*T^4 
+    double E_n, F_n, T_n, Theta_n; 
+    double E_next, F_next, Theta_next;
+    
+    for (int j = 1; j < mesh->N+1; j++){
+        // Initialisation
+        E_n = E[j];
+        F_n = F[j];
+        T_n = T[j];
+        Theta_n = a * pow(T_n, 4);
+        Theta = Theta_n;
+
+        E_next = E[j];
+        F_next = F[j];
+        Theta_next = Theta;
+
+        do{
+            E[j] = E_next;
+            F[j] = F_next;
+            Theta = Theta_next;
+
+            T[j] = pow(Theta/a, 0.25);
+            double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
+            if (isnan(mu_q))
+                cerr << "ATTENTION! mu = nan" << endl;
+
+            double rho_tmp = rho(mesh->cells[j][1]);
+            double alpha = c * sigma_a(rho_tmp, T[j]) * dt;
+            double beta = rho_tmp * C_v * mu_q;
+
+            double X_n = E_n - Theta_n;
+            double Y_n = E_n + beta*Theta_n;
+
+            double X = X_n / (1 + alpha*(1 + (1./beta)));
+            double Y = Y_n;
+
+            E_next = (beta*X + Y) / (1 + beta);
+            Theta_next = (-X + Y) / (1 + beta);
+
+        } while (abs(E_next-E[j]) > precision && abs(Theta_next-Theta) > precision);
+    }
+};
+
+
+void Solver::phase_2(){
     /* Vecteurs necessaires pour cette etape */
     vector_t E_etoile(mesh->N+2), F_etoile(mesh->N+2), T_etoile(mesh->N+2);
     vector_t E_suiv(mesh->N+2), F_suiv(mesh->N+2), T_suiv(mesh->N+2);
@@ -496,6 +544,11 @@ void Solver::step_2(vector_t &E, vector_t &F, vector_t &T){
         double Alpha = c*dt/mesh->dx;
         double Beta = 1/dt/tmp;
         double Gamma = c/mesh->dx/tmp;
+
+        // cout << "terme source = " << (flux_M_right*flux_sigma_c_right - flux_M_left*flux_sigma_c_left) << endl;
+        // cout << "Beta = " << Beta << endl;
+        // cout << "Gamma = " << Gamma << endl;
+        // cout << "flux Flux_E = " << flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]) << endl;
 
         E_suiv[j] = E_etoile[j] - Alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
 
@@ -539,7 +592,8 @@ void Solver::solve(){
         T_right[n] = T[mesh->N];
 
         /* etape 1 */ 
-        step_1(E, F, T);
+        // phase_1();
+        phase_1_equilibre();
 
         /* Remplissage des mailles fantomes */
         E[0] = E_l(t);
@@ -550,7 +604,7 @@ void Solver::solve(){
         T[mesh->N+1] = T_r(t);
 
         /* etape 2 */
-        step_2(E, F, T);
+        phase_2();
 
         time_steps[n] = t;
         t += dt;
