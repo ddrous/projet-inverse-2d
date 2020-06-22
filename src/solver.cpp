@@ -472,7 +472,7 @@ void Solver::phase_1(){
 
 void Solver::phase_1_equilibre(){
     /* Des variables necessaires pour cette etape */
-    double Theta;       // Theta = a*T^4 
+    double Theta;       // Theta = a*T^4
     double E_n, F_n, T_n, Theta_n; 
     double E_next, F_next, Theta_next;
     
@@ -541,18 +541,14 @@ void Solver::phase_2(){
         double flux_M_right = flux_M(mesh->dx, flux_sigma_c_right);
 
         double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
-        double Alpha = c*dt/mesh->dx;
-        double Beta = 1/dt/tmp;
-        double Gamma = c/mesh->dx/tmp;
+        double alpha = -c*dt/mesh->dx;
+        double beta = 1/dt / tmp;
+        double gamma = c*(flux_M_right-flux_M_left)/mesh->dx / tmp;
+        double delta = -c/mesh->dx / tmp;
 
-        // cout << "terme source = " << (flux_M_right*flux_sigma_c_right - flux_M_left*flux_sigma_c_left) << endl;
-        // cout << "Beta = " << Beta << endl;
-        // cout << "Gamma = " << Gamma << endl;
-        // cout << "flux Flux_E = " << flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]) << endl;
+        E_suiv[j] = E_etoile[j] + alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
 
-        E_suiv[j] = E_etoile[j] - Alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
-
-        F_suiv[j] = Beta*F_etoile[j] - Gamma*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
+        F_suiv[j] = beta*F_etoile[j] + gamma*E[j] + delta*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
 
         T_suiv[j] = T_etoile[j];
     }

@@ -24,6 +24,27 @@
                 }
             ],
             "preLaunchTask": "g++.exe build active file"
+        },
+        {
+            "name": "LINUX - debug transfer",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/transfer",
+            "args": ["src/config/tmp.cfg"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // "preLaunchTask": "g++.exe build active file"
         }
     ]
 }
