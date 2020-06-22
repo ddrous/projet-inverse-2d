@@ -1,15 +1,16 @@
 #include <iostream>
 #include <fstream>
 
+#include "include/config.hpp"
 #include "include/mesh.hpp"
 #include "include/solver.hpp"
-#include "include/config.hpp"
 #include "include/exporter.hpp"
 
 #include "muParser.h"
 
 using namespace std;
 using namespace mu;
+
 
 int main(int argc, char * argv[]){
     try {
@@ -18,34 +19,32 @@ int main(int argc, char * argv[]){
         if(argc < 2 || argc > 2)
             throw string("ERREUR: Fournissez un (et un seul) fichier de configuration");
 
-        // Lecture du fichier config
+        /* Lecture du fichier config */
         Config cfg = Config(argv[1]);
         cout << "\nLecture des " << cfg.size << " parametres en cours ... " << endl;
         cfg.read();
         cout << "Lecture OK !" << endl;
 
-        // Creation d'un maillage uniforme
-        double x_min = atof(cfg.values["x_min"].c_str());
-        double x_max = atof(cfg.values["x_max"].c_str());
-        int N = atoi(cfg.values["N"].c_str());
-        Mesh m = Mesh(x_min, x_max, N);
+        /* Creation d'un maillage uniforme */
+        Mesh m = Mesh(cfg);
         cout << "\nCreation des " << m.N+2 << " mailles en cours ... " << endl;
         m.create_cells();
         cout << "Creation OK !" << endl;
     
-        // Resolution du probleme
-        Solver s = Solver(&m, cfg.values);
+        /* Resolution du probleme */
+        Solver s = Solver(&m, cfg);
         cout << "\nResolution (" << s.step_count << " iterations) en cours ..." << endl;
         s.solve();
         cout << "Resolution OK !" << endl;
         // cout << "\nSignaux au temps final:" << endl;
         // s.display();
 
-        // Exportation
+        /* Exportation */
         Exporter ex = Exporter(&s);
         cout << "\nExportation des resultats en cours ..." << endl;
         ex.spatial(cfg.values["export_spatial"], "append");
         ex.temporal(cfg.values["export_temporal"], "append");
+
         ex.case_1("data/case_1_spatial.csv", "data/case_1_temporal.csv");
         ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
         ex.case_3("data/case_3_spatial.csv", "data/case_3_temporal.csv");

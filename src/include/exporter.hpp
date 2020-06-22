@@ -12,11 +12,11 @@
 class Exporter{
     public:
         // solveur dont on eporte les resultats
-        Solver *solver;
+        const Solver *solver;
         /***************
          * Constructeur
          */
-        Exporter(Solver *new_solver);
+        Exporter(const Solver *new_solver);
 
         /**************
          * Exporte une dataframe de donnees spatiales

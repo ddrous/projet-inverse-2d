@@ -1,6 +1,8 @@
 #ifndef INCLUDED_MESH
 #define INCLUDED_MESH
 
+#include "config.hpp"
+
 /*****************************************
  * Classe pour créer le maillage
  */
@@ -14,7 +16,7 @@ class Mesh{
         double **cells;         // gauche-centre-droite pour chaque maille (y compris les 2 mailles fantomes)
 
         // Constructeur
-        Mesh(double x_left, double x_right, int size);
+        Mesh(const Config &cfg);
 
         // Creation des differents volumes uniformes
         void create_cells();

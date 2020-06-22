@@ -6,6 +6,7 @@
 #include <map>
 
 #include "mesh.hpp"
+#include "config.hpp"
 
 /************************************************
  * Classe pour resoudre le probleme
@@ -13,7 +14,7 @@
 class Solver{
     public:
         // Maillage des volumes finis pour le probleme
-        Mesh *mesh;
+        const Mesh * mesh;
 
         // Parametres physiques
         double c;                   // Vitesse de la lumiere
@@ -68,10 +69,6 @@ class Solver{
         std::vector<double> F_right;        // Sur le bord droit: F(t, x_N)
         std::vector<double> T_right;        // Sur le bord droit: T(t, x_N)
 
-        // Evolutions a observer
-        double **E_evol;            // E sur tout les bords et au centre en tout temps
-        double **T_evol;            // T sur tout le domaine en 5 temps precis
-
         // Autres parametres du probleme
         double dt;                      // Pas de temps
         int step_count;                 // Nombre d'iterations en temps
@@ -81,7 +78,7 @@ class Solver{
          * Constructeur
          * @param params: Tous les parametres du probleme
          */
-        Solver(Mesh *new_mesh, std::map<std::string, std::string> &params);
+        Solver(const Mesh *new_mesh, const Config &cfg);
 
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
@@ -159,9 +156,19 @@ class Solver{
         double T_exact(double t, double x);
 
         /**
-         * Exporte les solution spatiale a un pas de temps precis
+         * Exporte les solution spatiales pour chaque pas de temps
          */
         void save_animation(int time_step);
+
+        /***************
+         * Etape 1 de la resolution su probleme
+         */
+        void etape_1(std::vector<double> &E, std::vector<double> &F, std::vector<double> &T);
+
+        /***************
+         * Etape 2 de la resolution su probleme
+         */
+        void etape_2();
 
         /***************
          * Resout le probleme et exporte les resultats au fur et a mesure
@@ -176,7 +183,7 @@ class Solver{
         /***************
          * Destructeur vide
          */
-        virtual ~ Solver();
+        virtual ~ Solver(){};
 };
 
 #endif

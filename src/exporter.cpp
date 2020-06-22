@@ -6,22 +6,24 @@
 
 using namespace std;
 
-Exporter::Exporter(Solver *new_solver){
+
+Exporter::Exporter(const Solver *new_solver){
     if (new_solver == NULL)
         throw string("ERREUR: Pas de solveur a exporter");
 
     solver = new_solver;
 }
 
+
 void Exporter::case_1(std::string file_spatial, std::string file_temporal){
-    // Export Spatial
+    /* Export Spatial */
     ofstream file;
     file.open(file_spatial, ios_base::trunc);
 
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
 
-    Solver &s = *solver;        // Pou raccourcir
+    Solver s = *solver;        // Pou raccourcir les notations
 
     file << "x, E_0, F_0, E+F, E-F\n";
 
@@ -31,7 +33,7 @@ void Exporter::case_1(std::string file_spatial, std::string file_temporal){
 
     file.close();
 
-    // Export Temporelle
+    /* Export Temporelle */
     file.open(file_temporal, ios_base::trunc);
 
     if(!file)
@@ -46,15 +48,16 @@ void Exporter::case_1(std::string file_spatial, std::string file_temporal){
     file.close();
 }
 
+
 void Exporter::case_2(std::string file_spatial, std::string file_temporal){
-    // Export Spatial
+    /* Export Spatial */
     ofstream file;
     file.open(file_spatial, ios_base::trunc);
 
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
 
-    Solver &s = *solver;        // Pou raccourcir
+    Solver s = *solver;
 
     file << "x, E_0, E, E_exact\n";
 
@@ -64,42 +67,37 @@ void Exporter::case_2(std::string file_spatial, std::string file_temporal){
 
     file.close();
 
-    // Export Temporelle
+    /* Export Temporelle */
     file.open(file_temporal, ios_base::trunc);
 
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
 
-    file << "t, E_left, E_center, E_right, E_exact_left, E_exact_center, E_exact_right\n";
+    file << "t, E_left, E_right, E_exact_left, E_exact_right\n";
 
     for (int n = 0; n < s.step_count; n++){
-        file << s.time_steps[n] << "," << s.E_evol[0][n] << "," << s.E_evol[1][n] << "," << s.E_evol[2][n] << "," << s.E_exact(s.time_steps[n], s.mesh->cells[1][1]) << "," << s.E_exact(s.time_steps[n], s.mesh->cells[(s.mesh->N+1)/2][1]) << "," << s.E_exact(s.time_steps[n], s.mesh->cells[s.mesh->N][1]) <<  "\n" ;
+        file << s.time_steps[n] << "," << s.E_left[n] << "," << s.E_right[n] << "," << s.E_exact(s.time_steps[n], s.mesh->cells[1][1]) << "," << s.E_exact(s.time_steps[n], s.mesh->cells[s.mesh->N][1]) <<  "\n";
     }
 
     file.close();
-
 }
 
+
 void Exporter::case_3(std::string file_spatial, std::string file_temporal){
-    // Export Spatial
+    /* Export Spatial */
     ofstream file;
     file.open(file_spatial, ios_base::trunc);
 
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
 
-    Solver &s = *solver;        // Pou raccourcir
+    Solver s = *solver;
     int n = s.step_count;
 
-    // file << "x, t=" << 0 << ", t=t_f/4, t=t_f/2, t=3*t_f/4, t=t_f" << "\n";
-    // file << "x, T, E" << "\n";
     file << "x, T_radiation, T_matter" << "\n";
 
     for (int j = 1; j < s.mesh->N+1; j++){
-        // file << s.mesh->cells[j][1] << "," << s.T_evol[0][j] << "," << s.T_evol[1][j] << "," << s.T_evol[2][j] << "," << s.T_evol[3][j] << "," << s.T_evol[4][j] << "\n" ;
-        // file << s.mesh->cells[j][1] << "," << s.T[j] << "," << s.E[j] << "\n" ;
         file << s.mesh->cells[j][1] << "," << s.T[j] << "," << pow(s.E[j]/s.a, 0.25) << "\n" ;
-        // file << s.mesh->cells[j][1] << "," << s.T[j] << "," << s.T[j] << "\n";
     }
 
     file.close();
@@ -116,12 +114,12 @@ void Exporter::spatial(std::string file_name, std::string mode){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    Solver &s = *solver;        // Pou raccourcir
+    Solver s = *solver;        // Pour raccourcir
 
     //**************************** Parametres du probleme
     file << s.mesh->x_min << "," << s.mesh->x_max << "," << s.mesh->N << "," << s.c << "," << s.a << "," << s.C_v << ","<< s.CFL << "," << s.precision << "," << s.t_0 << "," << s.t_f << ",\"" << s.rho_expr << "\",\"" << s.sigma_a_expr << "\",\"" << s.sigma_c_expr << "\",\"" << s.E_0_expr << "\",\"" << s.F_0_expr << "\",\"" << s.T_0_expr << "\"," << s.dt << "," << s.step_count << ",";
 
-    //************************** Abcisse 
+    //************************** Abcisse = espace
     file << "\"[";
     for (int j = 1; j < s.mesh->N+1; j++){
         file << s.mesh->cells[j][1];
@@ -130,6 +128,7 @@ void Exporter::spatial(std::string file_name, std::string mode){
     }
     file << "]\",";
 
+    //************************** Proprietes optique 
     file << "\"[";
     for (int j = 1; j < s.mesh->N+1; j++){
         file << s.rho(s.mesh->cells[j][1]);
@@ -179,7 +178,7 @@ void Exporter::spatial(std::string file_name, std::string mode){
     }
     file << "]\",";
 
-    //************************** Sol numerique finale
+    //************************** Sol finale
     file << "\"[";
     for (int j = 1; j < s.mesh->N+1; j++){
         file << s.E[j];
@@ -219,12 +218,12 @@ void Exporter::temporal(std::string file_name, std::string mode){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    Solver &s = *solver;        // Pou raccourcir
+    Solver s = *solver;
 
     //**************************** Parametres du probleme
     file << s.mesh->x_min << "," << s.mesh->x_max << "," << s.mesh->N << "," << s.c << "," << s.a << "," << s.C_v << ","<< s.CFL << "," << s.precision << "," << s.t_0 << "," << s.t_f << ",\"" << s.rho_expr << "\",\"" << s.sigma_a_expr << "\",\"" << s.sigma_c_expr << "\",\"" << s.E_0_expr << "\",\"" << s.F_0_expr << "\",\"" << s.T_0_expr << "\"," << s.dt << "," << s.step_count << ",";
 
-    //**************************Abcisse 
+    //************************** Abcisse = temps
     file << "\"[";
     for (int n = 0; n < s.step_count; n++){
         file << s.time_steps[n];
@@ -232,7 +231,7 @@ void Exporter::temporal(std::string file_name, std::string mode){
     }
     file << "]\",";
 
-    //************************** Sol numerique
+    //************************** Sol aux bords
     file << "\"[";
     for (int n = 0; n < s.step_count; n++){
         file << s.E_left[n];

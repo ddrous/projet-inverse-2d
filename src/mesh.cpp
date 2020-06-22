@@ -5,8 +5,11 @@
 using namespace std;
 
 
-Mesh::Mesh(double x_left, double x_right, int size){
-    x_min = x_left; x_max = x_right; N = size;
+Mesh::Mesh(const Config &cfg){
+    x_min = atof(cfg.values.at("x_min").c_str());
+    x_max = atof(cfg.values.at("x_max").c_str());
+    N = atoi(cfg.values.at("N").c_str());
+
     if (x_min >= x_max)
         throw std::string("ERREUR: Vérifiez que x_min < x_max");
     if (N <= 0)

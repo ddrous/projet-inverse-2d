@@ -11,44 +11,48 @@
 using namespace mu;
 using namespace std;
 
-Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
+/* Type utilisé pour le stockage des signaux */
+typedef std::vector<double> vector_t;
+
+
+Solver::Solver(const Mesh *new_mesh, const Config &cfg){
     mesh = new_mesh;
 
-    c = atof(params["c"].c_str());
-    a = atof(params["a"].c_str());
+    c = atof(cfg.values.at("c").c_str());
+    a = atof(cfg.values.at("a").c_str());
 
-    C_v = atof(params["C_v"].c_str());
+    C_v = atof(cfg.values.at("C_v").c_str());
 
-    CFL = atof(params["CFL"].c_str());
-    precision = atof(params["precision"].c_str());
-    t_0 = atof(params["t_0"].c_str());
-    t_f = atof(params["t_f"].c_str());
+    CFL = atof(cfg.values.at("CFL").c_str());
+    precision = atof(cfg.values.at("precision").c_str());
+    t_0 = atof(cfg.values.at("t_0").c_str());
+    t_f = atof(cfg.values.at("t_f").c_str());
 
-    rho_expr = params["rho"];
-    sigma_a_expr = params["sigma_a"];
-    sigma_c_expr = params["sigma_c"];
+    rho_expr = cfg.values.at("rho");
+    sigma_a_expr = cfg.values.at("sigma_a");
+    sigma_c_expr = cfg.values.at("sigma_c");
 
-    E = vector<double>(mesh->N+2);
-    F = vector<double>(mesh->N+2);
-    T = vector<double>(mesh->N+2);
+    E = vector_t(mesh->N+2);
+    F = vector_t(mesh->N+2);
+    T = vector_t(mesh->N+2);
 
-    E_0_expr = params["E_0"];
-    F_0_expr = params["F_0"];
-    T_0_expr = params["T_0"];
+    E_0_expr = cfg.values.at("E_0");
+    F_0_expr = cfg.values.at("F_0");
+    T_0_expr = cfg.values.at("T_0");
 
-    E_l_expr = params["E_l"];
-    F_l_expr = params["F_l"];
-    T_l_expr = params["T_l"];
+    E_l_expr = cfg.values.at("E_l");
+    F_l_expr = cfg.values.at("F_l");
+    T_l_expr = cfg.values.at("T_l");
 
-    E_r_expr = params["E_r"];
-    F_r_expr = params["F_r"];
-    T_r_expr = params["T_r"];
+    E_r_expr = cfg.values.at("E_r");
+    F_r_expr = cfg.values.at("F_r");
+    T_r_expr = cfg.values.at("T_r");
 
-    E_exact_expr = params["E_exact"];
-    F_exact_expr = params["F_exact"];
-    T_exact_expr = params["T_exact"];
+    E_exact_expr = cfg.values.at("E_exact");
+    F_exact_expr = cfg.values.at("F_exact");
+    T_exact_expr = cfg.values.at("T_exact");
 
-    // Verifications preliminaires
+    /* Verifications preliminaires */
     if (c <= 0)
         throw string("ERREUR: Vérifiez que c > 0");
     if (a <= 0)
@@ -70,32 +74,25 @@ Solver::Solver(Mesh *new_mesh, std::map<std::string, std::string> &params){
         step_count = floor(tmp);
     else
         step_count = floor(tmp) + 1;
-    time_steps = vector<double>(step_count);
+    time_steps = vector_t(step_count);
 
-    // A exporter
-    E_left = vector<double>(step_count);
-    T_left = vector<double>(step_count);
-    F_left = vector<double>(step_count);
+    /* A exporter */
+    E_left = vector_t(step_count);
+    T_left = vector_t(step_count);
+    F_left = vector_t(step_count);
 
-    F_right = vector<double>(step_count);
-    E_right = vector<double>(step_count);
-    T_right = vector<double>(step_count);
-
-    E_evol = new double*[3];
-    for (int i = 0; i < 3; i++)
-        E_evol[i] = new double[step_count];
-    
-    T_evol = new double*[5];
-    for (int i = 0; i < 5; i++)
-        T_evol[i] = new double[mesh->N];
+    F_right = vector_t(step_count);
+    E_right = vector_t(step_count);
+    T_right = vector_t(step_count);
 } 
 
+
 /**
- * Laplacian smoothing (k-means) d'un vecteur
+ * Laplacian smoothing (k-means) d'un vecteur, avec k=3
  */ 
-vector<double> smooth(vector<double>& input){
+vector_t smooth(vector_t& input){
     int size = input.size();
-    vector<double> output(size);
+    vector_t output(size);
     
     output[0] = (input[0]+input[1]+input[2]) / 3;
     for (int j = 1; j < size-1; j++){
@@ -106,58 +103,59 @@ vector<double> smooth(vector<double>& input){
     return output;
 }
 
+
 /**
  * Calcule rho sous forme de fonction crenaux
+ * retourne un vecteur contenant le signal
+ * param @N taille effective du signal de retour 
+ * param @n_niche nombre de crenaux
+ * param @y_min position minimale du signal de retour
+ * param @y_max position maximale du signal de retour (possible taille du crenaux)
+ * param @n_smooth nombre de lissage a effectuer sur le signal
  */ 
-double niche(double x, int nb, double y_min, double y_max, Mesh* mesh, int smooth_nb){
-    static int first_call = 1;
+vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth = 3){
+    /* Vecteur qui va contenir le signal en crenaux */
+    vector_t signal(N+2);
 
-    // Vecteur contenant le signal
-    static vector<double> values(mesh->N+2);
+    /* Les attributs du signal */
+    double ** attr = new double*[n_niche];
+    for (int i = 0; i < n_niche; i++)
+        attr[i] = new double[3];
 
-    if (first_call==1){
-        // Les attributs des crenaux pris au hazard
-        double ** attr = new double*[nb];
-        for (int i = 0; i < nb; i++)
-            attr[i] = new double[3];
-
-        srand(time(NULL));
-        for (int k = 0; k < nb; k++){
-            // attr[k][0] = rand() % mesh->N + 1;                     // position
-            // attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
-            // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
-            
-            /* pour 1 creneau et N = 500 */
-            attr[k][0] = (int)(0.7*mesh->N);                     // position
-            attr[k][1] = (int)(0.05*mesh->N);                  // largeur
-            attr[k][2] = y_max;    // hauteur
-        }
+    srand(time(NULL));
+    for (int k = 0; k < n_niche; k++){
+        /* Attributs des crenaux pris au hazard */
+        // attr[k][0] = rand() % mesh->N + 1;                     // position
+        // attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
+        // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
         
-        // Recherche des pics dans le vecteur d'entre
-        for (int j = 0; j < mesh->N+2; j++){
-            values[j] = y_min;
-            for (int k = 0; k < nb; k++){
-                if (abs(j - attr[k][0]) <= attr[k][1]){
-                    values[j] = attr[k][2];
-                    break;
-                }
+        /* Attributs identiques pour tous les crenaux */
+        attr[k][0] = (int)(0.7*N);                     // position
+        attr[k][1] = (int)(0.05*N);                    // largeur
+        attr[k][2] = y_max;                                 // hauteur
+    }
+    
+    /* Placement des crenaux */
+    for (int j = 0; j < N+2; j++){
+        signal[j] = y_min;
+        for (int k = 0; k < n_niche; k++){
+            if (abs(j - attr[k][0]) <= attr[k][1]){
+                signal[j] = attr[k][2];
+                break;
             }
         }
-
-        // Suppression des attributs maintenatn inutiles
-        for (int j = 0; j < nb; j++)
-            delete[] attr[j];
-        delete[] attr;
-
-        // Lissage du signal
-        for (int i = 0; i < smooth_nb; i++)
-            values = smooth(values);
-
-    first_call = 0;
     }
 
-    int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));
-    return values[index + 1];
+    /* Suppression des attributs devenus inutiles */
+    for (int j = 0; j < n_niche; j++)
+        delete[] attr[j];
+    delete[] attr;
+
+    /* Lissage du signal */
+    for (int i = 0; i < n_smooth; i++)
+        signal = smooth(signal);
+
+    return signal;
 }
 
 
@@ -165,12 +163,16 @@ double Solver::rho(double x){
     static int first_call = 1;
     static int rho_niche = rho_expr.compare("crenaux");
 
-    if (rho_niche == 0)
-        return niche(x, 1, 1, 10.0, mesh, (int)(0.1*mesh->N));
+    if (rho_niche == 0){
+        static vector_t signal(mesh->N+2);
+        if (first_call == 1){signal = niche(mesh->N, 1, 10.0, (int)(0.1*mesh->N)); first_call = 0;}
+        int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));     // Position approximative correspondant a x
+        return signal[index + 1];
+    }
     else{
         static Parser p;
         p.DefineVar("x", &x);
-        if (first_call == 1){ p.SetExpr(rho_expr); first_call = 0; }
+        if (first_call == 1){p.SetExpr(rho_expr); first_call = 0;}
         return p.Eval();
     }
 }
@@ -429,8 +431,8 @@ void Solver::solve(){
     double E_n, E_next, T_n, F_n, F_next, Theta, Theta_n, Theta_next;
     
     // Les variables pour l'etape 2
-    vector<double> E_etoile(N+2), F_etoile(N+2), T_etoile(N+2);
-    vector<double> E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
+    vector_t E_etoile(N+2), F_etoile(N+2), T_etoile(N+2);
+    vector_t E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
 
     // Initialisation de la doucle de resolution
     for (int j = 1; j < N+1; j++){
@@ -448,7 +450,7 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
-        // Sauvegarde de l'animation
+        // Sauvegarde des donnees pour ce temps
         this->save_animation(n);
 
         // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
@@ -458,23 +460,6 @@ void Solver::solve(){
         E_right[n] = E[N];
         F_right[n] = F[N];
         T_right[n] = T[N];
-
-        // Evolution de l'energie en 3 points
-        E_evol[0][n] = E[1];
-        E_evol[1][n] = E[(N+1)/2];
-        E_evol[2][n] = E[N];
-
-        // Evolution de la temperature sur tout le domaine
-        if (n == 1) 
-            for (int j = 1; j < N+1; j++) T_evol[0][j] = T[j];
-        else if (n == 1*step_count/4)
-            for (int j = 1; j < N+1; j++) T_evol[1][j] = T[j];
-        else if (n == 2*step_count/4)
-            for (int j = 1; j < N+1; j++) T_evol[2][j] = T[j];
-        else if (n == 3*step_count/4)
-            for (int j = 1; j < N+1; j++) T_evol[3][j] = T[j];
-        else if (n == step_count-1)
-            for (int j = 1; j < N+1; j++) T_evol[4][j] = T[j];
 
         for (int j = 1; j < N+1; j++){
             // Initialisation etape 1
@@ -583,15 +568,4 @@ void Solver::display(){
         cout << T[j] << "  ";
 
     cout << "\n";
-};
-
-
-Solver::~ Solver(){
-    for (int i = 0; i < 3; i++)
-        delete[] E_evol[i];
-    delete[] E_evol;
-
-    for (int i = 0; i < 5; i++)
-        delete[] T_evol[i];
-    delete[] T_evol;
 };
