@@ -163,12 +163,12 @@ class Solver{
         /***************
          * Etape 1 de la resolution su probleme
          */
-        void etape_1(std::vector<double> &E, std::vector<double> &F, std::vector<double> &T);
+        void step_1(std::vector<double> &E, std::vector<double> &F, std::vector<double> &T);
 
         /***************
          * Etape 2 de la resolution su probleme
          */
-        void etape_2();
+        void step_2(std::vector<double> &E, std::vector<double> &F, std::vector<double> &T);
 
         /***************
          * Resout le probleme et exporte les resultats au fur et a mesure

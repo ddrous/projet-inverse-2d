@@ -106,14 +106,14 @@ vector_t smooth(vector_t& input){
 
 /**
  * Calcule rho sous forme de fonction crenaux
- * retourne un vecteur contenant le signal
  * param @N taille effective du signal de retour 
  * param @n_niche nombre de crenaux
  * param @y_min position minimale du signal de retour
  * param @y_max position maximale du signal de retour (possible taille du crenaux)
  * param @n_smooth nombre de lissage a effectuer sur le signal
+ * retourne un vecteur contenant le signal
  */ 
-vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth = 3){
+vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
     vector_t signal(N+2);
 
@@ -131,7 +131,7 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth = 3){
         
         /* Attributs identiques pour tous les crenaux */
         attr[k][0] = (int)(0.7*N);                     // position
-        attr[k][1] = (int)(0.05*N);                    // largeur
+        attr[k][1] = (int)(0.1*N);                    // largeur
         attr[k][2] = y_max;                                 // hauteur
     }
     
@@ -139,7 +139,7 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth = 3){
     for (int j = 0; j < N+2; j++){
         signal[j] = y_min;
         for (int k = 0; k < n_niche; k++){
-            if (abs(j - attr[k][0]) <= attr[k][1]){
+            if (abs(j - attr[k][0]) <= attr[k][1]/2){
                 signal[j] = attr[k][2];
                 break;
             }
@@ -161,11 +161,11 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth = 3){
 
 double Solver::rho(double x){
     static int first_call = 1;
-    static int rho_niche = rho_expr.compare("crenaux");
+    static int rho_niche = rho_expr.compare("crenau");
 
     if (rho_niche == 0){
         static vector_t signal(mesh->N+2);
-        if (first_call == 1){signal = niche(mesh->N, 1, 10.0, (int)(0.1*mesh->N)); first_call = 0;}
+        if (first_call == 1){signal = niche(mesh->N, 1, 1, 10.0, (int)(0.1*mesh->N)); first_call = 0;}
         int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));     // Position approximative correspondant a x
         return signal[index + 1];
     }
@@ -422,27 +422,104 @@ void Solver::save_animation(int time_step){
 }
 
 
-void Solver::solve(){
-    // Raccourcissons les noms des constantes
-    int N = mesh->N;            // Nombre de mailles interieures
-    double dx = mesh->dx;       // Delta x
-
-    // Les variables pour l'etape 1
-    double E_n, E_next, T_n, F_n, F_next, Theta, Theta_n, Theta_next;
+void Solver::step_1(vector_t &E, vector_t &F, vector_t &T){
+    /* Des variables necessaires pour cette etape */
+    double Theta;       // Theta = a*T^4 
+    double E_n, F_n, T_n, Theta_n; 
+    double E_next, F_next, Theta_next;
     
-    // Les variables pour l'etape 2
-    vector_t E_etoile(N+2), F_etoile(N+2), T_etoile(N+2);
-    vector_t E_suiv(N+2), F_suiv(N+2), T_suiv(N+2);
+    for (int j = 1; j < mesh->N+1; j++){
+        // Initialisation etape 1
+        E_n = E[j];
+        F_n = F[j];
+        T_n = T[j];
+        Theta_n = a * pow(T_n, 4);
+        Theta = Theta_n;
 
-    // Initialisation de la doucle de resolution
-    for (int j = 1; j < N+1; j++){
-        double x = mesh->cells[j][1];           // Centre de la maille
+        E_next = E[j];
+        F_next = F[j];
+        Theta_next = Theta;
+
+        do{
+            E[j] = E_next;
+            F[j] = F_next;
+            Theta = Theta_next;
+            T[j] = pow(Theta/a, 0.25);
+
+            double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
+            if (isnan(mu_q))
+                cerr << "ATTENTION! mu = nan" << endl;
+
+            double rho_tmp = rho(mesh->cells[j][1]);
+            double sigma_a_tmp = sigma_a(rho_tmp, T[j]);
+            double tmp_1 = (1/dt) + c*sigma_a_tmp;
+            double alpha = 1/dt/tmp_1;
+            double beta = c*sigma_a_tmp/tmp_1;
+            double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
+            double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
+            double delta = c*sigma_a_tmp/tmp_2;
+
+            E_next = (alpha*E_n + gamma*beta*Theta_n) / (1 - beta*delta);
+            F_next = F_n;
+            Theta_next = (gamma*Theta_n + alpha*delta*E_n) / (1 - beta*delta);
+
+        } while (abs(E_next-E[j]) > precision && abs(Theta_next-Theta) > precision);
+    }
+};
+
+
+void Solver::step_2(vector_t &E, vector_t &F, vector_t &T){
+    /* Vecteurs necessaires pour cette etape */
+    vector_t E_etoile(mesh->N+2), F_etoile(mesh->N+2), T_etoile(mesh->N+2);
+    vector_t E_suiv(mesh->N+2), F_suiv(mesh->N+2), T_suiv(mesh->N+2);
+
+    /* Initialisation de l'etape */
+    E_etoile = E;
+    F_etoile = F;
+    T_etoile = T;
+
+    for (int j = 1; j < mesh->N+1; j++){
+        double x_left = mesh->cells[j-1][1];        // Centre de la maille de gauche
+        double x_center = mesh->cells[j][1];        // Centre de cette maille
+        double x_right = mesh->cells[j+1][1];       // Centre de la maille de droite
+
+        double sigma_c_left = sigma_c(rho(x_left), T[j-1]);
+        double sigma_c_center = sigma_c(rho(x_center), T[j]);
+        double sigma_c_right = sigma_c(rho(x_right), T[j+1]);
+
+        double flux_sigma_c_left = flux_sigma_c(sigma_c_left, sigma_c_center);
+        double flux_sigma_c_right = flux_sigma_c(sigma_c_center, sigma_c_right);
+        double flux_M_left = flux_M(mesh->dx, flux_sigma_c_left);
+        double flux_M_right = flux_M(mesh->dx, flux_sigma_c_right);
+
+        double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
+        double Alpha = c*dt/mesh->dx;
+        double Beta = 1/dt/tmp;
+        double Gamma = c/mesh->dx/tmp;
+
+        E_suiv[j] = E_etoile[j] - Alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
+
+        F_suiv[j] = Beta*F_etoile[j] - Gamma*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
+
+        T_suiv[j] = T_etoile[j];
+    }
+
+    E = E_suiv;
+    F = F_suiv;
+    T = T_suiv;
+};
+
+
+void Solver::solve(){
+    /* Initialisation de la doucle de resolution */
+    for (int j = 1; j < mesh->N+1; j++){
+        double x = mesh->cells[j][1];           // Centre de la maille j
         E[j] = E_0(x);
         F[j] = F_0(x);
         T[j] = T_0(x);
     }
 
-    // Temps courant (translate de t_0) et indice de l'iteration
+    /* Temps courant (translaté de t_0) et indice de l'iteration */
     double t = 0;
     int n = 0;
 
@@ -450,102 +527,30 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
-        // Sauvegarde des donnees pour ce temps
-        this->save_animation(n);
+        /* Enregistrement des signaux pour ce temps */
+        save_animation(n);
 
-        // Signaux aux bords du domaine pour ce pas d'iteration en vue de l'export
+        /* Signaux exportés */
         E_left[n] = E[1];
         F_left[n] = F[1];
         T_left[n] = T[1];
-        E_right[n] = E[N];
-        F_right[n] = F[N];
-        T_right[n] = T[N];
+        E_right[n] = E[mesh->N];
+        F_right[n] = F[mesh->N];
+        T_right[n] = T[mesh->N];
 
-        for (int j = 1; j < N+1; j++){
-            // Initialisation etape 1
-            E_n = E[j];
-            F_n = F[j];
-            T_n = T[j];
-            Theta_n = a * pow(T_n, 4);
-            Theta = Theta_n;
+        /* etape 1 */ 
+        step_1(E, F, T);
 
-            E_next = E[j];
-            F_next = F[j];
-            Theta_next = Theta;
-
-            /*********************************
-             * Etape 1
-             */
-            do{
-                E[j] = E_next;
-                F[j] = F_next;
-                Theta = Theta_next;
-                T[j] = pow(Theta/a, 0.25);      // Necessaire pour les calculs
-
-                double rho_tmp = rho(mesh->cells[j][1]);
-                double sigma_a_tmp = sigma_a(rho_tmp, T[j]);
-                double tmp_1 = (1/dt) + c*sigma_a_tmp;
-                double alpha = 1/dt/tmp_1;
-                double beta = c*sigma_a_tmp/tmp_1;
-                double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
-                if (isnan(mu_q))
-                    cerr << "ATTENTION! mu = " << mu_q << endl;
-                double tmp_2 = (rho_tmp*C_v*mu_q/dt) + c*sigma_a_tmp;
-                double gamma = rho_tmp*C_v*mu_q/dt/tmp_2;
-                double delta = c*sigma_a_tmp/tmp_2;
-
-                E_next = (alpha*E_n + gamma*beta*Theta_n) / (1 - beta*delta);
-                F_next = F_n;
-                Theta_next = (gamma*Theta_n + alpha*delta*E_n) / (1 - beta*delta);
-
-            } while (abs(E_next-E[j]) > precision && abs(Theta_next-Theta) > precision);
-        }
-        
-        // Initialisation etape 2
-        E_etoile = E;
-        F_etoile = F;
-        T_etoile = T;
-
-        // Remplissage des mailles fantomes
+        /* Remplissage des mailles fantomes */
         E[0] = E_l(t);
         F[0] = F_l(t);
         T[0] = T_l(t);
-        E[N+1] = E_r(t);
-        F[N+1] = F_r(t);
-        T[N+1] = T_r(t);
+        E[mesh->N+1] = E_r(t);
+        F[mesh->N+1] = F_r(t);
+        T[mesh->N+1] = T_r(t);
 
-        /***********************************
-         * Etape 2
-         */
-        for (int j = 1; j < N+1; j++){
-            double x_left = mesh->cells[j-1][1];        // Centre de la maille de gauche
-            double x_center = mesh->cells[j][1];        // Centre de cette maille
-            double x_right = mesh->cells[j+1][1];       // Centre de la maille de droite
-
-            double sigma_c_left = sigma_c(rho(x_left), T[j-1]);
-            double sigma_c_center = sigma_c(rho(x_center), T[j]);
-            double sigma_c_right = sigma_c(rho(x_right), T[j+1]);
-
-            double flux_sigma_c_left = flux_sigma_c(sigma_c_left, sigma_c_center);
-            double flux_sigma_c_right = flux_sigma_c(sigma_c_center, sigma_c_right);
-            double flux_M_left = flux_M(dx, flux_sigma_c_left);
-            double flux_M_right = flux_M(dx, flux_sigma_c_right);
-
-            double tmp = (1/dt) + (c/2)*(flux_M_right*flux_sigma_c_right + flux_M_left*flux_sigma_c_left);
-            double Alpha = c*dt/dx;
-            double Beta = 1/dt/tmp;
-            double Gamma = c/dx/tmp;
-
-            E_suiv[j] = E_etoile[j] - Alpha*(flux_F(flux_M_right, F[j], F[j+1], E[j], E[j+1]) - flux_F(flux_M_left, F[j-1], F[j], E[j-1], E[j]));
-
-            F_suiv[j] = Beta*F_etoile[j] - Gamma*(flux_E(flux_M_right, E[j], E[j+1], F[j], F[j+1]) - flux_E(flux_M_left, E[j-1], E[j], F[j-1], F[j]));
-
-            T_suiv[j] = T_etoile[j];
-        }
-
-        E = E_suiv;
-        F = F_suiv;
-        T = T_suiv;
+        /* etape 2 */
+        step_2(E, F, T);
 
         time_steps[n] = t;
         t += dt;
