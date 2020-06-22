@@ -487,6 +487,7 @@ void Solver::phase_1_equilibre(){
         E_next = E[j];
         F_next = F[j];
         Theta_next = Theta;
+            // cout << "E = "<< E_next << " Theta = " << Theta_next<< endl;
 
         do{
             E[j] = E_next;
