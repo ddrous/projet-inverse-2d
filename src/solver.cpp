@@ -125,14 +125,14 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
     srand(time(NULL));
     for (int k = 0; k < n_niche; k++){
         /* Attributs des crenaux pris au hazard */
-        // attr[k][0] = rand() % mesh->N + 1;                     // position
-        // attr[k][1] = rand() % mesh->N/20 + 1;                  // largeur
-        // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1) + 1;    // hauteur
+        attr[k][0] = rand() % N + 1;                     // position
+        attr[k][1] = rand() % (N/4) + 4;                  // largeur
+        attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1.) + 1;    // hauteur
         
         /* Attributs identiques pour tous les crenaux */
-        attr[k][0] = (int)(0.7*N);                     // position
-        attr[k][1] = (int)(0.1*N);                    // largeur
-        attr[k][2] = y_max;                                 // hauteur
+        // attr[k][0] = (int)(0.7*N);                     // position
+        // attr[k][1] = (int)(0.1*N);                    // largeur
+        // attr[k][2] = y_max;                                 // hauteur
     }
     
     /* Placement des crenaux */
@@ -165,7 +165,7 @@ double Solver::rho(double x){
 
     if (rho_niche == 0){
         static vector_t signal(mesh->N+2);
-        if (first_call == 1){signal = niche(mesh->N, 1, 1, 10.0, (int)(0.1*mesh->N)); first_call = 0;}
+        if (first_call == 1){signal = niche(mesh->N, 1, 1., 10.0, (int)(0.1*mesh->N)); first_call = 0;}
         int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));     // Position approximative correspondant a x
         return signal[index + 1];
     }
@@ -578,7 +578,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce temps */
-        save_animation(n);
+        // save_animation(n);
 
         /* Signaux exportés */
         E_left[n] = E[1];
