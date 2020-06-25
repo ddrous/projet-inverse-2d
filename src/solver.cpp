@@ -126,12 +126,12 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
     for (int k = 0; k < n_niche; k++){
         /* Attributs des crenaux pris au hazard */
         attr[k][0] = rand() % N + 1;                     // position
-        attr[k][1] = rand() % (N/4) + 4;                  // largeur
+        attr[k][1] = rand() % (N/3) + 5;                  // largeur
         attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1.) + 1;    // hauteur
         
         /* Attributs identiques pour tous les crenaux */
         // attr[k][0] = (int)(0.7*N);                     // position
-        // attr[k][1] = (int)(0.1*N);                    // largeur
+        // attr[k][1] = (int)(0.2*N);                    // largeur
         // attr[k][2] = y_max;                                 // hauteur
     }
     
