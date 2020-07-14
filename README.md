@@ -1,7 +1,7 @@
 # Transfer Radiatif Inverse (MOCO)
 
 ### Objectif
-Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 2D et les réseaux de neurones.
+Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 1D et les réseaux de neurones.
 
 ### Documents
 - Indications et travail à faire: `doc/projetM1.pdf`  
