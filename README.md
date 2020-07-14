@@ -1,7 +1,7 @@
 # Transfer Radiatif Inverse (MOCO)
 
 ### Objectif
-Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis et les réseaux de neurones.
+Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 2D et les réseaux de neurones.
 
 ### Documents
 - Indications et travail à faire: `doc/projetM1.pdf`  
@@ -25,7 +25,7 @@ __Format des fichiers de configuration:__
 - __`data/df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps.
 - __`data/df_spatial.csv`__ pour les signaux sur tout le domaine au temps final.
 
-## __2ème partie: Analyse des données__   
+## __2ème partie: Reseaux de neurones__   
 - Analyse des données: `src/notebook/analyse_des_donnees.ipynb` [Version Colab](https://colab.research.google.com/drive/17eqqFvVzvzFqB8URGFR9-YQmqDNxU5Ax?usp=sharing).  
 - Réseaux de neurones: `src/notebook/reseaux_de_neurones.ipynb` [Version Colab](https://colab.research.google.com/drive/1DXee80oz_6OqLDHdnO00VjK62TdKSE5O?usp=sharing).
 
