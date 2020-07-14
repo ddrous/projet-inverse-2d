@@ -131,8 +131,8 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
         
         /* Les memes attributs a chaque fois */
         attr[k][0] = (int)(0.7*N);                     // position
-        attr[k][1] = (int)(0.2*N);                    // largeur
-        attr[k][2] = 5.5;                                 // hauteur
+        attr[k][1] = (int)(0.1*N);                    // largeur
+        attr[k][2] = 1;                                 // hauteur
 
         /* 2 crenaux bien differents */
         // attr[0][0] = 100;                     // position
@@ -174,7 +174,7 @@ double Solver::rho(double x){
 
     if (rho_niche == 0){
         static vector_t signal(mesh->N+2);
-        if (first_call == 1){signal = niche(mesh->N, 1, 1.0, 10.0, (int)(0.05*mesh->N)); first_call = 0;}
+        if (first_call == 1){signal = niche(mesh->N, 1, 0.01, 1.0, (int)(0.05*mesh->N)); first_call = 0;}
         int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));     // Position approximative correspondant a x
         return signal[index + 1];
     }
