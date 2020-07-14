@@ -1,6 +1,8 @@
 #ifndef INCLUDED_MESH
 #define INCLUDED_MESH
 
+#include <vector>
+
 #include "config.hpp"
 
 /*****************************************
@@ -11,9 +13,20 @@ class Mesh{
         // Parametres du maillage
         double x_min;            // borne gauche du domaine
         double x_max;            // borne droite du domaine
-        int N;                  // nombre de mailles/volumes intermediares
+        double y_min;            // borne du haut du domaine
+        double y_max;            // borne du bas du domaine
+        int N;                  // nombre de mailles/volumes en verticales
+        int M;                  // nombre de mailles/volumes en horizontale
+        int n_cells;            // nombre de mailles/volumes totales
+
         double dx;              // Delta x
-        double **cells;         // gauche-centre-droite pour chaque maille (y compris les 2 mailles fantomes)
+        double dy;              // Delta y
+
+        std::vector<double> x;         // abscisses des centres des mailles
+        std::vector<double> y;         // ordonnees des centres des mailles
+
+        int **coord;       // indices i,j identifiants chaque maille
+        int **neighb;        // numero des 4 mailles voisines
 
         // Constructeur
         Mesh(const Config &cfg);

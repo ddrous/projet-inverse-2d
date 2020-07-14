@@ -59,27 +59,32 @@ void Exporter::case_2(std::string file_spatial, std::string file_temporal){
 
     Solver s = *solver;
 
-    file << "x,E_0, E,E_exact\n";
+    if (s.E_exact_expr.empty() == false){
+        file << "x,E_0, E,E_exact\n";
 
-    for (int j = 1; j < s.mesh->N+1; j++){
-        file << s.mesh->cells[j][1] << "," << s.E_0(s.mesh->cells[j][1]) << "," << s.E[j] << "," << s.E_exact(s.time_steps[s.step_count-1], s.mesh->cells[j][1]) << "\n" ;
-    }
+        for (int j = 1; j < s.mesh->N+1; j++){
+            file << s.mesh->cells[j][1] << "," << s.E_0(s.mesh->cells[j][1]) << "," << s.E[j] << "," << s.E_exact(s.time_steps[s.step_count-1], s.mesh->cells[j][1]) << "\n" ;
+        }
 
-    file.close();
+        file.close();
 
-    /* Export Temporelle */
-    file.open(file_temporal, ios_base::trunc);
+        /* Export Temporelle */
+        file.open(file_temporal, ios_base::trunc);
 
-    if(!file)
-        throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
+        if(!file)
+            throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_spatial + "'");
 
-    file << "t,E_left,E_right,E_exact_left,E_exact_right\n";
+        file << "t,E_left,E_right,E_exact_left,E_exact_right\n";
 
-    for (int n = 0; n < s.step_count; n++){
-        file << s.time_steps[n] << "," << s.E_left[n] << "," << s.E_right[n] << "," << s.E_exact(s.time_steps[n], s.mesh->cells[1][1]) << "," << s.E_exact(s.time_steps[n], s.mesh->cells[s.mesh->N][1]) <<  "\n";
-    }
+        for (int n = 0; n < s.step_count; n++){
+            file << s.time_steps[n] << "," << s.E_left[n] << "," << s.E_right[n] << "," << s.E_exact(s.time_steps[n], s.mesh->cells[1][1]) << "," << s.E_exact(s.time_steps[n], s.mesh->cells[s.mesh->N][1]) <<  "\n";
+        }
 
-    file.close();
+        file.close();
+    } 
+    else
+        throw string ("ERREUR: E_exact non fourni");
+
 }
 
 

@@ -11,15 +11,19 @@ Config::Config(string file_path){
 
     values["x_min"] = "";
     values["x_max"] = "";
+    values["y_min"] = "";
+    values["y_max"] = "";
     values["N"] = "";
 
     values["c"] = "";
     values["a"] = "";
     values["C_v"] = "";
+
     values["CFL"] = "";
     values["precision"] = "";
     values["t_0"] = "";
     values["t_f"] = "";
+
     values["rho"] = "";
     values["sigma_a"] = "";
     values["sigma_c"] = "";
@@ -39,7 +43,15 @@ Config::Config(string file_path){
     values["E_r"] = "";
     values["F_r"] = "";
     values["T_r"] = "";
-    
+
+    values["E_u"] = "";
+    values["F_u"] = "";
+    values["T_u"] = "";
+
+    values["E_d"] = "";
+    values["F_d"] = "";
+    values["T_d"] = "";
+
     values["export_spatial"] = "";
     values["export_temporal"] = "";
 
@@ -85,10 +97,10 @@ void Config::read(){
         throw string ("ERREUR: Parametre inconnu '" + unkown_name + "' dans le fichier de configuration");
 
     for (it = values.begin(); it != values.end(); ++it){
-        if (count[it->first] < 1){
-            throw string ("ERREUR: Parametre '"+it->first+"' manquant dans le fichier de configuration");}
+        if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact") && !(it->first == "T_exact")){
+            throw string ("ERREUR: Paramètre '"+it->first+"' manquant dans le fichier de configuration");}
         if (count[it->first] > 1)
-            throw string ("ERREUR: Parametre '"+it->first+"' duplique dans le fichier de configuration");
+            throw string ("ERREUR: Paramètre '"+it->first+"' dupliqué dans le fichier de configuration");
     }
 }
 

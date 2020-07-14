@@ -32,13 +32,21 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
     sigma_a_expr = cfg.values.at("sigma_a");
     sigma_c_expr = cfg.values.at("sigma_c");
 
-    E = vector_t(mesh->N+2);
-    F = vector_t(mesh->N+2);
-    T = vector_t(mesh->N+2);
+    E = vector_t(mesh->n_cells);
+    F = vector_t(mesh->n_cells);
+    T = vector_t(mesh->n_cells);
 
     E_0_expr = cfg.values.at("E_0");
     F_0_expr = cfg.values.at("F_0");
     T_0_expr = cfg.values.at("T_0");
+
+    E_u_expr = cfg.values.at("E_u");
+    F_u_expr = cfg.values.at("F_u");
+    T_u_expr = cfg.values.at("T_u");
+
+    E_d_expr = cfg.values.at("E_d");
+    F_d_expr = cfg.values.at("F_d");
+    T_d_expr = cfg.values.at("T_d");
 
     E_l_expr = cfg.values.at("E_l");
     F_l_expr = cfg.values.at("F_l");
@@ -77,14 +85,40 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
     time_steps = vector_t(step_count);
 
     /* A exporter */
-    E_left = vector_t(step_count);
-    T_left = vector_t(step_count);
-    F_left = vector_t(step_count);
+    allocate(E_up, step_count, mesh->N);
+    allocate(F_up, step_count, mesh->N);
+    allocate(T_up, step_count, mesh->N);
 
-    F_right = vector_t(step_count);
-    E_right = vector_t(step_count);
-    T_right = vector_t(step_count);
+    allocate(E_down, step_count, mesh->N);
+    allocate(F_down, step_count, mesh->N);
+    allocate(T_down, step_count, mesh->N);
+
+    allocate(E_left, step_count, mesh->M);
+    allocate(F_left, step_count, mesh->M);
+    allocate(T_left, step_count, mesh->M);
+
+    allocate(E_right, step_count, mesh->M);
+    allocate(F_right, step_count, mesh->M);
+    allocate(T_right, step_count, mesh->M);
 } 
+
+/**
+ * Allocate space for 2D matrix
+ */ 
+void allocate(double **matrix, int nrows, int ncols){
+    matrix = new double*[nrows];
+    for (int i = 0; i < nrows; i++)
+        matrix[i] = new double[ncols]; 
+}
+
+/**
+ * Free space from 2D matrix
+ */ 
+void free(double **matrix, int nrows){
+    for (int j = 0; j < nrows; j++)
+        delete[] matrix[j];
+    delete[] matrix;
+}
 
 
 /**
@@ -104,52 +138,38 @@ vector_t smooth(vector_t& input){
 }
 
 
-/**
- * Calcule rho sous forme de fonction crenaux
- * param @N taille effective du signal de retour 
- * param @n_niche nombre de crenaux
- * param @y_min position minimale du signal de retour
- * param @y_max position maximale du signal de retour (possible taille du crenaux)
- * param @n_smooth nombre de lissage a effectuer sur le signal
- * retourne un vecteur contenant le signal
- */ 
-vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
+vector_t Solver::niche(int n_niche, double z_min, double z_max, int n_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
-    vector_t signal(N+2);
+    vector_t signal((mesh->N+2)*(mesh->M+2));
 
     /* Les attributs du signal */
     double ** attr = new double*[n_niche];
     for (int i = 0; i < n_niche; i++)
-        attr[i] = new double[3];
+        attr[i] = new double[4];
 
     srand(time(NULL));
-    for (int k = 0; k < n_niche; k++){
+    for (int l = 0; l < n_niche; l++){
         /* Attributs des crenaux pris au hazard */
         // attr[k][0] = rand() % (N-1) + 1;                     // position
         // attr[k][1] = rand() % (N/3) + 5;                  // largeur
         // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1.) + 1;    // hauteur
         
         /* Les memes attributs a chaque fois */
-        attr[k][0] = (int)(0.7*N);                     // position
-        attr[k][1] = (int)(0.1*N);                    // largeur
-        attr[k][2] = 1;                                 // hauteur
+        attr[l][0] = (0.7*mesh->N);                     // abcisse
+        attr[l][0] = (0.4*mesh->M);                     // ordonnee
+        attr[l][1] = (0.1*mesh->n_cells);                    // diametre
+        attr[l][2] = z_max;                                 // hauteur
 
-        /* 2 crenaux bien differents */
-        // attr[0][0] = 100;                     // position
-        // attr[0][1] = 50;                    // largeur
-        // attr[0][2] = 3;                                 // hauteur
-
-        // attr[1][0] = 300;                     // position
-        // attr[1][1] = 50;                    // largeur
-        // attr[1][2] = 3;                                 // hauteur
     }
 
     /* Placement des crenaux */
-    for (int j = 0; j < N+2; j++){
-        signal[j] = y_min;
-        for (int k = 0; k < n_niche; k++){
-            if (abs(j - attr[k][0]) <= attr[k][1]/2){
-                signal[j] = attr[k][2];
+    for (int k = 0; k < mesh->N+2; k++){
+        signal[k] = z_min;
+        int i = mesh->coord[k][0];
+        int j = mesh->coord[k][1];
+        for (int l = 0; l < n_niche; l++){
+            if (sqrt(pow(i - attr[l][0], 2) + pow(j - attr[l][1], 2)) <= attr[l][2]/2){
+                signal[j] = attr[l][3];
                 break;
             }
         }
@@ -168,19 +188,22 @@ vector_t niche(int N,int n_niche, double y_min, double y_max, int n_smooth){
 }
 
 
-double Solver::rho(double x){
+double Solver::rho(double x, double y){
     static int first_call = 1;
-    static int rho_niche = rho_expr.compare("crenau");
+    static int rho_niche = rho_expr.compare("custom");
 
     if (rho_niche == 0){
         static vector_t signal(mesh->N+2);
-        if (first_call == 1){signal = niche(mesh->N, 1, 0.01, 1.0, (int)(0.05*mesh->N)); first_call = 0;}
-        int index = int((x - mesh->x_min) * mesh->N / (mesh->x_max - mesh->x_min));     // Position approximative correspondant a x
-        return signal[index + 1];
+        if (first_call == 1){signal = niche(1, 0.01, 1.0, (int)(0.05*mesh->n_cells)); first_call = 0;}
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = i + j*(mesh->M+2);
+        return signal[j];
     }
     else{
         static Parser p;
         p.DefineVar("x", &x);
+        p.DefineVar("y", &y);
         if (first_call == 1){p.SetExpr(rho_expr); first_call = 0;}
         return p.Eval();
     }
@@ -211,11 +234,12 @@ double Solver::sigma_c(double rho, double T){
 }
 
 
-double Solver::E_0(double x){
+double Solver::E_0(double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("x", &x);
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(E_0_expr); first_call = 0; }
 
@@ -223,11 +247,12 @@ double Solver::E_0(double x){
 }
 
 
-double Solver::F_0(double x){
+double Solver::F_0(double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("x", &x); 
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(F_0_expr); first_call = 0; }
 
@@ -235,11 +260,12 @@ double Solver::F_0(double x){
 }
 
 
-double Solver::T_0(double x){
+double Solver::T_0(double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("x", &x); 
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(T_0_expr); first_call = 0; }
 
@@ -247,107 +273,241 @@ double Solver::T_0(double x){
 }
 
 
-double Solver::E_l(double t){
+double Solver::E_u(double t, double x){
     static int first_call = 1;
-    static int neumann = E_l_expr.compare("neumann");
+    static int neumann = E_u_expr.compare("neumann");
 
-    if (neumann == 0)
-        return E[1];
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + (mesh->M)*(mesh->M+2);
+        return E[k];
+    }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
-        p.DefineVar("x_min", &mesh->cells[1][0]);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(E_u_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::F_u(double t, double x){
+    static int first_call = 1;
+    static int neumann = F_u_expr.compare("neumann");
+
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + (mesh->M)*(mesh->M+2);
+        return F[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(F_u_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::T_u(double t, double x){
+    static int first_call = 1;
+    static int neumann = T_u_expr.compare("neumann");
+
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + (mesh->M)*(mesh->M+2);
+        return T[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(T_u_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::E_d(double t, double x){
+    static int first_call = 1;
+    static int neumann = E_d_expr.compare("neumann");
+
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + 0*(mesh->M+2);
+        return E[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(E_d_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::F_d(double t, double x){
+    static int first_call = 1;
+    static int neumann = F_d_expr.compare("neumann");
+
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + 0*(mesh->M+2);
+        return F[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(F_d_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::T_d(double t, double x){
+    static int first_call = 1;
+    static int neumann = T_d_expr.compare("neumann");
+
+    if (neumann == 0){
+        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
+        int k = i + 0*(mesh->M+2);
+        return T[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("x", &x);
+        if (first_call == 1){ p.SetExpr(T_d_expr); first_call = 0; }
+        return p.Eval();
+    }
+}
+
+
+double Solver::E_l(double t, double y){
+    static int first_call = 1;
+    static int neumann = E_l_expr.compare("neumann");
+
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = 0 + j*(mesh->M+2);
+        return E[k];
+    }
+    else{ 
+        static Parser p;
+        p.DefineVar("t", &t);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(E_l_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::F_l(double t){
+double Solver::F_l(double t, double y){
     static int first_call = 1;
     static int neumann = F_l_expr.compare("neumann");
 
-    if (neumann == 0)
-        return F[1];
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = 0 + j*(mesh->M+2);
+        return F[k];
+    }
     else{ 
         static Parser p;
-        p.DefineVar("t", &t); 
-        p.DefineVar("x_min", &mesh->cells[1][0]);
+        p.DefineVar("t", &t);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(F_l_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::T_l(double t){
+double Solver::T_l(double t, double y){
     static int first_call = 1;
     static int neumann = T_l_expr.compare("neumann");
 
-    if (neumann == 0)
-        return T[1];
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = 0 + j*(mesh->M+2);
+        return T[k];
+    }
     else{ 
         static Parser p;
-        p.DefineVar("t", &t); 
-        p.DefineVar("x_min", &mesh->cells[1][0]);
+        p.DefineVar("t", &t);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(T_l_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::E_r(double t){
+double Solver::E_r(double t, double y){
     static int first_call = 1;
     static int neumann = E_r_expr.compare("neumann");
 
-    if (neumann == 0)
-        return E[mesh->N];
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = mesh->N + j*(mesh->M+2);
+        return E[k];
+    }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
-        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(E_r_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::F_r(double t){
+double Solver::F_r(double t, double y){
     static int first_call = 1;
     static int neumann = F_r_expr.compare("neumann");
-    if (neumann == 0)
-        return F[mesh->N];
+
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = mesh->N + j*(mesh->M+2);
+        return F[k];
+    }
     else{ 
         static Parser p;
-        p.DefineVar("t", &t); 
-        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        p.DefineVar("t", &t);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(F_r_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::T_r(double t){
+double Solver::T_r(double t, double y){
     static int first_call = 1;
     static int neumann = T_r_expr.compare("neumann");
 
-    if (neumann == 0)
-        return T[mesh->N];
+    if (neumann == 0){
+        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        int k = mesh->N + j*(mesh->M+2);
+        return T[k];
+    }
     else{ 
         static Parser p;
-        p.DefineVar("t", &t); 
-        p.DefineVar("x_max", &mesh->cells[mesh->N][2]);
+        p.DefineVar("t", &t);
+        p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(T_r_expr); first_call = 0; }
         return p.Eval();
     }
 }
 
 
-double Solver::E_exact(double t, double x){
+double Solver::E_exact(double t, double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(E_exact_expr); first_call = 0; }
 
@@ -355,12 +515,13 @@ double Solver::E_exact(double t, double x){
 }
 
 
-double Solver::F_exact(double t, double x){
+double Solver::F_exact(double t, double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(F_exact_expr); first_call = 0; }
 
@@ -368,12 +529,13 @@ double Solver::F_exact(double t, double x){
 }
 
 
-double Solver::T_exact(double t, double x){
+double Solver::T_exact(double t, double x, double y){
     static int first_call = 1;
 
     static Parser p;
     p.DefineVar("t", &t);
     p.DefineVar("x", &x);
+    p.DefineVar("y", &y);
     p.DefineVar("t_0", &t_0);
     if (first_call == 1){ p.SetExpr(T_exact_expr); first_call = 0; }
 
@@ -587,7 +749,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce temps */
-        save_animation(n);
+        // save_animation(n);
 
         /* Signaux exportés */
         E_left[n] = E[1];
@@ -634,3 +796,21 @@ void Solver::display(){
 
     cout << "\n";
 };
+
+Solver::~Solver(){
+    free(E_up, step_count);
+    free(F_up, step_count);
+    free(T_up, step_count);
+
+    free(E_down, step_count);
+    free(F_down, step_count);
+    free(T_down, step_count);
+
+    free(E_left, step_count);
+    free(F_left, step_count);
+    free(T_left, step_count);
+
+    free(E_right, step_count);
+    free(F_right, step_count);
+    free(T_right, step_count);
+}
