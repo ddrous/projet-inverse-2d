@@ -34,39 +34,49 @@ class Solver{
         std::string sigma_a_expr;       // Expression de l'opacite d'absorption
         std::string sigma_c_expr;       // Expression de l'opacite de scatering
 
+        // Attributs des crenaux places sur la densite
+        const int n_niche = 1;
+        double ** attr;
+
         // Solution numerique
         std::vector<double> E;              // Solution numerique du problme: E(t, x)
-        std::vector<double> F;              // Solution numerique du problme: F(t, x)
+        std::vector<std::vector<double>> F;              // Solution numerique du problme: F(t, x)
         std::vector<double> T;              // Solution numerique du problme: T(t, x)
 
         // Au temps initial
         std::string E_0_expr;               // Au temps initial: E(t_0, x, y)
-        std::string F_0_expr;               // Au temps initial: F(t_0, x, y)
+        std::string F_0_x_expr;               // Au temps initial: F(t_0, x, y)
+        std::string F_0_y_expr;               // Au temps initial: F(t_0, x, y)
         std::string T_0_expr;               // Au temps initial: T(t_0, x, y)
 
         // Conditions imposees sur le bord du haut
         std::string E_u_expr;               // E(t, x, y_min)
-        std::string F_u_expr;               // F(t, x, y_min)
+        std::string F_u_x_expr;               // F(t, x, y_min)
+        std::string F_u_y_expr;               // F(t, x, y_min)
         std::string T_u_expr;               // T(t, x, y_min)
 
         // Conditions imposees sur le bord du bas
         std::string E_d_expr;               // E(t, x, y_max)
-        std::string F_d_expr;               // F(t, x, y_max)
+        std::string F_d_x_expr;               // F(t, x, y_max)
+        std::string F_d_y_expr;               // F(t, x, y_max)
         std::string T_d_expr;               // T(t, x, y_max)
 
         // Conditions imposees sur le bord gauche
         std::string E_l_expr;               // E(t, x_min, y)
-        std::string F_l_expr;               // F(t, x_min, y)
+        std::string F_l_x_expr;               // F(t, x_min, y)
+        std::string F_l_y_expr;               // F(t, x_min, y)
         std::string T_l_expr;               // T(t, x_min, y)
 
         // Conditions imposees sur le bord droit
         std::string E_r_expr;               // E(t, x_max, y)
-        std::string F_r_expr;               // F(t, x_max, y)
+        std::string F_r_x_expr;               // F(t, x_max, y)
+        std::string F_r_y_expr;               // F(t, x_max, y)
         std::string T_r_expr;               // T(t, x_max, y)
 
         // Solution exacte
         std::string E_exact_expr;           // Solution exacte: E_exact(t, x, y)
-        std::string F_exact_expr;           // Solution exacte: F_exact(t, x, y)
+        std::string F_exact_x_expr;           // Solution exacte: F_exact(t, x, y)
+        std::string F_exact_y_expr;           // Solution exacte: F_exact(t, x, y)
         std::string T_exact_expr;           // Solution exacte: T_exact(t, x, y)
 
 
@@ -109,7 +119,7 @@ class Solver{
          * param @n_smooth nombre de lissage a effectuer sur le signal
          * retourne un vecteur contenant le signal
          */ 
-        std::vector<double> niche(int n_niche, double z_min, double z_max, int n_smooth);
+        std::vector<double> niche(double z_min, double z_max, int n_smooth);
 
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
@@ -134,7 +144,7 @@ class Solver{
         /***************
          * Calcule F(t_0, x)
          */ 
-        double F_0(double x, double y);
+        std::vector<double> F_0(double x, double y);
 
         /***************
          * Calcule T(t_0, x)        // Eviter T_0 = 0 !
@@ -149,7 +159,7 @@ class Solver{
         /***************
          * Calcule F(t, x, y_max), flux a la position y_max en tout temps
          */ 
-        double F_u(double t, double x);
+        std::vector<double> F_u(double t, double x);
 
         /***************
          * Calcule T(t, x, y_max), temperature a la position y_max en tout temps
@@ -164,7 +174,7 @@ class Solver{
         /***************
          * Calcule F(t, x, y_min), flux a la position y_min en tout temps
          */ 
-        double F_d(double t, double x);
+        std::vector<double> F_d(double t, double x);
 
         /***************
          * Calcule T(t, x, y_min), temperature a la position x_min en tout temps
@@ -179,7 +189,7 @@ class Solver{
         /***************
          * Calcule F(t, x_min, y), flux a la position x_min en tout temps
          */ 
-        double F_l(double t, double y);
+        std::vector<double> F_l(double t, double y);
 
         /***************
          * Calcule T(t, x_min, y), temperature a la position x_min en tout temps
@@ -194,7 +204,7 @@ class Solver{
         /***************
          * Calcule F(t, x_max, y), flux a la position x_max en tout temps
          */ 
-        double F_r(double t, double y);
+        std::vector<double> F_r(double t, double y);
 
         /***************
          * Calcule T(t, x_max, y), temperature a la position x_max en tout temps
@@ -209,7 +219,7 @@ class Solver{
         /***************
          * Calcule F(t, x, y), solution exacte
          */ 
-        double F_exact(double t, double x, double y);
+        std::vector<double> F_exact(double t, double x, double y);
 
         /***************
          * Calcule T(t, x, y), solution exacte
@@ -249,7 +259,7 @@ class Solver{
         /***************
          * Destructeur vide
          */
-        virtual ~ Solver(){};
+        virtual ~ Solver();
 };
 
 #endif

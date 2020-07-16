@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+#include <iomanip> 
 
 #include "include/mesh.hpp"
 
@@ -36,6 +38,11 @@ Mesh::Mesh(const Config &cfg){
 }
 
 
+int cell_id(int i, int j, int n_rows, int n_cols){
+    return i + j*n_rows;
+}
+
+
 void Mesh::create_cells(){
     for (int i = 0; i < N+2; i++)
         x[i] = x_min + (i-1)*dx + dx/2.;     // centres des mailles suivant l'horizontale i
@@ -48,45 +55,58 @@ void Mesh::create_cells(){
     for (int i = 0; i < N+2; i++)
         for (int j = 0; j < M+2; j++){
 
-            int k = i + j*(M+2);        // numero (identifiant) de la maille
+            int k = cell_id(i, j, N+2, M+2);        // numero (identifiant) de la maille
             coord[k][0] = i;
             coord[k][1] = j;
 
             if (j == M+1){            // Les mailles fantomes du haut
                 neighb[k][0] = -1;               // voisin du haut
-                neighb[k][1] = k - (M+2);        // voisin du bas
+                neighb[k][1] = k - (N+2);        // voisin du bas
                 neighb[k][2] = -1;               // voisin de gauche
                 neighb[k][3] = -1;               // voisin de droite
             }
 
             else if (j == 0){            // Les mailles fantomes du bas
-                neighb[k][0] = k + (M+2);        // voisin du haut
-                neighb[k][1] = -1;               // voisin du bas
-                neighb[k][2] = -1;               // voisin de gauche
-                neighb[k][3] = -1;               // voisin de droite
+                neighb[k][0] = k + (N+2);
+                neighb[k][1] = -1;
+                neighb[k][2] = -1;
+                neighb[k][3] = -1;
             }
 
             else if (i == 0){            // Les mailles fantomes de gauche
-                neighb[k][0] = -1;               // voisin du haut
-                neighb[k][1] = -1;               // voisin du bas
-                neighb[k][2] = -1;               // voisin de gauche
-                neighb[k][3] = k + 1;            // voisin de droite
+                neighb[k][0] = -1;
+                neighb[k][1] = -1;
+                neighb[k][2] = -1;
+                neighb[k][3] = k + 1;
             }
 
             else if (i == N+1){            // Les mailles fantomes de droite
-                neighb[k][0] = -1;               // voisin du haut
-                neighb[k][1] = -1;               // voisin du bas
-                neighb[k][2] = k - 1;            // voisin de gauche
-                neighb[k][3] = -1;               // voisin de droite
+                neighb[k][0] = -1;
+                neighb[k][1] = -1;
+                neighb[k][2] = k - 1;
+                neighb[k][3] = -1;
             }
 
             else {      // Les mailles intermediaires
-                neighb[k][0] = k + (M+2);        // voisin du haut
-                neighb[k][1] = k - (M+2);      // voisin du bas
+                neighb[k][0] = k + (N+2);        // voisin du haut
+                neighb[k][1] = k - (N+2);      // voisin du bas
                 neighb[k][2] = k - 1;            // voisin de gauche
                 neighb[k][3] = k + 1;            // voisin de droite
             }
         }
+}
+
+
+void Mesh::display(){
+    cout << "-----------  Maillage  -----------\n" ;     // up-down-left-right, -1 pour les voisins manquants
+    for (int j = M+1; j >= 0; j--){
+        for (int i = 0; i <= N+1; i++){
+            int k = cell_id(i, j, N+2, M+2);
+            cout << setw(8) << k << " : (" << setw(2) << neighb[k][0] << "," << setw(2) << neighb[k][1] << "," << setw(2) << neighb[k][2] << "," << setw(2) << neighb[k][3] << ")";
+        }
+        if (j != 0) cout << "\n\n";
+        else cout << "\n";
+    }
 }
 
 

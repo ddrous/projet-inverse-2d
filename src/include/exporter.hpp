@@ -19,14 +19,10 @@ class Exporter{
         Exporter(const Solver *new_solver);
 
         /**************
-         * Exporte une dataframe de donnees spatiales
+         * Exporte une dataframe de donnees spatiales et temporelles
          */
-        void spatial(std::string file_name, std::string mode);
+        void write_dataframe(std::string file_name, std::string mode);
 
-        /**************
-         * Exporte une dataframe de donnees temportelles
-         */
-        void temporal(std::string file_name, std::string mode);
 
         /**************
          * Exporte le cas test 1

@@ -33,9 +33,22 @@ class Mesh{
 
         // Creation des differents volumes uniformes
         void create_cells();
+
+        // Affichage du malliage
+        void display();
         
         // Destructeur
         virtual ~ Mesh();
 };
+
+/***************************************
+ * @brief  Fonction qui calcule le numero d'une cellule
+ * @param  i: abscisse
+ * @param  j: ordonnee
+ * @param  n_rows: nombre total d'abscisses
+ * @param  n_cols: nombre total d'ordonnees
+ * @retval identifiant de la cellule dans le maillage global (contenant les cellules fantomes)
+ */
+int cell_id(int i, int j, int n_rows, int n_cols);
 
 #endif

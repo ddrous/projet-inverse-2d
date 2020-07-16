@@ -29,44 +29,31 @@ int main(int argc, char * argv[]){
         Mesh m = Mesh(cfg);
         cout << "\nCreation des " << m.n_cells << " mailles (M = " << m.M << ") en cours ... " << endl;
         m.create_cells();
-        // for (int k = 0; k < m.n_cells; k++)
-        // {
-        //     cout << "k = " << k << " i = " << m.coord[k][0] << " j = " << m.coord[k][1] << endl;
-        //     cout << "up = " << m.neighb[k][0] << endl;
-        //     cout << "down = " << m.neighb[k][1] << endl;
-        //     cout << "left = " << m.neighb[k][2] << endl;
-        //     cout << "right = " << m.neighb[k][3] << endl;
-        //     cout << " " << endl;
-        // }
-
+        // m.display();
         cout << "Creation OK !" << endl;
     
         /* Resolution du probleme */
-        // Solver s = Solver(&m, cfg);
-        // cout << "\nResolution (" << s.step_count << " iterations) en cours ..." << endl;
-        // s.solve();
-        // cout << "Resolution OK !" << endl;
-        // // cout << "\nSignaux au temps final:" << endl;
-        // // s.display();
+        Solver s = Solver(&m, cfg);
+        cout << "\nResolution (" << s.step_count << " iterations) en cours ..." << endl;
+        s.solve();
+        // s.display();
+        cout << "Resolution OK !" << endl;
 
-        /* Exportation */
-        // Exporter ex = Exporter(&s);
-        // cout << "\nExportation des resultats en cours ..." << endl;
-        // ex.spatial(cfg.values["export_spatial"], "append");
-        // ex.temporal(cfg.values["export_temporal"], "append");
-
+        // /* Exportation */
+        Exporter ex = Exporter(&s);
+        cout << "\nExportation des resultats en cours ..." << endl;
+        ex.write_dataframe(cfg.values["export"], "trunc");
         // ex.case_1("data/case_1_spatial.csv", "data/case_1_temporal.csv");
-        // // ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
+        // ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
         // ex.case_3("data/case_3_spatial.csv", "data/case_3_temporal.csv");
-        // cout << "Export OK !" << endl;
+        cout << "Export OK !" << endl;
 
         // cout << "\nResultats du cas test 1 dans:  -- 'data/case_1_spatial.csv'  -- 'data/case_1_temporal.csv'" << endl;
         // if(s.E_exact_expr.empty() == false)
         //     cout << "Resultats du cas test 2 dans:  -- 'data/case_2_spatial.csv'  -- 'data/case_2_temporal.csv'" << endl;
         // cout << "Resultats du cas test 3 dans:  -- 'data/case_3_spatial.csv'" << endl;
 
-        // cout << "\nSignaux en tout temps aux bords du domaine exportes dans '" << cfg.values["export_spatial"] << "'"  << endl;
-        // cout << "Signaux au temps final sur tout le domaine exportes dans '" << cfg.values["export_temporal"] << "'"  << endl;
+        cout << "\nSignaux spatiaux et temporels exportés dans '" << cfg.values["export"] << "'"  << endl;
 
         cout << "\n================================================"  << endl << endl;
     }

@@ -29,31 +29,36 @@ Config::Config(string file_path){
     values["sigma_c"] = "";
 
     values["E_exact"] = "";
-    values["F_exact"] = "";
+    values["F_exact_x"] = "";
+    values["F_exact_y"] = "";
     values["T_exact"] = "";
 
     values["E_0"] = "";
-    values["F_0"] = "";
+    values["F_0_x"] = "";
+    values["F_0_y"] = "";
     values["T_0"] = "";
 
-    values["E_l"] = "";
-    values["F_l"] = "";
-    values["T_l"] = "";
-
-    values["E_r"] = "";
-    values["F_r"] = "";
-    values["T_r"] = "";
-
     values["E_u"] = "";
-    values["F_u"] = "";
+    values["F_u_x"] = "";
+    values["F_u_y"] = "";
     values["T_u"] = "";
 
     values["E_d"] = "";
-    values["F_d"] = "";
+    values["F_d_x"] = "";
+    values["F_d_y"] = "";
     values["T_d"] = "";
 
-    values["export_spatial"] = "";
-    values["export_temporal"] = "";
+    values["E_l"] = "";
+    values["F_l_x"] = "";
+    values["F_l_y"] = "";
+    values["T_l"] = "";
+
+    values["E_r"] = "";
+    values["F_r_x"] = "";
+    values["F_r_y"] = "";
+    values["T_r"] = "";
+
+    values["export"] = "";
 
     size = values.size();
 }
@@ -97,7 +102,7 @@ void Config::read(){
         throw string ("ERREUR: Parametre inconnu '" + unkown_name + "' dans le fichier de configuration");
 
     for (it = values.begin(); it != values.end(); ++it){
-        if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact") && !(it->first == "T_exact")){
+        if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact_x") && !(it->first == "F_exact_y") && !(it->first == "T_exact")){
             throw string ("ERREUR: Paramètre '"+it->first+"' manquant dans le fichier de configuration");}
         if (count[it->first] > 1)
             throw string ("ERREUR: Paramètre '"+it->first+"' dupliqué dans le fichier de configuration");
