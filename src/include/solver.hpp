@@ -34,6 +34,9 @@ class Solver{
         std::string sigma_a_expr;       // Expression de l'opacite d'absorption
         std::string sigma_c_expr;       // Expression de l'opacite de scatering
 
+        // La densite sous forme vectorielle pour l'export
+        std::vector<double> rho_vec;
+
         // Attributs des crenaux places sur la densite
         const int n_niche = 1;
         double ** attr;

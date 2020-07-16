@@ -62,6 +62,8 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
     sigma_a_expr = cfg.values.at("sigma_a");
     sigma_c_expr = cfg.values.at("sigma_c");
 
+    rho_vec = vector_1row(mesh->n_cells);
+
     E = vector_1row(mesh->n_cells);
     F = vector_2rows(mesh->n_cells, vector_2d(2));
     T = vector_1row(mesh->n_cells);
@@ -158,7 +160,7 @@ vector_1row smooth(vector_1row& input){
 
 vector_1row Solver::niche(double z_min, double z_max, int n_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
-    vector_1row signal((mesh->N+2)*(mesh->M+2));
+    vector_1row signal(mesh->n_cells);
 
     /* Les attributs du signal */
     attr = allocate(n_niche, 4);
@@ -204,12 +206,12 @@ double Solver::rho(double x, double y){
     static int rho_niche = rho_expr.compare("custom");
 
     if (rho_niche == 0){
-        static vector_1row signal(mesh->N+2);
-        if (first_call == 1){signal = niche(0.01, 1.0, (int)(0.05*mesh->n_cells)); first_call = 0;}
+        // static vector_1row signal(mesh->N+2);
+        if (first_call == 1){rho_vec = niche(0.01, 1.0, (int)(0.05*mesh->n_cells)); first_call = 0;}
         int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(i, j, mesh->N+2, mesh->M+2);
-        return signal[k];
+        return rho_vec[k];
     }
     else{
         static Parser p;
@@ -600,12 +602,12 @@ void Solver::save_animation(int time_step){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    file << "x,y,rho,E,F,T,Tr\n";
+    file << "x,y,rho,E,F_x,F_y,T,Tr\n";
 
     for (int i = 1; i < mesh->N+1; i++){
         for (int j = 1; j < mesh->M+1; j++){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
-            file << mesh->x[i] << "," << mesh->y[j] << "," << rho(mesh->x[i], mesh->y[j]) << "," << E[k] << "," << l2_norm(F[k]) << "," << T[k] << "," << pow(E[k]/a, 0.25) << "\n";
+            file << mesh->x[i] << "," << mesh->y[j] << "," << rho(mesh->x[i], mesh->y[j]) << "," << E[k] << "," << F[k][0] << "," << F[k][1] << "," << T[k] << "," << pow(E[k]/a, 0.25) << "\n";
         }
     }
 
@@ -710,15 +712,14 @@ void Solver::phase_1(){
 
 void Solver::phase_2(){
     /* Vecteurs necessaires pour cette etape */
-    vector_1row E_etoile(mesh->n_cells), T_etoile(mesh->n_cells);
-    vector_1row E_suiv(mesh->n_cells), T_suiv(mesh->n_cells);
+    vector_1row E_etoile(mesh->n_cells);
+    vector_1row E_suiv(mesh->n_cells);
     vector_2rows F_etoile(mesh->n_cells, vector_2d(2));
     vector_2rows F_suiv(mesh->n_cells, vector_2d(2));
 
     /* Initialisation de l'etape */
     E_etoile = E;
     F_etoile = F;
-    T_etoile = T;
 
     for (int k = 0; k < mesh->n_cells; k++){
         int i = mesh->coord[k][0];
@@ -787,14 +788,11 @@ void Solver::phase_2(){
             // vector_2d tmp4 = add(tmp1, tmp2);
             // F_suiv[k] = add(tmp4, prod(delta, sum_flux_E));
             F_suiv[k] = add(add(prod(beta, F_etoile[k]), prod(E[k], gamma)), prod(delta, sum_flux_E));
-
-            T_suiv[k] = T_etoile[k];
         }
     }
 
     E = E_suiv;
     F = F_suiv;
-    T = T_suiv;
 };
 
 
