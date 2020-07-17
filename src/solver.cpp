@@ -813,6 +813,7 @@ void Solver::phase_2(){
             // vector_2d tmp4 = add(tmp1, tmp2);
             // F_suiv[k] = add(tmp4, prod(delta, sum_flux_E));
             F_suiv[k] = add(add(prod(beta, F_etoile[k]), prod(E[k], gamma)), prod(delta, sum_flux_E));
+            // ++++++++++++++++++VERFIIER QUE F est UPDATED
         }
     }
 
