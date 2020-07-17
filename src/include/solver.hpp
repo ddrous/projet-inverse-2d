@@ -38,7 +38,7 @@ class Solver{
         std::vector<double> rho_vec;
 
         // Attributs des crenaux places sur la densite
-        const int n_niche = 1;
+        int n_niche;
         double ** attr;
 
         // Solution numerique
@@ -122,7 +122,7 @@ class Solver{
          * param @n_smooth nombre de lissage a effectuer sur le signal
          * retourne un vecteur contenant le signal
          */ 
-        std::vector<double> niche(double z_min, double z_max, int n_smooth);
+        std::vector<double> niche(int nb_niche, double z_min, double z_max, int n_smooth);
 
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
@@ -264,5 +264,6 @@ class Solver{
          */
         virtual ~ Solver();
 };
+
 
 #endif

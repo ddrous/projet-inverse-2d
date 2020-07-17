@@ -144,25 +144,35 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
 /**
  * Laplacian smoothing (k-means) d'un vecteur, avec k=3
  */ 
-vector_1row smooth(vector_1row& input){
+vector_1row smooth(vector_1row& input, int **neighb){
     int size = input.size();
     vector_1row output(size);
-    
-    output[0] = (input[0]+input[1]+input[2]) / 3;
-    for (int j = 1; j < size-1; j++){
-        output[j] = (input[j-1]+input[j]+input[j+1]) / 3;
+
+    for (int k = 0; k < size; k++){
+        double sum = input[k];
+        int count_nbr = 1;
+
+        for (int l = 0; l < 4; l++){
+            int id_nbr = neighb[k][l];
+            if ( id_nbr != -1){
+                sum += input[id_nbr];
+                count_nbr += 1;
+            }
+        }
+
+        output[k] = sum / count_nbr;
     }
-    output[size-1] = (input[size-3]+input[size-2]+input[size-1]) / 3;
 
     return output;
 }
 
 
-vector_1row Solver::niche(double z_min, double z_max, int n_smooth){
+vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
     vector_1row signal(mesh->n_cells);
 
     /* Les attributs du signal */
+    n_niche = nb_niche;
     attr = allocate(n_niche, 4);
 
     srand(time(NULL));
@@ -173,29 +183,29 @@ vector_1row Solver::niche(double z_min, double z_max, int n_smooth){
         // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1.) + 1;    // hauteur
         
         /* Les memes attributs a chaque fois */
-        attr[l][0] = (0.7*mesh->N);                     // abcisse
-        attr[l][1] = (0.4*mesh->M);                     // ordonnee
-        attr[l][2] = (0.1*mesh->n_cells);                    // diametre
+        attr[l][0] = (0.7*mesh->N-1)*mesh->dx + mesh->dx/2. + mesh->x_min ;  // abcisse
+        attr[l][1] =  (0.5*mesh->M-1)*mesh->dy + mesh->dy/2. + mesh->y_min; // ordonnee
+        attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2); // diametre
         attr[l][3] = z_max;                                 // hauteur
-
     }
 
     /* Placement des crenaux */
-    for (int k = 0; k < mesh->n_cells; k++){
-        signal[k] = z_min;
-        int i = mesh->coord[k][0];
-        int j = mesh->coord[k][1];
-        for (int l = 0; l < n_niche; l++){
-            if (sqrt(pow(i - attr[l][0], 2) + pow(j - attr[l][1], 2)) <= attr[l][2]/2){
-                signal[j] = attr[l][3];
-                break;
+    for (int i = 0; i < mesh->N+2; i++){
+        for (int j = 0; j < mesh->M+2; j++){
+            int k = cell_id(i, j, mesh->N+2, mesh->M+2);
+            signal[k] = z_min;
+            for (int l = 0; l < n_niche; l++){
+                if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= attr[l][2]/2.){
+                    signal[k] = attr[l][3];
+                    break;
+                }
             }
         }
     }
 
     /* Lissage du signal */
     for (int i = 0; i < n_smooth; i++)
-        signal = smooth(signal);
+        signal = smooth(signal, mesh->neighb);
 
     return signal;
 }
@@ -203,11 +213,11 @@ vector_1row Solver::niche(double z_min, double z_max, int n_smooth){
 
 double Solver::rho(double x, double y){
     static int first_call = 1;
-    static int rho_niche = rho_expr.compare("custom");
+    static int custom = rho_expr.compare("custom");
 
-    if (rho_niche == 0){
+    if (custom == 0){
         // static vector_1row signal(mesh->N+2);
-        if (first_call == 1){rho_vec = niche(0.01, 1.0, (int)(0.05*mesh->n_cells)); first_call = 0;}
+        if (first_call == 1){rho_vec = niche(1, 0.01, 1.0, 0.1*(mesh->N + mesh->M)/2.); first_call = 0;}
         int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(i, j, mesh->N+2, mesh->M+2);
@@ -602,14 +612,29 @@ void Solver::save_animation(int time_step){
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-    file << "x,y,rho,E,F_x,F_y,T,Tr\n";
+    file << "E,F_x,F_y,T,Tr\n";
 
-    for (int i = 1; i < mesh->N+1; i++){
-        for (int j = 1; j < mesh->M+1; j++){
+    for (int j = 1; j < mesh->M+1; j++){
+        for (int i = 1; i < mesh->N+1; i++){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
-            file << mesh->x[i] << "," << mesh->y[j] << "," << rho(mesh->x[i], mesh->y[j]) << "," << E[k] << "," << F[k][0] << "," << F[k][1] << "," << T[k] << "," << pow(E[k]/a, 0.25) << "\n";
+            file << E[k] << "," << F[k][0] << "," << F[k][1] << "," << T[k] << "," << pow(E[k]/a, 0.25) << "\n";
         }
     }
+
+    /* Rajoutons x et y */
+    // file << "\"[";
+    // for (int i = 1; i < mesh->N+1; i++){
+    //     file << mesh->x[i];
+    //     if (i != mesh->N) file << ",";
+    // }
+    // file << "]\",";
+
+    // file << "\"[";
+    // for (int j = 1; j < mesh->M+1; j++){
+    //     file << mesh->y[j];
+    //     if (j != mesh->M) file << ",";
+    // }
+    // file << "]\",";
 
     file.close();
 }
@@ -935,23 +960,4 @@ Solver::~Solver(){
 
     if (rho_expr.compare("custom") == 0)
         free(attr, n_niche);
-
-    // free(&E_up, step_count);
-    // free(&F_up, step_count);
-    // free(&T_up, step_count);
-
-    // free(&E_down, step_count);
-    // free(&F_down, step_count);
-    // free(&T_down, step_count);
-
-    // free(&E_left, step_count);
-    // free(&F_left, step_count);
-    // free(&T_left, step_count);
-
-    // free(&E_right, step_count);
-    // free(&F_right, step_count);
-    // free(&T_right, step_count);
-
-    // if (rho_expr.compare("custom") == 0)
-    //     free(&attr, n_niche);
 };

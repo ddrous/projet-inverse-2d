@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
-
+#include <map>
 #include <cmath>
+
 #include "include/exporter.hpp"
 
 using namespace std;
@@ -109,7 +110,6 @@ Exporter::Exporter(const Solver *new_solver){
 // }
 
 
-// double rho()
 
 /**
  * Ecris un signal spatial a n_rows lignes et n_cols colones dans le fichier file
@@ -119,7 +119,7 @@ void write_spatial(ofstream &file, vector<double> const &signal, int n_rows, int
     for (int j = 0; j < n_cols; j++){
         file << "[";
         for (int i = 0; i < n_rows; i++){
-            int k = cell_id(i+1, j+1, n_rows, n_cols);
+            int k = cell_id(i+1, j+1, n_rows+2, n_cols+2);
             file << signal[k];
             if (i != n_rows-1) file << ", ";
         }
@@ -146,6 +146,7 @@ void write_temporal(ofstream &file, double **signal, int n_rows, int n_cols){
     }
     file << "]\"";
 }
+
 
 void Exporter::write_dataframe(std::string file_name, std::string mode){
     ofstream file;
