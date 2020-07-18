@@ -1,11 +1,11 @@
-# Transfer Radiatif Inverse (MOCO)
+# Transfer Radiatif Inverse 2D (MOCO)
 
 ### Objectif
 Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 1D et les réseaux de neurones.
 
 ### Documents
 - Indications et travail à faire: `doc/projetM1.pdf`  
-- Rapport version finale: `doc/rapport_vfinale.pdf`  
+- Rapport version finale: `doc/rapport.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
@@ -14,7 +14,7 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Avec Cmake: `cmake --build build`
 
 ### Exécution
-- Pour une simple exécution: __`build/transfer src/config/case_1.cfg`__ [Voir case_2 et case_3 pour les autres cas test](https://github.com/feelpp/csmi-m1-2020-moco-inverse/tree/master/src/config)     
+- Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ (voir ci dessous comment ecrite un fichier de configuration)
 
 __Format des fichiers de configuration:__  
 ![Instructions for configuration](data/img/config.png)
@@ -22,12 +22,12 @@ __Format des fichiers de configuration:__
 - Pour générer un tas de données à étudier: __`bash src/simu/gauss_dump.sh`__ 
 
 ### Résultats
-- __`data/df_temporal.csv`__ pour les signaux aux bords du domaine en tous temps.
-- __`data/df_spatial.csv`__ pour les signaux sur tout le domaine au temps final.
+- __`data/df_simu.csv`__ pour les signaux sur tout le domaine en tous temps.
 
 ## __2ème partie: Reseaux de neurones__   
 - Analyse des données: `src/notebook/analyse_des_donnees.ipynb` [Version Colab](https://colab.research.google.com/drive/17eqqFvVzvzFqB8URGFR9-YQmqDNxU5Ax?usp=sharing).  
 - Réseaux de neurones: `src/notebook/reseaux_de_neurones.ipynb` [Version Colab](https://colab.research.google.com/drive/1DXee80oz_6OqLDHdnO00VjK62TdKSE5O?usp=sharing).
+- Visualisation et animation: `src/notebook/visualisation_2d.ipynb`.
 
 ## Ressources utilisées:
 - __muParser__ pour transformer des expressions en fonctions: [Example](https://beltoforion.de/article.php?a=muparser&s=idExample#idExample) - [Instructions](https://beltoforion.de/article.php?a=muparser&p=building)

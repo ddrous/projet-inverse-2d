@@ -587,10 +587,17 @@ double compute_M(double dx, double sigma_kl){
  * Calcule les E_{k, l}n_{k, l}, flux de E entre les cellules k et l
  */ 
 vector_2d flux_E(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k, vector_2d F_l, vector_2d n_kl){
-    double tmp1 = l_kl * M_kl;
-    double tmp2 = 0.5 * (E_k + E_l);
-    double tmp3 = 0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
-    return prod(tmp1 * (tmp2+tmp3), n_kl);
+    double tmp1 = 0.5 * (E_k + E_l);
+    double tmp2 = 0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
+    return prod(l_kl*M_kl * (tmp1+tmp2), n_kl);
+
+    // double tmp1 = 0.5 * (E_k + E_l);
+    // double tmp2 = -0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
+    // return prod(l_kl*M_kl * (tmp1+tmp2), n_kl);
+
+    // double tmp1 = 0.5 * (E_k + E_l);
+    // double tmp2 = 0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
+    // return prod(l_kl*M_kl * (tmp1 - tmp2), n_kl);
 }
 
 
@@ -598,10 +605,17 @@ vector_2d flux_E(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k
  * Calcule les F_{k, l} . n_{k, l}, flux de F entre les cellules k et l
  */ 
 double flux_F(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k, vector_2d F_l, vector_2d n_kl){
-    double tmp1 = l_kl * M_kl;
-    double tmp2 = 0.5 * (dot(F_k, n_kl) + dot(F_l, n_kl));
-    double tmp3 = 0.5 * (E_l - E_k);
-    return tmp1 * (tmp2+tmp3);
+    double tmp1 = 0.5 * (dot(F_k, n_kl) + dot(F_l, n_kl));
+    double tmp2 = 0.5 * (E_l - E_k);
+    return l_kl*M_kl * (tmp1+tmp2);
+
+    // vector_2d tmp1 = prod(0.5, add(F_k, F_l));
+    // vector_2d tmp2 = prod(-0.5, add(prod(E_l, n_kl), prod(-E_k, n_kl)));
+    // return dot(prod(l_kl*M_kl, add(tmp1, tmp2)), n_kl);
+
+    // double tmp1 = 0.5 * (dot(F_k, n_kl) + dot(F_l, n_kl));
+    // double tmp2 = 0.5 * (E_l - E_k);
+    // return l_kl*M_kl * (tmp1 - tmp2);
 }
 
 
@@ -669,6 +683,7 @@ void Solver::phase_1(){
                 Theta = Theta_next;
                 
                 T[k] = pow(Theta/a, 0.25);
+                // T[k] = pow(abs(Theta)/a, 0.25);         //************************** Comme ca ?
                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[k], 2) + T[k]*pow(T_n, 2) + pow(T[k], 3));
                 bool nan = isnan(mu_q);             //************************************************* A RETIRER
                 if (isnan(mu_q))
@@ -796,15 +811,15 @@ void Solver::phase_2(){
                     n_kl = {0, 1};
                     l_kl = mesh->dy;
                 }
-                if (neighbor == 1){                        // Voisin du bas
+                else if (neighbor == 1){                        // Voisin du bas
                     n_kl = {0, -1};
                     l_kl = mesh->dy;
                 }
-                if (neighbor == 2){                        // Voisin de gauche
+                else if (neighbor == 2){                        // Voisin de gauche
                     n_kl = {-1, 0};
                     l_kl = mesh->dx;
                 }
-                if (neighbor == 3){                        // Voisin de droite
+                else if (neighbor == 3){                        // Voisin de droite
                     n_kl = {1, 0};
                     l_kl = mesh->dx;
                 }
@@ -866,8 +881,10 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
+    // while (t <= t_f && n < 21){
         /* Enregistrement des signaux pour ce temps */
         save_animation(n);
+        cout << " --- iteration " << n << endl;
 
         /* Signaux exportés */
         for (int i = 1; i < mesh->N+1; i++){
@@ -893,7 +910,7 @@ void Solver::solve(){
             T_right[n][j-1] = T[k];
         }
 
-        /* etape 1 */ 
+        /* *************** etape 1 ******************/
         phase_1();
         // phase_1_eq();
 
@@ -924,7 +941,7 @@ void Solver::solve(){
         }
 
 
-        /* etape 2 */
+        /* *************** etape 2 ******************/
         phase_2();
 
         time_steps[n] = t;
