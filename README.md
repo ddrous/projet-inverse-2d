@@ -1,11 +1,11 @@
 # Transfer Radiatif Inverse 2D (MOCO)
 
 ### Objectif
-Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 1D et les réseaux de neurones.
+Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 2D et les réseaux de neurones.
 
 ### Documents
 - Indications et travail à faire: `doc/projetM1.pdf`  
-- Rapport version finale: `doc/rapport.pdf`  
+- Rapport de stage: `doc/rapport.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
@@ -14,15 +14,15 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Avec Cmake: `cmake --build build`
 
 ### Exécution
-- Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ (voir ci dessous comment ecrite un fichier de configuration)
+- Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ (voir ci dessous comment écrite un fichier de configuration)
 
 __Format des fichiers de configuration:__  
 ![Instructions for configuration](data/img/config.png)
 
-- Pour générer un tas de données à étudier: __`bash src/simu/gauss_dump.sh`__ 
+- Pour générer un tas de données à étudier: __`bash src/simu/data_dump.sh`__ 
 
 ### Résultats
-- __`data/df_simu.csv`__ pour les signaux sur tout le domaine en tous temps.
+- __`data/df_simu.csv`__ pour les signaux a exporter (densité et ses attributs eventuels, énergie, flux et température).
 
 ## __2ème partie: Reseaux de neurones__   
 - Analyse des données: `src/notebook/analyse_des_donnees.ipynb` [Version Colab](https://colab.research.google.com/drive/17eqqFvVzvzFqB8URGFR9-YQmqDNxU5Ax?usp=sharing).  
