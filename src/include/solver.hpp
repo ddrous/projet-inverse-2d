@@ -242,7 +242,7 @@ class Solver{
         /***************
          * Etape 1 qui preserve l'equilibre radiatif
          */
-        void phase_1_equilibre();
+        void phase_1_eq();
 
         /***************
          * Etape 2 de la resolution su probleme

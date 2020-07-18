@@ -102,7 +102,8 @@ void Mesh::display(){
     for (int j = M+1; j >= 0; j--){
         for (int i = 0; i <= N+1; i++){
             int k = cell_id(i, j, N+2, M+2);
-            cout << setw(8) << k << " : (" << setw(2) << neighb[k][0] << "," << setw(2) << neighb[k][1] << "," << setw(2) << neighb[k][2] << "," << setw(2) << neighb[k][3] << ")";
+            cout << setw(8) << "(" << setw(1) << coord[k][0] << "," << setw(1) << coord[k][1] << ") : ";
+            cout << setw(2) << k << " : (" << setw(2) << neighb[k][0] << "," << setw(2) << neighb[k][1] << "," << setw(2) << neighb[k][2] << "," << setw(2) << neighb[k][3] << ")";
         }
         if (j != 0) cout << "\n\n";
         else cout << "\n";

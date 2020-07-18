@@ -115,6 +115,7 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
         throw string("ERREUR: Vérifiez que t_f > 0");
 
     dt = CFL * mesh->dx/c;
+    // dt = CFL * mesh->dx * mesh->dy /c;                  // ****!!***!!*********CFL condition comme ceci?
     double tmp = t_f / dt;
     if (tmp == floor(tmp))        // si entier
         step_count = floor(tmp);
@@ -646,10 +647,14 @@ void Solver::phase_1(){
     double E_n, T_n, Theta_n; 
     double E_next, Theta_next;
     
-    for (int k = 0; k < mesh->n_cells; k++){
-        int i = mesh->coord[k][0];
-        int j = mesh->coord[k][1];
-        if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
+    // for (int k = 0; k < mesh->n_cells; k++){
+    //     int i = mesh->coord[k][0];
+    //     int j = mesh->coord[k][1];
+    //     if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
+
+    for (int i = 1; i < mesh->N+1; i++){
+        for (int j = 1; j < mesh->M+1; j++){
+            int k = cell_id(i, j, mesh->N+2, mesh->M+2);
             // Initialisation etape 1 
             E_n = E[k];
             T_n = T[k];
@@ -665,8 +670,10 @@ void Solver::phase_1(){
                 
                 T[k] = pow(Theta/a, 0.25);
                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[k], 2) + T[k]*pow(T_n, 2) + pow(T[k], 3));
+                bool nan = isnan(mu_q);             //************************************************* A RETIRER
                 if (isnan(mu_q))
-                    cerr << "ATTENTION! mu = nan" << endl;
+                    // cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
+                    ;
 
                 double rho_tmp = rho(mesh->x[i], mesh->y[j]);
                 double sigma_a_tmp = sigma_a(rho_tmp, T[k]);
@@ -688,49 +695,52 @@ void Solver::phase_1(){
 };
 
 
-// void Solver::phase_1_equilibre(){
+// void Solver::phase_1_eq(){
 //     /* Des variables necessaires pour cette etape */
 //     double Theta;       // Theta = a*T^4
-//     double E_n, F_n, T_n, Theta_n; 
-//     double E_next, F_next, Theta_next;
-    
-//     for (int j = 1; j < mesh->N+1; j++){
-//         // Initialisation
-//         E_n = E[j];
-//         F_n = F[j];
-//         T_n = T[j];
-//         Theta_n = a * pow(T_n, 4);
-//         Theta = Theta_n;
+//     double E_n, T_n, Theta_n;
+//     double E_next, Theta_next;
 
-//         E_next = E[j];
-//         F_next = F[j];
-//         Theta_next = Theta;
-//             // cout << "E = "<< E_next << " Theta = " << Theta_next<< endl;
 
-//         do{
-//             E[j] = E_next;
-//             F[j] = F_next;
-//             Theta = Theta_next;
+//     for (int i = 1; i < mesh->N+1; i++){
+//         for (int j = 1; j < mesh->M+1; j++){
+//             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
 
-//             T[j] = pow(Theta/a, 0.25);
-//             double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[j], 2) + T[j]*pow(T_n, 2) + pow(T[j], 3));
-//             if (isnan(mu_q))
-//                 cerr << "ATTENTION! mu = nan" << endl;
+//             // Initialisation
+//             E_n = E[k];
+//             T_n = T[k];
+//             Theta_n = a * pow(T_n, 4);
+//             Theta = Theta_n;
 
-//             double rho_tmp = rho(mesh->cells[j][1]);
-//             double alpha = c * sigma_a(rho_tmp, T[j]) * dt;
-//             double beta = rho_tmp * C_v * mu_q;
+//             E_next = E[k];
+//             Theta_next = Theta;
+//                 // cout << "E = "<< E_next << " Theta = " << Theta_next<< endl;
 
-//             double X_n = E_n - Theta_n;
-//             double Y_n = E_n + beta*Theta_n;
+//             do{
+//                 E[k] = E_next;
+//                 Theta = Theta_next;
 
-//             double X = X_n / (1 + alpha*(1 + (1./beta)));
-//             double Y = Y_n;
+//                 T[k] = pow(Theta/a, 0.25);
+//                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[k], 2) + T[k]*pow(T_n, 2) + pow(T[k], 3));
+//                 if (isnan(mu_q))
+//                     // cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
+//                     ;
 
-//             E_next = (beta*X + Y) / (1 + beta);
-//             Theta_next = (-X + Y) / (1 + beta);
+//                 double rho_tmp = rho(mesh->x[i], mesh->y[j]);
+//                 double alpha = c * sigma_a(rho_tmp, T[k]) * dt;
+//                 double beta = rho_tmp * C_v * mu_q;
 
-//         } while (abs(E_next-E[j]) > precision && abs(Theta_next-Theta) > precision);
+//                 double X_n = E_n - Theta_n;
+//                 double Y_n = E_n + beta*Theta_n;
+
+//                 double X = X_n / (1 + alpha*(1 + (1./beta)));
+//                 double Y = Y_n;
+
+//                 E_next = (beta*X + Y) / (1 + beta);
+//                 Theta_next = (-X + Y) / (1 + beta);
+
+//             } while (abs(E_next-E[k]) > precision && abs(Theta_next-Theta) > precision);
+//         }
 //     }
 // };
 
@@ -746,15 +756,24 @@ void Solver::phase_2(){
     E_etoile = E;
     F_etoile = F;
 
-    for (int k = 0; k < mesh->n_cells; k++){
-        int i = mesh->coord[k][0];
-        int j = mesh->coord[k][1];
+    /* Pour conserver les valeurs des mailles fantomes */
+    // E_suiv = E;
+    // F_suiv = F;
 
-        if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
+    // for (int k = 0; k < mesh->n_cells; k++){
+    //     int i = mesh->coord[k][0];
+    //     int j = mesh->coord[k][1];
+
+    //     if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
+
+    for (int i = 1; i < mesh->N+1; i++){
+        for (int j = 1; j < mesh->M+1; j++){
+            int k = cell_id(i, j, mesh->N+2, mesh->M+2);
+
             vector_2d sum_flux_E {0, 0};
             double sum_flux_F = 0;
             double sum_M_sigma = 0;
-            vector_2d sum_l_M_n = {0, 0};
+            vector_2d sum_l_M_n {0, 0};
 
             double x_k = mesh->x[i];
             double y_k = mesh->y[j];
@@ -794,13 +813,14 @@ void Solver::phase_2(){
                 double flux_F_kl = flux_F(l_kl, M_kl, E[k], E[l], F[k], F[l], n_kl);
 
                 sum_flux_E = add(sum_flux_E, flux_E_kl);
-                sum_flux_F = sum_flux_F + flux_F_kl;
+                sum_flux_F += flux_F_kl;
                 sum_M_sigma += (M_kl*sigma_kl);
                 sum_l_M_n = add(sum_l_M_n, prod(l_kl*M_kl, n_kl));
             }
 
-            double mes_omega = 1. / (mesh->dx * mesh->dy);
+            double mes_omega = mesh->dx * mesh->dy;
             double tmp = (1./dt) + c*sum_M_sigma;
+            // double tmp = (1./dt) + c*sum_M_sigma/4;         //*************ALTERNATIVE?
             double alpha = -c*dt / mes_omega;
             double beta = 1./dt / tmp;
             vector_2d gamma = prod(c/mes_omega / tmp, sum_l_M_n);
@@ -813,26 +833,29 @@ void Solver::phase_2(){
             // vector_2d tmp4 = add(tmp1, tmp2);
             // F_suiv[k] = add(tmp4, prod(delta, sum_flux_E));
             F_suiv[k] = add(add(prod(beta, F_etoile[k]), prod(E[k], gamma)), prod(delta, sum_flux_E));
-            // ++++++++++++++++++VERFIIER QUE F est UPDATED
         }
     }
 
     E = E_suiv;
     F = F_suiv;
+    
+    // int k = 200;
+    // cout << "F = " << F[k][0] << ", " << F[k][1] << endl;
+    // cout << "F_suiv = " << F_suiv[k][0] << ", " << F_suiv[k][1] << endl;
 };
 
 
 void Solver::solve(){
     /* Initialisation de la doucle de resolution */
-    for (int k = 1; k < mesh->n_cells; k++){
+    for (int k = 0; k < mesh->n_cells; k++){
         int i = mesh->coord[k][0];
         int j = mesh->coord[k][1];
         double x_k = mesh->x[i];
         double y_k = mesh->y[j];
 
-        E[j] = E_0(x_k, y_k);
-        F[j] = F_0(x_k, y_k);
-        T[j] = T_0(x_k, y_k);
+        E[k] = E_0(x_k, y_k);
+        F[k] = F_0(x_k, y_k);
+        T[k] = T_0(x_k, y_k);
     }
 
     /* Temps courant (translaté de t_0) et indice de l'iteration */
@@ -872,7 +895,7 @@ void Solver::solve(){
 
         /* etape 1 */ 
         phase_1();
-        // phase_1_equilibre();
+        // phase_1_eq();
 
         /* Remplissage des mailles fantomes */
         for (int i = 1; i < mesh->N+1; i++){
