@@ -212,21 +212,20 @@ vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth
 }
 
 
-double Solver::rho(double x, double y){
+double Solver::rho(int i, int j){
     static int first_call = 1;
     static int custom = rho_expr.compare("custom");
 
     if (custom == 0){
-        // static vector_1row signal(mesh->N+2);
-        if (first_call == 1){rho_vec = niche(1, 0.01, 1.0, 0.1*(mesh->N + mesh->M)/2.); first_call = 0;}
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
+        if (first_call == 1){rho_vec = niche(1, 0.010, 1.0, 0.1*(mesh->N + mesh->M)/2.); first_call = 0;}
         int k = cell_id(i, j, mesh->N+2, mesh->M+2);
         return rho_vec[k];
     }
     else{
         static Parser p;
+        double x = mesh->x[i];
         p.DefineVar("x", &x);
+        double y = mesh->y[j];
         p.DefineVar("y", &y);
         if (first_call == 1){p.SetExpr(rho_expr); first_call = 0;}
         return p.Eval();
@@ -297,18 +296,18 @@ double Solver::T_0(double x, double y){
 }
 
 
-double Solver::E_u(double t, double x){
+double Solver::E_u(double t, int i){
     static int first_call = 1;
     static int neumann = E_u_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, mesh->M, mesh->N+2, mesh->M+2);
         return E[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double x = mesh->x[i];
         p.DefineVar("x", &x);
         if (first_call == 1){ p.SetExpr(E_u_expr); first_call = 0; }
         return p.Eval();
@@ -316,18 +315,18 @@ double Solver::E_u(double t, double x){
 }
 
 
-vector_2d Solver::F_u(double t, double x){
+vector_2d Solver::F_u(double t, int i){
     static int first_call = 1;
     static int neumann = F_u_x_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, mesh->M, mesh->N+2, mesh->M+2);
         return F[k];
     }
     else{ 
         static Parser p1, p2;
         p1.DefineVar("t", &t); p2.DefineVar("t", &t);
+        double x = mesh->x[i];
         p1.DefineVar("x", &x); p2.DefineVar("x", &x);
         if (first_call == 1){ p1.SetExpr(F_u_x_expr); p2.SetExpr(F_u_y_expr); first_call = 0; }
         return vector_2d {p1.Eval(), p2.Eval()};
@@ -335,18 +334,18 @@ vector_2d Solver::F_u(double t, double x){
 }
 
 
-double Solver::T_u(double t, double x){
+double Solver::T_u(double t, int i){
     static int first_call = 1;
     static int neumann = T_u_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, mesh->M, mesh->N+2, mesh->M+2);
         return T[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double x = mesh->x[i];
         p.DefineVar("x", &x);
         if (first_call == 1){ p.SetExpr(T_u_expr); first_call = 0; }
         return p.Eval();
@@ -354,18 +353,18 @@ double Solver::T_u(double t, double x){
 }
 
 
-double Solver::E_d(double t, double x){
+double Solver::E_d(double t, int i){
     static int first_call = 1;
     static int neumann = E_d_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, 1, mesh->N+2, mesh->M+2);
         return E[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double x = mesh->x[i];
         p.DefineVar("x", &x);
         if (first_call == 1){ p.SetExpr(E_d_expr); first_call = 0; }
         return p.Eval();
@@ -373,18 +372,18 @@ double Solver::E_d(double t, double x){
 }
 
 
-vector_2d Solver::F_d(double t, double x){
+vector_2d Solver::F_d(double t, int i){
     static int first_call = 1;
     static int neumann = F_d_x_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, 1, mesh->N+2, mesh->M+2);
         return F[k];
     }
     else{ 
         static Parser p1, p2;
         p1.DefineVar("t", &t); p2.DefineVar("t", &t);
+        double x = mesh->x[i];
         p1.DefineVar("x", &x); p2.DefineVar("x", &x);
         if (first_call == 1){ p1.SetExpr(F_d_x_expr); p2.SetExpr(F_d_y_expr); first_call = 0; }
         return vector_2d {p1.Eval(), p2.Eval()};
@@ -392,18 +391,18 @@ vector_2d Solver::F_d(double t, double x){
 }
 
 
-double Solver::T_d(double t, double x){
+double Solver::T_d(double t, int i){
     static int first_call = 1;
     static int neumann = T_d_expr.compare("neumann");
 
     if (neumann == 0){
-        int i = int((x - mesh->x_min + mesh->dx/2.) / mesh->dx);
         int k = cell_id(i, 1, mesh->N+2, mesh->M+2);
         return T[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double x = mesh->x[i];
         p.DefineVar("x", &x);
         if (first_call == 1){ p.SetExpr(T_d_expr); first_call = 0; }
         return p.Eval();
@@ -411,18 +410,18 @@ double Solver::T_d(double t, double x){
 }
 
 
-double Solver::E_l(double t, double y){
+double Solver::E_l(double t, int j){
     static int first_call = 1;
     static int neumann = E_l_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(1, j, mesh->N+2, mesh->M+2);
         return E[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double y = mesh->y[j];
         p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(E_l_expr); first_call = 0; }
         return p.Eval();
@@ -430,18 +429,18 @@ double Solver::E_l(double t, double y){
 }
 
 
-vector_2d Solver::F_l(double t, double y){
+vector_2d Solver::F_l(double t, int j){
     static int first_call = 1;
     static int neumann = F_l_x_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(1, j, mesh->N+2, mesh->M+2);
         return F[k];
     }
     else{ 
         static Parser p1, p2;
         p1.DefineVar("t", &t); p2.DefineVar("t", &t);
+        double y = mesh->y[j];
         p1.DefineVar("y", &y); p2.DefineVar("y", &y);
         if (first_call == 1){ p1.SetExpr(F_l_x_expr); p2.SetExpr(F_l_y_expr); first_call = 0; }
         return vector_2d {p1.Eval(), p2.Eval()};
@@ -449,18 +448,18 @@ vector_2d Solver::F_l(double t, double y){
 }
 
 
-double Solver::T_l(double t, double y){
+double Solver::T_l(double t, int j){
     static int first_call = 1;
     static int neumann = T_l_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(1, j, mesh->N+2, mesh->M+2);
         return T[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double y = mesh->y[j];
         p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(T_l_expr); first_call = 0; }
         return p.Eval();
@@ -468,18 +467,18 @@ double Solver::T_l(double t, double y){
 }
 
 
-double Solver::E_r(double t, double y){
+double Solver::E_r(double t, int j){
     static int first_call = 1;
     static int neumann = E_r_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(mesh->N, j, mesh->N+2, mesh->M+2);
         return E[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double y = mesh->y[j];
         p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(E_r_expr); first_call = 0; }
         return p.Eval();
@@ -487,18 +486,18 @@ double Solver::E_r(double t, double y){
 }
 
 
-vector_2d Solver::F_r(double t, double y){
+vector_2d Solver::F_r(double t, int j){
     static int first_call = 1;
     static int neumann = F_r_x_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(mesh->N, j, mesh->N+2, mesh->M+2);
         return F[k];
     }
     else{ 
         static Parser p1, p2;
         p1.DefineVar("t", &t); p2.DefineVar("t", &t);
+        double y = mesh->y[j];
         p1.DefineVar("y", &y); p2.DefineVar("y", &y);
         if (first_call == 1){ p1.SetExpr(F_r_x_expr); p2.SetExpr(F_r_y_expr); first_call = 0; }
         return vector_2d {p1.Eval(), p2.Eval()};
@@ -506,18 +505,18 @@ vector_2d Solver::F_r(double t, double y){
 }
 
 
-double Solver::T_r(double t, double y){
+double Solver::T_r(double t, int j){
     static int first_call = 1;
     static int neumann = T_r_expr.compare("neumann");
 
     if (neumann == 0){
-        int j = int((y - mesh->y_min + mesh->dy/2.) / mesh->dy);
         int k = cell_id(mesh->N, j, mesh->N+2, mesh->M+2);
         return T[k];
     }
     else{ 
         static Parser p;
         p.DefineVar("t", &t);
+        double y = mesh->y[j];
         p.DefineVar("y", &y);
         if (first_call == 1){ p.SetExpr(T_r_expr); first_call = 0; }
         return p.Eval();
@@ -589,15 +588,7 @@ double compute_M(double dx, double sigma_kl){
 vector_2d flux_E(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k, vector_2d F_l, vector_2d n_kl){
     double tmp1 = 0.5 * (E_k + E_l);
     double tmp2 = 0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
-    return prod(l_kl*M_kl * (tmp1+tmp2), n_kl);
-
-    // double tmp1 = 0.5 * (E_k + E_l);
-    // double tmp2 = -0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
-    // return prod(l_kl*M_kl * (tmp1+tmp2), n_kl);
-
-    // double tmp1 = 0.5 * (E_k + E_l);
-    // double tmp2 = 0.5 * (dot(F_l, n_kl) - dot(F_k, n_kl));
-    // return prod(l_kl*M_kl * (tmp1 - tmp2), n_kl);
+    return prod(l_kl*M_kl * (tmp1 - tmp2), n_kl);
 }
 
 
@@ -607,15 +598,7 @@ vector_2d flux_E(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k
 double flux_F(double l_kl, double M_kl, double E_k, double E_l, vector_2d F_k, vector_2d F_l, vector_2d n_kl){
     double tmp1 = 0.5 * (dot(F_k, n_kl) + dot(F_l, n_kl));
     double tmp2 = 0.5 * (E_l - E_k);
-    return l_kl*M_kl * (tmp1+tmp2);
-
-    // vector_2d tmp1 = prod(0.5, add(F_k, F_l));
-    // vector_2d tmp2 = prod(-0.5, add(prod(E_l, n_kl), prod(-E_k, n_kl)));
-    // return dot(prod(l_kl*M_kl, add(tmp1, tmp2)), n_kl);
-
-    // double tmp1 = 0.5 * (dot(F_k, n_kl) + dot(F_l, n_kl));
-    // double tmp2 = 0.5 * (E_l - E_k);
-    // return l_kl*M_kl * (tmp1 - tmp2);
+    return l_kl*M_kl * (tmp1 - tmp2);
 }
 
 
@@ -660,11 +643,6 @@ void Solver::phase_1(){
     double Theta;       // Theta = a*T^4 
     double E_n, T_n, Theta_n; 
     double E_next, Theta_next;
-    
-    // for (int k = 0; k < mesh->n_cells; k++){
-    //     int i = mesh->coord[k][0];
-    //     int j = mesh->coord[k][1];
-    //     if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
 
     for (int i = 1; i < mesh->N+1; i++){
         for (int j = 1; j < mesh->M+1; j++){
@@ -683,14 +661,13 @@ void Solver::phase_1(){
                 Theta = Theta_next;
                 
                 T[k] = pow(Theta/a, 0.25);
-                // T[k] = pow(abs(Theta)/a, 0.25);         //************************** Comme ca ?
                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[k], 2) + T[k]*pow(T_n, 2) + pow(T[k], 3));
                 bool nan = isnan(mu_q);             //************************************************* A RETIRER
                 if (isnan(mu_q))
                     // cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
                     ;
 
-                double rho_tmp = rho(mesh->x[i], mesh->y[j]);
+                double rho_tmp = rho(i, j);
                 double sigma_a_tmp = sigma_a(rho_tmp, T[k]);
 
                 double tmp_1 = (1/dt) + c*sigma_a_tmp;
@@ -741,7 +718,7 @@ void Solver::phase_1(){
 //                     // cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
 //                     ;
 
-//                 double rho_tmp = rho(mesh->x[i], mesh->y[j]);
+//                 double rho_tmp = rho(i, j);
 //                 double alpha = c * sigma_a(rho_tmp, T[k]) * dt;
 //                 double beta = rho_tmp * C_v * mu_q;
 
@@ -790,23 +767,21 @@ void Solver::phase_2(){
             double sum_M_sigma = 0;
             vector_2d sum_l_M_n {0, 0};
 
-            double x_k = mesh->x[i];
-            double y_k = mesh->y[j];
-            double rho_k = rho(x_k, y_k);
+            double rho_k = rho(i, j);
+            vector_2d n_kl;                 // verteur normal entre k et l
+            vector_2d flux_E_kl;
+            double flux_F_kl;
 
             for (int neighbor = 0; neighbor < 4; neighbor++){
                 int l = mesh->neighb[k][neighbor];
                 int i_prime = mesh->coord[l][0];
                 int j_prime = mesh->coord[l][1];
-                double x_l = mesh->x[i_prime];
-                double y_l = mesh->y[j_prime];
 
-                double rho_l = rho(x_l, y_l);
+                double rho_l = rho(i_prime, j_prime);
                 double sigma_kl = compute_sigma(sigma_c(rho_k, T[k]), sigma_c(rho_l, T[l]));
                 double M_kl = compute_M(mesh->dx, sigma_kl);
 
                 double l_kl;
-                vector_2d n_kl;     // verteur normal
                 if (neighbor == 0){                        // Voisin du haut
                     n_kl = {0, 1};
                     l_kl = mesh->dy;
@@ -824,8 +799,8 @@ void Solver::phase_2(){
                     l_kl = mesh->dx;
                 }
 
-                vector_2d flux_E_kl = flux_E(l_kl, M_kl, E[k], E[l], F[k], F[l], n_kl);
-                double flux_F_kl = flux_F(l_kl, M_kl, E[k], E[l], F[k], F[l], n_kl);
+                flux_E_kl = flux_E(l_kl, M_kl, E[k], E[l], F[k], F[l], n_kl);
+                flux_F_kl = flux_F(l_kl, M_kl, E[k], E[l], F[k], F[l], n_kl);
 
                 sum_flux_E = add(sum_flux_E, flux_E_kl);
                 sum_flux_F += flux_F_kl;
@@ -835,7 +810,7 @@ void Solver::phase_2(){
 
             double mes_omega = mesh->dx * mesh->dy;
             double tmp = (1./dt) + c*sum_M_sigma;
-            // double tmp = (1./dt) + c*sum_M_sigma/4;         //*************ALTERNATIVE?
+            // double tmp = (1./dt) + c*sum_M_sigma/4;         //************* ALTERNATIVE?
             double alpha = -c*dt / mes_omega;
             double beta = 1./dt / tmp;
             vector_2d gamma = prod(c/mes_omega / tmp, sum_l_M_n);
@@ -843,20 +818,12 @@ void Solver::phase_2(){
 
             E_suiv[k] = E_etoile[k] + alpha*sum_flux_F;
 
-            // vector_2d tmp1 = prod(beta, F_etoile[k]);
-            // vector_2d tmp2 = prod(E[k], gamma);
-            // vector_2d tmp4 = add(tmp1, tmp2);
-            // F_suiv[k] = add(tmp4, prod(delta, sum_flux_E));
             F_suiv[k] = add(add(prod(beta, F_etoile[k]), prod(E[k], gamma)), prod(delta, sum_flux_E));
         }
     }
 
     E = E_suiv;
     F = F_suiv;
-    
-    // int k = 200;
-    // cout << "F = " << F[k][0] << ", " << F[k][1] << endl;
-    // cout << "F_suiv = " << F_suiv[k][0] << ", " << F_suiv[k][1] << endl;
 };
 
 
@@ -881,10 +848,9 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
-    // while (t <= t_f && n < 21){
         /* Enregistrement des signaux pour ce temps */
         save_animation(n);
-        cout << " --- iteration " << n << endl;
+        // cout << " --- iteration " << n << endl;
 
         /* Signaux exportés */
         for (int i = 1; i < mesh->N+1; i++){
@@ -916,28 +882,26 @@ void Solver::solve(){
 
         /* Remplissage des mailles fantomes */
         for (int i = 1; i < mesh->N+1; i++){
-            double x_i = mesh->x[i];
             int k = cell_id(i, mesh->M+1, mesh->N+2, mesh->M+2);
-            E[k] = E_u(t, x_i);
-            F[k] = F_u(t, x_i);
-            T[k] = T_u(t, x_i);
+            E[k] = E_u(t, i);
+            F[k] = F_u(t, i);
+            T[k] = T_u(t, i);
 
             k = cell_id(i, 0, mesh->N+2, mesh->M+2);
-            E[k] = E_d(t, x_i);
-            F[k] = F_d(t, x_i);
-            T[k] = T_d(t, x_i);
+            E[k] = E_d(t, i);
+            F[k] = F_d(t, i);
+            T[k] = T_d(t, i);
         }
         for (int j = 1; j < mesh->M+1; j++){
-            double y_j = mesh->y[j];
             int k = cell_id(0, j, mesh->N+2, mesh->M+2);
-            E[k] = E_l(t, y_j);
-            F[k] = F_l(t, y_j);
-            T[k] = T_l(t, y_j);
+            E[k] = E_l(t, j);
+            F[k] = F_l(t, j);
+            T[k] = T_l(t, j);
 
             k = cell_id(mesh->N+1, j, mesh->N+2, mesh->M+2);
-            E[k] = E_r(t, y_j);
-            F[k] = F_r(t, y_j);
-            T[k] = T_r(t, y_j);
+            E[k] = E_r(t, j);
+            F[k] = F_r(t, j);
+            T[k] = T_r(t, j);
         }
 
 

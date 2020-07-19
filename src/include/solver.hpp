@@ -127,7 +127,7 @@ class Solver{
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
          */
-        double rho(double x, double y);
+        double rho(int i, int j);
 
         /***************
          * Fonction pour calculer sigma_a
@@ -157,62 +157,62 @@ class Solver{
         /***************
          * Calcule E(t, x, y_max), energie a la position y_max en tout temps
          */ 
-        double E_u(double t, double x);
+        double E_u(double t, int i);
 
         /***************
          * Calcule F(t, x, y_max), flux a la position y_max en tout temps
          */ 
-        std::vector<double> F_u(double t, double x);
+        std::vector<double> F_u(double t, int i);
 
         /***************
          * Calcule T(t, x, y_max), temperature a la position y_max en tout temps
          */ 
-        double T_u(double t, double x);
+        double T_u(double t, int i);
 
         /***************
          * Calcule E(t, x, y_min), energie a la position y_min en tout temps
          */ 
-        double E_d(double t, double x);
+        double E_d(double t, int i);
 
         /***************
          * Calcule F(t, x, y_min), flux a la position y_min en tout temps
          */ 
-        std::vector<double> F_d(double t, double x);
+        std::vector<double> F_d(double t, int i);
 
         /***************
          * Calcule T(t, x, y_min), temperature a la position x_min en tout temps
          */ 
-        double T_d(double t, double x);
+        double T_d(double t, int i);
 
         /***************
          * Calcule E(t, x_min), energie a la position x_min en tout temps
          */ 
-        double E_l(double t, double y);
+        double E_l(double t, int j);
 
         /***************
          * Calcule F(t, x_min, y), flux a la position x_min en tout temps
          */ 
-        std::vector<double> F_l(double t, double y);
+        std::vector<double> F_l(double t, int j);
 
         /***************
          * Calcule T(t, x_min, y), temperature a la position x_min en tout temps
          */ 
-        double T_l(double t, double y);
+        double T_l(double t, int j);
 
         /***************
          * Calcule E(t, x_max, y), energuie a la position x_max en tout temps
          */ 
-        double E_r(double t, double y);
+        double E_r(double t, int j);
 
         /***************
          * Calcule F(t, x_max, y), flux a la position x_max en tout temps
          */ 
-        std::vector<double> F_r(double t, double y);
+        std::vector<double> F_r(double t, int j);
 
         /***************
          * Calcule T(t, x_max, y), temperature a la position x_max en tout temps
          */ 
-        double T_r(double t, double y);
+        double T_r(double t, int j);
 
         /***************
          * Calcule E(t, x, y), solution exacte
