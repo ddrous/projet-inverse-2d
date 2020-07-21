@@ -185,7 +185,7 @@ vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth
         
         /* Les memes attributs a chaque fois */
         attr[l][0] = (0.7*mesh->N-1)*mesh->dx + mesh->dx/2. + mesh->x_min ;  // abcisse
-        attr[l][1] =  (0.5*mesh->M-1)*mesh->dy + mesh->dy/2. + mesh->y_min; // ordonnee
+        attr[l][1] = (0.5*mesh->M-1)*mesh->dy + mesh->dy/2. + mesh->y_min; // ordonnee
         attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2); // diametre
         attr[l][3] = z_max;                                 // hauteur
     }
@@ -217,7 +217,7 @@ double Solver::rho(int i, int j){
     static int custom = rho_expr.compare("custom");
 
     if (custom == 0){
-        if (first_call == 1){rho_vec = niche(1, 0.010, 1.0, 0.1*(mesh->N + mesh->M)/2.); first_call = 0;}
+        if (first_call == 1){rho_vec = niche(1, 0.01, 1.0, 0.05*(mesh->N + mesh->M)/2.); first_call = 0;}
         int k = cell_id(i, j, mesh->N+2, mesh->M+2);
         return rho_vec[k];
     }
