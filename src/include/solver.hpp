@@ -117,8 +117,6 @@ class Solver{
         /**
          * Calcule rho sous forme de fonction crenaux
          * param @n_niche nombre de crenaux
-         * param @z_min position minimale du signal de retour
-         * param @z_max position maximale du signal de retour (possible taille du crenaux)
          * param @n_smooth nombre de lissage a effectuer sur le signal
          * retourne un vecteur contenant le signal
          */ 
@@ -154,6 +152,15 @@ class Solver{
          */ 
         double T_0(double x, double y);
 
+        /**
+         * Calcule E_u sous forme de fonction ponctuelle
+         * param @t temps de calcul de ce signal
+         * param @start debut de l'onde sur le haut
+         * param @end fin de l'onde sur le haut
+         * retourne un vecteur contenant le signal
+         */ 
+        std::vector<double> ponctual_up(double t, double start, double end);
+
         /***************
          * Calcule E(t, x, y_max), energie a la position y_max en tout temps
          */ 
@@ -168,6 +175,11 @@ class Solver{
          * Calcule T(t, x, y_max), temperature a la position y_max en tout temps
          */ 
         double T_u(double t, int i);
+
+        /**
+         * Calcule E_d sous forme de fonction ponctuelle
+         */ 
+        std::vector<double> ponctual_down(double t, double start, double end);
 
         /***************
          * Calcule E(t, x, y_min), energie a la position y_min en tout temps
@@ -186,14 +198,15 @@ class Solver{
 
         /**
          * Calcule E_l sous forme de fonction ponctuelle
+         * param @t temps de calcul de ce signal
          * param @start debut de l'onde sur la gauche
          * param @end fin de l'onde sur la gauche
          * retourne un vecteur contenant le signal
          */ 
-        std::vector<double> ponctual(double t, double start, double end);
+        std::vector<double> ponctual_left(double t, double start, double end);
 
         /***************
-         * Calcule E(t, x_min), energie a la position x_min en tout temps
+         * Calcule E(t, x_min, y), energie a la position x_min en tout temps
          */ 
         double E_l(double t, int j);
 
@@ -206,6 +219,11 @@ class Solver{
          * Calcule T(t, x_min, y), temperature a la position x_min en tout temps
          */ 
         double T_l(double t, int j);
+
+        /**
+         * Calcule E_r sous forme de fonction ponctuelle
+         */ 
+        std::vector<double> ponctual_right(double t, double start, double end);
 
         /***************
          * Calcule E(t, x_max, y), energuie a la position x_max en tout temps
