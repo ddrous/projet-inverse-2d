@@ -29,12 +29,6 @@ double ** allocate(int nrows, int ncols){
 }
 
 
-// void allocate(double ***matrix, int nrows, int ncols){
-//     *matrix = new double*[nrows];
-//     for (int i = 0; i < nrows; i++)
-//         (*matrix)[i] = new double[ncols]; 
-// }
-
 /**
  * Free space from 2D matrix
  */ 
@@ -115,7 +109,7 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
         throw string("ERREUR: Vérifiez que t_f > 0");
 
     dt = CFL * mesh->dx/c;
-    // dt = CFL * mesh->dx * mesh->dy /c;                  // ****!!***!!*********CFL condition comme ceci?
+    // dt = CFL * mesh->dx * mesh->dy /c;                  // CFL condition comme ceci?
     double tmp = t_f / dt;
     if (tmp == floor(tmp))        // si entier
         step_count = floor(tmp);
@@ -151,16 +145,14 @@ vector_1row smooth(vector_1row& input, int **neighb){
 
     for (int k = 0; k < size; k++){
         double sum = input[k];
-        int count_nbr = 1;
-
+        int count_nbr = 1;              // nbr de voisins importants
         for (int l = 0; l < 4; l++){
             int id_nbr = neighb[k][l];
-            if ( id_nbr != -1){
+            if (id_nbr != -1){
                 sum += input[id_nbr];
                 count_nbr += 1;
             }
         }
-
         output[k] = sum / count_nbr;
     }
 
@@ -168,33 +160,42 @@ vector_1row smooth(vector_1row& input, int **neighb){
 }
 
 
-vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth){
+vector_1row Solver::niche(int nb_niche, int nb_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
     vector_1row signal(mesh->n_cells);
 
-    /* Les attributs du signal */
-    n_niche = nb_niche;
+    /* Les attributs du (des) crenaux */
+    n_niche = nb_niche;                // nombre de crenaux
     attr = allocate(n_niche, 4);
 
-    srand(time(NULL));
-    for (int l = 0; l < n_niche; l++){
-        /* Attributs des crenaux pris au hazard */
-        // attr[k][0] = rand() % (N-1) + 1;                     // position
-        // attr[k][1] = rand() % (N/3) + 5;                  // largeur
-        // attr[k][2] = ((double) rand() / (RAND_MAX)) * (y_max-1.) + 1;    // hauteur
-        
+    size_t comma1 = rho_expr.find(",");
+    size_t comma2 = rho_expr.find(",", comma1+1);
+    size_t comma3 = rho_expr.find(",", comma2+1);
+
+    string x_frac_expr = rho_expr.substr(7, comma1-7);
+    string y_frac_expr = rho_expr.substr(comma1+1, comma2-comma1-1);
+    string rho_min_expr = rho_expr.substr(comma2+1, comma3-comma2-1);
+    string rho_max_expr = rho_expr.substr(comma3+1, rho_expr.length()-comma3-2);
+
+    double x_frac = atof(x_frac_expr.c_str());
+    double y_frac = atof(y_frac_expr.c_str());
+    double rho_min = atof(rho_min_expr.c_str());
+    double rho_max = atof(rho_max_expr.c_str());
+
+    for (int l = 0; l < nb_niche; l++){
         /* Les memes attributs a chaque fois */
-        attr[l][0] = (0.7*mesh->N-1)*mesh->dx + mesh->dx/2. + mesh->x_min ;  // abcisse
-        attr[l][1] = (0.5*mesh->M-1)*mesh->dy + mesh->dy/2. + mesh->y_min; // ordonnee
-        attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2); // diametre
-        attr[l][3] = z_max;                                 // hauteur
+        // attr[l][0] = mesh->x[int(x_frac*(mesh->N-1)+1)];    // abcisse
+        attr[l][0] = x_frac*((mesh->N-1) + 1)*mesh->dx + mesh->x_min;    // abcisse
+        attr[l][1] = y_frac*((mesh->M-1) + 1)*mesh->dy + mesh->y_min;    // ordonnee
+        attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
+        attr[l][3] = rho_max;                                                   // hauteur
     }
 
     /* Placement des crenaux */
     for (int i = 0; i < mesh->N+2; i++){
         for (int j = 0; j < mesh->M+2; j++){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
-            signal[k] = z_min;
+            signal[k] = rho_min;
             for (int l = 0; l < n_niche; l++){
                 if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= attr[l][2]/2.){
                     signal[k] = attr[l][3];
@@ -205,7 +206,7 @@ vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth
     }
 
     /* Lissage du signal */
-    for (int i = 0; i < n_smooth; i++)
+    for (int i = 0; i < nb_smooth; i++)
         signal = smooth(signal, mesh->neighb);
 
     return signal;
@@ -214,10 +215,10 @@ vector_1row Solver::niche(int nb_niche, double z_min, double z_max, int n_smooth
 
 double Solver::rho(int i, int j){
     static int first_call = 1;
-    static int custom = rho_expr.compare("custom");
+    static bool niche_bool = (rho_expr.find("crenau") != string::npos);
 
-    if (custom == 0){
-        if (first_call == 1){rho_vec = niche(1, 0.01, 1.0, 0.05*(mesh->N + mesh->M)/2.); first_call = 0;}
+    if (niche_bool == true){
+        if (first_call == 1){rho_vec = niche(1, 0.05*(mesh->N + mesh->M)/2.); first_call = 0;}
         int k = cell_id(i, j, mesh->N+2, mesh->M+2);
         return rho_vec[k];
     }
@@ -409,14 +410,38 @@ double Solver::T_d(double t, int i){
     }
 }
 
+vector_1row Solver::ponctual(double t, double start, double end){
+    vector_1row signal(mesh->M+2);
+    static int M_start = start * (mesh->M-1) + 1;
+    static int M_end = end * (mesh->M-1) + 1;
+
+    for (int j = 0; j < mesh->N+2; j++){
+        int k = cell_id(0, j, mesh->N+2, mesh->M+2);
+        if (M_start <= j && j <= M_end)
+            signal[j] = a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
+        else
+            signal[j] = a*pow(T[k], 4);
+    }
+
+    return signal;
+}
+
 
 double Solver::E_l(double t, int j){
     static int first_call = 1;
     static int neumann = E_l_expr.compare("neumann");
+    static bool ponctual_bool = (E_l_expr.find("ponctuel") != string::npos);
 
     if (neumann == 0){
         int k = cell_id(1, j, mesh->N+2, mesh->M+2);
         return E[k];
+    }
+    else if (ponctual_bool == true){
+        static size_t comma = E_l_expr.find(",");
+        static string start = E_l_expr.substr(9, comma-9);
+        static string end = E_l_expr.substr(comma+1, E_l_expr.length()-comma-2);
+        vector_1row E_l_vec = ponctual(t, atof(start.c_str()), atof(end.c_str()));
+        return E_l_vec[j];
     }
     else{ 
         static Parser p;
@@ -748,16 +773,6 @@ void Solver::phase_2(){
     E_etoile = E;
     F_etoile = F;
 
-    /* Pour conserver les valeurs des mailles fantomes */
-    // E_suiv = E;
-    // F_suiv = F;
-
-    // for (int k = 0; k < mesh->n_cells; k++){
-    //     int i = mesh->coord[k][0];
-    //     int j = mesh->coord[k][1];
-
-    //     if(1 <= i && i <= mesh->N && 1 <= j && j <= mesh->M){
-
     for (int i = 1; i < mesh->N+1; i++){
         for (int j = 1; j < mesh->M+1; j++){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
@@ -768,7 +783,7 @@ void Solver::phase_2(){
             vector_2d sum_l_M_n {0, 0};
 
             double rho_k = rho(i, j);
-            vector_2d n_kl;                 // verteur normal entre k et l
+            vector_2d n_kl;                 // vecteur normal entre k et l
             vector_2d flux_E_kl;
             double flux_F_kl;
 

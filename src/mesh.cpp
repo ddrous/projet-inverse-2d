@@ -47,7 +47,6 @@ void Mesh::create_cells(){
     for (int i = 0; i < N+2; i++)
         x[i] = x_min + (i-1)*dx + dx/2.;     // centres des mailles suivant l'horizontale i
 
-
     for (int j = 0; j < M+2; j++)
         y[j] = y_min + (j-1)*dy + dy/2.;     // centres des mailles suivant la verticale j
 

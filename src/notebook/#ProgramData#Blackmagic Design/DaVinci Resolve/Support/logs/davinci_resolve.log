@@ -1,0 +1,268 @@
+[0x000026b4] | Undefined            | INFO  | 2020-07-21 12:29:13,366 | --------------------------------------------------------------------------------
+[0x000026b4] | Undefined            | INFO  | 2020-07-21 12:29:13,367 | Loaded log config from C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\log-conf.xml
+[0x000026b4] | Undefined            | INFO  | 2020-07-21 12:29:13,367 | --------------------------------------------------------------------------------
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:13,372 | Running DaVinci Resolve v16.2.3.015 (Windows/MSVC)
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,146 | Updating display GPU information...
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,200 | Found correct name from registry for device : I, provider Intel Corporation
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,200 | Found Intel Device: Intel(R) HD Graphics 530
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,233 | GPU Intel(R) HD Graphics 530 is used for display
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,234 | Found correct name from registry for device : GeForce GTX 1060, provider NVIDIA
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,234 | Found CUDA Device: NVIDIA GeForce GTX 1060
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:14,235 | GPU NVIDIA GeForce GTX 1060 is used for display
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,132 | GPUs detected: 1 integrated, 1 discrete, 2 OpenCL.Graphics interop capable.
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,132 | Detected uptime 2735s
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,132 | GPU Name = 'NVIDIA GeForce GTX 1060', Main display = 1
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,172 | Only 1 NVIDIA display GPU found. Using CUDA for processing.
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,172 | GLmap capable. GPUs: 1 discrete, 0 integrated, 0 external. Auto mapping, CUDA processing, main display not on external GPU.
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,172 | Setting LsManager.3.DisplayGPUName = NVIDIA GeForce GTX 1060
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,172 | Setting LsManager.3.DisplayGPUIndex = 0
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,172 | Setting LsManager.3.NumGPUs = 1
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:15,173 | RED InitializeSdk with library path at C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:15,510 | R3DAPI 7.3.2-45A15 (20200609 W64S) R3DSDK 7.3.2-45A15 (20200609 W64D C3B3) RED CUDA 7.3.2-49499 (20200609) [C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries\] init is successful
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,511 | 0 RED rocket cards available
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,512 | Setting Local.DtManager.1.Red.Threads = 0
+[0x000026b4] | SyManager.DeckLink   | ERROR | 2020-07-21 12:29:15,573 | Failed to create instance.
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,574 | Decklink model name: '', version: ''
+[0x000026b4] | DVIP                 | INFO  | 2020-07-21 12:29:15,575 | DVIP Version : 16.2.3, Revision r006363-6b7f266d, Branch release/16.2.3 (Release)
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:15,581 | Resolve Module Handle 00007FF6A4E20000
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:16,673 | Installed custom font: Open Sans
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:16,683 | Installed custom font: Open Sans Semibold
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:16,688 | Installed custom font: Open Sans
+[0x000026b4] | Main                 | INFO  | 2020-07-21 12:29:16,699 | Finished loading Application style sheet
+[0x0000057c] | LeManager            | INFO  | 2020-07-21 12:29:17,135 | 521, 38
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,043 | Memory config: reserved=4000M pinned=3000M log=0
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,043 | Using default pooled memory manager
+[0x00001ce8] | BtCommon             | INFO  | 2020-07-21 12:29:18,044 | BtResourceManager Process Thread Started
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,109 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,113 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,115 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,117 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,119 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,121 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,123 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | BtCommon             | INFO  | 2020-07-21 12:29:18,125 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x000026b4] | SyManager            | INFO  | 2020-07-21 12:29:18,137 | Total: 20, NumDtThreads: 8, NumComms: 0, NumSites: 1
+
+[0x000026b4] | SyManager            | INFO  | 2020-07-21 12:29:18,137 | Lookaheads -> playback = 20, record = 20, stop = 2
+
+[0x000026b4] | DtManager            | INFO  | 2020-07-21 12:29:18,139 | Using 8 generic IO threads
+[0x000026b4] | DtManager            | INFO  | 2020-07-21 12:29:18,139 | Total of 16 IO threads (including 8 generic and 8 Red decode threads)
+[0x00000d6c] | GsManager            | INFO  | 2020-07-21 12:29:18,140 | Gs Processor Thread ----- (3436)
+
+[0x00002d48] | DtManager            | INFO  | 2020-07-21 12:29:18,141 | Dt Data Handler Thread Started
+[0x00004414] | DtManager            | INFO  | 2020-07-21 12:29:18,141 | Dt Worker Thread Started
+[0x000042fc] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x00004e68] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x00002680] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x0000089c] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x000016f4] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x000043f4] | DtManager            | INFO  | 2020-07-21 12:29:18,142 | Dt Worker Thread Started
+[0x00004ebc] | DtManager            | INFO  | 2020-07-21 12:29:18,143 | Dt Worker Thread Started
+[0x00001598] | DtManager            | INFO  | 2020-07-21 12:29:18,143 | Dt Worker Thread Started
+[0x0000214c] | DtManager            | INFO  | 2020-07-21 12:29:18,143 | Dt Worker Thread Started
+[0x00003864] | DtManager            | INFO  | 2020-07-21 12:29:18,143 | Dt Worker Thread Started
+[0x00002f70] | DtManager            | INFO  | 2020-07-21 12:29:18,144 | Dt Worker Thread Started
+[0x00002e6c] | DtManager            | INFO  | 2020-07-21 12:29:18,144 | Dt Worker Thread Started
+[0x0000444c] | DtManager            | INFO  | 2020-07-21 12:29:18,144 | Dt Worker Thread Started
+[0x000047bc] | DtManager            | INFO  | 2020-07-21 12:29:18,144 | Dt Worker Thread Started
+[0x00001cd8] | DtManager            | INFO  | 2020-07-21 12:29:18,144 | Dt Worker Thread Started
+[0x00002424] | DtManager            | INFO  | 2020-07-21 12:29:18,145 | Dt Worker Thread Started
+[0x00005158] | DtManager            | INFO  | 2020-07-21 12:29:18,145 | Dt Worker Thread Started
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:18,146 | Let There Be CUDA Light!
+[0x000026b4] | DbCommon2            | INFO  | 2020-07-21 12:29:18,149 | Loading dblist file: C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\dblist.conf
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:18,155 | Board manager thread id 0xc05fe960 policy 0 priority 0
+[0x00001cb0] | GPUManager           | INFO  | 2020-07-21 12:29:18,156 | Initializing GPU board 0 with context thread 0
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,430 | Using DNxHR library v2.5.2.68r
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,474 | Kdu ctx(0), bundle(0), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(1), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(2), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(3), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(4), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(5), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,475 | Kdu ctx(0), bundle(6), thds(1)
+[0x000026b4] | IO                   | INFO  | 2020-07-21 12:29:18,476 | Kdu ctx(0), bundle(7), thds(1)
+[0x00001cb0] | GPUManager           | INFO  | 2020-07-21 12:29:18,822 | Setting channel cache size on GPU board 0 to 4
+[0x00001cb0] | GPUManager           | INFO  | 2020-07-21 12:29:18,822 | Board manager 0 on thread 0 initialization done on GPU GeForce GTX 1060
+[0x00001cb0] | GPUManager           | INFO  | 2020-07-21 12:29:18,823 | Entering loop to wait for commands
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:18,823 | Finished initializing CUDA board 0 <GeForce GTX 1060> on platform <Nvidia CUDA GPU> clock rate <1670500> multiprocessor count <10> global mem size (MB) 6144, available mem size (MB) 5071, shared mem size (KB) 48, on SBM[0|0]
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:18,823 | Hired CUDA board 0 <GeForce GTX 1060>
+[0x00002bc8] | SyManager            | WARN  | 2020-07-21 12:29:20,143 | socket failed to connect to server, error: 10061
+
+[0x00002bc8] | SyManager            | ERROR | 2020-07-21 12:29:20,143 | DRIVER: panel connection failed
+[0x000026b4] | Fairlight            | INFO  | 2020-07-21 12:29:26,268 | 00.00.06.786(000): Running Fairlight (r000775-55722853)
+[0x000026b4] | UI.GLContext         | INFO  | 2020-07-21 12:29:26,363 | Creating shared OpenGL context for this thread (2 total).
+[0x000026b4] | UI.GLContext         | INFO  | 2020-07-21 12:29:26,412 | Initialized OpenGL 4.6 (requested 2.0) on device 'NVIDIA Corporation GeForce GTX 1060/PCIe/SSE2'
+[0x000011d4] | UI.GLInterop         | INFO  | 2020-07-21 12:29:26,412 | OpenGL interop was initialized.
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:26,412 | Let There Be CUDA Light, Done!!
+[0x000011d4] | GPUManager           | INFO  | 2020-07-21 12:29:26,627 | Using CUDA Pinned Memory!
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,007 | Fusion Build: r067060-93f72f0c_006 (Jun  5 2020 13:11:19)
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,007 | fusionsystem: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionsystem.dll"
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,172 | FusionLibs: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\"
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,172 | UserData:   = "C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion"
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,172 | Profiles:   = "UserData:Profiles\"
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:27,622 | Module Handle 0000027590520000 fusiongraphics
+[0x00005314] | UI.GLContext         | INFO  | 2020-07-21 12:29:27,851 | Creating shared OpenGL context for this thread (3 total).
+[0x00005314] | UI.GLIO              | INFO  | 2020-07-21 12:29:27,920 | OpenGL I/O worker thread ready.
+[0x000026b4] | UI.GLIO              | INFO  | 2020-07-21 12:29:27,921 | OpenGL I/O setup done.
+[0x00005170] | UI.GLContext         | INFO  | 2020-07-21 12:29:27,921 | Creating shared OpenGL context for this thread (4 total).
+[0x00005170] | UI.Scopes            | INFO  | 2020-07-21 12:29:27,988 | Initialized GPU Scopes Manager on device 'GeForce GTX 1060'
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:28,221 | Failed to find value '0' in combo-box
+[0x000026b4] | DbCommon2            | INFO  | 2020-07-21 12:29:28,600 | Sm2SysIdEntry is not supported in disk database (xml) mode
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:29,719 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:29,732 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | UI.ActionManager     | WARN  | 2020-07-21 12:29:29,958 | Action [fairlightAutomationFollowsEdit] is not a global action
+[0x00002bc8] | SyManager            | WARN  | 2020-07-21 12:29:30,627 | socket failed to connect to server, error: 10061
+
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:30,874 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:30,893 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:31,285 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | UI                   | WARN  | 2020-07-21 12:29:31,306 | Failed to load media metadata preset list or the list is empty.
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,342 | Module Handle 000002758DD50000 fusionsystem
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,389 | Module Handle 000002759C4B0000 fusionoperators
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,431 | Module Handle 00000275952D0000 fusioncontrols
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,483 | Module Handle 0000027595500000 3d.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,517 | Module Handle 000002759DD20000 alembic.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,547 | Module Handle 0000027593AA0000 dimension.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,636 | Module Handle 000002759E040000 fbx.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,656 | Module Handle 000002753C8A0000 fuses.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,682 | Module Handle 00000275957B0000 opencolorio.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,705 | Module Handle 0000027567E70000 openfx.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,736 | Module Handle 000002755EF60000 openvr.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,761 | Module Handle 00000275958A0000 paint.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,790 | Module Handle 000002759EC10000 particles.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,817 | Module Handle 000002759ECF0000 text.plugin
+[0x000026b4] | Fusion               | INFO  | 2020-07-21 12:29:31,840 | Module Handle 000002756BA30000 utilities.plugin
+[0x00002c40] | Undefined            | INFO  | 2020-07-21 12:34:02,862 | --------------------------------------------------------------------------------
+[0x00002c40] | Undefined            | INFO  | 2020-07-21 12:34:02,862 | Loaded log config from C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\log-conf.xml
+[0x00002c40] | Undefined            | INFO  | 2020-07-21 12:34:02,862 | --------------------------------------------------------------------------------
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:02,865 | Running DaVinci Resolve v16.2.3.015 (Windows/MSVC)
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,491 | Updating display GPU information...
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,507 | Found correct name from registry for device : I, provider Intel Corporation
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,507 | Found Intel Device: Intel(R) HD Graphics 530
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,540 | GPU Intel(R) HD Graphics 530 is used for display
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,542 | Found correct name from registry for device : GeForce GTX 1060, provider NVIDIA
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,547 | Found CUDA Device: NVIDIA GeForce GTX 1060
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,547 | GPU NVIDIA GeForce GTX 1060 is used for display
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,728 | GPUs detected: 1 integrated, 1 discrete, 2 OpenCL.Graphics interop capable.
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,728 | Detected uptime 3023s
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,729 | GPU Name = 'NVIDIA GeForce GTX 1060', Main display = 1
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,755 | Only 1 NVIDIA display GPU found. Using CUDA for processing.
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,755 | GLmap capable. GPUs: 1 discrete, 0 integrated, 0 external. Auto mapping, CUDA processing, main display not on external GPU.
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,755 | Setting LsManager.3.DisplayGPUName = NVIDIA GeForce GTX 1060
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,755 | Setting LsManager.3.DisplayGPUIndex = 0
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,755 | Setting LsManager.3.NumGPUs = 1
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:03,755 | RED InitializeSdk with library path at C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:03,930 | R3DAPI 7.3.2-45A15 (20200609 W64S) R3DSDK 7.3.2-45A15 (20200609 W64D C3B3) RED CUDA 7.3.2-49499 (20200609) [C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries\] init is successful
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,930 | 0 RED rocket cards available
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:03,930 | Setting Local.DtManager.1.Red.Threads = 0
+[0x00002c40] | SyManager.DeckLink   | ERROR | 2020-07-21 12:34:04,000 | Failed to create instance.
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,000 | Decklink model name: '', version: ''
+[0x00002c40] | DVIP                 | INFO  | 2020-07-21 12:34:04,000 | DVIP Version : 16.2.3, Revision r006363-6b7f266d, Branch release/16.2.3 (Release)
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,005 | Resolve Module Handle 00007FF6A4E20000
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,755 | Installed custom font: Open Sans
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,756 | Installed custom font: Open Sans Semibold
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,757 | Installed custom font: Open Sans
+[0x00002c40] | Main                 | INFO  | 2020-07-21 12:34:04,766 | Finished loading Application style sheet
+[0x00002e2c] | LeManager            | INFO  | 2020-07-21 12:34:05,070 | 521, 38
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,926 | Memory config: reserved=4000M pinned=3000M log=0
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,926 | Using default pooled memory manager
+[0x00000ba4] | BtCommon             | INFO  | 2020-07-21 12:34:05,926 | BtResourceManager Process Thread Started
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,993 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,994 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,996 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:05,998 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:06,000 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:06,002 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:06,004 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | BtCommon             | INFO  | 2020-07-21 12:34:06,006 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002c40] | SyManager            | INFO  | 2020-07-21 12:34:06,017 | Total: 20, NumDtThreads: 8, NumComms: 0, NumSites: 1
+
+[0x00002c40] | SyManager            | INFO  | 2020-07-21 12:34:06,017 | Lookaheads -> playback = 20, record = 20, stop = 2
+
+[0x00000824] | GsManager            | INFO  | 2020-07-21 12:34:06,019 | Gs Processor Thread ----- (2084)
+
+[0x00002c40] | DtManager            | INFO  | 2020-07-21 12:34:06,019 | Using 8 generic IO threads
+[0x00002c40] | DtManager            | INFO  | 2020-07-21 12:34:06,019 | Total of 16 IO threads (including 8 generic and 8 Red decode threads)
+[0x00000780] | DtManager            | INFO  | 2020-07-21 12:34:06,020 | Dt Worker Thread Started
+[0x00003324] | DtManager            | INFO  | 2020-07-21 12:34:06,020 | Dt Worker Thread Started
+[0x0000360c] | DtManager            | INFO  | 2020-07-21 12:34:06,020 | Dt Worker Thread Started
+[0x000046f0] | DtManager            | INFO  | 2020-07-21 12:34:06,020 | Dt Worker Thread Started
+[0x0000369c] | DtManager            | INFO  | 2020-07-21 12:34:06,021 | Dt Worker Thread Started
+[0x0000508c] | DtManager            | INFO  | 2020-07-21 12:34:06,021 | Dt Worker Thread Started
+[0x0000357c] | DtManager            | INFO  | 2020-07-21 12:34:06,022 | Dt Worker Thread Started
+[0x00000fd4] | DtManager            | INFO  | 2020-07-21 12:34:06,022 | Dt Worker Thread Started
+[0x00002c40] | DbCommon2            | INFO  | 2020-07-21 12:34:06,022 | Loading dblist file: C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\dblist.conf
+[0x00005398] | DtManager            | INFO  | 2020-07-21 12:34:06,022 | Dt Worker Thread Started
+[0x0000438c] | DtManager            | INFO  | 2020-07-21 12:34:06,022 | Dt Worker Thread Started
+[0x00000d48] | DtManager            | INFO  | 2020-07-21 12:34:06,023 | Dt Worker Thread Started
+[0x000024b8] | DtManager            | INFO  | 2020-07-21 12:34:06,023 | Dt Worker Thread Started
+[0x000047a0] | DtManager            | INFO  | 2020-07-21 12:34:06,023 | Dt Worker Thread Started
+[0x000044d0] | DtManager            | INFO  | 2020-07-21 12:34:06,023 | Dt Worker Thread Started
+[0x00001bec] | DtManager            | INFO  | 2020-07-21 12:34:06,023 | Dt Worker Thread Started
+[0x0000449c] | DtManager            | INFO  | 2020-07-21 12:34:06,024 | Dt Data Handler Thread Started
+[0x000051e0] | DtManager            | INFO  | 2020-07-21 12:34:06,024 | Dt Worker Thread Started
+[0x00002ed0] | DtManager            | INFO  | 2020-07-21 12:34:06,024 | Dt Worker Thread Started
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:06,026 | Let There Be CUDA Light!
+[0x00002fa8] | DtManager            | INFO  | 2020-07-21 12:34:06,026 | Dt Worker Thread Started
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:06,035 | Board manager thread id 0xcdafea80 policy 0 priority 0
+[0x000031b0] | GPUManager           | INFO  | 2020-07-21 12:34:06,035 | Initializing GPU board 0 with context thread 0
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,123 | Using DNxHR library v2.5.2.68r
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,126 | Kdu ctx(0), bundle(0), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,126 | Kdu ctx(0), bundle(1), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,126 | Kdu ctx(0), bundle(2), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,126 | Kdu ctx(0), bundle(3), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,127 | Kdu ctx(0), bundle(4), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,127 | Kdu ctx(0), bundle(5), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,127 | Kdu ctx(0), bundle(6), thds(1)
+[0x00002c40] | IO                   | INFO  | 2020-07-21 12:34:06,127 | Kdu ctx(0), bundle(7), thds(1)
+[0x000031b0] | GPUManager           | INFO  | 2020-07-21 12:34:06,378 | Setting channel cache size on GPU board 0 to 4
+[0x000031b0] | GPUManager           | INFO  | 2020-07-21 12:34:06,378 | Board manager 0 on thread 0 initialization done on GPU GeForce GTX 1060
+[0x000031b0] | GPUManager           | INFO  | 2020-07-21 12:34:06,378 | Entering loop to wait for commands
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:06,378 | Finished initializing CUDA board 0 <GeForce GTX 1060> on platform <Nvidia CUDA GPU> clock rate <1670500> multiprocessor count <10> global mem size (MB) 6144, available mem size (MB) 5071, shared mem size (KB) 48, on SBM[0|0]
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:06,378 | Hired CUDA board 0 <GeForce GTX 1060>
+[0x00004df0] | SyManager            | WARN  | 2020-07-21 12:34:08,024 | socket failed to connect to server, error: 10061
+
+[0x00004df0] | SyManager            | ERROR | 2020-07-21 12:34:08,024 | DRIVER: panel connection failed
+[0x00002c40] | Fairlight            | INFO  | 2020-07-21 12:34:13,268 | 00.00.06.315(001): Running Fairlight (r000775-55722853)
+[0x00002c40] | UI.GLContext         | INFO  | 2020-07-21 12:34:13,329 | Creating shared OpenGL context for this thread (2 total).
+[0x00002c40] | UI.GLContext         | INFO  | 2020-07-21 12:34:13,383 | Initialized OpenGL 4.6 (requested 2.0) on device 'NVIDIA Corporation GeForce GTX 1060/PCIe/SSE2'
+[0x000030d4] | UI.GLInterop         | INFO  | 2020-07-21 12:34:13,384 | OpenGL interop was initialized.
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:13,384 | Let There Be CUDA Light, Done!!
+[0x000030d4] | GPUManager           | INFO  | 2020-07-21 12:34:13,670 | Using CUDA Pinned Memory!
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:13,787 | Fusion Build: r067060-93f72f0c_006 (Jun  5 2020 13:11:19)
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:13,787 | fusionsystem: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionsystem.dll"
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:13,934 | FusionLibs: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\"
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:13,934 | UserData:   = "C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion"
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:13,934 | Profiles:   = "UserData:Profiles\"
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:14,337 | Module Handle 0000023610970000 fusiongraphics
+[0x00000c1c] | UI.GLContext         | INFO  | 2020-07-21 12:34:14,459 | Creating shared OpenGL context for this thread (3 total).
+[0x00000c1c] | UI.GLIO              | INFO  | 2020-07-21 12:34:14,527 | OpenGL I/O worker thread ready.
+[0x00002c40] | UI.GLIO              | INFO  | 2020-07-21 12:34:14,527 | OpenGL I/O setup done.
+[0x00002930] | UI.GLContext         | INFO  | 2020-07-21 12:34:14,528 | Creating shared OpenGL context for this thread (4 total).
+[0x00002930] | UI.Scopes            | INFO  | 2020-07-21 12:34:14,594 | Initialized GPU Scopes Manager on device 'GeForce GTX 1060'
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:14,777 | Failed to find value '0' in combo-box
+[0x00002c40] | DbCommon2            | INFO  | 2020-07-21 12:34:14,992 | Sm2SysIdEntry is not supported in disk database (xml) mode
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:16,019 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:16,029 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | UI.ActionManager     | WARN  | 2020-07-21 12:34:16,256 | Action [fairlightAutomationFollowsEdit] is not a global action
+[0x00004df0] | SyManager            | WARN  | 2020-07-21 12:34:16,991 | socket failed to connect to server, error: 10061
+
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:17,177 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:17,194 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:17,555 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | UI                   | WARN  | 2020-07-21 12:34:17,575 | Failed to load media metadata preset list or the list is empty.
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,610 | Module Handle 000002360F170000 fusionsystem
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,618 | Module Handle 000002361D620000 fusionoperators
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,622 | Module Handle 00000236153D0000 fusioncontrols
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,634 | Module Handle 0000023615600000 3d.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,636 | Module Handle 000002361DEC0000 alembic.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,639 | Module Handle 0000023612E50000 dimension.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,644 | Module Handle 000002361E1E0000 fbx.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,646 | Module Handle 000002358E850000 fuses.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,648 | Module Handle 00000235F9D80000 opencolorio.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,649 | Module Handle 00000235CD590000 openfx.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,652 | Module Handle 000002359BEA0000 openvr.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,654 | Module Handle 00000235F9A90000 paint.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,657 | Module Handle 00000236158B0000 particles.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,659 | Module Handle 000002361EDB0000 text.plugin
+[0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,661 | Module Handle 00000235F2920000 utilities.plugin

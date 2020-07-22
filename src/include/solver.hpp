@@ -122,7 +122,7 @@ class Solver{
          * param @n_smooth nombre de lissage a effectuer sur le signal
          * retourne un vecteur contenant le signal
          */ 
-        std::vector<double> niche(int nb_niche, double z_min, double z_max, int n_smooth);
+        std::vector<double> niche(int nb_niche, int nb_smooth);
 
         /***************
          * Fonction pour calculer rho a partir de son expression rho_expr
@@ -183,6 +183,14 @@ class Solver{
          * Calcule T(t, x, y_min), temperature a la position x_min en tout temps
          */ 
         double T_d(double t, int i);
+
+        /**
+         * Calcule E_l sous forme de fonction ponctuelle
+         * param @start debut de l'onde sur la gauche
+         * param @end fin de l'onde sur la gauche
+         * retourne un vecteur contenant le signal
+         */ 
+        std::vector<double> ponctual(double t, double start, double end);
 
         /***************
          * Calcule E(t, x_min), energie a la position x_min en tout temps
