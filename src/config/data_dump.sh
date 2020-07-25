@@ -44,7 +44,7 @@ simulate () {
 
     echo -e "$rho$source$write_mode" > src/config/part1.txt
     cat src/config/part1.txt src/config/part2.txt > src/config/tmp.cfg
-    # build/transfer src/config/tmp.cfg > /dev/null
+    build/transfer src/config/tmp.cfg > /dev/null
 }
 
 # Boucle des simulations
