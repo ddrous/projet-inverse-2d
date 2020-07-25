@@ -1,0 +1,18 @@
+rho crenau(0.85,0.85,0.1,10)
+
+E_d ponctuel(0.9,1)
+F_d_x 0
+F_d_y 0
+T_d 5
+
+E_l neumann
+F_l_x neumann
+F_l_y neumann
+T_l neumann
+
+E_u neumann
+F_u_x neumann
+F_u_y neumann
+T_u neumann
+
+write_mode append

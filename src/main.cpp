@@ -42,7 +42,7 @@ int main(int argc, char * argv[]){
         // /* Exportation */
         Exporter ex = Exporter(&s);
         cout << "\nExportation des resultats en cours ..." << endl;
-        ex.write_dataframe(cfg.values["export"], "trunc");
+        ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
         // ex.case_1("data/case_1_spatial.csv", "data/case_1_temporal.csv");
         // ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
         // ex.case_3("data/case_3_spatial.csv", "data/case_3_temporal.csv");
@@ -53,7 +53,7 @@ int main(int argc, char * argv[]){
         //     cout << "Resultats du cas test 2 dans:  -- 'data/case_2_spatial.csv'  -- 'data/case_2_temporal.csv'" << endl;
         // cout << "Resultats du cas test 3 dans:  -- 'data/case_3_spatial.csv'" << endl;
 
-        cout << "\nSignaux spatiaux et temporels exportés dans '" << cfg.values["export"] << "'"  << endl;
+        cout << "\nSignaux spatiaux et temporels exportés dans '" << cfg.values["export_file"] << "'"  << endl;
 
         cout << "\n================================================"  << endl << endl;
     }

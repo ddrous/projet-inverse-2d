@@ -58,7 +58,8 @@ Config::Config(string file_path){
     values["F_r_y"] = "";
     values["T_r"] = "";
 
-    values["export"] = "";
+    values["export_file"] = "";
+    values["write_mode"] = "";
 
     size = values.size();
 }
