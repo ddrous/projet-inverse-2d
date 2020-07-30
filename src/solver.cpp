@@ -936,7 +936,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce temps */
-        save_animation(n);
+        // save_animation(n);
         // cout << " --- iteration " << n << endl;
 
         /* Signaux exportés */
