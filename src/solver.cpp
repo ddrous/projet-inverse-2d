@@ -183,7 +183,7 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
         // attr[l][0] = mesh->x[int(x_frac*(mesh->N-1)+1)];    // abcisse
         attr[l][0] = x_frac*((mesh->N-1) + 1)*mesh->dx + mesh->x_min;    // abcisse
         attr[l][1] = y_frac*((mesh->M-1) + 1)*mesh->dy + mesh->y_min;    // ordonnee
-        attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
+        attr[l][2] = 0.2*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
         attr[l][3] = rho_max;                                                   // hauteur
     }
 
@@ -193,7 +193,8 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
             signal[k] = rho_min;
             for (int l = 0; l < n_niche; l++){
-                if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= attr[l][2]/2.){
+                // if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= attr[l][2]/2.){                       // crenau circulaire
+                if ((abs(mesh->x[i] - attr[l][0]) <= attr[l][2]/2.) && ( abs(mesh->y[j] - attr[l][1]) <= 10*attr[l][2]/2.) ){            // crenau rectangulaire
                     signal[k] = attr[l][3];
                     break;
                 }
@@ -212,21 +213,30 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
 double Solver::rho(int i, int j){
     static int first_call = 1;
     static bool niche_bool = (rho_expr.find("crenau") != string::npos);
+    int k = cell_id(i, j, mesh->N+2, mesh->M+2);
 
     if (niche_bool == true){
         if (first_call == 1){rho_vec = niche(1, 0.05*(mesh->N + mesh->M)/2.); first_call = 0;}
-        int k = cell_id(i, j, mesh->N+2, mesh->M+2);
-        return rho_vec[k];
     }
+
     else{
         static Parser p;
-        double x = mesh->x[i];
-        p.DefineVar("x", &x);
-        double y = mesh->y[j];
-        p.DefineVar("y", &y);
-        if (first_call == 1){p.SetExpr(rho_expr); first_call = 0;}
-        return p.Eval();
+        if (first_call == 1){
+            p.SetExpr(rho_expr);
+            for (int i = 0; i < mesh->N+2; i++){
+                double x = mesh->x[i];
+                p.DefineVar("x", &x);
+                for (int j = 0; j < mesh->M+2; j++){
+                    double y = mesh->y[j];
+                    p.DefineVar("y", &y);
+                    int k_prime = cell_id(i, j, mesh->N+2, mesh->M+2);
+                    rho_vec[k_prime] = p.Eval();
+                }
+            }
+            first_call = 0;
+        }
     }
+    return rho_vec[k];
 }
 
 
@@ -936,7 +946,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce temps */
-        // save_animation(n);
+        save_animation(n);
         // cout << " --- iteration " << n << endl;
 
         /* Signaux exportés */

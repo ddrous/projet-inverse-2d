@@ -266,3 +266,1023 @@
 [0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,657 | Module Handle 00000236158B0000 particles.plugin
 [0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,659 | Module Handle 000002361EDB0000 text.plugin
 [0x00002c40] | Fusion               | INFO  | 2020-07-21 12:34:17,661 | Module Handle 00000235F2920000 utilities.plugin
+[0x00004940] | Undefined            | INFO  | 2020-08-01 13:42:35,445 | --------------------------------------------------------------------------------
+[0x00004940] | Undefined            | INFO  | 2020-08-01 13:42:35,446 | Loaded log config from C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\log-conf.xml
+[0x00004940] | Undefined            | INFO  | 2020-08-01 13:42:35,446 | --------------------------------------------------------------------------------
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:35,448 | Running DaVinci Resolve v16.2.4.016 (Windows/MSVC)
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,146 | Updating display GPU information...
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,209 | Found correct name from registry for device : I, provider Intel Corporation
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,209 | Found Intel Device: Intel(R) HD Graphics 530
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,243 | GPU Intel(R) HD Graphics 530 is used for display
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,244 | Found correct name from registry for device : GeForce GTX 1060, provider NVIDIA
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,245 | Found CUDA Device: NVIDIA GeForce GTX 1060
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:36,246 | GPU NVIDIA GeForce GTX 1060 is used for display
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,235 | GPUs detected: 1 integrated, 1 discrete, 2 OpenCL.Graphics interop capable.
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,236 | Detected uptime 441549s
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,236 | GPU Name = 'NVIDIA GeForce GTX 1060', Main display = 1
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,261 | Only 1 NVIDIA display GPU found. Using CUDA for processing.
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,261 | GLmap capable. GPUs: 1 discrete, 0 integrated, 0 external. Auto mapping, CUDA processing, main display not on external GPU.
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,261 | Setting LsManager.3.DisplayGPUName = NVIDIA GeForce GTX 1060
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,261 | Setting LsManager.3.DisplayGPUIndex = 0
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,262 | Setting LsManager.3.NumGPUs = 1
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:37,262 | RED InitializeSdk with library path at C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:37,601 | R3DAPI 7.3.2-45A15 (20200609 W64S) R3DSDK 7.3.2-45A15 (20200609 W64D C3B3) RED CUDA 7.3.2-49499 (20200609) [C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries\] init is successful
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,603 | 0 RED rocket cards available
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,603 | Setting Local.DtManager.1.Red.Threads = 0
+[0x00004940] | SyManager.DeckLink   | ERROR | 2020-08-01 13:42:37,672 | Failed to create instance.
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,672 | Decklink model name: '', version: ''
+[0x00004940] | DVIP                 | INFO  | 2020-08-01 13:42:37,674 | DVIP Version : 16.2.4, Revision r006482-de40d682, Branch release/16.2.4 (Release)
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:37,680 | Resolve Module Handle 00007FF68BF90000
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:38,860 | Installed custom font: Open Sans
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:38,868 | Installed custom font: Open Sans Semibold
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:38,871 | Installed custom font: Open Sans
+[0x00004940] | Main                 | INFO  | 2020-08-01 13:42:38,883 | Finished loading Application style sheet
+[0x00005d74] | LeManager            | INFO  | 2020-08-01 13:42:39,339 | 521, 38
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,262 | Memory config: reserved=4000M pinned=3000M log=0
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,262 | Using default pooled memory manager
+[0x000039b8] | BtCommon             | INFO  | 2020-08-01 13:42:40,263 | BtResourceManager Process Thread Started
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,348 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,352 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,354 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,355 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,357 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,359 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,361 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:42:40,363 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004940] | SyManager            | INFO  | 2020-08-01 13:42:40,376 | Total: 20, NumDtThreads: 8, NumComms: 0, NumSites: 1
+
+[0x00004940] | SyManager            | INFO  | 2020-08-01 13:42:40,376 | Lookaheads -> playback = 20, record = 20, stop = 2
+
+[0x00004940] | DtManager            | INFO  | 2020-08-01 13:42:40,378 | Using 8 generic IO threads
+[0x00004940] | DtManager            | INFO  | 2020-08-01 13:42:40,378 | Total of 16 IO threads (including 8 generic and 8 Red decode threads)
+[0x00004ed4] | GsManager            | INFO  | 2020-08-01 13:42:40,378 | Gs Processor Thread ----- (20180)
+
+[0x00005f4c] | DtManager            | INFO  | 2020-08-01 13:42:40,379 | Dt Worker Thread Started
+[0x00006760] | DtManager            | INFO  | 2020-08-01 13:42:40,379 | Dt Worker Thread Started
+[0x000065f8] | DtManager            | INFO  | 2020-08-01 13:42:40,379 | Dt Worker Thread Started
+[0x0000605c] | DtManager            | INFO  | 2020-08-01 13:42:40,380 | Dt Worker Thread Started
+[0x0000415c] | DtManager            | INFO  | 2020-08-01 13:42:40,380 | Dt Worker Thread Started
+[0x00001eac] | DtManager            | INFO  | 2020-08-01 13:42:40,380 | Dt Worker Thread Started
+[0x00004aa8] | DtManager            | INFO  | 2020-08-01 13:42:40,381 | Dt Worker Thread Started
+[0x00000d64] | DtManager            | INFO  | 2020-08-01 13:42:40,381 | Dt Worker Thread Started
+[0x00003e08] | DtManager            | INFO  | 2020-08-01 13:42:40,381 | Dt Worker Thread Started
+[0x0000678c] | DtManager            | INFO  | 2020-08-01 13:42:40,381 | Dt Worker Thread Started
+[0x000026d4] | DtManager            | INFO  | 2020-08-01 13:42:40,382 | Dt Data Handler Thread Started
+[0x00005da8] | DtManager            | INFO  | 2020-08-01 13:42:40,382 | Dt Worker Thread Started
+[0x000057a8] | DtManager            | INFO  | 2020-08-01 13:42:40,382 | Dt Worker Thread Started
+[0x00003470] | DtManager            | INFO  | 2020-08-01 13:42:40,382 | Dt Worker Thread Started
+[0x00003ec4] | DtManager            | INFO  | 2020-08-01 13:42:40,383 | Dt Worker Thread Started
+[0x00005a38] | DtManager            | INFO  | 2020-08-01 13:42:40,383 | Dt Worker Thread Started
+[0x000033a0] | DtManager            | INFO  | 2020-08-01 13:42:40,383 | Dt Worker Thread Started
+[0x00003ed8] | DtManager            | INFO  | 2020-08-01 13:42:40,383 | Dt Worker Thread Started
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:40,384 | Let There Be CUDA Light!
+[0x00003754] | DtManager            | INFO  | 2020-08-01 13:42:40,385 | Dt Worker Thread Started
+[0x00004940] | DbCommon2            | INFO  | 2020-08-01 13:42:40,391 | Loading dblist file: C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\dblist.conf
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:40,395 | Board manager thread id 0x2cbfe750 policy 0 priority 0
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 13:42:40,400 | Initializing GPU board 0 with context thread 0
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,674 | Using DNxHR library v2.5.2.68r
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,714 | Kdu ctx(0), bundle(0), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,714 | Kdu ctx(0), bundle(1), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,714 | Kdu ctx(0), bundle(2), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,714 | Kdu ctx(0), bundle(3), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,715 | Kdu ctx(0), bundle(4), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,715 | Kdu ctx(0), bundle(5), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,715 | Kdu ctx(0), bundle(6), thds(1)
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:42:40,715 | Kdu ctx(0), bundle(7), thds(1)
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 13:42:41,109 | Setting channel cache size on GPU board 0 to 4
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 13:42:41,109 | Board manager 0 on thread 0 initialization done on GPU GeForce GTX 1060
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 13:42:41,110 | Entering loop to wait for commands
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:41,111 | Finished initializing CUDA board 0 <GeForce GTX 1060> on platform <Nvidia CUDA GPU> clock rate <1670500> multiprocessor count <10> global mem size (MB) 6144, available mem size (MB) 5071, shared mem size (KB) 48, on SBM[0|0]
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:41,111 | Hired CUDA board 0 <GeForce GTX 1060>
+[0x000060f4] | SyManager            | WARN  | 2020-08-01 13:42:42,388 | socket failed to connect to server, error: 10061
+
+[0x000060f4] | SyManager            | ERROR | 2020-08-01 13:42:42,388 | DRIVER: panel connection failed
+[0x00004940] | Fairlight            | INFO  | 2020-08-01 13:42:48,800 | 00.00.07.045(000): Running Fairlight (r000959-94c0e865)
+[0x00004940] | UI.GLContext         | INFO  | 2020-08-01 13:42:48,901 | Creating shared OpenGL context for this thread (2 total).
+[0x00004940] | UI.GLContext         | INFO  | 2020-08-01 13:42:48,945 | Initialized OpenGL 4.6 (requested 2.0) on device 'NVIDIA Corporation GeForce GTX 1060/PCIe/SSE2'
+[0x00005964] | UI.GLInterop         | INFO  | 2020-08-01 13:42:48,945 | OpenGL interop was initialized.
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:48,945 | Let There Be CUDA Light, Done!!
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 13:42:49,165 | Using CUDA Pinned Memory!
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:49,561 | Fusion Build: r067193-8aeba69e_007 (Jul 13 2020 14:44:00)
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:49,561 | fusionsystem: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionsystem.dll"
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:49,724 | FusionLibs: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\"
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:49,725 | UserData:   = "C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion"
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:49,725 | Profiles:   = "UserData:Profiles\"
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:50,192 | Module Handle 0000024AEFF70000 fusiongraphics
+[0x00003034] | UI.GLContext         | INFO  | 2020-08-01 13:42:50,420 | Creating shared OpenGL context for this thread (3 total).
+[0x00003034] | UI.GLIO              | INFO  | 2020-08-01 13:42:50,492 | OpenGL I/O worker thread ready.
+[0x00004940] | UI.GLIO              | INFO  | 2020-08-01 13:42:50,492 | OpenGL I/O setup done.
+[0x00001704] | UI.GLContext         | INFO  | 2020-08-01 13:42:50,493 | Creating shared OpenGL context for this thread (4 total).
+[0x00001704] | UI.Scopes            | INFO  | 2020-08-01 13:42:50,566 | Initialized GPU Scopes Manager on device 'GeForce GTX 1060'
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:50,777 | Failed to find value '0' in combo-box
+[0x00004940] | DbCommon2            | INFO  | 2020-08-01 13:42:51,174 | Sm2SysIdEntry is not supported in disk database (xml) mode
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:52,321 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:52,333 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:42:52,556 | Action [fairlightAutomationFollowsEdit] is not a global action
+[0x000060f4] | SyManager            | WARN  | 2020-08-01 13:42:53,175 | socket failed to connect to server, error: 10061
+
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:53,495 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:53,514 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:53,899 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:53,920 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:53,960 | Module Handle 0000024B0F090000 fusionsystem
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,012 | Module Handle 0000024B1DB60000 fusionoperators
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,052 | Module Handle 0000024B15910000 fusioncontrols
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,108 | Module Handle 0000024B15B40000 3d.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,142 | Module Handle 0000024B1E400000 alembic.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,172 | Module Handle 0000024B140E0000 dimension.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,258 | Module Handle 0000024B1E720000 fbx.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,279 | Module Handle 0000024AA8760000 fuses.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,304 | Module Handle 0000024AF6390000 opencolorio.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,329 | Module Handle 0000024AAA1F0000 openfx.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,360 | Module Handle 0000024AAC1E0000 openvr.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,387 | Module Handle 0000024AF62F0000 paint.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,418 | Module Handle 0000024AF8550000 particles.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,447 | Module Handle 0000024B15DF0000 text.plugin
+[0x00004940] | Fusion               | INFO  | 2020-08-01 13:42:54,471 | Module Handle 0000024AF7200000 utilities.plugin
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:58,692 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:42:58,714 | Failed to load media metadata preset list or the list is empty.
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:42:59,146 | Not creating special GL widget for screen 0
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,929 | Action [sessionDolbyVisionAnalyzeAllShots] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionDolbyVisionAnalyzeSelectedShots] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionDolbyVisionAnalyzeSelectedAndGroup] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionDolbyVisionAnalyzeCurrentFrame] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionHDR10PlusAnalyzeAllShots] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionHDR10PlusAnalyzeSelectedShots] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionHDR10PlusAnalyzeSelectedAndGroup] is not a valid global action
+[0x00004940] | UI.ActionManager     | WARN  | 2020-08-01 13:43:00,930 | Action [sessionHDR10PlusAnalyzeCurrentFrame] is not a valid global action
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:01,209 | Failed to find value '8192' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:01,476 | Failed to find value '100' in combo-box
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [fusion_menu1_triggered(bool)] is owned by [0000024B1ACCF0A0]
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [fusion_menu2_triggered()] is owned by [0000024B1ACCF0A0]
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [fusion_menu3_triggered()] is owned by [0000024B1ACCF0A0]
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [fusion_menu5_triggered()] is owned by [0000024B1ACCF0A0]
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [fusion_menu8_triggered()] is owned by [0000024B1ACCF0A0]
+[0x00004940] | UI.MenuBar           | WARN  | 2020-08-01 13:43:02,411 | Plugged In Action [workspace_sub1_menu1_triggered()] is owned by [0000024B1ACCF0A0]
+[0x00004940] | IO                   | INFO  | 2020-08-01 13:43:02,966 | RED rocket decode has been disabled in the config file
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:03,863 | Failed to find value '0' in combo-box
+[0x00004940] | SyManager.DeckLink   | ERROR | 2020-08-01 13:43:03,881 | Failed to create instance.
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:13,216 | Current user pointer is changed
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:13,244 | UI Persistence - UseDisplayNameForClips not read
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:13,244 | UI Persistence - DefaultTransitionKey not read
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:13,244 | UI Persistence - DefaultAudioTransitionKey not read
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,288 | Failed to find value '14' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,357 | Failed to find value '0' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,417 | Failed to find value '1' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,420 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,425 | Failed to find value '122' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,426 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,432 | Failed to find value '78' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,434 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,443 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,463 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,467 | Failed to find value '1' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,468 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,476 | Failed to find value '0' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:14,480 | Failed to find value '8198' in combo-box
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:14,604 | Start purging still caches
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:14,604 | Finish purging still caches
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:14,741 | Main view page is changed to 12
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:14,855 | Gallery pointer is changed, refreshing color gallery
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:14,891 | Gallery pointer is changed, refreshing gallery browser
+[0x00004940] | SyManager.ActionExecutor | INFO  | 2020-08-01 13:43:25,753 | Database transaction is ongoing, user initiated action Sync Asset Map is postponed
+[0x00004940] | SyManager.ActionExecutor | INFO  | 2020-08-01 13:43:25,776 | Database transaction completed, enqueueing 1 postponed actions
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:25,790 | Finished saving HiddenView to database (size = 0)
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:25,790 | Finished clearing HiddenView (size = 0)
+[0x00004940] | SyManager.Project    | INFO  | 2020-08-01 13:43:25,823 | Unlock project Untitled Project
+[0x00004940] | SyManager.ProjectManager | INFO  | 2020-08-01 13:43:25,823 | Loading project (merge_videos) from database (Local Database) took 345 ms
+[0x00004940] | SyManager            | INFO  | 2020-08-01 13:43:25,935 | Invalidated optimized media for project (merge_videos) because sequence cache path directory (D:\Projects\Resolve\CacheClip\43ea2bb1-8073-40bd-bfca-13357899e848\OptimizedMedia) is empty.
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 13:43:26,799 | Flushing GPU memory...
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:26,844 | Failed to find value '14' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:26,883 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:26,913 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:26,919 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:26,976 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,128 | Failed to find value '78' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,134 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,150 | Failed to find value '122' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,151 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,172 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,180 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,243 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,258 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,277 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,288 | Failed to find value '0' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,289 | Failed to find value '8198' in combo-box
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:27,392 | Start purging still caches
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 13:43:27,392 | Finish purging still caches
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:27,495 | Current project pointer (merge_videos) is changed
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:27,495 | Current timeline pointer (Timeline 1) is changed
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:27,524 | Main view page is changed to 1
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:27,676 | Main view page is changed to 2
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,863 | Layout is disabled.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,883 | Layout is disabled.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,888 | UI Persistence - MediaPoolFloatingWindowGeometry not read
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:27,889 | UI Persistence - ConformEdlEffectsLibrary not read
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:28,560 | Failed to find value '0' in combo-box
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:29,687 | Main view page is changed to 2
+[0x00004940] | SyManager            | WARN  | 2020-08-01 13:43:29,757 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\Resolve Project Backups\e688eaf7-b3f6-4f3f-b46c-fc489571922a.
+[0x00004940] | SyManager            | WARN  | 2020-08-01 13:43:29,768 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\CacheClip\e688eaf7-b3f6-4f3f-b46c-fc489571922a.
+[0x00004940] | SyManager            | WARN  | 2020-08-01 13:43:29,779 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\.gallery\e688eaf7-b3f6-4f3f-b46c-fc489571922a.
+[0x00000064] | UI.GLContext         | INFO  | 2020-08-01 13:43:30,461 | Creating shared OpenGL context for this thread (5 total).
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:30,634 | Lock project merge_videos
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:30,658 | UiGPU::UploadWipeData called before UiGPU has been initialized. Returning false
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:30,660 | Gallery pointer is changed, refreshing color gallery
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:30,755 | Gallery pointer is changed, refreshing gallery browser
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:46,611 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:47,013 | Initializing FBO of size 1920 x 1080 - 16b (old 0 x 0 - 16b)
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:47,015 | Setting reInit to true in CheckGPU
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:47,016 | Unable to submit frame to GPU scopes, legacy OpenGL uploads not supported (Color Page).
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:47,016 | PBO is initialized with size [1920x1080], bitDepth=[10], hasAlpha=[0].
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:47,504 | Main view page is changed to 11
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,650 | Failed to find value '78' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,740 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,749 | Failed to find value '122' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,751 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,787 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,797 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,819 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,822 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,847 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,850 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,879 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,891 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,899 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,905 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,915 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,922 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,949 | Failed to find value '0' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:43:57,950 | Failed to find value '8198' in combo-box
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 13:43:58,095 | Current timeline mode is changed
+[0x000057bc] | SyManager            | ERROR | 2020-08-01 13:43:58,212 | There is no current clip, SetCurrentFrame failed.
+[0x00004940] | UI                   | INFO  | 2020-08-01 13:43:58,877 | PBO is initialized with size [1920x1080], bitDepth=[16], hasAlpha=[0].
+[0x00004ed4] | GsManager            | INFO  | 2020-08-01 13:44:13,495 | Finished recording 483 frames.
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,124 | Failed to find value '78' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,210 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,217 | Failed to find value '122' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,219 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,253 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,264 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,284 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,288 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,313 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,316 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,344 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,356 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,364 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,370 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,379 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,385 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,412 | Failed to find value '0' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,412 | Failed to find value '8198' in combo-box
+[0x00004940] | UI                   | WARN  | 2020-08-01 13:44:14,537 | Unable to submit frame to GPU scopes, legacy OpenGL uploads not supported (Color Page).
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 13:58:00,889 | Entering sleep mode
+[0x00004940] | BtCommon             | INFO  | 2020-08-01 14:03:15,930 | Exiting sleep mode
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:20,675 | Finished saving HiddenView to database (size = 0)
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:20,675 | Finished clearing HiddenView (size = 0)
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:21,096 | Finished saving HiddenView to database (size = 0)
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:21,096 | Finished clearing HiddenView (size = 0)
+[0x00004940] | SyManager.Project    | INFO  | 2020-08-01 14:03:21,134 | Unlock project merge_videos
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:21,138 | Start purging still caches
+[0x00004940] | SyManager.Gallery    | INFO  | 2020-08-01 14:03:21,138 | Finish purging still caches
+[0x00004940] | SyManager.Signals    | INFO  | 2020-08-01 14:03:21,165 | Main view page is changed to 11
+[0x00005d74] | LeManager            | INFO  | 2020-08-01 14:03:21,555 | 522, 101
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,395 | Starting terminate sequence by calling g_MainTerm
+
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,396 | Closing components
+[0x00004940] | UI                   | INFO  | 2020-08-01 14:03:23,397 | Audio thread terminated.
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,397 | g_MainTerm: BtStartupShutdownControl.Shutdown() - begin
+[0x000050fc] | SyManager            | INFO  | 2020-08-01 14:03:23,472 | Exit SY high priority cmd handler
+[0x00000654] | SyManager            | INFO  | 2020-08-01 14:03:23,472 | Exit SY low priority cmd handler
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,480 | SvcManager: SyManager.StopThreads() - end
+[0x00004ed4] | GsManager            | INFO  | 2020-08-01 14:03:23,481 | Exit GS process handler
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,482 | SvcManager: GsManager.StopThreads() - end
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,482 | SvcManager: DpManager.StopThreads() - end
+[0x0000189c] | DtManager            | INFO  | 2020-08-01 14:03:23,492 | Exit DT high priority cmd handler
+[0x000055bc] | DpManager            | INFO  | 2020-08-01 14:03:23,492 | Exit DP low priority cmd handler
+[0x00001250] | DtManager            | INFO  | 2020-08-01 14:03:23,492 | Exit DT low priority cmd handler
+[0x00004a6c] | DpManager            | INFO  | 2020-08-01 14:03:23,492 | Exit DP high priority cmd handler
+[0x000026d4] | DtManager            | INFO  | 2020-08-01 14:03:23,499 | Exit DT data handler thread
+[0x00000d64] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x000065f8] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00006760] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x000033a0] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x0000415c] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00003e08] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x0000678c] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00005da8] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00003ed8] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00004aa8] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00005a38] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00003470] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00003754] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00001eac] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x000057a8] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00005f4c] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00003ec4] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x0000605c] | DtManager            | INFO  | 2020-08-01 14:03:23,510 | Exit DT worker thread
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,547 | SvcManager: DtManager.StopThreads() - end
+[0x00004d58] | LsManager            | INFO  | 2020-08-01 14:03:23,555 | Exit LS low priority cmd handler
+[0x00005e60] | LsManager            | INFO  | 2020-08-01 14:03:23,555 | Exit LS high priority cmd handler
+[0x0000347c] | LsManager            | INFO  | 2020-08-01 14:03:23,555 | Exit LS data handler
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,575 | SvcManager: LsManager.StopThreads() - end
+[0x00002918] | LsManager            | INFO  | 2020-08-01 14:03:23,582 | Exit LS data handler
+[0x00003108] | LsManager            | INFO  | 2020-08-01 14:03:23,596 | Exit LS low priority cmd handler
+[0x00005f98] | LsManager            | INFO  | 2020-08-01 14:03:23,596 | Exit LS high priority cmd handler
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,603 | SvcManager: LsManager.StopThreads() - end
+[0x00003ea8] | LsManager            | INFO  | 2020-08-01 14:03:23,617 | Exit LS high priority cmd handler
+[0x000010b8] | LsManager            | INFO  | 2020-08-01 14:03:23,617 | Exit LS low priority cmd handler
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 14:03:23,623 | Board 0 on thread 0 <GeForce GTX 1060>: No more jobs. You're fired!
+[0x00000064] | GPUManager           | INFO  | 2020-08-01 14:03:23,644 | Clean up and shut down board 0 on thread 0
+[0x00005964] | GPUManager           | INFO  | 2020-08-01 14:03:23,645 | SBM[0|0]<GeForce GTX 1060> Doomed
+[0x00005964] | LsManager            | INFO  | 2020-08-01 14:03:23,646 | Exit LS data handler
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:23,656 | SvcManager: LsManager.StopThreads() - end
+[0x00004940] | DpManager            | INFO  | 2020-08-01 14:03:23,658 | Stopping DpWfmWorker threads -- start
+[0x000041f8] | DpManager            | INFO  | 2020-08-01 14:03:23,658 | DpWfmWorker thread exit
+[0x00002d00] | DpManager            | INFO  | 2020-08-01 14:03:23,658 | DpWfmWorker thread exit
+[0x00003a78] | DpManager            | INFO  | 2020-08-01 14:03:23,658 | DpWfmWorker thread exit
+[0x00006644] | DpManager            | INFO  | 2020-08-01 14:03:23,658 | DpWfmWorker thread exit
+[0x00004940] | DpManager            | INFO  | 2020-08-01 14:03:23,667 | Stopping DpWfmWorker threads -- done
+[0x00004940] | IO                   | INFO  | 2020-08-01 14:03:23,684 | RED FinalizeSdk
+[0x00004940] | SyManager.Project    | INFO  | 2020-08-01 14:03:23,769 | Unlock project Untitled Project
+[0x000039b8] | BtCommon             | INFO  | 2020-08-01 14:03:23,812 | Exit BtResourceManager Process Thread
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:24,072 | g_MainTerm: BtStartupShutdownControl.Shutdown() - finished
+[0x00001704] | UI.Scopes            | INFO  | 2020-08-01 14:03:24,072 | GPU Scopes thread done.
+[0x00003034] | UI.GLIO              | INFO  | 2020-08-01 14:03:24,076 | OpenGL I/O worker thread is done.
+[0x00004940] | UI.GLIO              | INFO  | 2020-08-01 14:03:24,079 | OpenGL I/O uninit done.
+[0x00004940] | UI.GLContext         | INFO  | 2020-08-01 14:03:24,123 | Destroyed main context.
+[0x00004940] | Main                 | INFO  | 2020-08-01 14:03:24,153 | Main thread exited successfully
+[0x00004424] | Undefined            | INFO  | 2020-08-01 14:20:16,006 | --------------------------------------------------------------------------------
+[0x00004424] | Undefined            | INFO  | 2020-08-01 14:20:16,007 | Loaded log config from C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\log-conf.xml
+[0x00004424] | Undefined            | INFO  | 2020-08-01 14:20:16,007 | --------------------------------------------------------------------------------
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,008 | Running DaVinci Resolve v16.2.4.016 (Windows/MSVC)
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,735 | Updating display GPU information...
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,759 | Found correct name from registry for device : I, provider Intel Corporation
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,759 | Found Intel Device: Intel(R) HD Graphics 530
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,791 | GPU Intel(R) HD Graphics 530 is used for display
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,793 | Found correct name from registry for device : GeForce GTX 1060, provider NVIDIA
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,793 | Found CUDA Device: NVIDIA GeForce GTX 1060
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,794 | GPU NVIDIA GeForce GTX 1060 is used for display
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,986 | GPUs detected: 1 integrated, 1 discrete, 2 OpenCL.Graphics interop capable.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,986 | Detected uptime 443809s
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:16,986 | GPU Name = 'NVIDIA GeForce GTX 1060', Main display = 1
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,011 | Only 1 NVIDIA display GPU found. Using CUDA for processing.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,011 | GLmap capable. GPUs: 1 discrete, 0 integrated, 0 external. Auto mapping, CUDA processing, main display not on external GPU.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,011 | Setting LsManager.3.DisplayGPUName = NVIDIA GeForce GTX 1060
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,011 | Setting LsManager.3.DisplayGPUIndex = 0
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,011 | Setting LsManager.3.NumGPUs = 1
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:17,011 | RED InitializeSdk with library path at C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:17,180 | R3DAPI 7.3.2-45A15 (20200609 W64S) R3DSDK 7.3.2-45A15 (20200609 W64D C3B3) RED CUDA 7.3.2-49499 (20200609) [C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries\] init is successful
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,180 | 0 RED rocket cards available
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,180 | Setting Local.DtManager.1.Red.Threads = 0
+[0x00004424] | SyManager.DeckLink   | ERROR | 2020-08-01 14:20:17,254 | Failed to create instance.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,254 | Decklink model name: '', version: ''
+[0x00004424] | DVIP                 | INFO  | 2020-08-01 14:20:17,255 | DVIP Version : 16.2.4, Revision r006482-de40d682, Branch release/16.2.4 (Release)
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:17,258 | Resolve Module Handle 00007FF68BF90000
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:18,078 | Installed custom font: Open Sans
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:18,079 | Installed custom font: Open Sans Semibold
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:18,080 | Installed custom font: Open Sans
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:20:18,089 | Finished loading Application style sheet
+[0x000048e0] | LeManager            | INFO  | 2020-08-01 14:20:18,369 | 521, 38
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,297 | Memory config: reserved=4000M pinned=3000M log=0
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,297 | Using default pooled memory manager
+[0x00004740] | BtCommon             | INFO  | 2020-08-01 14:20:19,297 | BtResourceManager Process Thread Started
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,382 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,385 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,387 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,389 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,391 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,394 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,396 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | BtCommon             | INFO  | 2020-08-01 14:20:19,398 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00004424] | SyManager            | INFO  | 2020-08-01 14:20:19,410 | Total: 20, NumDtThreads: 8, NumComms: 0, NumSites: 1
+
+[0x00004424] | SyManager            | INFO  | 2020-08-01 14:20:19,410 | Lookaheads -> playback = 20, record = 20, stop = 2
+
+[0x00004424] | DtManager            | INFO  | 2020-08-01 14:20:19,412 | Using 8 generic IO threads
+[0x00004424] | DtManager            | INFO  | 2020-08-01 14:20:19,412 | Total of 16 IO threads (including 8 generic and 8 Red decode threads)
+[0x00005efc] | GsManager            | INFO  | 2020-08-01 14:20:19,412 | Gs Processor Thread ----- (24316)
+
+[0x00006494] | DtManager            | INFO  | 2020-08-01 14:20:19,412 | Dt Worker Thread Started
+[0x000037dc] | DtManager            | INFO  | 2020-08-01 14:20:19,413 | Dt Data Handler Thread Started
+[0x00003628] | DtManager            | INFO  | 2020-08-01 14:20:19,413 | Dt Worker Thread Started
+[0x00003f44] | DtManager            | INFO  | 2020-08-01 14:20:19,414 | Dt Worker Thread Started
+[0x00004424] | DbCommon2            | INFO  | 2020-08-01 14:20:19,414 | Loading dblist file: C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\dblist.conf
+[0x00001410] | DtManager            | INFO  | 2020-08-01 14:20:19,415 | Dt Worker Thread Started
+[0x00005780] | DtManager            | INFO  | 2020-08-01 14:20:19,415 | Dt Worker Thread Started
+[0x00006358] | DtManager            | INFO  | 2020-08-01 14:20:19,415 | Dt Worker Thread Started
+[0x00002bf0] | DtManager            | INFO  | 2020-08-01 14:20:19,416 | Dt Worker Thread Started
+[0x00001474] | DtManager            | INFO  | 2020-08-01 14:20:19,416 | Dt Worker Thread Started
+[0x00005520] | DtManager            | INFO  | 2020-08-01 14:20:19,416 | Dt Worker Thread Started
+[0x00003c70] | DtManager            | INFO  | 2020-08-01 14:20:19,416 | Dt Worker Thread Started
+[0x00006390] | DtManager            | INFO  | 2020-08-01 14:20:19,417 | Dt Worker Thread Started
+[0x00002e04] | DtManager            | INFO  | 2020-08-01 14:20:19,417 | Dt Worker Thread Started
+[0x00006648] | DtManager            | INFO  | 2020-08-01 14:20:19,417 | Dt Worker Thread Started
+[0x00005b58] | DtManager            | INFO  | 2020-08-01 14:20:19,417 | Dt Worker Thread Started
+[0x00000a8c] | DtManager            | INFO  | 2020-08-01 14:20:19,417 | Dt Worker Thread Started
+[0x00002f08] | DtManager            | INFO  | 2020-08-01 14:20:19,418 | Dt Worker Thread Started
+[0x00005978] | DtManager            | INFO  | 2020-08-01 14:20:19,418 | Dt Worker Thread Started
+[0x00006638] | DtManager            | INFO  | 2020-08-01 14:20:19,418 | Dt Worker Thread Started
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:19,420 | Let There Be CUDA Light!
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:19,430 | Board manager thread id 0x6bbfe650 policy 0 priority 0
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:20:19,431 | Initializing GPU board 0 with context thread 0
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,491 | Using DNxHR library v2.5.2.68r
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,494 | Kdu ctx(0), bundle(0), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,494 | Kdu ctx(0), bundle(1), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(2), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(3), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(4), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(5), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(6), thds(1)
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:19,495 | Kdu ctx(0), bundle(7), thds(1)
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:20:19,792 | Setting channel cache size on GPU board 0 to 4
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:20:19,792 | Board manager 0 on thread 0 initialization done on GPU GeForce GTX 1060
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:20:19,793 | Entering loop to wait for commands
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:19,793 | Finished initializing CUDA board 0 <GeForce GTX 1060> on platform <Nvidia CUDA GPU> clock rate <1670500> multiprocessor count <10> global mem size (MB) 6144, available mem size (MB) 5071, shared mem size (KB) 48, on SBM[0|0]
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:19,793 | Hired CUDA board 0 <GeForce GTX 1060>
+[0x00003e68] | SyManager            | WARN  | 2020-08-01 14:20:21,416 | socket failed to connect to server, error: 10061
+
+[0x00003e68] | SyManager            | ERROR | 2020-08-01 14:20:21,416 | DRIVER: panel connection failed
+[0x00004424] | Fairlight            | INFO  | 2020-08-01 14:20:27,456 | 00.00.07.061(000): Running Fairlight (r000959-94c0e865)
+[0x00004424] | UI.GLContext         | INFO  | 2020-08-01 14:20:27,524 | Creating shared OpenGL context for this thread (2 total).
+[0x00004424] | UI.GLContext         | INFO  | 2020-08-01 14:20:27,583 | Initialized OpenGL 4.6 (requested 2.0) on device 'NVIDIA Corporation GeForce GTX 1060/PCIe/SSE2'
+[0x00002be8] | UI.GLInterop         | INFO  | 2020-08-01 14:20:27,584 | OpenGL interop was initialized.
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:27,584 | Let There Be CUDA Light, Done!!
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:20:27,913 | Using CUDA Pinned Memory!
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,085 | Fusion Build: r067193-8aeba69e_007 (Jul 13 2020 14:44:00)
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,085 | fusionsystem: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionsystem.dll"
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,266 | FusionLibs: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\"
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,266 | UserData:   = "C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion"
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,266 | Profiles:   = "UserData:Profiles\"
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:28,753 | Module Handle 00000176909F0000 fusiongraphics
+[0x000040e8] | UI.GLContext         | INFO  | 2020-08-01 14:20:28,888 | Creating shared OpenGL context for this thread (3 total).
+[0x000040e8] | UI.GLIO              | INFO  | 2020-08-01 14:20:28,959 | OpenGL I/O worker thread ready.
+[0x00004424] | UI.GLIO              | INFO  | 2020-08-01 14:20:28,959 | OpenGL I/O setup done.
+[0x00005014] | UI.GLContext         | INFO  | 2020-08-01 14:20:28,960 | Creating shared OpenGL context for this thread (4 total).
+[0x00005014] | UI.Scopes            | INFO  | 2020-08-01 14:20:29,041 | Initialized GPU Scopes Manager on device 'GeForce GTX 1060'
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:29,240 | Failed to find value '0' in combo-box
+[0x00004424] | DbCommon2            | INFO  | 2020-08-01 14:20:29,507 | Sm2SysIdEntry is not supported in disk database (xml) mode
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:30,680 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:30,693 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:30,914 | Action [fairlightAutomationFollowsEdit] is not a global action
+[0x00003e68] | SyManager            | WARN  | 2020-08-01 14:20:31,488 | socket failed to connect to server, error: 10061
+
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:31,812 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:31,820 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:32,118 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:32,127 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,153 | Module Handle 000001768F1F0000 fusionsystem
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,161 | Module Handle 000001769C8D0000 fusionoperators
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,168 | Module Handle 0000017695730000 fusioncontrols
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,183 | Module Handle 0000017695960000 3d.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,185 | Module Handle 000001769E140000 alembic.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,188 | Module Handle 0000017695C10000 dimension.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,192 | Module Handle 000001769E460000 fbx.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,194 | Module Handle 000001761CE00000 fuses.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,195 | Module Handle 000001769F030000 opencolorio.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,197 | Module Handle 000001762D9F0000 openfx.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,199 | Module Handle 0000017625160000 openvr.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,201 | Module Handle 0000017630D80000 paint.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,205 | Module Handle 000001769F120000 particles.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,207 | Module Handle 000001769F200000 text.plugin
+[0x00004424] | Fusion               | INFO  | 2020-08-01 14:20:32,208 | Module Handle 000001766FFD0000 utilities.plugin
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:36,723 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:36,734 | Failed to load media metadata preset list or the list is empty.
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:20:37,118 | Not creating special GL widget for screen 0
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionDolbyVisionAnalyzeAllShots] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionDolbyVisionAnalyzeSelectedShots] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionDolbyVisionAnalyzeSelectedAndGroup] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionDolbyVisionAnalyzeCurrentFrame] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionHDR10PlusAnalyzeAllShots] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionHDR10PlusAnalyzeSelectedShots] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,085 | Action [sessionHDR10PlusAnalyzeSelectedAndGroup] is not a valid global action
+[0x00004424] | UI.ActionManager     | WARN  | 2020-08-01 14:20:38,086 | Action [sessionHDR10PlusAnalyzeCurrentFrame] is not a valid global action
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:38,422 | Failed to find value '8192' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:39,052 | Failed to find value '100' in combo-box
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,114 | Plugged In Action [fusion_menu1_triggered(bool)] is owned by [000001769BC40790]
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,114 | Plugged In Action [fusion_menu2_triggered()] is owned by [000001769BC40790]
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,114 | Plugged In Action [fusion_menu3_triggered()] is owned by [000001769BC40790]
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,114 | Plugged In Action [fusion_menu5_triggered()] is owned by [000001769BC40790]
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,114 | Plugged In Action [fusion_menu8_triggered()] is owned by [000001769BC40790]
+[0x00004424] | UI.MenuBar           | WARN  | 2020-08-01 14:20:40,115 | Plugged In Action [workspace_sub1_menu1_triggered()] is owned by [000001769BC40790]
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:20:40,497 | RED rocket decode has been disabled in the config file
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:41,249 | Failed to find value '0' in combo-box
+[0x00004424] | SyManager.DeckLink   | ERROR | 2020-08-01 14:20:41,276 | Failed to create instance.
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:20:52,506 | Current user pointer is changed
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:52,530 | UI Persistence - UseDisplayNameForClips not read
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:52,531 | UI Persistence - DefaultTransitionKey not read
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:52,532 | UI Persistence - DefaultAudioTransitionKey not read
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,656 | Failed to find value '14' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,844 | Failed to find value '0' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,937 | Failed to find value '1' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,945 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,957 | Failed to find value '122' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,958 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,971 | Failed to find value '78' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,976 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:53,990 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:54,025 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:54,035 | Failed to find value '1' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:54,035 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:54,050 | Failed to find value '0' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:20:54,059 | Failed to find value '8198' in combo-box
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:20:54,216 | Start purging still caches
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:20:54,216 | Finish purging still caches
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:20:54,370 | Main view page is changed to 12
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:20:54,485 | Gallery pointer is changed, refreshing color gallery
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:20:54,533 | Gallery pointer is changed, refreshing gallery browser
+[0x00004424] | SyManager.ActionExecutor | INFO  | 2020-08-01 14:22:18,746 | Database transaction is ongoing, user initiated action Sync Asset Map is postponed
+[0x00004424] | SyManager.ActionExecutor | INFO  | 2020-08-01 14:22:18,772 | Database transaction completed, enqueueing 1 postponed actions
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:22:18,788 | Finished saving HiddenView to database (size = 0)
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:22:18,788 | Finished clearing HiddenView (size = 0)
+[0x00004424] | SyManager.Project    | INFO  | 2020-08-01 14:22:18,834 | Unlock project Untitled Project
+[0x00004424] | SyManager.ProjectManager | INFO  | 2020-08-01 14:22:18,835 | Loading project (merge_videos) from database (Local Database) took 321 ms
+[0x00004424] | SyManager            | INFO  | 2020-08-01 14:22:18,947 | Invalidated optimized media for project (merge_videos) because sequence cache path directory (D:\Projects\Resolve\CacheClip\43ea2bb1-8073-40bd-bfca-13357899e848\OptimizedMedia) is empty.
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:22:19,826 | Flushing GPU memory...
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:19,880 | Failed to find value '14' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:19,976 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,040 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,051 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,161 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,412 | Failed to find value '78' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,423 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,451 | Failed to find value '122' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,453 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,478 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,486 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,543 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,552 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,567 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,583 | Failed to find value '0' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:20,584 | Failed to find value '8198' in combo-box
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:22:20,708 | Start purging still caches
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:22:20,708 | Finish purging still caches
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:20,826 | Current project pointer (merge_videos) is changed
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:20,826 | Current timeline pointer (Timeline 1) is changed
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:20,857 | Main view page is changed to 1
+[0x00001dc8] | UI.GLContext         | INFO  | 2020-08-01 14:22:21,441 | Creating shared OpenGL context for this thread (5 total).
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:21,464 | Main view page is changed to 11
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:22,490 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:23,083 | Failed to find value '8198' in combo-box
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:23,133 | Main view page is changed to 11
+[0x00004424] | SyManager            | WARN  | 2020-08-01 14:22:23,222 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\Resolve Project Backups\658e5c6d-3140-41a7-9b81-9b1692cbede7.
+[0x00004424] | SyManager            | WARN  | 2020-08-01 14:22:23,233 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\CacheClip\658e5c6d-3140-41a7-9b81-9b1692cbede7.
+[0x00004424] | SyManager            | WARN  | 2020-08-01 14:22:23,244 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\.gallery\658e5c6d-3140-41a7-9b81-9b1692cbede7.
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,689 | Lock project merge_videos
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,700 | UiGPU::UploadWipeData called before UiGPU has been initialized. Returning false
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,703 | Gallery pointer is changed, refreshing color gallery
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,896 | Gallery pointer is changed, refreshing gallery browser
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,911 | Initializing FBO of size 1920 x 1080 - 16b (old 0 x 0 - 16b)
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:24,913 | Setting reInit to true in CheckGPU
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:32,877 | Failed to find value '78' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,039 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,056 | Failed to find value '122' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,058 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,143 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,179 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,243 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,254 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,327 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,333 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,388 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,413 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,429 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,441 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,458 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,469 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,521 | Failed to find value '0' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:33,522 | Failed to find value '8198' in combo-box
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:22:33,700 | Current timeline mode is changed
+[0x00000ee8] | SyManager            | ERROR | 2020-08-01 14:22:33,843 | There is no current clip, SetCurrentFrame failed.
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:22:34,252 | PBO is initialized with size [1920x1080], bitDepth=[16], hasAlpha=[0].
+[0x00005efc] | GsManager            | INFO  | 2020-08-01 14:22:50,627 | Finished recording 483 frames.
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,712 | Failed to find value '78' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,873 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,887 | Failed to find value '122' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,891 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,967 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:51,991 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,032 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,039 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,089 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,094 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,150 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,173 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,190 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,201 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,218 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,229 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,280 | Failed to find value '0' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,281 | Failed to find value '8198' in combo-box
+[0x00004424] | UI                   | WARN  | 2020-08-01 14:22:52,535 | Unable to submit frame to GPU scopes, legacy OpenGL uploads not supported (Color Page).
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:40,436 | Finished saving HiddenView to database (size = 0)
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:40,436 | Finished clearing HiddenView (size = 0)
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:41,186 | Finished saving HiddenView to database (size = 0)
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:41,186 | Finished clearing HiddenView (size = 0)
+[0x00004424] | SyManager.Project    | INFO  | 2020-08-01 14:24:41,230 | Unlock project merge_videos
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:41,234 | Start purging still caches
+[0x00004424] | SyManager.Gallery    | INFO  | 2020-08-01 14:24:41,235 | Finish purging still caches
+[0x00004424] | SyManager.Signals    | INFO  | 2020-08-01 14:24:41,264 | Main view page is changed to 11
+[0x000048e0] | LeManager            | INFO  | 2020-08-01 14:24:41,769 | 522, 101
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,613 | Starting terminate sequence by calling g_MainTerm
+
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,614 | Closing components
+[0x00004424] | UI                   | INFO  | 2020-08-01 14:24:44,614 | Audio thread terminated.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,615 | g_MainTerm: BtStartupShutdownControl.Shutdown() - begin
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,647 | SvcManager: SyManager.StopThreads() - end
+[0x00005efc] | GsManager            | INFO  | 2020-08-01 14:24:44,648 | Exit GS process handler
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,649 | SvcManager: GsManager.StopThreads() - end
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,649 | SvcManager: DpManager.StopThreads() - end
+[0x000060f4] | DtManager            | INFO  | 2020-08-01 14:24:44,651 | Exit DT low priority cmd handler
+[0x000050fc] | DpManager            | INFO  | 2020-08-01 14:24:44,651 | Exit DP high priority cmd handler
+[0x00003828] | SyManager            | INFO  | 2020-08-01 14:24:44,651 | Exit SY low priority cmd handler
+[0x000029fc] | DpManager            | INFO  | 2020-08-01 14:24:44,651 | Exit DP low priority cmd handler
+[0x000021cc] | SyManager            | INFO  | 2020-08-01 14:24:44,652 | Exit SY high priority cmd handler
+[0x000037dc] | DtManager            | INFO  | 2020-08-01 14:24:44,666 | Exit DT data handler thread
+[0x000027b4] | DtManager            | INFO  | 2020-08-01 14:24:44,670 | Exit DT high priority cmd handler
+[0x00006638] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00003c70] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00002e04] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00005b58] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00001410] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00006648] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00006494] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00006390] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00003628] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00005978] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00001474] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00002bf0] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00005780] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00003f44] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00002f08] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00000a8c] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00005520] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00006358] | DtManager            | INFO  | 2020-08-01 14:24:44,677 | Exit DT worker thread
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,715 | SvcManager: DtManager.StopThreads() - end
+[0x00004eac] | LsManager            | INFO  | 2020-08-01 14:24:44,728 | Exit LS data handler
+[0x0000603c] | LsManager            | INFO  | 2020-08-01 14:24:44,735 | Exit LS low priority cmd handler
+[0x00005ce4] | LsManager            | INFO  | 2020-08-01 14:24:44,735 | Exit LS high priority cmd handler
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,743 | SvcManager: LsManager.StopThreads() - end
+[0x00006680] | LsManager            | INFO  | 2020-08-01 14:24:44,747 | Exit LS data handler
+[0x00000d64] | LsManager            | INFO  | 2020-08-01 14:24:44,756 | Exit LS high priority cmd handler
+[0x00003e08] | LsManager            | INFO  | 2020-08-01 14:24:44,759 | Exit LS low priority cmd handler
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,771 | SvcManager: LsManager.StopThreads() - end
+[0x00000560] | LsManager            | INFO  | 2020-08-01 14:24:44,779 | Exit LS high priority cmd handler
+[0x00002bfc] | LsManager            | INFO  | 2020-08-01 14:24:44,779 | Exit LS low priority cmd handler
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:24:44,794 | Board 0 on thread 0 <GeForce GTX 1060>: No more jobs. You're fired!
+[0x00001dc8] | GPUManager           | INFO  | 2020-08-01 14:24:44,815 | Clean up and shut down board 0 on thread 0
+[0x00002be8] | GPUManager           | INFO  | 2020-08-01 14:24:44,816 | SBM[0|0]<GeForce GTX 1060> Doomed
+[0x00002be8] | LsManager            | INFO  | 2020-08-01 14:24:44,817 | Exit LS data handler
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:44,825 | SvcManager: LsManager.StopThreads() - end
+[0x00004424] | DpManager            | INFO  | 2020-08-01 14:24:44,827 | Stopping DpWfmWorker threads -- start
+[0x00004ddc] | DpManager            | INFO  | 2020-08-01 14:24:44,827 | DpWfmWorker thread exit
+[0x0000608c] | DpManager            | INFO  | 2020-08-01 14:24:44,827 | DpWfmWorker thread exit
+[0x000064d8] | DpManager            | INFO  | 2020-08-01 14:24:44,827 | DpWfmWorker thread exit
+[0x0000657c] | DpManager            | INFO  | 2020-08-01 14:24:44,827 | DpWfmWorker thread exit
+[0x00004424] | DpManager            | INFO  | 2020-08-01 14:24:44,835 | Stopping DpWfmWorker threads -- done
+[0x00004424] | IO                   | INFO  | 2020-08-01 14:24:44,857 | RED FinalizeSdk
+[0x00004424] | SyManager.Project    | INFO  | 2020-08-01 14:24:44,917 | Unlock project Untitled Project
+[0x00004740] | BtCommon             | INFO  | 2020-08-01 14:24:44,968 | Exit BtResourceManager Process Thread
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:45,418 | g_MainTerm: BtStartupShutdownControl.Shutdown() - finished
+[0x00005014] | UI.Scopes            | INFO  | 2020-08-01 14:24:45,418 | GPU Scopes thread done.
+[0x000040e8] | UI.GLIO              | INFO  | 2020-08-01 14:24:45,421 | OpenGL I/O worker thread is done.
+[0x00004424] | UI.GLIO              | INFO  | 2020-08-01 14:24:45,422 | OpenGL I/O uninit done.
+[0x00004424] | UI.GLContext         | INFO  | 2020-08-01 14:24:45,464 | Destroyed main context.
+[0x00004424] | Main                 | INFO  | 2020-08-01 14:24:45,506 | Main thread exited successfully
+[0x00002f24] | Undefined            | INFO  | 2020-08-01 14:33:20,102 | --------------------------------------------------------------------------------
+[0x00002f24] | Undefined            | INFO  | 2020-08-01 14:33:20,102 | Loaded log config from C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\log-conf.xml
+[0x00002f24] | Undefined            | INFO  | 2020-08-01 14:33:20,102 | --------------------------------------------------------------------------------
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,103 | Running DaVinci Resolve v16.2.4.016 (Windows/MSVC)
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,785 | Updating display GPU information...
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,804 | Found correct name from registry for device : I, provider Intel Corporation
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,804 | Found Intel Device: Intel(R) HD Graphics 530
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,838 | GPU Intel(R) HD Graphics 530 is used for display
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,840 | Found correct name from registry for device : GeForce GTX 1060, provider NVIDIA
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,841 | Found CUDA Device: NVIDIA GeForce GTX 1060
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:20,841 | GPU NVIDIA GeForce GTX 1060 is used for display
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,017 | GPUs detected: 1 integrated, 1 discrete, 2 OpenCL.Graphics interop capable.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,017 | Detected uptime 444593s
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,017 | GPU Name = 'NVIDIA GeForce GTX 1060', Main display = 1
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,035 | Only 1 NVIDIA display GPU found. Using CUDA for processing.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,035 | GLmap capable. GPUs: 1 discrete, 0 integrated, 0 external. Auto mapping, CUDA processing, main display not on external GPU.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,035 | Setting LsManager.3.DisplayGPUName = NVIDIA GeForce GTX 1060
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,035 | Setting LsManager.3.DisplayGPUIndex = 0
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,035 | Setting LsManager.3.NumGPUs = 1
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:21,035 | RED InitializeSdk with library path at C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:21,179 | R3DAPI 7.3.2-45A15 (20200609 W64S) R3DSDK 7.3.2-45A15 (20200609 W64D C3B3) RED CUDA 7.3.2-49499 (20200609) [C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Libraries\] init is successful
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,179 | 0 RED rocket cards available
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,179 | Setting Local.DtManager.1.Red.Threads = 0
+[0x00002f24] | SyManager.DeckLink   | ERROR | 2020-08-01 14:33:21,244 | Failed to create instance.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,245 | Decklink model name: '', version: ''
+[0x00002f24] | DVIP                 | INFO  | 2020-08-01 14:33:21,245 | DVIP Version : 16.2.4, Revision r006482-de40d682, Branch release/16.2.4 (Release)
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:21,249 | Resolve Module Handle 00007FF68BF90000
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:22,017 | Installed custom font: Open Sans
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:22,018 | Installed custom font: Open Sans Semibold
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:22,019 | Installed custom font: Open Sans
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:33:22,027 | Finished loading Application style sheet
+[0x000033b8] | LeManager            | INFO  | 2020-08-01 14:33:22,304 | 521, 38
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,143 | Memory config: reserved=4000M pinned=3000M log=0
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,143 | Using default pooled memory manager
+[0x00003128] | BtCommon             | INFO  | 2020-08-01 14:33:23,144 | BtResourceManager Process Thread Started
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,226 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,228 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,230 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,232 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,234 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,236 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,238 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | BtCommon             | INFO  | 2020-08-01 14:33:23,240 | Starting Daemon: C:/Program Files/Blackmagic Design/DaVinci Resolve/DPDecoder.exe
+[0x00002f24] | SyManager            | INFO  | 2020-08-01 14:33:23,252 | Total: 20, NumDtThreads: 8, NumComms: 0, NumSites: 1
+
+[0x00002f24] | SyManager            | INFO  | 2020-08-01 14:33:23,252 | Lookaheads -> playback = 20, record = 20, stop = 2
+
+[0x00002f24] | DtManager            | INFO  | 2020-08-01 14:33:23,253 | Using 8 generic IO threads
+[0x00002f24] | DtManager            | INFO  | 2020-08-01 14:33:23,253 | Total of 16 IO threads (including 8 generic and 8 Red decode threads)
+[0x00005270] | DtManager            | INFO  | 2020-08-01 14:33:23,254 | Dt Worker Thread Started
+[0x00003ed4] | DtManager            | INFO  | 2020-08-01 14:33:23,254 | Dt Worker Thread Started
+[0x00001ca8] | DtManager            | INFO  | 2020-08-01 14:33:23,255 | Dt Worker Thread Started
+[0x00005d90] | DtManager            | INFO  | 2020-08-01 14:33:23,255 | Dt Worker Thread Started
+[0x00003754] | DtManager            | INFO  | 2020-08-01 14:33:23,255 | Dt Worker Thread Started
+[0x00005724] | DtManager            | INFO  | 2020-08-01 14:33:23,255 | Dt Worker Thread Started
+[0x00004724] | DtManager            | INFO  | 2020-08-01 14:33:23,256 | Dt Worker Thread Started
+[0x00002f24] | DbCommon2            | INFO  | 2020-08-01 14:33:23,256 | Loading dblist file: C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Preferences\dblist.conf
+[0x00002558] | GsManager            | INFO  | 2020-08-01 14:33:23,256 | Gs Processor Thread ----- (9560)
+
+[0x00001ec4] | DtManager            | INFO  | 2020-08-01 14:33:23,256 | Dt Worker Thread Started
+[0x0000637c] | DtManager            | INFO  | 2020-08-01 14:33:23,256 | Dt Worker Thread Started
+[0x000039a4] | DtManager            | INFO  | 2020-08-01 14:33:23,257 | Dt Worker Thread Started
+[0x0000357c] | DtManager            | INFO  | 2020-08-01 14:33:23,258 | Dt Worker Thread Started
+[0x000026c0] | DtManager            | INFO  | 2020-08-01 14:33:23,258 | Dt Worker Thread Started
+[0x00005b64] | DtManager            | INFO  | 2020-08-01 14:33:23,258 | Dt Data Handler Thread Started
+[0x000020a8] | DtManager            | INFO  | 2020-08-01 14:33:23,258 | Dt Worker Thread Started
+[0x00005df8] | DtManager            | INFO  | 2020-08-01 14:33:23,258 | Dt Worker Thread Started
+[0x000067cc] | DtManager            | INFO  | 2020-08-01 14:33:23,259 | Dt Worker Thread Started
+[0x00003204] | DtManager            | INFO  | 2020-08-01 14:33:23,259 | Dt Worker Thread Started
+[0x000053b0] | DtManager            | INFO  | 2020-08-01 14:33:23,259 | Dt Worker Thread Started
+[0x00003620] | DtManager            | INFO  | 2020-08-01 14:33:23,259 | Dt Worker Thread Started
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:23,260 | Let There Be CUDA Light!
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:23,271 | Board manager thread id 0xf42feb20 policy 0 priority 0
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:33:23,271 | Initializing GPU board 0 with context thread 0
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,384 | Using DNxHR library v2.5.2.68r
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,386 | Kdu ctx(0), bundle(0), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,386 | Kdu ctx(0), bundle(1), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,386 | Kdu ctx(0), bundle(2), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,386 | Kdu ctx(0), bundle(3), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,387 | Kdu ctx(0), bundle(4), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,387 | Kdu ctx(0), bundle(5), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,387 | Kdu ctx(0), bundle(6), thds(1)
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:23,387 | Kdu ctx(0), bundle(7), thds(1)
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:33:23,647 | Setting channel cache size on GPU board 0 to 4
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:33:23,647 | Board manager 0 on thread 0 initialization done on GPU GeForce GTX 1060
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:33:23,648 | Entering loop to wait for commands
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:23,648 | Finished initializing CUDA board 0 <GeForce GTX 1060> on platform <Nvidia CUDA GPU> clock rate <1670500> multiprocessor count <10> global mem size (MB) 6144, available mem size (MB) 5071, shared mem size (KB) 48, on SBM[0|0]
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:23,648 | Hired CUDA board 0 <GeForce GTX 1060>
+[0x00003660] | SyManager            | WARN  | 2020-08-01 14:33:25,262 | socket failed to connect to server, error: 10061
+
+[0x00003660] | SyManager            | ERROR | 2020-08-01 14:33:25,262 | DRIVER: panel connection failed
+[0x00002f24] | Fairlight            | INFO  | 2020-08-01 14:33:31,252 | 00.00.06.964(000): Running Fairlight (r000959-94c0e865)
+[0x00002f24] | UI.GLContext         | INFO  | 2020-08-01 14:33:31,312 | Creating shared OpenGL context for this thread (2 total).
+[0x00002f24] | UI.GLContext         | INFO  | 2020-08-01 14:33:31,460 | Initialized OpenGL 4.6 (requested 2.0) on device 'NVIDIA Corporation GeForce GTX 1060/PCIe/SSE2'
+[0x000018f8] | UI.GLInterop         | INFO  | 2020-08-01 14:33:31,460 | OpenGL interop was initialized.
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:31,460 | Let There Be CUDA Light, Done!!
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:33:31,718 | Using CUDA Pinned Memory!
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:31,879 | Fusion Build: r067193-8aeba69e_007 (Jul 13 2020 14:44:00)
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:31,879 | fusionsystem: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionsystem.dll"
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:32,038 | FusionLibs: = "C:\Program Files\Blackmagic Design\DaVinci Resolve\"
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:32,038 | UserData:   = "C:\Users\Roussel\AppData\Roaming\Blackmagic Design\DaVinci Resolve\Support\Fusion"
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:32,038 | Profiles:   = "UserData:Profiles\"
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:32,439 | Module Handle 000002A310550000 fusiongraphics
+[0x00001ad8] | UI.GLContext         | INFO  | 2020-08-01 14:33:32,565 | Creating shared OpenGL context for this thread (3 total).
+[0x00001ad8] | UI.GLIO              | INFO  | 2020-08-01 14:33:32,636 | OpenGL I/O worker thread ready.
+[0x00002f24] | UI.GLIO              | INFO  | 2020-08-01 14:33:32,636 | OpenGL I/O setup done.
+[0x000024f8] | UI.GLContext         | INFO  | 2020-08-01 14:33:32,637 | Creating shared OpenGL context for this thread (4 total).
+[0x000024f8] | UI.Scopes            | INFO  | 2020-08-01 14:33:32,730 | Initialized GPU Scopes Manager on device 'GeForce GTX 1060'
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:32,914 | Failed to find value '0' in combo-box
+[0x00002f24] | DbCommon2            | INFO  | 2020-08-01 14:33:33,137 | Sm2SysIdEntry is not supported in disk database (xml) mode
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:33,957 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:33,964 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:34,168 | Action [fairlightAutomationFollowsEdit] is not a global action
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:34,981 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:34,986 | Failed to load media metadata preset list or the list is empty.
+[0x00003660] | SyManager            | WARN  | 2020-08-01 14:33:35,125 | socket failed to connect to server, error: 10061
+
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:35,231 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:35,237 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,257 | Module Handle 000002A30EAA0000 fusionsystem
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,265 | Module Handle 000002A31D220000 fusionoperators
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,270 | Module Handle 000002A315600000 fusioncontrols
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,281 | Module Handle 000002A31DAC0000 3d.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,283 | Module Handle 000002A31DD70000 alembic.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,285 | Module Handle 000002A31E090000 dimension.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,289 | Module Handle 000002A31E1C0000 fbx.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,291 | Module Handle 000002A2B4660000 fuses.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,292 | Module Handle 000002A31ED90000 opencolorio.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,293 | Module Handle 000002A2FBB00000 openfx.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,295 | Module Handle 000002A2B6630000 openvr.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,297 | Module Handle 000002A2FF800000 paint.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,300 | Module Handle 000002A31EE80000 particles.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,302 | Module Handle 000002A31EF60000 text.plugin
+[0x00002f24] | Fusion               | INFO  | 2020-08-01 14:33:35,303 | Module Handle 000002A2FF880000 utilities.plugin
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:39,760 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:39,766 | Failed to load media metadata preset list or the list is empty.
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:33:40,123 | Not creating special GL widget for screen 0
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionDolbyVisionAnalyzeAllShots] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionDolbyVisionAnalyzeSelectedShots] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionDolbyVisionAnalyzeSelectedAndGroup] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionDolbyVisionAnalyzeCurrentFrame] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionHDR10PlusAnalyzeAllShots] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionHDR10PlusAnalyzeSelectedShots] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionHDR10PlusAnalyzeSelectedAndGroup] is not a valid global action
+[0x00002f24] | UI.ActionManager     | WARN  | 2020-08-01 14:33:40,748 | Action [sessionHDR10PlusAnalyzeCurrentFrame] is not a valid global action
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:40,952 | Failed to find value '8192' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:41,160 | Failed to find value '100' in combo-box
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [fusion_menu1_triggered(bool)] is owned by [000002A31B84CFB0]
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [fusion_menu2_triggered()] is owned by [000002A31B84CFB0]
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [fusion_menu3_triggered()] is owned by [000002A31B84CFB0]
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [fusion_menu5_triggered()] is owned by [000002A31B84CFB0]
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [fusion_menu8_triggered()] is owned by [000002A31B84CFB0]
+[0x00002f24] | UI.MenuBar           | WARN  | 2020-08-01 14:33:41,936 | Plugged In Action [workspace_sub1_menu1_triggered()] is owned by [000002A31B84CFB0]
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:33:42,226 | RED rocket decode has been disabled in the config file
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:42,479 | Failed to find value '0' in combo-box
+[0x00002f24] | SyManager.DeckLink   | ERROR | 2020-08-01 14:33:42,484 | Failed to create instance.
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:33:52,102 | Current user pointer is changed
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:52,118 | UI Persistence - UseDisplayNameForClips not read
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:52,119 | UI Persistence - DefaultTransitionKey not read
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:52,119 | UI Persistence - DefaultAudioTransitionKey not read
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,011 | Failed to find value '14' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,116 | Failed to find value '0' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,188 | Failed to find value '1' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,193 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,200 | Failed to find value '122' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,201 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,209 | Failed to find value '78' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,212 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,223 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,248 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,254 | Failed to find value '1' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,254 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,264 | Failed to find value '0' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:33:53,272 | Failed to find value '8198' in combo-box
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:33:53,394 | Start purging still caches
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:33:53,394 | Finish purging still caches
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:33:53,534 | Main view page is changed to 12
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:33:53,620 | Gallery pointer is changed, refreshing color gallery
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:33:53,663 | Gallery pointer is changed, refreshing gallery browser
+[0x00002f24] | SyManager.ActionExecutor | INFO  | 2020-08-01 14:34:12,386 | Database transaction is ongoing, user initiated action Sync Asset Map is postponed
+[0x00002f24] | SyManager.ActionExecutor | INFO  | 2020-08-01 14:34:12,410 | Database transaction completed, enqueueing 1 postponed actions
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:12,425 | Finished saving HiddenView to database (size = 0)
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:12,425 | Finished clearing HiddenView (size = 0)
+[0x00002f24] | SyManager.Project    | INFO  | 2020-08-01 14:34:12,471 | Unlock project Untitled Project
+[0x00002f24] | SyManager.ProjectManager | INFO  | 2020-08-01 14:34:12,472 | Loading project (merge_videos) from database (Local Database) took 235 ms
+[0x00002f24] | SyManager            | INFO  | 2020-08-01 14:34:12,584 | Invalidated optimized media for project (merge_videos) because sequence cache path directory (D:\Projects\Resolve\CacheClip\43ea2bb1-8073-40bd-bfca-13357899e848\OptimizedMedia) is empty.
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:34:13,375 | Flushing GPU memory...
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,420 | Failed to find value '14' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,486 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,525 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,535 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,608 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,818 | Failed to find value '78' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,830 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,857 | Failed to find value '122' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,858 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,892 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,901 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,956 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,970 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,984 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:13,999 | Failed to find value '0' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:14,000 | Failed to find value '8198' in combo-box
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:14,108 | Start purging still caches
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:14,108 | Finish purging still caches
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:14,217 | Current project pointer (merge_videos) is changed
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:14,217 | Current timeline pointer (Timeline 1) is changed
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:14,246 | Main view page is changed to 1
+[0x00002f5c] | UI.GLContext         | INFO  | 2020-08-01 14:34:14,859 | Creating shared OpenGL context for this thread (5 total).
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:14,875 | Main view page is changed to 11
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:16,118 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:16,727 | Failed to find value '8198' in combo-box
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:16,788 | Main view page is changed to 11
+[0x00002f24] | SyManager            | WARN  | 2020-08-01 14:34:16,899 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\Resolve Project Backups\f275b4ad-a387-4c98-a8cb-b49ba0655c20.
+[0x00002f24] | SyManager            | WARN  | 2020-08-01 14:34:16,910 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\CacheClip\f275b4ad-a387-4c98-a8cb-b49ba0655c20.
+[0x00002f24] | SyManager            | WARN  | 2020-08-01 14:34:16,921 | No reply received from file system, assume successfully deleted folder D:\Projects\Resolve\.gallery\f275b4ad-a387-4c98-a8cb-b49ba0655c20.
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,222 | Lock project merge_videos
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,237 | UiGPU::UploadWipeData called before UiGPU has been initialized. Returning false
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,239 | Gallery pointer is changed, refreshing color gallery
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,415 | Gallery pointer is changed, refreshing gallery browser
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,431 | Initializing FBO of size 1920 x 1080 - 16b (old 0 x 0 - 16b)
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:18,432 | Setting reInit to true in CheckGPU
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,337 | Failed to find value '78' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,438 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,446 | Failed to find value '122' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,448 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,491 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,504 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,532 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,535 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,574 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,578 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,615 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,631 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,644 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,652 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,663 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,669 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,705 | Failed to find value '0' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:25,706 | Failed to find value '8198' in combo-box
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:25,868 | Current timeline mode is changed
+[0x000041f8] | SyManager            | ERROR | 2020-08-01 14:34:25,995 | There is no current clip, SetCurrentFrame failed.
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:26,529 | PBO is initialized with size [1920x1080], bitDepth=[16], hasAlpha=[0].
+[0x00002558] | GsManager            | INFO  | 2020-08-01 14:34:43,084 | Finished recording 483 frames.
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:43,394 | Unable to submit frame to GPU scopes, legacy OpenGL uploads not supported (Color Page).
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,188 | Failed to find value '78' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,304 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,313 | Failed to find value '122' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,316 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,361 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,376 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,405 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,410 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,443 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,446 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,485 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,503 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,514 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,522 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,534 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,541 | Failed to find value '8198' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,579 | Failed to find value '0' in combo-box
+[0x00002f24] | UI                   | WARN  | 2020-08-01 14:34:44,580 | Failed to find value '8198' in combo-box
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:49,785 | Finished saving HiddenView to database (size = 0)
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:49,785 | Finished clearing HiddenView (size = 0)
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:50,351 | Finished saving HiddenView to database (size = 0)
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:50,351 | Finished clearing HiddenView (size = 0)
+[0x00002f24] | SyManager.Project    | INFO  | 2020-08-01 14:34:50,401 | Unlock project merge_videos
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:50,405 | Start purging still caches
+[0x00002f24] | SyManager.Gallery    | INFO  | 2020-08-01 14:34:50,405 | Finish purging still caches
+[0x00002f24] | SyManager.Signals    | INFO  | 2020-08-01 14:34:50,432 | Main view page is changed to 11
+[0x000033b8] | LeManager            | INFO  | 2020-08-01 14:34:50,487 | 522, 101
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,679 | Starting terminate sequence by calling g_MainTerm
+
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,679 | Closing components
+[0x00002f24] | UI                   | INFO  | 2020-08-01 14:34:53,680 | Audio thread terminated.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,680 | g_MainTerm: BtStartupShutdownControl.Shutdown() - begin
+[0x00004754] | SyManager            | INFO  | 2020-08-01 14:34:53,737 | Exit SY low priority cmd handler
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,738 | SvcManager: SyManager.StopThreads() - end
+[0x00002558] | GsManager            | INFO  | 2020-08-01 14:34:53,740 | Exit GS process handler
+[0x000060dc] | SyManager            | INFO  | 2020-08-01 14:34:53,756 | Exit SY high priority cmd handler
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,765 | SvcManager: GsManager.StopThreads() - end
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,765 | SvcManager: DpManager.StopThreads() - end
+[0x000042ec] | DtManager            | INFO  | 2020-08-01 14:34:53,778 | Exit DT low priority cmd handler
+[0x00004014] | DpManager            | INFO  | 2020-08-01 14:34:53,778 | Exit DP high priority cmd handler
+[0x000054b4] | DpManager            | INFO  | 2020-08-01 14:34:53,779 | Exit DP low priority cmd handler
+[0x00005b64] | DtManager            | INFO  | 2020-08-01 14:34:53,779 | Exit DT data handler thread
+[0x000051a4] | DtManager            | INFO  | 2020-08-01 14:34:53,779 | Exit DT high priority cmd handler
+[0x00001ca8] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00005270] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00005724] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x000020a8] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00005d90] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x000026c0] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00001ec4] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00005df8] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00003620] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00003754] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x000067cc] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x000039a4] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x0000357c] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00003204] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x000053b0] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x0000637c] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00004724] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00003ed4] | DtManager            | INFO  | 2020-08-01 14:34:53,793 | Exit DT worker thread
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,831 | SvcManager: DtManager.StopThreads() - end
+[0x00004050] | LsManager            | INFO  | 2020-08-01 14:34:53,841 | Exit LS low priority cmd handler
+[0x000033b0] | LsManager            | INFO  | 2020-08-01 14:34:53,841 | Exit LS high priority cmd handler
+[0x0000243c] | LsManager            | INFO  | 2020-08-01 14:34:53,842 | Exit LS data handler
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,859 | SvcManager: LsManager.StopThreads() - end
+[0x00000520] | LsManager            | INFO  | 2020-08-01 14:34:53,862 | Exit LS low priority cmd handler
+[0x00006058] | LsManager            | INFO  | 2020-08-01 14:34:53,863 | Exit LS high priority cmd handler
+[0x0000416c] | LsManager            | INFO  | 2020-08-01 14:34:53,864 | Exit LS data handler
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,887 | SvcManager: LsManager.StopThreads() - end
+[0x000034c0] | LsManager            | INFO  | 2020-08-01 14:34:53,905 | Exit LS low priority cmd handler
+[0x00002d1c] | LsManager            | INFO  | 2020-08-01 14:34:53,905 | Exit LS high priority cmd handler
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:34:53,907 | Board 0 on thread 0 <GeForce GTX 1060>: No more jobs. You're fired!
+[0x00002f5c] | GPUManager           | INFO  | 2020-08-01 14:34:53,928 | Clean up and shut down board 0 on thread 0
+[0x000018f8] | GPUManager           | INFO  | 2020-08-01 14:34:53,929 | SBM[0|0]<GeForce GTX 1060> Doomed
+[0x000018f8] | LsManager            | INFO  | 2020-08-01 14:34:53,929 | Exit LS data handler
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:53,941 | SvcManager: LsManager.StopThreads() - end
+[0x00002f24] | DpManager            | INFO  | 2020-08-01 14:34:53,943 | Stopping DpWfmWorker threads -- start
+[0x00002560] | DpManager            | INFO  | 2020-08-01 14:34:53,943 | DpWfmWorker thread exit
+[0x00000f14] | DpManager            | INFO  | 2020-08-01 14:34:53,943 | DpWfmWorker thread exit
+[0x000013f8] | DpManager            | INFO  | 2020-08-01 14:34:53,943 | DpWfmWorker thread exit
+[0x00001d80] | DpManager            | INFO  | 2020-08-01 14:34:53,943 | DpWfmWorker thread exit
+[0x00002f24] | DpManager            | INFO  | 2020-08-01 14:34:53,951 | Stopping DpWfmWorker threads -- done
+[0x00002f24] | IO                   | INFO  | 2020-08-01 14:34:53,985 | RED FinalizeSdk
+[0x00002f24] | SyManager.Project    | INFO  | 2020-08-01 14:34:54,041 | Unlock project Untitled Project
+[0x00003128] | BtCommon             | INFO  | 2020-08-01 14:34:54,083 | Exit BtResourceManager Process Thread
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:54,563 | g_MainTerm: BtStartupShutdownControl.Shutdown() - finished
+[0x000024f8] | UI.Scopes            | INFO  | 2020-08-01 14:34:54,563 | GPU Scopes thread done.
+[0x00001ad8] | UI.GLIO              | INFO  | 2020-08-01 14:34:54,566 | OpenGL I/O worker thread is done.
+[0x00002f24] | UI.GLIO              | INFO  | 2020-08-01 14:34:54,567 | OpenGL I/O uninit done.
+[0x00002f24] | UI.GLContext         | INFO  | 2020-08-01 14:34:54,603 | Destroyed main context.
+[0x00002f24] | Main                 | INFO  | 2020-08-01 14:34:54,647 | Main thread exited successfully
