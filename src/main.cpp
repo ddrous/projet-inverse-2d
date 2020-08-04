@@ -21,7 +21,7 @@ int main(int argc, char * argv[]){
 
         /* Lecture du fichier config */
         Config cfg = Config(argv[1]);
-        cout << "\nLecture des " << cfg.size << " parametres en cours ... " << endl;
+        cout << "\nLecture des potentiels" << cfg.size << " parametres en cours ... " << endl;
         cfg.read();
         cout << "Lecture OK !" << endl;
 
@@ -39,19 +39,12 @@ int main(int argc, char * argv[]){
         // s.display();
         cout << "Resolution OK !" << endl;
 
-        // /* Exportation */
+        /* Exportation */
         Exporter ex = Exporter(&s);
         cout << "\nExportation des resultats en cours ..." << endl;
         ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
-        // ex.case_1("data/case_1_spatial.csv", "data/case_1_temporal.csv");
-        // ex.case_2("data/case_2_spatial.csv", "data/case_2_temporal.csv");
-        // ex.case_3("data/case_3_spatial.csv", "data/case_3_temporal.csv");
+        // ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
         cout << "Export OK !" << endl;
-
-        // cout << "\nResultats du cas test 1 dans:  -- 'data/case_1_spatial.csv'  -- 'data/case_1_temporal.csv'" << endl;
-        // if(s.E_exact_expr.empty() == false)
-        //     cout << "Resultats du cas test 2 dans:  -- 'data/case_2_spatial.csv'  -- 'data/case_2_temporal.csv'" << endl;
-        // cout << "Resultats du cas test 3 dans:  -- 'data/case_3_spatial.csv'" << endl;
 
         cout << "\nSignaux spatiaux et temporels exportés dans '" << cfg.values["export_file"] << "'"  << endl;
 

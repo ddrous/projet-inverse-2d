@@ -5,7 +5,7 @@
 #include <fstream>
 
 #include "include/solver.hpp"
-#include "include/vector_arithmetics.hpp"
+#include "include/vector_ops.hpp"
 
 #include "muParser.h"       // Pour transformer des expressions (chaines de caracteres) en fonctions
 
@@ -180,10 +180,9 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
 
     for (int l = 0; l < nb_niche; l++){
         /* Les memes attributs a chaque fois */
-        // attr[l][0] = mesh->x[int(x_frac*(mesh->N-1)+1)];    // abcisse
         attr[l][0] = x_frac*((mesh->N-1) + 1)*mesh->dx + mesh->x_min;    // abcisse
         attr[l][1] = y_frac*((mesh->M-1) + 1)*mesh->dy + mesh->y_min;    // ordonnee
-        attr[l][2] = 0.2*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
+        attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
         attr[l][3] = rho_max;                                                   // hauteur
     }
 
@@ -303,20 +302,51 @@ double Solver::T_0(double x, double y){
 }
 
 
-vector_1row Solver::ponctual_up(double t, double start, double end){
-    vector_1row signal(mesh->N+2);
-    static int M_start = start * (mesh->N-1) + 1;
-    static int M_end = end * (mesh->N-1) + 1;
+vector_1row parse_ponctual(string expr){
+    vector_1row edges(2);
 
-    for (int i = 0; i < mesh->N+2; i++){
-        int k = cell_id(i, mesh->M+1, mesh->N+2, mesh->M+2);
-        if (M_start <= i && i <= M_end)
-            signal[i] = a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
-        else
-            signal[i] = a*pow(T[k], 4);
+    size_t comma = expr.find(",");
+    string start = expr.substr(9, comma-9);
+    string end = expr.substr(comma+1, expr.length()-comma-2);
+    edges[0] = atof(start.c_str());
+    edges[1] = atof(end.c_str());
+
+    return edges;
+}
+
+
+double Solver::ponctual_source(int edge_id, double start, double end, double t, int i){
+
+    int edge_length;        // longeur de cette extremite
+    int k;                  // identifiant de la cellule correspondant a i
+    switch (edge_id){
+        case 0:
+            k = cell_id(i, mesh->M+1, mesh->N+2, mesh->M+2);
+            edge_length = mesh->N;
+            break;
+        case 1:
+            k = cell_id(i, 0, mesh->N+2, mesh->M+2);
+            edge_length = mesh->N;
+            break;
+        case 2:
+            k = cell_id(0, i, mesh->N+2, mesh->M+2);
+            edge_length = mesh->M;
+            break;
+        case 3:
+            k = cell_id(mesh->N+1, i, mesh->N+2, mesh->M+2);
+            edge_length = mesh->M;
+            break;
+        default:
+            break;
     }
 
-    return signal;
+    int start_cell = start * (edge_length-1) + 1;   // cellule de debut de la source
+    int end_cell = end * (edge_length-1) + 1;       // cellule de fin
+
+    if (start_cell <= i && i <= end_cell)
+        return a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
+    else
+        return a*pow(T[k], 4);
 }
 
 
@@ -330,11 +360,8 @@ double Solver::E_u(double t, int i){
         return E[k];
     }
     else if (ponctual_bool == true){
-        static size_t comma = E_u_expr.find(",");
-        static string start = E_u_expr.substr(9, comma-9);
-        static string end = E_u_expr.substr(comma+1, E_u_expr.length()-comma-2);
-        vector_1row E_u_vec = ponctual_up(t, atof(start.c_str()), atof(end.c_str()));
-        return E_u_vec[i];
+        static vector_1row start_end = parse_ponctual(E_u_expr);
+        return ponctual_source(0, start_end[0], start_end[1], t, i);
     }
     else{ 
         static Parser p;
@@ -385,23 +412,6 @@ double Solver::T_u(double t, int i){
 }
 
 
-vector_1row Solver::ponctual_down(double t, double start, double end){
-    vector_1row signal(mesh->N+2);
-    static int M_start = start * (mesh->N-1) + 1;
-    static int M_end = end * (mesh->N-1) + 1;
-
-    for (int i = 0; i < mesh->N+2; i++){
-        int k = cell_id(i, 0, mesh->N+2, mesh->M+2);
-        if (M_start <= i && i <= M_end)
-            signal[i] = a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
-        else
-            signal[i] = a*pow(T[k], 4);
-    }
-
-    return signal;
-}
-
-
 double Solver::E_d(double t, int i){
     static int first_call = 1;
     static int neumann = E_d_expr.compare("neumann");
@@ -412,11 +422,8 @@ double Solver::E_d(double t, int i){
         return E[k];
     }
     else if (ponctual_bool == true){
-        static size_t comma = E_d_expr.find(",");
-        static string start = E_d_expr.substr(9, comma-9);
-        static string end = E_d_expr.substr(comma+1, E_d_expr.length()-comma-2);
-        vector_1row E_d_vec = ponctual_down(t, atof(start.c_str()), atof(end.c_str()));
-        return E_d_vec[i];
+        static vector_1row start_end = parse_ponctual(E_d_expr);
+        return ponctual_source(1, start_end[0], start_end[1], t, i);
     }
     else{ 
         static Parser p;
@@ -467,23 +474,6 @@ double Solver::T_d(double t, int i){
 }
 
 
-vector_1row Solver::ponctual_left(double t, double start, double end){
-    vector_1row signal(mesh->M+2);
-    static int M_start = start * (mesh->M-1) + 1;
-    static int M_end = end * (mesh->M-1) + 1;
-
-    for (int j = 0; j < mesh->M+2; j++){
-        int k = cell_id(0, j, mesh->N+2, mesh->M+2);
-        if (M_start <= j && j <= M_end)
-            signal[j] = a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
-        else
-            signal[j] = a*pow(T[k], 4);
-    }
-
-    return signal;
-}
-
-
 double Solver::E_l(double t, int j){
     static int first_call = 1;
     static int neumann = E_l_expr.compare("neumann");
@@ -494,11 +484,8 @@ double Solver::E_l(double t, int j){
         return E[k];
     }
     else if (ponctual_bool == true){
-        static size_t comma = E_l_expr.find(",");
-        static string start = E_l_expr.substr(9, comma-9);
-        static string end = E_l_expr.substr(comma+1, E_l_expr.length()-comma-2);
-        vector_1row E_l_vec = ponctual_left(t, atof(start.c_str()), atof(end.c_str()));
-        return E_l_vec[j];
+        static vector_1row start_end = parse_ponctual(E_l_expr);
+        return ponctual_source(2, start_end[0], start_end[1], t, j);
     }
     else{ 
         static Parser p;
@@ -549,23 +536,6 @@ double Solver::T_l(double t, int j){
 }
 
 
-vector_1row Solver::ponctual_right(double t, double start, double end){
-    vector_1row signal(mesh->M+2);
-    static int M_start = start * (mesh->M-1) + 1;
-    static int M_end = end * (mesh->M-1) + 1;
-
-    for (int j = 0; j < mesh->M+2; j++){
-        int k = cell_id(mesh->N+1, j, mesh->N+2, mesh->M+2);
-        if (M_start <= j && j <= M_end)
-            signal[j] = a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
-        else
-            signal[j] = a*pow(T[k], 4);
-    }
-
-    return signal;
-}
-
-
 double Solver::E_r(double t, int j){
     static int first_call = 1;
     static int neumann = E_r_expr.compare("neumann");
@@ -576,11 +546,8 @@ double Solver::E_r(double t, int j){
         return E[k];
     }
     else if (ponctual_bool == true){
-        static size_t comma = E_r_expr.find(",");
-        static string start = E_r_expr.substr(9, comma-9);
-        static string end = E_r_expr.substr(comma+1, E_r_expr.length()-comma-2);
-        vector_1row E_r_vec = ponctual_right(t, atof(start.c_str()), atof(end.c_str()));
-        return E_r_vec[j];
+        static vector_1row start_end = parse_ponctual(E_r_expr);
+        return ponctual_source(3, start_end[0], start_end[1], t, j);
     }
     else{ 
         static Parser p;
@@ -726,21 +693,6 @@ void Solver::save_animation(int time_step){
         }
     }
 
-    /* Rajoutons x et y */
-    // file << "\"[";
-    // for (int i = 1; i < mesh->N+1; i++){
-    //     file << mesh->x[i];
-    //     if (i != mesh->N) file << ",";
-    // }
-    // file << "]\",";
-
-    // file << "\"[";
-    // for (int j = 1; j < mesh->M+1; j++){
-    //     file << mesh->y[j];
-    //     if (j != mesh->M) file << ",";
-    // }
-    // file << "]\",";
-
     file.close();
 }
 
@@ -769,10 +721,8 @@ void Solver::phase_1(){
                 
                 T[k] = pow(Theta/a, 0.25);
                 double mu_q = 1/ (pow(T_n, 3) + T_n*pow(T[k], 2) + T[k]*pow(T_n, 2) + pow(T[k], 3));
-                bool nan = isnan(mu_q);             //************************************************* A RETIRER
                 if (isnan(mu_q))
-                    // cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
-                    ;
+                    cerr << "ATTENTION! mu = nan" << " en k = " << k << endl;
 
                 double rho_tmp = rho(i, j);
                 double sigma_a_tmp = sigma_a(rho_tmp, T[k]);
@@ -945,7 +895,7 @@ void Solver::solve(){
      * Boucle de resolution
      */
     while (t <= t_f){
-        /* Enregistrement des signaux pour ce temps */
+        /* Enregistrement des signaux pour ce pas de temps */
         save_animation(n);
         // cout << " --- iteration " << n << endl;
 
@@ -1000,7 +950,6 @@ void Solver::solve(){
             F[k] = F_r(t, j);
             T[k] = T_r(t, j);
         }
-
 
         /* *************** etape 2 ******************/
         phase_2();

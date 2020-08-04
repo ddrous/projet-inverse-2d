@@ -3,12 +3,11 @@
 
 #include <cmath>
 #include <vector>
-// #include <vector>
 #include <iostream>
 // #include <stdexcept>
 
 /*****************************************
- * Pour les operations arithmetiques avec le type vecteur en 2d
+ * Pour les operations arithmetiques avec le type vecteur
  */
 
 using namespace std;

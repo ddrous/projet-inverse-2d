@@ -20,21 +20,10 @@ class Exporter{
          */
         void write_dataframe(std::string file_name, std::string mode);
 
-
         /**************
-         * Exporte le cas test 1
+         * Exporte n_simu simulations au format binaire (format sds - source, densite, signal)
          */
-        void case_1(std::string file_spatial, std::string file_temporal);
-
-        /**************
-         * Exporte le cas test 2
-         */
-        void case_2(std::string file_spatial, std::string file_temporal);
-
-        /**************
-         * Exporte le cas test 3
-         */
-        void case_3(std::string file_spatial, std::string file_temporal);
+        void write_binary(std::string file_name, std::string mode, std::string n_simu);
 
         /***************
          * Destructeur

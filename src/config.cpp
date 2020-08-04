@@ -60,6 +60,7 @@ Config::Config(string file_path){
 
     values["export_file"] = "";
     values["write_mode"] = "";
+    values["simu_count"] = "";
 
     size = values.size();
 }
@@ -103,7 +104,7 @@ void Config::read(){
         throw string ("ERREUR: Parametre inconnu '" + unkown_name + "' dans le fichier de configuration");
 
     for (it = values.begin(); it != values.end(); ++it){
-        if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact_x") && !(it->first == "F_exact_y") && !(it->first == "T_exact")){
+        if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact_x") && !(it->first == "F_exact_y") && !(it->first == "T_exact") && !(it->first == "simu_count")){
             throw string ("ERREUR: Paramètre '"+it->first+"' manquant dans le fichier de configuration");}
         if (count[it->first] > 1)
             throw string ("ERREUR: Paramètre '"+it->first+"' dupliqué dans le fichier de configuration");

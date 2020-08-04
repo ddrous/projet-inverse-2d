@@ -153,13 +153,16 @@ class Solver{
         double T_0(double x, double y);
 
         /**
-         * Calcule E_u sous forme de fonction ponctuelle
+         * Calcule la source E sous forme de fonction ponctuelle
          * param @t temps de calcul de ce signal
+         * param @i la position de calcul du signal
          * param @start debut de l'onde sur le haut
          * param @end fin de l'onde sur le haut
+         * param @edge cote sur lequel la source s'applique
+         * param @edge_length longueur du cote
          * retourne un vecteur contenant le signal
          */ 
-        std::vector<double> ponctual_up(double t, double start, double end);
+        double ponctual_source(int edge_id, double start, double end, double t, int i);
 
         /***************
          * Calcule E(t, x, y_max), energie a la position y_max en tout temps
@@ -176,11 +179,6 @@ class Solver{
          */ 
         double T_u(double t, int i);
 
-        /**
-         * Calcule E_d sous forme de fonction ponctuelle
-         */ 
-        std::vector<double> ponctual_down(double t, double start, double end);
-
         /***************
          * Calcule E(t, x, y_min), energie a la position y_min en tout temps
          */ 
@@ -196,15 +194,6 @@ class Solver{
          */ 
         double T_d(double t, int i);
 
-        /**
-         * Calcule E_l sous forme de fonction ponctuelle
-         * param @t temps de calcul de ce signal
-         * param @start debut de l'onde sur la gauche
-         * param @end fin de l'onde sur la gauche
-         * retourne un vecteur contenant le signal
-         */ 
-        std::vector<double> ponctual_left(double t, double start, double end);
-
         /***************
          * Calcule E(t, x_min, y), energie a la position x_min en tout temps
          */ 
@@ -219,11 +208,6 @@ class Solver{
          * Calcule T(t, x_min, y), temperature a la position x_min en tout temps
          */ 
         double T_l(double t, int j);
-
-        /**
-         * Calcule E_r sous forme de fonction ponctuelle
-         */ 
-        std::vector<double> ponctual_right(double t, double start, double end);
 
         /***************
          * Calcule E(t, x_max, y), energuie a la position x_max en tout temps
@@ -291,5 +275,9 @@ class Solver{
         virtual ~ Solver();
 };
 
+/**
+ * extrait le debut de la source et sa fin a l'interieur de l'expression d'un signal ponctuel (ex: pontuel(0.1,0.3))
+ */ 
+std::vector<double> parse_ponctual(std::string expr);
 
 #endif
