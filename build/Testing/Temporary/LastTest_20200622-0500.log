@@ -1,0 +1,138 @@
+Start testing: Jun 22 07:11 CEST
+----------------------------------------------------------
+3/4 Testing: bad_param
+3/4 Test: bad_param
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build/transfer" "../src/config/test_2.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build
+"bad_param" start time: Jun 22 07:11 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif ========
+
+Lecture des 27 parametres en cours ... 
+
+ERREUR: Parametre inconnu 'unkonwn' dans le fichier de configuration
+
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"bad_param" end time: Jun 22 07:11 CEST
+"bad_param" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: no_config
+2/4 Test: no_config
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build/transfer"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build
+"no_config" start time: Jun 22 07:11 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif ========
+
+ERREUR: Fournissez un (et un seul) fichier de configuration
+
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"no_config" end time: Jun 22 07:11 CEST
+"no_config" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: unparsable
+4/4 Test: unparsable
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build/transfer" "../src/config/test_3.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build
+"unparsable" start time: Jun 22 07:11 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif ========
+
+Lecture des 27 parametres en cours ... 
+   -- rho : x*y
+   -- x_min : 0
+   -- x_max : 10
+   -- N : 10
+   -- c : 1
+   -- a : 1
+   -- C_v : 1
+   -- CFL : 0.99
+
+ERREUR: Parametre inconnu 'epsilon' dans le fichier de configuration
+
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"unparsable" end time: Jun 22 07:11 CEST
+"unparsable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+1/4 Testing: simple_run
+1/4 Test: simple_run
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build/transfer" "../src/config/test_1.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO/build
+"simple_run" start time: Jun 22 07:11 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif ========
+
+Lecture des 27 parametres en cours ... 
+   -- x_min : 0
+   -- x_max : 1
+   -- N : 100
+   -- c : 1
+   -- a : 1
+   -- C_v : 1
+   -- CFL : 0.99
+   -- precision : 1e-6
+   -- t_0 : 0
+   -- t_f : 1
+   -- rho : 1
+   -- sigma_a : 1
+   -- sigma_c : 1
+   -- E_0 : exp(-((x-0.5)^2)/(2*(0.05^2)))
+   -- F_0 : 0
+   -- T_0 : 1
+   -- E_l : neumann
+   -- F_l : neumann
+   -- T_l : neumann
+   -- E_r : neumann
+   -- F_r : neumann
+   -- T_r : neumann
+   -- E_exact : 0
+   -- F_exact : 0
+   -- T_exact : 1
+   -- export_temporal : ../data/df_1_test.csv
+   -- export_spatial : ../data/df_2_test.csv
+Lecture OK !
+
+Creation des 102 mailles en cours ... 
+Creation OK !
+
+Resolution (102 iterations) en cours ...
+Resolution OK !
+
+Exportation des resultats en cours ...
+Export OK !
+
+Resultats du cas test 1 dans:  -- 'data/case_1_spatial.csv'  -- 'data/case_1_temporal.csv'
+Resultats du cas test 2 dans:  -- 'data/case_2_spatial.csv'  -- 'data/case_2_temporal.csv'
+Resultats du cas test 3 dans:  -- 'data/case_3_spatial.csv'
+
+================================================
+
+<end of output>
+Test time =   2.17 sec
+----------------------------------------------------------
+Test Passed.
+"simple_run" end time: Jun 22 07:11 CEST
+"simple_run" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Jun 22 07:11 CEST

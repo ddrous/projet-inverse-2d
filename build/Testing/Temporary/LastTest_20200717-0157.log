@@ -1,0 +1,145 @@
+Start testing: Jul 17 04:00 CEST
+----------------------------------------------------------
+1/4 Testing: simple_run
+1/4 Test: simple_run
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_1.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"simple_run" start time: Jul 17 04:00 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif en 2D ========
+
+Lecture des 40 parametres en cours ... 
+   -- x_min : 0
+   -- x_max : 1
+   -- y_min : 0
+   -- y_max : 1
+   -- N : 10
+   -- c : 1
+   -- a : 1
+   -- C_v : 1
+   -- CFL : 0.99
+   -- precision : 1e-6
+   -- t_0 : 0
+   -- t_f : 0.005
+   -- rho : custom
+   -- sigma_a : rho*T
+   -- sigma_c : rho*T
+   -- E_0 : exp(-((x-0.5)^2)/(2*(0.05^2)))
+   -- F_0_x : 0
+   -- F_0_y : 0
+   -- T_0 : 1
+   -- E_u : neumann
+   -- F_u_x : neumann
+   -- F_u_y : neumann
+   -- T_u : neumann
+   -- E_d : neumann
+   -- F_d_x : neumann
+   -- F_d_y : neumann
+   -- T_d : neumann
+   -- E_l : neumann
+   -- F_l_x : neumann
+   -- F_l_y : neumann
+   -- T_l : neumann
+   -- E_r : neumann
+   -- F_r_x : neumann
+   -- F_r_y : neumann
+   -- T_r : neumann
+   -- export : data/df_simu.csv
+Lecture OK !
+
+Creation des 144 mailles (M = 10) en cours ... 
+Creation OK !
+
+Resolution (1 iterations) en cours ...
+Resolution OK !
+
+Exportation des resultats en cours ...
+Export OK !
+
+Signaux spatiaux et temporels exportés dans 'data/df_simu.csv'
+
+================================================
+
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"simple_run" end time: Jul 17 04:00 CEST
+"simple_run" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: no_config
+2/4 Test: no_config
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"no_config" start time: Jul 17 04:00 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif en 2D ========
+
+ERREUR: Fournissez un (et un seul) fichier de configuration
+
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"no_config" end time: Jul 17 04:00 CEST
+"no_config" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: bad_param
+3/4 Test: bad_param
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_2.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"bad_param" start time: Jul 17 04:00 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif en 2D ========
+
+Lecture des 40 parametres en cours ... 
+
+ERREUR: Parametre inconnu 'unkonwn' dans le fichier de configuration
+
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"bad_param" end time: Jul 17 04:00 CEST
+"bad_param" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: unparsable
+4/4 Test: unparsable
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_3.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"unparsable" start time: Jul 17 04:00 CEST
+Output:
+----------------------------------------------------------
+
+======== Equation du transfer radiatif en 2D ========
+
+Lecture des 40 parametres en cours ... 
+   -- rho : x*y
+   -- x_min : 0
+   -- x_max : 10
+   -- N : 10
+   -- c : 1
+   -- a : 1
+   -- C_v : 1
+   -- CFL : 0.99
+
+ERREUR: Parametre inconnu 'epsilon' dans le fichier de configuration
+
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"unparsable" end time: Jul 17 04:00 CEST
+"unparsable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 17 04:00 CEST
