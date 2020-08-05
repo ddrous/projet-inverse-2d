@@ -1,5 +1,5 @@
-simple_run 2 1.1308
-no_config 4 0.0722928
-bad_param 4 0.0601014
-unparsable 4 0.0525488
+simple_run 3 0.822484
+no_config 11 0.0551481
+bad_param 11 0.0443072
+unparsable 11 0.0377815
 ---

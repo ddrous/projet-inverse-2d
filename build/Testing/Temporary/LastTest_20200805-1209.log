@@ -1,0 +1,149 @@
+Start testing: Aug 05 14:15 CEST
+----------------------------------------------------------
+2/4 Testing: no_config
+2/4 Test: no_config
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"no_config" start time: Aug 05 14:15 CEST
+Output:
+----------------------------------------------------------
+
+============= Equation du transfer radiatif en 2D =============
+
+ERREUR: Fournissez un (et un seul) fichier de configuration
+
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"no_config" end time: Aug 05 14:15 CEST
+"no_config" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: bad_param
+3/4 Test: bad_param
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_2.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"bad_param" start time: Aug 05 14:15 CEST
+Output:
+----------------------------------------------------------
+
+============= Equation du transfer radiatif en 2D =============
+
+Lecture des parametres en cours ... 
+
+ERREUR: Parametre inconnu 'unkonwn' dans le fichier de configuration
+
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Passed.
+"bad_param" end time: Aug 05 14:15 CEST
+"bad_param" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: unparsable
+4/4 Test: unparsable
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_3.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"unparsable" start time: Aug 05 14:15 CEST
+Output:
+----------------------------------------------------------
+
+============= Equation du transfer radiatif en 2D =============
+
+Lecture des parametres en cours ... 
+   -- rho : x*y
+   -- x_min : 0
+   -- x_max : 10
+   -- N : 10
+   -- c : 1
+   -- a : 1
+   -- C_v : 1
+   -- CFL : 0.99
+
+ERREUR: Parametre inconnu 'epsilon' dans le fichier de configuration
+
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"unparsable" end time: Aug 05 14:15 CEST
+"unparsable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+1/4 Testing: simple_run
+1/4 Test: simple_run
+Command: "/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build/transfer" "../src/config/test_1.cfg"
+Directory: /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/build
+"simple_run" start time: Aug 05 14:15 CEST
+Output:
+----------------------------------------------------------
+
+============= Equation du transfer radiatif en 2D =============
+
+Lecture des parametres en cours ... 
+   -- x_min : 0
+   -- x_max : 1
+   -- y_min : 0
+   -- y_max : 1
+   -- N : 5
+   -- c : 299
+   -- a : 0.01372
+   -- C_v : 0.14361
+   -- CFL : 0.5
+   -- precision : 1e-6
+   -- t_0 : 0
+   -- t_f : 0.0075
+   -- rho : crenau(0.7,0.5,0.1,10)
+   -- sigma_a : rho*T
+   -- sigma_c : rho*T
+   -- E_0 : 0.01372*(5^4)
+   -- F_0_x : 0
+   -- F_0_y : 0
+   -- T_0 : 5
+   -- E_u : neumann
+   -- F_u_x : neumann
+   -- F_u_y : neumann
+   -- T_u : neumann
+   -- E_d : neumann
+   -- F_d_x : neumann
+   -- F_d_y : neumann
+   -- T_d : neumann
+   -- E_l : ponctuel(0.4,0.6)
+   -- F_l_x : 0
+   -- F_l_y : 0
+   -- T_l : 5
+   -- E_r : neumann
+   -- F_r_x : neumann
+   -- F_r_y : neumann
+   -- T_r : neumann
+   -- export_file : data/df_simu.csv
+   -- write_mode : truncate
+Lecture de 37 paramètres OK !
+
+Creation des mailles en cours ... 
+  -- Suivant l'horizontale: N = 5
+  -- Suivant la verticale:  M = 5
+  -- Nombre de mailles total (y compris les mailles fantomes): 49
+Creation OK !
+
+Resolution (23 iterations) en cours ...
+  -- 100 %
+Resolution OK !
+
+Exportation des resultats en cours ...
+  -- Signaux exportés dans le fichier 'data/df_simu.csv'
+Export OK !
+
+======================================================================
+
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"simple_run" end time: Aug 05 14:15 CEST
+"simple_run" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Aug 05 14:15 CEST

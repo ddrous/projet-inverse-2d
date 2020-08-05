@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20200805-1209-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.10.2"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="MSI"
+	OSRelease="4.4.0-18362-Microsoft"
+	OSVersion="#836-Microsoft Mon May 05 16:04:00 PST 2020"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="94"
+	ProcessorCacheSize="256"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="30349"
+	TotalPhysicalMemory="24448"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2601"
+	>
+	<Testing>
+		<StartDateTime>Aug 05 14:15 CEST</StartDateTime>
+		<StartTestTime>1596629712</StartTestTime>
+		<TestList>
+			<Test>./no_config</Test>
+			<Test>./bad_param</Test>
+			<Test>./unparsable</Test>
+			<Test>./simple_run</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>no_config</Name>
+			<Path>.</Path>
+			<FullName>./no_config</FullName>
+			<FullCommandLine>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.132549</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJzjskUGCq6FpYklmfl5CimlCiVFiXnFaalFCkWJKZlA0TSF1DwFIxcFFB1cXK5BQa6hQVYKbvmlRXmZxcWpVQqleQoaqSUgqji1NEdTIS0zOSMTaFBKqkJyfl5aZnppEdgWLi4Atk4oYQ==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>bad_param</Name>
+			<Path>.</Path>
+			<FullName>./bad_param</FullName>
+			<FullCommandLine>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_2.cfg"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.122506</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_2.cfg"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJxVTjsKQjEQ7PcU070uhaVgZzoLeeABQrLRRd3oJovXNwiCTjUM86PdLxCfnoY0RXEMS9orGywVmWoFKzZ7/CWIDpyHG6NwxyNZuvOwSac3N7eOEAKI4rrG07rF8euAaG6qjsX12vSlC8rcw41RJV9k7haeFVrl7PY5RfQGors4kQ==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>unparsable</Name>
+			<Path>.</Path>
+			<FullName>./unparsable</FullName>
+			<FullCommandLine>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_3.cfg"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.111431</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_3.cfg"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJxVkEELwjAMhe/9Fe8mCCvqbYInnachMvA8SptpQVPNVpn/3iqKNaf3PZLwErXKC9UtmsEHhosYxHDfkUCM88ntQIzFBn8TStVkhygERz2uRsyFBkky9doQpYfWGgpAUUBOAUuM08eHx/biOTmzH5sx8fxr7HKwL/hok+l1e89pW7826rJUqmqa6tAssf/GgmcbmCMmdO39OfAELh2JM6Hz9uTTsY5Sbu78Mcr7E0o9ASHsT1s=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="passed">
+			<Name>simple_run</Name>
+			<Path>.</Path>
+			<FullName>./simple_run</FullName>
+			<FullCommandLine>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_1.cfg"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.205853</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE\ 2/Projet\ &amp;\ Stage/Inverse/REPO_2D/build/transfer "../src/config/test_1.cfg"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJytVMtu2zAQvOsrtofCdhCrkp+wAZ9c59I0BRqfS7ASFROgSJcP1+oXtd+RH8tKomJZ1rECBHCHO7OzpFbBpv3A7pejlisJqQOrqTQZ06BpyhHNgEmYfIYrRhA8ssQ6zSBlBo5U05xZjUvMTZTTBsIwhAAAxmM4k5xLWEN0iekZ49jHRWe/6Ow/4Xru1wmuJ6uVj2jJCqN4upx4ZEtOFRbPpouGv314rLBG46hZwk3ZLtZg44WHLYlaJizJavFo2fD0QSGUaCapG0bh8h4l8Y3v42jkUwx/ySkpbWHy3f4KTTrorq5X278bzn/MGpUHEpFzy0sZF614XzHn7zoOI8lcTqV8Z7hK4RYtbtB9D39H0h522quZ9mre8ndEIHZUEj8cJvAAZ3h4i0vPotOz6PQsrnrWPU50rz/d6++Wz85HpfHauWC4l1JLP6UZMTx3YWJOPum35paRXKVljtVOJtSy1jDAdFmPw+vfah6+fYEPQbDVzM8XQjnlQvSMCqo/O36i0oIYHJTmf5S0VLA1DsCm6rydQeHEtOVJlQBfLxlPKv9ZW2kKWYUyMCywXH7U3IBouchQTeXMjNYwW12M1r6/M6OEq4DhZArYuq62zejKfV04jiL42KbUGrvqWC/t46k4gbHpkXjmLzhbZ38Vr/8MXoMs/ULGkwPHn9Kgey8DX8BX2/yXJwjeAD7GZuo=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Aug 05 14:15 CEST</EndDateTime>
+		<EndTestTime>1596629712</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
