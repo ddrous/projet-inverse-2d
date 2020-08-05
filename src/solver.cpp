@@ -897,7 +897,7 @@ void Solver::solve(){
     while (t <= t_f){
         /* Enregistrement des signaux pour ce pas de temps */
         save_animation(n);
-        // cout << " --- iteration " << n << endl;
+        cout << " --- iteration " << n << endl;
 
         /* Signaux exportés */
         for (int i = 1; i < mesh->N+1; i++){
