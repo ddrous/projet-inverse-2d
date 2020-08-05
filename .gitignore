@@ -4,3 +4,4 @@ data/build
 !build/transfer
 data/anim/*
 !data/anim/animation.0.csv
+debug.log

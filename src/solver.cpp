@@ -160,28 +160,34 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
     /* Vecteur qui va contenir le signal en crenaux */
     vector_1row signal(mesh->n_cells);
 
-    /* Les attributs du (des) crenaux */
+    /* Declaration Les attributs du (des) crenaux */
     n_niche = nb_niche;                // nombre de crenaux
     attr = allocate(n_niche, 4);
 
+    /* Parsing de l'expression d'un crenau */
     size_t comma1 = rho_expr.find(",");
     size_t comma2 = rho_expr.find(",", comma1+1);
     size_t comma3 = rho_expr.find(",", comma2+1);
 
-    string x_frac_expr = rho_expr.substr(7, comma1-7);
-    string y_frac_expr = rho_expr.substr(comma1+1, comma2-comma1-1);
+    string pos_x_expr = rho_expr.substr(7, comma1-7);
+    string pos_y_expr = rho_expr.substr(comma1+1, comma2-comma1-1);
     string rho_min_expr = rho_expr.substr(comma2+1, comma3-comma2-1);
     string rho_max_expr = rho_expr.substr(comma3+1, rho_expr.length()-comma3-2);
 
-    double x_frac = atof(x_frac_expr.c_str());
-    double y_frac = atof(y_frac_expr.c_str());
+    double pos_x = atof(pos_x_expr.c_str());
+    double pos_y = atof(pos_y_expr.c_str());
     double rho_min = atof(rho_min_expr.c_str());
     double rho_max = atof(rho_max_expr.c_str());
 
+    if (pos_x < mesh->x_min || pos_x > mesh->x_max)
+        throw string("ERREUR: Abcisse du crénau invalide");
+    if (pos_y < mesh->y_min || pos_y > mesh->y_max)
+        throw string("ERREUR: Ordonnée du crénau invalide");
+
     for (int l = 0; l < nb_niche; l++){
         /* Les memes attributs a chaque fois */
-        attr[l][0] = x_frac*((mesh->N-1) + 1)*mesh->dx + mesh->x_min;    // abcisse
-        attr[l][1] = y_frac*((mesh->M-1) + 1)*mesh->dy + mesh->y_min;    // ordonnee
+        attr[l][0] = pos_x;    // abcisse
+        attr[l][1] = pos_y;    // ordonnee
         attr[l][2] = 0.1*((mesh->N + mesh->M)/2) * ((mesh->dx + mesh->dy)/2);   // diametre
         attr[l][3] = rho_max;                                                   // hauteur
     }
@@ -318,32 +324,39 @@ vector_1row parse_ponctual(string expr){
 double Solver::ponctual_source(int edge_id, double start, double end, double t, int i){
 
     int edge_length;        // longeur de cette extremite
+    double current_pos;     // position courante (abcisse ou ordonnee en fonction du cas)
     int k;                  // identifiant de la cellule correspondant a i
     switch (edge_id){
-        case 0:
+        case 0:                     // en haut
             k = cell_id(i, mesh->M+1, mesh->N+2, mesh->M+2);
             edge_length = mesh->N;
+            current_pos = mesh->x[i];
             break;
-        case 1:
+        case 1:                     // en bas
             k = cell_id(i, 0, mesh->N+2, mesh->M+2);
             edge_length = mesh->N;
+            current_pos = mesh->x[i];
             break;
-        case 2:
+        case 2:                     // a gauche
             k = cell_id(0, i, mesh->N+2, mesh->M+2);
             edge_length = mesh->M;
+            current_pos = mesh->y[i];
             break;
-        case 3:
+        case 3:                     // a droite
             k = cell_id(mesh->N+1, i, mesh->N+2, mesh->M+2);
             edge_length = mesh->M;
+            current_pos = mesh->y[i];
             break;
         default:
             break;
     }
 
-    int start_cell = start * (edge_length-1) + 1;   // cellule de debut de la source
-    int end_cell = end * (edge_length-1) + 1;       // cellule de fin
+    if (start < mesh->x_min || start < mesh->y_min)
+        throw string("ERREUR: Position inférieure de la source ponctuelle invalide");
+    if (end > mesh->x_max || end > mesh->y_max)
+        throw string("ERREUR: Position supérieure de la source ponctuelle invalide");
 
-    if (start_cell <= i && i <= end_cell)
+    if (start <= current_pos && current_pos <= end)
         return a*pow(T[k], 4) + 5*sin(2*500*M_PI*t);
     else
         return a*pow(T[k], 4);
