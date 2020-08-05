@@ -108,9 +108,16 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
     if (t_f <= 0)
         throw string("ERREUR: Vérifiez que t_f > 0");
 
+    /* Les variables de temps */
     dt = CFL * mesh->dx/c;
-    // dt = CFL * mesh->dx * mesh->dy /c;                  // CFL condition comme ceci?
-    step_count = int(t_f/dt) + 1;
+    // dt = CFL * mesh->dx * mesh->dy /c;                  // condition CFL comme ceci?
+
+    double tmp = t_f / dt;
+    if (tmp == int(tmp))
+        step_count = int(tmp);
+    else
+        step_count = int(tmp) + 1;
+
     time_steps = vector_1row(step_count);
 
     /* A exporter */
@@ -914,8 +921,8 @@ void Solver::solve(){
         /* Affichage du progres */
         // cout << "  -- iteration " << n+1 << " sur " << step_count << " en cours ..." << endl;
         double progress = (n+1) * 100.0 / step_count;
-        if (int(progress) % 5 == 0 && (progress - int(progress) < 1e-2) && int(progress) != 0)
-            cout << "  -- " << setw(3) << progress << " %" << endl;
+        if (int(progress) % 5 == 0 && (progress - int(progress) < 1e-1) && int(progress) != 0)
+            cout << "  -- " << setw(3) << int(progress) << " %" << endl;
 
         /* Signaux exportés */
         for (int i = 1; i < mesh->N+1; i++){
