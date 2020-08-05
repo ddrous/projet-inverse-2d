@@ -8,3 +8,4 @@ data/anim/*
 data/df_rho.csv
 data/data
 !build/transfer
+!data/anim/animation.0.csv
