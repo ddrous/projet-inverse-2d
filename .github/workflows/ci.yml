@@ -13,4 +13,4 @@ jobs:
     - name: build
       run: cmake --build build
     - name: test
-      run: cd build && mkdir data && cd data && mkdir anim && ctest
+      run: cd build && ctest
