@@ -4,13 +4,7 @@ on: [push]
 
 jobs:
   build-ubuntu:
-
     runs-on: ubuntu-latest
-    build-dir: ${{ runner.workspace }}/build
-    # will set the CC & CXX for cmake
-    cc: gcc
-    cxx: g++
-    build-type: Release
     steps:
     - uses: actions/checkout@v1
     - name: configure
