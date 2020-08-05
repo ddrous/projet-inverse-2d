@@ -24,6 +24,9 @@ add_executable(transfer
     thirdparty/muparser/src/muParserError.cpp
     thirdparty/muparser/src/muParserTokenReader.cpp)
 
+# Lots of warnings and all warnings as errors
+add_compile_options(-Wall -Wextra -pedantic -Werror)
+
 # A simple test that works perfectly
 add_test(NAME simple_run COMMAND transfer ../src/config/test_1.cfg)
 # Tests that should fail to make sure the program doesnt crash
