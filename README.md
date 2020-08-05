@@ -11,7 +11,9 @@ Résolution du problème de propagation de la lumière par la méthode des volum
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
 
 ### Compilation
-- Avec Cmake: `cmake --build build` (utiliser GCC 7.4.0 ou Clang 6.0.0 en cas d'erreurs)
+Avec Cmake (utiliser __GCC 7.4.0__ ou __Clang 6.0.0__ en cas d'erreurs):   
+- `cmake -S . -B build`  
+- `cmake --build build`  
 
 ### Exécution
 - Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ 
