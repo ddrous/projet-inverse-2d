@@ -18,22 +18,24 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ 
 - Pour faire une série de simulations: __`bash src/simu/data_dump.sh`__ 
 
-__Format des fichiers de configuration (`data/img/config.pdf`):__   
+#### Format des fichiers de configuration (`data/img/config.pdf`)   
 
 ![Instructions for configuration](data/img/config.png)
 
+### Formats possibles de sauvegarde
+- __`data/df_simu.csv`__: exemple de fichier CSV pour les signaux exportés.
+- __`data/part_1.sds`__: exemple de fichier binaire SDS (source-densité-signal) pour la sauvegarde d'une série de simulation.
 
-### Résultats
+### Visualisation des resultats
+- __`src/notebook/visualisation_2d.ipynb`__[(version Jupyter)](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/visualisation_2d.ipynb)
+  
 ![Quelques resultats](data/img/energie_flux.png)
 
-- __`data/df_simu.csv`__: fichier CSV pour les signaux à exporter (densité, énergie, flux et température).
-- __`data/part_1.sds`__: fichier binaire SDS (source-densité-signal) pour les les sauvegardes.
 
 ## __2ème partie: Apprentissage__   
 - Regression: `src/notebook/regression_1d.ipynb` [(version Colab)](https://colab.research.google.com/drive/1kyPV7in4heCWPRQZh4iYFJSlx2lMZqmp?usp=sharing)  
 - Classification: `src/notebook/classification.ipynb` [(version Colab)](https://colab.research.google.com/drive/1acJNt3krkJ0rK-RZHzDmxEcn6zAlAv92?usp=sharing)  
-- Animation des résultats: `src/notebook/visualisation_2d.ipynb`
-- Lecture du format CSV: `src/notebook/sauvegarde_2d.ipynb`
+- Lecture du format CSV: `src/notebook/sauvegarde_2d.ipynb` [(version Jupyter)](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/sauvegarde_2d.ipynb)
 - Lecture du format SDS: `src/notebook/format_binaire.ipynb` [(version Colab)](https://colab.research.google.com/drive/1pbuw_aORnOMEFs824BE2jOz4rCTevC3K?usp=sharing).  
 
 ## Ressources utilisées:
