@@ -1,7 +1,7 @@
 # Transfer Radiatif Inverse 2D (MOCO)
 
 ### Objectif
-Résolution du problème inverse de propagation de la lumière par la méthode des volumes finis en 2D et les réseaux de neurones.
+Résolution du problème de propagation de la lumière par la méthode des volumes finis en 2D et apprentissage par un réseau de neurones.
 
 ### Documents
 - Indications et travail à faire: `doc/projetM1.pdf`  
@@ -14,20 +14,26 @@ _Les commandes indiquées sont à exécuter à partir du répertoire racine du p
 - Avec Cmake: `cmake --build build`
 
 ### Exécution
-- Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ (voir ci dessous comment écrite un fichier de configuration)
-
-__Format des fichiers de configuration:__  
-![Instructions for configuration](data/img/config.png)
-
+- Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ 
 - Pour générer un tas de données à étudier: __`bash src/simu/data_dump.sh`__ 
 
-### Résultats
-- __`data/df_simu.csv`__ pour les signaux a exporter (densité et ses attributs eventuels, énergie, flux et température).
+__Format des fichiers de configuration (`data/img/config.pdf`):__   
 
-## __2ème partie: Reseaux de neurones__   
-- Analyse des données: `src/notebook/analyse_des_donnees.ipynb` [Version Colab](https://colab.research.google.com/drive/17eqqFvVzvzFqB8URGFR9-YQmqDNxU5Ax?usp=sharing).  
-- Réseaux de neurones: `src/notebook/reseaux_de_neurones.ipynb` [Version Colab](https://colab.research.google.com/drive/1DXee80oz_6OqLDHdnO00VjK62TdKSE5O?usp=sharing).
-- Visualisation et animation: `src/notebook/visualisation_2d.ipynb`.
+![Instructions for configuration](data/img/config.png)
+
+
+### Résultats
+![Quelques resultats](data/img/energie_flux.png)
+
+- __`data/df_simu.csv`__: fichier CSV pour les signaux à exporter (densité, énergie, flux et température).
+- __`data/part_1.sds`__: fichier binaire SDS (source-densité-signal) pour les les sauvegardes.
+
+## __2ème partie: Apprentissage__   
+- Regression: `src/notebook/regression_1d.ipynb` [(version Colab)](https://colab.research.google.com/drive/1kyPV7in4heCWPRQZh4iYFJSlx2lMZqmp?usp=sharing)  
+- Classification: `src/notebook/classification.ipynb` [(version Colab)](https://colab.research.google.com/drive/1acJNt3krkJ0rK-RZHzDmxEcn6zAlAv92?usp=sharing)  
+- Animation des résultats: `src/notebook/visualisation_2d.ipynb`
+- Lecture du format CSV: `src/notebook/sauvegarde_2d.ipynb`
+- Lecture du format SDS: `src/notebook/format_binaire.ipynb` [(version Colab)](https://colab.research.google.com/drive/1pbuw_aORnOMEFs824BE2jOz4rCTevC3K?usp=sharing).  
 
 ## Ressources utilisées:
-- __muParser__ pour transformer des expressions en fonctions: [Example](https://beltoforion.de/article.php?a=muparser&s=idExample#idExample) - [Instructions](https://beltoforion.de/article.php?a=muparser&p=building)
+- __muParser__: pour transformer des expressions en fonctions: [Example](https://beltoforion.de/article.php?a=muparser&s=idExample#idExample) - [Instructions](https://beltoforion.de/article.php?a=muparser&p=building)
