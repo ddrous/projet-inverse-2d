@@ -285,7 +285,7 @@ vector_2d Solver::F_0(double x, double y){
     p1.DefineVar("t_0", &t_0); p2.DefineVar("t_0", &t_0);
     if (first_call == 1){ p1.SetExpr(F_0_x_expr); p2.SetExpr(F_0_y_expr); first_call = 0; }
 
-    return vector_2d {p1.Eval(), p2.Eval()};
+    return {p1.Eval(), p2.Eval()};
 }
 
 
@@ -388,7 +388,7 @@ vector_2d Solver::F_u(double t, int i){
         double x = mesh->x[i];
         p1.DefineVar("x", &x); p2.DefineVar("x", &x);
         if (first_call == 1){ p1.SetExpr(F_u_x_expr); p2.SetExpr(F_u_y_expr); first_call = 0; }
-        return vector_2d {p1.Eval(), p2.Eval()};
+        return {p1.Eval(), p2.Eval()};
     }
 }
 
@@ -450,7 +450,7 @@ vector_2d Solver::F_d(double t, int i){
         double x = mesh->x[i];
         p1.DefineVar("x", &x); p2.DefineVar("x", &x);
         if (first_call == 1){ p1.SetExpr(F_d_x_expr); p2.SetExpr(F_d_y_expr); first_call = 0; }
-        return vector_2d {p1.Eval(), p2.Eval()};
+        return {p1.Eval(), p2.Eval()};
     }
 }
 
@@ -512,7 +512,7 @@ vector_2d Solver::F_l(double t, int j){
         double y = mesh->y[j];
         p1.DefineVar("y", &y); p2.DefineVar("y", &y);
         if (first_call == 1){ p1.SetExpr(F_l_x_expr); p2.SetExpr(F_l_y_expr); first_call = 0; }
-        return vector_2d {p1.Eval(), p2.Eval()};
+        return {p1.Eval(), p2.Eval()};
     }
 }
 
@@ -574,7 +574,7 @@ vector_2d Solver::F_r(double t, int j){
         double y = mesh->y[j];
         p1.DefineVar("y", &y); p2.DefineVar("y", &y);
         if (first_call == 1){ p1.SetExpr(F_r_x_expr); p2.SetExpr(F_r_y_expr); first_call = 0; }
-        return vector_2d {p1.Eval(), p2.Eval()};
+        return {p1.Eval(), p2.Eval()};
     }
 }
 
@@ -622,7 +622,7 @@ vector_2d Solver::F_exact(double t, double x, double y){
     p1.DefineVar("t_0", &t_0); p2.DefineVar("t_0", &t_0);
     if (first_call == 1){ p1.SetExpr(F_exact_x_expr); p2.SetExpr(F_exact_y_expr); first_call = 0; }
 
-    return vector_2d {p1.Eval(), p2.Eval()};
+    return {p1.Eval(), p2.Eval()};
 }
 
 
