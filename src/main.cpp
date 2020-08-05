@@ -14,20 +14,23 @@ using namespace mu;
 
 int main(int argc, char * argv[]){
     try {
-        cout << "\n======== Equation du transfer radiatif en 2D ========" << endl;
+        cout << "\n============= Equation du transfer radiatif en 2D =============" << endl;
 
         if(argc < 2 || argc > 2)
             throw string("ERREUR: Fournissez un (et un seul) fichier de configuration");
 
         /* Lecture du fichier config */
         Config cfg = Config(argv[1]);
-        cout << "\nLecture des potentiels" << cfg.size << " parametres en cours ... " << endl;
+        cout << "\nLecture des parametres en cours ... " << endl;
         cfg.read();
-        cout << "Lecture OK !" << endl;
+        cout << "Lecture de " << cfg.n_param << " paramètres OK !" << endl;
 
         /* Creation d'un maillage uniforme */
         Mesh m = Mesh(cfg);
-        cout << "\nCreation des " << m.n_cells << " mailles (M = " << m.M << ") en cours ... " << endl;
+        cout << "\nCreation des mailles en cours ... " << endl;
+        cout << "  -- Suivant l'horizontale: N = " << m.N << endl;
+        cout << "  -- Suivant la verticale:  M = " << m.M << endl;
+        cout << "  -- Nombre de mailles total (y compris les mailles fantomes): " << m.n_cells << endl;
         m.create_cells();
         // m.display();
         cout << "Creation OK !" << endl;
@@ -44,11 +47,10 @@ int main(int argc, char * argv[]){
         cout << "\nExportation des resultats en cours ..." << endl;
         ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
         // ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
+        cout << "  -- Signaux exportés dans le fichier '" << cfg.values["export_file"] << "'"  << endl;
         cout << "Export OK !" << endl;
 
-        cout << "\nSignaux spatiaux et temporels exportés dans '" << cfg.values["export_file"] << "'"  << endl;
-
-        cout << "\n================================================"  << endl << endl;
+        cout << "\n======================================================================"  << endl << endl;
     }
     catch(const string &e){
         cerr << endl << e << endl << endl;

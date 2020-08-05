@@ -897,7 +897,12 @@ void Solver::solve(){
     while (t <= t_f){
         /* Enregistrement des signaux pour ce pas de temps */
         save_animation(n);
-        cout << " --- iteration " << n << endl;
+
+        /* Affichage du progres */
+        // cout << "  -- iteration " << n+1 << " sur " << step_count << " en cours ..." << endl;
+        double progress = (n+1) * 100.0 / step_count;
+        if (int(progress) % 10 == 0 && (progress - int(progress) < 1e-2) && int(progress) != 0)
+            cout << "  -- " << progress << " %" << endl;
 
         /* Signaux exportés */
         for (int i = 1; i < mesh->N+1; i++){

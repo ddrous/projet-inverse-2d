@@ -12,8 +12,10 @@ class Config{
         std::string file_name;
         // noms des parametres et leurs valeurs
         std::map<std::string, std::string> values;
-        // nombre de parametres
+        // nombre maximal de parametres
         int size;
+        // nombre effectif de parametres
+        int n_param;
 
         /***************
          * Constructeur

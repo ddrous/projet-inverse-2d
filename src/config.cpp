@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "config.hpp"
+#include "include/config.hpp"
 
 using namespace std;
 
@@ -103,11 +103,14 @@ void Config::read(){
     if (read_unkown == true)
         throw string ("ERREUR: Parametre inconnu '" + unkown_name + "' dans le fichier de configuration");
 
+    n_param = 0;
     for (it = values.begin(); it != values.end(); ++it){
         if (count[it->first] < 1 && !(it->first == "E_exact") && !(it->first == "F_exact_x") && !(it->first == "F_exact_y") && !(it->first == "T_exact") && !(it->first == "simu_count")){
             throw string ("ERREUR: Paramètre '"+it->first+"' manquant dans le fichier de configuration");}
-        if (count[it->first] > 1)
+        else if (count[it->first] > 1)
             throw string ("ERREUR: Paramètre '"+it->first+"' dupliqué dans le fichier de configuration");
+        else if (count[it->first] == 1)
+            n_param++;
     }
 }
 
