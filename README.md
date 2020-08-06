@@ -4,8 +4,9 @@
 Résolution du problème de propagation de la lumière par la méthode des volumes finis en 2D et apprentissage par un réseau de neurones.
 
 ### Documents
-- Indications et travail à faire: `doc/projetM1.pdf`  
-- Rapport de stage: `doc/rapport.pdf`  
+- Indications et travail à faire: `doc/guidelines/projetM1.pdf`  
+- Rapport de stage en français: `doc/fr/rapport.pdf`  
+- Rapport en anglais: `doc/eng/report.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
