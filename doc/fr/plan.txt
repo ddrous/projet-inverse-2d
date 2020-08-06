@@ -1,0 +1,64 @@
+PLAN de reapport
+
+- Remerciements
+   - Leo, Guillaume, Les maitres de m'avoir fait confiance.
+
+- Liste des tableaux et figures
+
+- Liste des symboles et abbreviations
+
+- Sommaire
+
+- Introduction
+   - etr, transfer radiatif
+   - e tant qu'etudiant en CSMI
+   - Reconstruction rapide du milieu dans lequel l'onde s'est propagée
+   - chaque partie a son resultat
+
+- Preentation de l'IRMA
+   - structuration de l'entreprise (organigramme)
+   - le secteur
+   - les membres l'equipe MOCO
+
+- 1D
+   - (continuation du projet)
+   - formulation du schema
+   - implementation (c++, format de sauvegarde, ..)
+   - resultats
+
+- 2D
+   - formulation du schema
+   - implementation (c++, format de sauvegarde, ..)
+   - resultats
+
+- Apprentisssage
+   - Les types de couches utilisees
+   - Configuration de l'entrainment 
+   - Differents Modèle  (et leurs reresultat)
+        - Regression
+        - Classification
+
+- Bilan du stage
+   - ressources utilisee
+   - jornal de bord (resume)
+   - difficultes rencontree et solutions apportees
+   - Les apports du stage
+
+- Conclusion
+   - resume des resultats. aport concret!
+   - l'avenir de l'entreprise
+   - ce stage dans mon projet professionel (conforte mon choix)
+   - perspectives
+
+- Bibliographie
+
+- Annexe (pour la reproduction des resultats)
+  - Repository
+  - Les donnees pour l'appretissage (ou les placer pour un apprentissage jypyter)
+
+
+LES CHOSES A FAIRE
+- Centraliser mon nom
+- Ne pas oublier d'inserer les abbreviations et les symboles dans la table des matieres!!! Attention ca cause des erreurs...
+- Faire les pires cas, mauvais cas!
+- J'ai appris que peu importe a quel point on le veut, les resultats ne sont pas toujours positif. La volonte seule ne suffit pas!

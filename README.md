@@ -12,8 +12,18 @@ Résolution du problème de propagation de la lumière par la méthode des volum
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
 
 ### Compilation
-- `cmake -S . -B build`  
-- `cmake --build build`  
+La premiere option est d'utiliser CMake:   
+- __`rm -rf build`__
+- __`cmake -H. -Bbuild`__  
+- __`cmake --build build`__  
+
+La deuxième option nécessite Docker et Visual Studio Code.  
+- Installer __Docker__  
+- Installer __VSCode__  
+- Installer l'extension Docker dans VSCode  
+- Ouvrir le projet sous un conteneur dans VSCode (le fichier __Dockerfile.ci__ est déjà configuré)  
+- Compiler le code à l'aide de __CMake__  
+Cette dernière étape peut être facilitée par l'utilisation des extensions __CMake__ et __CMake Tools__ sous le conteneur dans VSCode. Il faudra probablement "__clean reconfigure__" le projet avant de "__build__".
 
 ### Exécution
 - Pour une simple exécution: __`build/transfer src/config/simu.cfg`__ 

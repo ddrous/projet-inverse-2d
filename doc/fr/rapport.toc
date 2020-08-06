@@ -1,32 +1,38 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {english}{}
-\contentsline {chapter}{Declaration of Authorship}{iii}{section*.1}%
-\contentsline {chapter}{Abstract}{vii}{section*.2}%
-\contentsline {chapter}{Acknowledgements}{ix}{section*.3}%
-\contentsline {chapter}{\numberline {1}Chapter Title Here}{1}{chapter.14}%
-\contentsline {section}{\numberline {1.1}Welcome and Thank You}{1}{section.15}%
-\contentsline {section}{\numberline {1.2}Learning \LaTeX {}}{1}{section.16}%
-\contentsline {subsection}{\numberline {1.2.1}A (not so short) Introduction to \LaTeX {}}{1}{subsection.17}%
-\contentsline {subsection}{\numberline {1.2.2}A Short Math Guide for \LaTeX {}}{2}{subsection.18}%
-\contentsline {subsection}{\numberline {1.2.3}Common \LaTeX {} Math Symbols}{2}{subsection.19}%
-\contentsline {subsection}{\numberline {1.2.4}\LaTeX {} on a Mac}{2}{subsection.20}%
-\contentsline {section}{\numberline {1.3}Getting Started with this Template}{2}{section.21}%
-\contentsline {subsection}{\numberline {1.3.1}About this Template}{2}{subsection.22}%
-\contentsline {section}{\numberline {1.4}What this Template Includes}{3}{section.23}%
-\contentsline {subsection}{\numberline {1.4.1}Folders}{3}{subsection.24}%
-\contentsline {subsection}{\numberline {1.4.2}Files}{3}{subsection.25}%
-\contentsline {section}{\numberline {1.5}Filling in Your Information in the \texttt {\bfseries main.tex} File}{4}{section.26}%
-\contentsline {section}{\numberline {1.6}The \texttt {main.tex} File Explained}{5}{section.27}%
-\contentsline {section}{\numberline {1.7}Thesis Features and Conventions}{6}{section.28}%
-\contentsline {subsection}{\numberline {1.7.1}Printing Format}{6}{subsection.29}%
-\contentsline {subsection}{\numberline {1.7.2}Using US Letter Paper}{6}{subsection.30}%
-\contentsline {subsection}{\numberline {1.7.3}References}{6}{subsection.31}%
-\contentsline {subsubsection}{A Note on bibtex}{7}{section*.33}%
-\contentsline {subsection}{\numberline {1.7.4}Tables}{7}{subsection.34}%
-\contentsline {subsection}{\numberline {1.7.5}Figures}{8}{subsection.36}%
-\contentsline {subsection}{\numberline {1.7.6}Typesetting mathematics}{9}{subsection.38}%
-\contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{9}{section.40}%
-\contentsline {section}{\numberline {1.9}In Closing}{10}{section.41}%
-\contentsline {chapter}{\numberline {A}Frequently Asked Questions}{11}{appendix.42}%
-\contentsline {section}{\numberline {A.1}How do I change the colors of links?}{11}{section.43}%
-\contentsline {chapter}{Bibliography}{13}{appendix*.44}%
+\babel@toc {french}{}
+\contentsline {chapter}{Remerciements}{ii}{section*.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.7}%
+\contentsline {chapter}{\numberline {2}Présentation de l'IRMA}{2}{chapter.8}%
+\contentsline {section}{\numberline {2.1}Structure de l'organisation}{2}{section.9}%
+\contentsline {section}{\numberline {2.2}L'équipe MOCO}{2}{section.10}%
+\contentsline {chapter}{\numberline {3}Résolution de l'EDP en 1D}{3}{chapter.11}%
+\contentsline {section}{\numberline {3.1}Schéma de splitting}{3}{section.12}%
+\contentsline {section}{\numberline {3.2}Implémentation}{3}{section.13}%
+\contentsline {subsection}{\numberline {3.2.1}Configuration d'une simulation}{3}{subsection.14}%
+\contentsline {subsection}{\numberline {3.2.2}Sauvegarde des données}{3}{subsection.15}%
+\contentsline {section}{\numberline {3.3}Résultats}{3}{section.16}%
+\contentsline {chapter}{\numberline {4}Résolution de l'EDP en 2D}{4}{chapter.17}%
+\contentsline {section}{\numberline {4.1}Schéma de splitting}{4}{section.18}%
+\contentsline {section}{\numberline {4.2}Implémentation}{4}{section.19}%
+\contentsline {subsection}{\numberline {4.2.1}Configuration d'une simulation}{4}{subsection.20}%
+\contentsline {subsection}{\numberline {4.2.2}Sauvegarde des données}{4}{subsection.21}%
+\contentsline {section}{\numberline {4.3}Résultats}{4}{section.22}%
+\contentsline {chapter}{\numberline {5}Apprentissage}{5}{chapter.23}%
+\contentsline {section}{\numberline {5.1}Les couches utilisées}{5}{section.24}%
+\contentsline {section}{\numberline {5.2}Configuration de l'entrainement}{5}{section.25}%
+\contentsline {section}{\numberline {5.3}Différents Modèles}{5}{section.26}%
+\contentsline {subsection}{\numberline {5.3.1}Régression}{5}{subsection.27}%
+\contentsline {subsubsection}{\numberline {5.3.1.1}en 1D}{5}{subsubsection.28}%
+\contentsline {subsubsection}{\numberline {5.3.1.2}en 2D}{5}{subsubsection.29}%
+\contentsline {subsection}{\numberline {5.3.2}Classification}{5}{subsection.30}%
+\contentsline {chapter}{\numberline {6}Bilan du stage}{6}{chapter.31}%
+\contentsline {section}{\numberline {6.1}Ressources utilisées}{6}{section.32}%
+\contentsline {section}{\numberline {6.2}Journal de bord}{6}{section.33}%
+\contentsline {section}{\numberline {6.3}Difficultés rencontrées et solutions apportées}{6}{section.34}%
+\contentsline {section}{\numberline {6.4}Les apports du stage}{6}{section.35}%
+\contentsline {chapter}{\numberline {7}Conclusion}{7}{chapter.36}%
+\contentsline {chapter}{\numberline {A}Comment reproduire les resultats?}{8}{appendix.37}%
+\contentsline {section}{\numberline {A.1}Execution du code 1D/2D}{8}{section.38}%
+\contentsline {section}{\numberline {A.2}Sauvegarde des resulats}{8}{section.39}%
+\contentsline {section}{\numberline {A.3}Execution des notebook et apprentissage}{8}{section.40}%
+\contentsline {chapter}{Bibliographie}{9}{appendix*.41}%
