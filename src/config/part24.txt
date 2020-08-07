@@ -26,4 +26,4 @@ F_r_x neumann
 F_r_y neumann
 T_r neumann
 
-export_file data/part1.sds
+export_file data/part4.sds

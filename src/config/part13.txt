@@ -1,0 +1,20 @@
+rho crenau(0.369,0.7,0.1,1)
+
+E_l ponctuel(0.7,0.9)
+F_l_x 0
+F_l_y 0
+T_l 5
+
+E_d neumann
+F_d_x neumann
+F_d_y neumann
+T_d neumann
+
+E_u neumann
+F_u_x neumann
+F_u_y neumann
+T_u neumann
+
+write_mode append
+simu_count 640
+
