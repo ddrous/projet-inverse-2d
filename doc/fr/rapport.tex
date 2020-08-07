@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Masters/Doctoral Thesis 
+% Masters/Doctoral Thesis
 % LaTeX Template
 % Version 2.5 (27/8/17)
 %
@@ -21,13 +21,14 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
+%\UseRawInputEncoding
+%\DeclareUnicodeCharacter{00A0}{~}
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 french, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
-%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+% draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
 % liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
@@ -39,10 +40,6 @@ headsepline, % Uncomment to get a line under the header
 openany, %% Use this option to make chapters start on the next page, irrespective of whether it's an odd or even numbered page
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-\usepackage[french]{babel} %% For automatically changing names of document elements to other languages
-
 \usepackage{mathpazo} % Use the Palatino font by default
 % \usepackage[light,condensed,math]{iwona}  %% Comment above and uncomment this to use the Iwona font
 
@@ -51,7 +48,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
-\addbibresource{bibliographie.bib} % The filename of the bibliography
+%\addbibresource{bibliographie.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
@@ -73,7 +70,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Modelisation de l'equation du transfer radiatif et reconstruction de la densite par un reseau de neurones} % Your thesis title, ths is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitle{Modélisation de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones} % Your thesis title, ths is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Emmanuel \textsc{Franck} \\ Laurent \textsc{Navoret} \\ Vincent \textsc{Vigon}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{Christophe \textsc{PRUD'HOMME}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Master CSMI} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
@@ -113,7 +110,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
 \HRule \\[1.5cm] % Horizontal line
- 
+
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \vspace{7mm}
@@ -124,13 +121,13 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushright} \large
 \emph{Maitres de stage:} \\
-\href{http://www.jamessmith.com}{\supname} % Supervisor names - remove the \href bracket to remove the link  
+\href{http://www.jamessmith.com}{\supname} % Supervisor names - remove the \href bracket to remove the link
 \\ \vspace{5mm}
-\emph{Enseignant referent:} \\
+\emph{Enseignant référent:} \\
 \href{http://www.jamessmith.com}{\examname} % Examiner's name - remove the \href bracket to remove the link
 \end{flushright}
 \end{minipage}\\[2cm]
- 
+
 % \vfill
 
 \large \textit{Stage realise dans le cadre du \degreename}\\[0.2cm] % University requirement text
@@ -144,7 +141,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 
 {\large \today}\\[4cm] % Today's date
 % \includegraphics{Logo_UNIV} % University/department logo - uncomment to place it
- 
+
 % \vfill
 \end{center}
 \end{titlepage}
@@ -152,12 +149,12 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
-% 
+%
 % \begin{declaration}
 % \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
 % \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
-% 
-% \begin{itemize} 
+%
+% \begin{itemize}
 % \item This work was done wholly or mainly while in candidature for a research degree at this University.
 % \item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
 % \item Where I have consulted the published work of others, this is always clearly attributed.
@@ -165,30 +162,30 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 % \item I have acknowledged all main sources of help.
 % \item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
 % \end{itemize}
-%  
+%
 % \noindent Signed:\\
 % \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
-%  
+%
 % \noindent Date:\\
 % \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
 % \end{declaration}
-% 
+%
 % \cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
 %----------------------------------------------------------------------------------------
-% 
+%
 % \vspace*{0.2\textheight}
-% 
+%
 % \noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
-% 
+%
 % \hfill Dave Barry
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
-% 
+%
 % \begin{abstract}
 % \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 % The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
@@ -197,11 +194,11 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
-
-\begin{acknowledgements}
-\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
-\qquad Je tiens à remercier dans un premier temps mes maîtres de stages de m’avoir permis d’effectuer un stage scientifique très enrichissant dans les meilleurs conditions possibles, compte tenu de la situation sanitaires liée au COVID-19. Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \textsc{Bois} pour leurs conseils.
-\end{acknowledgements}
+%
+% \begin{acknowledgements}
+% \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+% \qquad Je tiens à remercier dans un premier temps mes maîtres de stages de m’avoir permis d’effectuer un stage scientifique très enrichissant dans les meilleurs conditions possibles, compte tenu de la situation sanitaires liée au COVID-19. Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \textsc{Bois} pour leurs conseils.
+% \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -230,12 +227,12 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %----------------------------------------------------------------------------------------
 
 % \begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
-% 
+%
 % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
-% 
+%
 % Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
 % Constant Name & $Symbol$ & $Constant Value$ with units\\
-% 
+%
 % \end{constants}
 
 %----------------------------------------------------------------------------------------
@@ -259,7 +256,7 @@ $c$ & vitesse de la lumiere & \si{\meter\per\second} \\
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-% \dedicatory{For/Dedicated to/To my\ldots} 
+% \dedicatory{For/Dedicated to/To my\ldots}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -273,9 +270,9 @@ $c$ & vitesse de la lumiere & \si{\meter\per\second} \\
 % Uncomment the lines as you write the chapters
 
 \include{Chapters/Chapter1}
-\include{Chapters/Chapter2} 
+\include{Chapters/Chapter2}
 \include{Chapters/Chapter3}
-\include{Chapters/Chapter4} 
+\include{Chapters/Chapter4}
 \include{Chapters/Chapter5}
 \include{Chapters/Chapter6}
 \include{Chapters/Chapter7}
@@ -301,5 +298,5 @@ $c$ & vitesse de la lumiere & \si{\meter\per\second} \\
 
 %----------------------------------------------------------------------------------------
 
-\end{document}  
+\end{document}
 

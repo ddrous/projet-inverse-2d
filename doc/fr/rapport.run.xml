@@ -84,7 +84,6 @@
       <file>rapport-blx.bib</file>
     </requires>
     <requires type="editable">
-      <file>bibliographie.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

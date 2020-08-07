@@ -205,8 +205,8 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
             signal[k] = rho_min;
             for (int l = 0; l < n_niche; l++){
-                // if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= attr[l][2]/2.){                       // crenau circulaire
-                if ((abs(mesh->x[i] - attr[l][0]) <= attr[l][2]/2.) && ( abs(mesh->y[j] - attr[l][1]) <= 5*attr[l][2]/2.) ){            // crenau rectangulaire
+                // if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= 2*attr[l][2]/2.){                       // crenau circulaire
+                if ((abs(mesh->x[i] - attr[l][0]) <= attr[l][2]/2.) && ( abs(mesh->y[j] - attr[l][1]) <= 4*attr[l][2]/2.) ){            // crenau rectangulaire
                     signal[k] = attr[l][3];
                     break;
                 }

@@ -12,7 +12,7 @@ PLAN de reapport
 - Introduction
    - etr, transfer radiatif
    - e tant qu'etudiant en CSMI
-   - Reconstruction rapide du milieu dans lequel l'onde s'est propagée
+   - Reconstruction rapide du milieu dans lequel l'onde s'est propagée. permet de regrouper les tumeur
    - chaque partie a son resultat
 
 - Preentation de l'IRMA
@@ -37,6 +37,7 @@ PLAN de reapport
    - Differents Modèle  (et leurs reresultat)
         - Regression
         - Classification
+   - Quelques ajustements (decroissance de la learning rate, etc..)
 
 - Bilan du stage
    - ressources utilisee
@@ -62,3 +63,4 @@ LES CHOSES A FAIRE
 - Ne pas oublier d'inserer les abbreviations et les symboles dans la table des matieres!!! Attention ca cause des erreurs...
 - Faire les pires cas, mauvais cas!
 - J'ai appris que peu importe a quel point on le veut, les resultats ne sont pas toujours positif. La volonte seule ne suffit pas!
+- erreurs de comprehension (mail en retard)

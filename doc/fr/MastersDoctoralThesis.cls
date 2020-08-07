@@ -182,10 +182,11 @@
 %----------------------------------------------------------------------------------------
 %	REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
-% \RequirePackage[utf8]{inputenc} % Required for inputting international characters
-% \RequirePackage[T1]{fontenc} % Output font encoding for international characters
-% 
-% \RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
+\RequirePackage[utf8]{inputenc} % Required for inputting international characters
+
+\RequirePackage[T1]{fontenc} % Output font encoding for international characters
+
+\RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements
 

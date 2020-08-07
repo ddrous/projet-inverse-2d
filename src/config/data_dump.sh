@@ -8,10 +8,10 @@
 # Pour generer un crenau sur 'rho' situe entre pos_min et pos_max et de hauteur entre h_min et h_max 
 pos_x_min=0.768
 pos_x_max=0.8
-pos_y_min=0.2
-pos_y_max=0.8
-h_min=10
-h_max=12
+pos_y_min=0.3
+pos_y_max=0.7
+h_min=1
+h_max=2
 nbiter_rho_pos_x=2
 nbiter_rho_pos_y=20
 nbiter_rho_h=2
@@ -37,18 +37,18 @@ b3=$(awk -v min="${pos_min}" 'BEGIN{print (min)}')
 # Indique quelle source activer (haut=0, gauche=1, ou bas=2)
 l=1
 
-# Pour omptabiliser les iterations totales
+# Pour comptabiliser les iterations totales
 m=1
-# nbiter_total=$(awk -v nbiter1="${nbiter_rho_h}" -v nbiter2="${nbiter_rho_pos}" -v nbiter3="${nbiter_source}" 'BEGIN{print (nbiter1*nbiter2*nbiter2*nbiter3*3)}')
 nbiter_total=$(awk -v nbiter1="${nbiter_rho_pos_x}" -v nbiter2="${nbiter_rho_pos_y}" -v nbiter3="${nbiter_source}" 'BEGIN{print (nbiter1*nbiter2*nbiter3)}')
+simu_count=$(echo "simu_count $nbiter_total\n")
 
 simulate () {
     echo "simulation $m sur $nbiter_total en cours ..."
     m=$((m+1))
 
-    echo -e "$rho$source$write_mode" > src/config/part1.txt
+    echo -e "$rho$source$write_mode$simu_count" > src/config/part1.txt
     cat src/config/part1.txt src/config/part2.txt > src/config/tmp.cfg
-    build/transfer src/config/tmp.cfg > /dev/null
+    # build/transfer src/config/tmp.cfg > /dev/null
 }
 
 # Boucle des simulations
@@ -65,7 +65,6 @@ for (( h = 1 ; h <= 1; h++ )); do
         for (( j = 1 ; j <= $nbiter_rho_pos_y; j++ )); do
             rho_y=$(awk -v j="${j}" -v a="${a21}" -v b="${b21}" 'BEGIN{print (a*(j-1)+b)}')
             rho=$(echo "rho crenau($rho_x,$rho_y,0.1,$rho_h)\n\n")
-            # for (( l = 0 ; l <= 2; l++ )); do
             for (( l = 1 ; l <= 1; l++ )); do
                 for (( k = 1 ; k <= $nbiter_source; k++ )); do
                     source_pos_min=$(awk -v k="${k}" -v a="${a3}" -v b="${b3}" 'BEGIN{print (a*(k-1)+b)}')
@@ -73,8 +72,7 @@ for (( h = 1 ; h <= 1; h++ )); do
 
                     if [[ $m -eq 1 ]]
                     then
-                    write_mode=$(echo "write_mode trunc\n")
-                    # write_mode=$(echo "write_mode append\n")
+                    write_mode=$(echo "write_mode truncate\n")
                     else
                     write_mode=$(echo "write_mode append\n")
                     fi
