@@ -120,119 +120,119 @@ void Exporter::write_dataframe(std::string file_name, std::string mode){
 }
 
 
-// /**
-//  * permet de localiser l'identifiant d'une position de source
-//  */
-// short int id_source_pos(string expr){
-//         double start = parse_ponctual(expr)[0];
-//         if (start == 0.1) return 0;
-//         else if (start == 0.3) return 1;
-//         else if (start == 0.5) return 2;
-//         else if (start == 0.7) return 3;
-//         else return -1;
-// }
+/**
+ * permet de localiser l'identifiant d'une position de source
+ */
+short int id_source_pos(string expr){
+        double start = parse_ponctual(expr)[0];
+        if (start == 0.1) return 0;
+        else if (start == 0.3) return 1;
+        else if (start == 0.5) return 2;
+        else if (start == 0.7) return 3;
+        else return -1;
+}
 
 
-// /**
-//  * Ecris un signal temporel a n_rows lignes et n_cols colones dans le fichier file en binaire
-//  */
-// void write_temporal_signal_bin(ofstream &file, double **signal, int n_rows, int n_cols){
-//     for (int n = 0; n < n_rows; n++){
-//         for (int i = 0; i < n_cols; i++){
-//             float val = float(signal[n][i]);
-//             file.write((char *)&val, sizeof(float));
-//         }
-//     }
-// }
+/**
+ * Ecris un signal temporel a n_rows lignes et n_cols colones dans le fichier file en binaire
+ */
+void write_temporal_signal_bin(ofstream &file, double **signal, int n_rows, int n_cols){
+    for (int n = 0; n < n_rows; n++){
+        for (int i = 0; i < n_cols; i++){
+            float val = float(signal[n][i]);
+            file.write((char *)&val, sizeof(float));
+        }
+    }
+}
 
 
-// void Exporter::write_binary(std::string file_name, std::string mode, std::string n_simu){
-//     ofstream file;
-//     if (mode == "append")
-//         file.open(file_name, ios_base::app | ios_base::binary);
-//     else if (mode == "truncate")
-//         file.open(file_name, ios_base::trunc | ios_base::binary);
-//     else
-//         throw string ("ERREUR: Mode d'ouverture de fichier '" + mode + "' non reconnu");
+void Exporter::write_binary(std::string file_name, std::string mode, std::string n_simu){
+    ofstream file;
+    if (mode == "append")
+        file.open(file_name, ios_base::app | ios_base::binary);
+    else if (mode == "truncate")
+        file.open(file_name, ios_base::trunc | ios_base::binary);
+    else
+        throw string ("ERREUR: Mode d'ouverture de fichier '" + mode + "' non reconnu");
 
-//     if(!file)
-//         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
+    if(!file)
+        throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");
 
-//     const Solver *s = solver;           // Pour raccourcir
+    const Solver *s = solver;           // Pour raccourcir
 
-//     /* Entete du fichier binaire */
-//     if (mode == "truncate") {
-//         /* Ecriture de la version du format sds */ 
-//         uint8_t magic[] = {0x73, 0x64, 0x73, 0x30, 0x31};       // sds version 01
-//         file.write((char *)magic, sizeof(magic));
+    /* Entete du fichier binaire */
+    if (mode == "truncate") {
+        /* Ecriture de la version du format sds */ 
+        uint8_t magic[] = {0x73, 0x64, 0x73, 0x30, 0x31};       // sds version 01
+        file.write((char *)magic, sizeof(magic));
 
-//         uint16_t n_simulations = atoi(n_simu.c_str());      // le nombre de simulations dans ce fichier
-//         file.write((char *)&n_simulations, sizeof(uint16_t));
+        uint16_t n_simulations = atoi(n_simu.c_str());      // le nombre de simulations dans ce fichier
+        file.write((char *)&n_simulations, sizeof(uint16_t));
 
-//         /* Ecriture des tailles de matrices */
-//         uint16_t N = s->mesh->N;
-//         uint16_t M = s->mesh->M;
-//         uint16_t step_count = s->step_count;
-//         file.write((char *)&N, sizeof(uint16_t));
-//         file.write((char *)&M, sizeof(uint16_t));
-//         file.write((char *)&step_count, sizeof(uint16_t));
+        /* Ecriture des tailles de matrices */
+        uint16_t N = s->mesh->N;
+        uint16_t M = s->mesh->M;
+        uint16_t step_count = s->step_count;
+        file.write((char *)&N, sizeof(uint16_t));
+        file.write((char *)&M, sizeof(uint16_t));
+        file.write((char *)&step_count, sizeof(uint16_t));
 
-//         int8_t newline = 0xA;
-//         file.write((char *)&newline, sizeof(int8_t));
-//     }
+        int8_t newline = 0xA;
+        file.write((char *)&newline, sizeof(int8_t));
+    }
 
-//     /* Localisation de la source */ 
-//     int8_t source_edge;      // le bord sur lequel se trouve la source
-//     int8_t source_pos;       // l'id de la position de la source sur son bord
-//     if (s->E_u_expr.find("ponctuel") != string::npos) {
-//         source_edge = 0;
-//         source_pos = id_source_pos(s->E_u_expr);
-//     }
-//     else if (s->E_d_expr.find("ponctuel") != string::npos) {
-//         source_edge = 1;
-//         source_pos = id_source_pos(s->E_d_expr);
-//     }
-//     else if (s->E_l_expr.find("ponctuel") != string::npos) {
-//         source_edge = 2;
-//         source_pos = id_source_pos(s->E_l_expr);
-//     }
-//     else if (s->E_r_expr.find("ponctuel") != string::npos) {
-//         source_edge = 3;
-//         source_pos = id_source_pos(s->E_r_expr);
-//     }
-//     else {
-//         source_edge = -1;
-//         source_pos = -1;
-//     }
+    /* Localisation de la source */ 
+    int8_t source_edge;      // le bord sur lequel se trouve la source
+    int8_t source_pos;       // l'id de la position de la source sur son bord
+    if (s->E_u_expr.find("ponctuel") != string::npos) {
+        source_edge = 0;
+        source_pos = id_source_pos(s->E_u_expr);
+    }
+    else if (s->E_d_expr.find("ponctuel") != string::npos) {
+        source_edge = 1;
+        source_pos = id_source_pos(s->E_d_expr);
+    }
+    else if (s->E_l_expr.find("ponctuel") != string::npos) {
+        source_edge = 2;
+        source_pos = id_source_pos(s->E_l_expr);
+    }
+    else if (s->E_r_expr.find("ponctuel") != string::npos) {
+        source_edge = 3;
+        source_pos = id_source_pos(s->E_r_expr);
+    }
+    else {
+        source_edge = -1;
+        source_pos = -1;
+    }
 
-//     /* Ecriture de la source dans le fichier */
-//     file.write((char *)&source_edge, sizeof(int8_t));
-//     file.write((char *)&source_pos, sizeof(int8_t));
+    /* Ecriture de la source dans le fichier */
+    file.write((char *)&source_edge, sizeof(int8_t));
+    file.write((char *)&source_pos, sizeof(int8_t));
 
-//     /* Ecriture de la densite dans le fichier (en supposant qu'il n'y a qu'un seul crenau) */
-//     for (int i = 0; i < 4; i++){
-//         float val = float(s->attr[0][i]);
-//         file.write((char *)&val, sizeof(float));
-//     }
+    /* Ecriture de la densite dans le fichier (en supposant qu'il n'y a qu'un seul crenau) */
+    for (int i = 0; i < 4; i++){
+        float val = float(s->attr[0][i]);
+        file.write((char *)&val, sizeof(float));
+    }
     
-//     /* Ecriture des matrices */
-//     write_temporal_signal_bin(file, s->E_up, s->step_count, s->mesh->N);
-//     write_temporal_signal_bin(file, s->F_up, s->step_count, s->mesh->N);
-//     write_temporal_signal_bin(file, s->T_up, s->step_count, s->mesh->N);
+    /* Ecriture des matrices */
+    write_temporal_signal_bin(file, s->E_up, s->step_count, s->mesh->N);
+    write_temporal_signal_bin(file, s->F_up, s->step_count, s->mesh->N);
+    write_temporal_signal_bin(file, s->T_up, s->step_count, s->mesh->N);
 
-//     write_temporal_signal_bin(file, s->E_down, s->step_count, s->mesh->N);
-//     write_temporal_signal_bin(file, s->F_down, s->step_count, s->mesh->N);
-//     write_temporal_signal_bin(file, s->T_down, s->step_count, s->mesh->N);
+    write_temporal_signal_bin(file, s->E_down, s->step_count, s->mesh->N);
+    write_temporal_signal_bin(file, s->F_down, s->step_count, s->mesh->N);
+    write_temporal_signal_bin(file, s->T_down, s->step_count, s->mesh->N);
 
-//     write_temporal_signal_bin(file, s->E_left, s->step_count, s->mesh->M);
-//     write_temporal_signal_bin(file, s->F_left, s->step_count, s->mesh->M);
-//     write_temporal_signal_bin(file, s->T_left, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->E_left, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->F_left, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->T_left, s->step_count, s->mesh->M);
 
-//     write_temporal_signal_bin(file, s->E_right, s->step_count, s->mesh->M);
-//     write_temporal_signal_bin(file, s->F_right, s->step_count, s->mesh->M);
-//     write_temporal_signal_bin(file, s->T_right, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->E_right, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->F_right, s->step_count, s->mesh->M);
+    write_temporal_signal_bin(file, s->T_right, s->step_count, s->mesh->M);
 
-//     int8_t newline = 0xA;
-//     file.write((char *)&newline, sizeof(int8_t));
-//     file.close();
-// }
+    int8_t newline = 0xA;
+    file.write((char *)&newline, sizeof(int8_t));
+    file.close();
+}

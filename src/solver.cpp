@@ -916,7 +916,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce pas de temps */
-        save_animation(n);
+        // save_animation(n);
 
         /* Affichage du progres */
         // cout << "  -- iteration " << n+1 << " sur " << step_count << " en cours ..." << endl;

@@ -6,8 +6,8 @@
 #   Les fichiers 'part1' et 'part2' forment le fichier de configuaration 'src/config/tmp.cfg'
 
 # Pour generer un crenau sur 'rho' situe entre pos_min et pos_max et de hauteur entre h_min et h_max 
-pos_x_min=0.323
-pos_x_max=0.369
+pos_x_min=0.631
+pos_x_max=0.677
 pos_y_min=0.3
 pos_y_max=0.7
 h_min=1
@@ -48,7 +48,7 @@ simulate () {
 
     echo -e "$rho$source$write_mode$simu_count" > src/config/part13.txt
     cat src/config/part13.txt src/config/part23.txt > src/config/tmp3.cfg
-    # build/transfer src/config/tmp.cfg > /dev/null
+    build/transfer src/config/tmp3.cfg > /dev/null
 }
 
 # Boucle des simulations
