@@ -46,7 +46,7 @@ int main(int argc, char * argv[]){
         Exporter ex = Exporter(&s);
         cout << "\nExportation des resultats en cours ..." << endl;
         // ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
-        ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
+        // ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
         cout << "  -- Signaux exportés dans le fichier '" << cfg.values["export_file"] << "'"  << endl;
         cout << "Export OK !" << endl;
 

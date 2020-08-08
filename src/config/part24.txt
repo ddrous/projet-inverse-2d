@@ -13,8 +13,8 @@ precision 1e-6
 t_0 0
 t_f 0.01
 
-sigma_a T*(10*rho)^3
-sigma_c T*(10*rho)^3
+sigma_a rho*T
+sigma_c rho*T
 
 E_0 0.01372*(5^4)
 F_0_x 0

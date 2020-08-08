@@ -1,3 +1,5 @@
+Titre: Modelisation 2D seulement!
+
 PLAN de reapport
 
 - Remerciements
@@ -49,7 +51,7 @@ PLAN de reapport
    - resume des resultats. aport concret!
    - l'avenir de l'entreprise
    - ce stage dans mon projet professionel (conforte mon choix)
-   - perspectives
+   - perspectives (2, 3 obstacles, ...)
 
 - Bibliographie
 
@@ -64,3 +66,5 @@ LES CHOSES A FAIRE
 - Faire les pires cas, mauvais cas!
 - J'ai appris que peu importe a quel point on le veut, les resultats ne sont pas toujours positif. La volonte seule ne suffit pas!
 - erreurs de comprehension (mail en retard)
+
+(HUGE OR SMALL BATCH SIZE: This can have the effect of faster learning, but also adds instability to the learning process as the weights widely vary with each batch.)

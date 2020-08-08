@@ -6,14 +6,14 @@
 #   Les fichiers 'part1' et 'part2' forment le fichier de configuaration 'src/config/tmp.cfg'
 
 # Pour generer un crenau sur 'rho' situe entre pos_min et pos_max et de hauteur entre h_min et h_max 
-pos_x_min=0.508
-pos_x_max=0.554
-pos_y_min=0.3
-pos_y_max=0.7
-h_min=1
-h_max=2
-nbiter_rho_pos_x=4
-nbiter_rho_pos_y=40
+pos_x_min=0.2
+pos_x_max=0.8
+pos_y_min=0.2
+pos_y_max=0.8
+h_min=16
+h_max=18
+nbiter_rho_pos_x=20
+nbiter_rho_pos_y=20
 nbiter_rho_h=2
 h=1
 a1=$(awk -v h="${h}" -v nbiter="${nbiter_rho_h}" -v min="${h_min}" -v max="${h_max}" 'BEGIN{print ((max-min)/(nbiter-h))}')

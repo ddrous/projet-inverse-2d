@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include <fstream>
+#include <algorithm>
 
 #include "include/solver.hpp"
 #include "include/vector_ops.hpp"
@@ -205,8 +206,8 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
             int k = cell_id(i, j, mesh->N+2, mesh->M+2);
             signal[k] = rho_min;
             for (int l = 0; l < n_niche; l++){
-                // if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= 2*attr[l][2]/2.){                       // crenau circulaire
-                if ((abs(mesh->x[i] - attr[l][0]) <= attr[l][2]/2.) && ( abs(mesh->y[j] - attr[l][1]) <= 4*attr[l][2]/2.) ){            // crenau rectangulaire
+                if (sqrt(pow(mesh->x[i] - attr[l][0], 2) + pow(mesh->y[j] - attr[l][1], 2)) <= 1*attr[l][2]/2.){                       // crenau circulaire
+                // if ((abs(mesh->x[i] - attr[l][0]) <= attr[l][2]/2.) && ( abs(mesh->y[j] - attr[l][1]) <= 4*attr[l][2]/2.) ){            // crenau rectangulaire
                     signal[k] = attr[l][3];
                     break;
                 }
@@ -218,6 +219,13 @@ vector_1row Solver::niche(int nb_niche, int nb_smooth){
     for (int i = 0; i < nb_smooth; i++)
         signal = smooth(signal, mesh->neighb);
 
+    /* Mettre a jour la hauteur de crenau */
+    for (int l = 0; l < nb_niche; l++){
+        attr[l][2] = *min_element(signal.begin(), signal.end());
+        attr[l][3] = *max_element(signal.begin(), signal.end());
+    }
+
+
     return signal;
 }
 
@@ -228,7 +236,7 @@ double Solver::rho(int i, int j){
     int k = cell_id(i, j, mesh->N+2, mesh->M+2);
 
     if (niche_bool == true){
-        if (first_call == 1){rho_vec = niche(1, 0.05*(mesh->N + mesh->M)/2.); first_call = 0;}
+        if (first_call == 1){rho_vec = niche(1, 0.1*(mesh->N + mesh->M)/2.); first_call = 0;}
     }
 
     else{
@@ -916,7 +924,7 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce pas de temps */
-        // save_animation(n);
+        save_animation(n);
 
         /* Affichage du progres */
         // cout << "  -- iteration " << n+1 << " sur " << step_count << " en cours ..." << endl;

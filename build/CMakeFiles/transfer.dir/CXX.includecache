@@ -239,6 +239,8 @@ cmath
 -
 fstream
 -
+algorithm
+-
 include/solver.hpp
 /mnt/c/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/src/include/solver.hpp
 include/vector_ops.hpp
