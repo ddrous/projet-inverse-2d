@@ -1,0 +1,19 @@
+
+% Appendix B
+
+\chapter{Comment faire des predictions avec ce modele?} % Appendix B title
+
+\label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
+Pour faire des prediction, il suffit de disposer d'un donee ayant une forme bien particuliere decrite a la figure (). Ilf aut en suite charger le modele a l'aide de Keras et la compiler.
+
+\section{Normalisation des donnnees}
+En plus d'avoir la forme .. , les donnes doivent etre normalisee. YToute les energies doivent etres divisees par leur maximum (en valeur absolue). Il en est de meme pour le flux et la temperature.
+
+\section{Chargement du modele}
+Le modele a ete sauvegarde sous sous la convention SavedModel de Tensorflow. Apres l'avoir charger, il faut inclure imperativement inclure la fonction de calculd du sore R2 indiquee ci-desous lors de la compilation. 
+
+La commande est la suivante:
+
+\section{Entrainer le modele en continu}
+Le modele peut etre entrainer en continue. Apres l'avoir charger, on peut l'apprendre a detecter d'autre formes d'obstacles sous differentes conditions. Il suffit de disposer de telles donnees. Pour lapprentissage en continue, la (TRAIN ON BATCH) et peut etre interressante.
+

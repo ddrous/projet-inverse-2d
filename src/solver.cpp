@@ -121,6 +121,8 @@ Solver::Solver(const Mesh *new_mesh, const Config &cfg){
 
     time_steps = vector_1row(step_count);
 
+    save_anim = (cfg.values.at("export_mode") == "dataframe");
+
     /* A exporter */
     E_up = allocate(step_count, mesh->N);
     F_up = allocate(step_count, mesh->N);
@@ -924,7 +926,8 @@ void Solver::solve(){
      */
     while (t <= t_f){
         /* Enregistrement des signaux pour ce pas de temps */
-        save_animation(n);
+        if (save_anim == true)
+            save_animation(n);
 
         /* Affichage du progres */
         // cout << "  -- iteration " << n+1 << " sur " << step_count << " en cours ..." << endl;

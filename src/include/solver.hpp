@@ -41,6 +41,9 @@ class Solver{
         int n_niche;
         double ** attr;
 
+        // Attributs indiquant si on savegarde les signaux sur tout le domaine en tout temps
+        bool save_anim;
+
         // Solution numerique
         std::vector<double> E;              // Solution numerique du problme: E(t, x)
         std::vector<std::vector<double>> F;              // Solution numerique du problme: F(t, x)

@@ -27,3 +27,4 @@ F_r_y neumann
 T_r neumann
 
 export_file data/part1.sds
+export_mode binary

@@ -1,36 +1,34 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.7)  7 AUG 2020 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.7)  9 AUG 2020 18:15
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**rapport.tex
-(./rapport.tex
+**./rapport.tex
+(rapport.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-07-17> (./MastersDoctoralThesis.cls
+L3 programming layer <2020-07-17> (MastersDoctoralThesis.cls
 Document Class: MastersDoctoralThesis 2017/08/27 v1.6 LaTeXTemplates.com
-(c:/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+("D:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count168
 )
-(c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-(c:/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+("D:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty"
+("D:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty"
 Package: expl3 2020-07-17 L3 programming layer (loader) 
 
-(c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+("D:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count169
 \l__pdf_internal_box=\box45
 ))
 Package: xparse 2020-05-15 L3 Experimental document command parser
 
-(c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex
+("D:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse-generic.tex"
 \l__xparse_current_arg_int=\count170
 \g__xparse_grabber_int=\count171
 \l__xparse_m_args_int=\count172
 \l__xparse_v_nesting_int=\count173
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/base/book.cls
+("D:\Program Files\MiKTeX\tex/latex/base\book.cls"
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
-(c:/texlive/2020/texmf-dist/tex/latex/base/bk11.clo
+("D:\Program Files\MiKTeX\tex/latex/base\bk11.clo"
 File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count174
@@ -46,112 +44,170 @@ File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 )
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrbase.sty
+("D:\Program Files\MiKTeX\tex/latex/base\inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+)
+("D:\Program Files\MiKTeX\tex/latex/base\fontenc.sty"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)
+("D:\Program Files\MiKTeX\tex/generic/babel\babel.sty"
+Package: babel 2020/07/13 3.47 The Babel package
+
+("D:\Program Files\MiKTeX\tex/generic/babel\babel.def"
+File: babel.def 2020/07/13 3.47 Babel common definitions
+\babel@savecnt=\count183
+\U@D=\dimen135
+\l@babelnohyphens=\language84
+
+("D:\Program Files\MiKTeX\tex/generic/babel\txtbabel.def")
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count184
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("D:\Program Files\MiKTeX\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("D:\Program Files\MiKTeX\tex/generic/babel-french\french.ldf"
+Language: french 2020/07/02 v3.5j French support from the babel system
+Package babel Info: \l@acadian = using hyphenrules for french
+(babel)             (\language24) on input line 91.
+Package babel Info: \l@canadien = using hyphenrules for french
+(babel)             (\language24) on input line 92.
+\FB@nonchar=\count185
+Package babel Info: Making : an active character on input line 428.
+Package babel Info: Making ; an active character on input line 429.
+Package babel Info: Making ! an active character on input line 430.
+Package babel Info: Making ? an active character on input line 431.
+\FBguill@level=\count186
+\FBold@everypar=\toks17
+\FB@Mht=\dimen136
+\mc@charclass=\count187
+\mc@charfam=\count188
+\mc@charslot=\count189
+\std@mcc=\count190
+\dec@mcc=\count191
+\c@FBcaption@count=\count192
+\listindentFB=\dimen137
+\descindentFB=\dimen138
+\labelindentFB=\dimen139
+\labelwidthFB=\dimen140
+\leftmarginFB=\dimen141
+\parindentFFN=\dimen142
+\FBfnindent=\dimen143
+))
+("D:\Program Files\MiKTeX\tex/latex/carlisle\scalefnt.sty")
+("D:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrbase.sty"
 Package: scrbase 2020/07/22 v3.31 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks15
-)
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrlfile.sty
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrlfile.sty"
 Package: scrlfile 2020/07/22 v3.31 KOMA-Script package (loading files)
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrhack.sty
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrhack.sty"
 Package: scrhack 2020/07/22 v3.31 KOMA-Script package (hacking other packages)
 
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrkbase.sty
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrkbase.sty"
 Package: scrkbase 2020/07/22 v3.31 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/xpatch/xpatch.sty
+("D:\Program Files\MiKTeX\tex/latex/xpatch\xpatch.sty"
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
+("D:\Program Files\MiKTeX\tex/latex/setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-Package scrhack Info: loading setspace hack on input line 195.
+Package scrhack Info: loading setspace hack on input line 196.
 
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/setspace.hak
+("D:\Program Files\MiKTeX\tex/latex/koma-script\setspace.hak"
 File: setspace.hak 2020/07/22 v3.31 KOMA-Script scrhack part (hacking package s
 etspace)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/tools/longtable.sty
+("D:\Program Files\MiKTeX\tex/latex/tools\longtable.sty"
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip49
 \LTright=\skip50
 \LTpre=\skip51
 \LTpost=\skip52
-\LTchunksize=\count183
-\LTcapwidth=\dimen135
+\LTchunksize=\count193
+\LTcapwidth=\dimen144
 \LT@head=\box46
 \LT@firsthead=\box47
 \LT@foot=\box48
 \LT@lastfoot=\box49
-\LT@cols=\count184
-\LT@rows=\count185
-\c@LT@tables=\count186
-\c@LT@chunks=\count187
-\LT@p@ftn=\toks16
+\LT@cols=\count194
+\LT@rows=\count195
+\c@LT@tables=\count196
+\c@LT@chunks=\count197
+\LT@p@ftn=\toks19
 )
-(c:/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx.sty
+("D:\Program Files\MiKTeX\tex/latex/siunitx\siunitx.sty"
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
 
-(c:/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+("D:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+("D:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen136
+\@emptytoks=\toks20
+\ex@=\dimen145
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+("D:\Program Files\MiKTeX\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen137
+\col@sep=\dimen146
 \ar@mcellbox=\box50
-\extrarowheight=\dimen138
-\NC@list=\toks18
+\extrarowheight=\dimen147
+\NC@list=\toks21
 \extratabsurround=\skip53
 \backup@length=\skip54
 \ar@cellbox=\box51
 )
-(c:/texlive/2020/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+("D:\Program Files\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty"
 Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box52
-\l__siunitx_tmp_dim=\dimen139
-\l__siunitx_tmp_int=\count188
-\l__siunitx_number_mantissa_length_int=\count189
-\l__siunitx_number_uncert_length_int=\count190
-\l__siunitx_round_int=\count191
-\l__siunitx_process_decimal_int=\count192
-\l__siunitx_process_uncertainty_int=\count193
-\l__siunitx_process_fixed_int=\count194
-\l__siunitx_process_integer_min_int=\count195
-\l__siunitx_process_precision_int=\count196
-\l__siunitx_group_min_int=\count197
+\l__siunitx_tmp_dim=\dimen148
+\l__siunitx_tmp_int=\count198
+\l__siunitx_number_mantissa_length_int=\count199
+\l__siunitx_number_uncert_length_int=\count266
+\l__siunitx_round_int=\count267
+\l__siunitx_process_decimal_int=\count268
+\l__siunitx_process_uncertainty_int=\count269
+\l__siunitx_process_fixed_int=\count270
+\l__siunitx_process_integer_min_int=\count271
+\l__siunitx_process_precision_int=\count272
+\l__siunitx_group_min_int=\count273
 \l__siunitx_angle_marker_box=\box53
 \l__siunitx_angle_unit_box=\box54
-\l__siunitx_angle_marker_dim=\dimen140
-\l__siunitx_angle_unit_dim=\dimen141
-\l__siunitx_unit_int=\count198
-\l__siunitx_unit_denominator_int=\count199
-\l__siunitx_unit_numerator_int=\count266
-\l__siunitx_unit_prefix_int=\count267
-\l__siunitx_unit_prefix_base_int=\count268
-\l__siunitx_unit_prefix_gram_int=\count269
-\l__siunitx_number_product_int=\count270
+\l__siunitx_angle_marker_dim=\dimen149
+\l__siunitx_angle_unit_dim=\dimen150
+\l__siunitx_unit_int=\count274
+\l__siunitx_unit_denominator_int=\count275
+\l__siunitx_unit_numerator_int=\count276
+\l__siunitx_unit_prefix_int=\count277
+\l__siunitx_unit_prefix_base_int=\count278
+\l__siunitx_unit_prefix_gram_int=\count279
+\l__siunitx_number_product_int=\count280
 \c__siunitx_one_fill_skip=\skip55
 \l__siunitx_table_unit_align_skip=\skip56
-\l__siunitx_table_exponent_dim=\dimen142
-\l__siunitx_table_integer_dim=\dimen143
-\l__siunitx_table_mantissa_dim=\dimen144
-\l__siunitx_table_marker_dim=\dimen145
-\l__siunitx_table_result_dim=\dimen146
-\l__siunitx_table_uncert_dim=\dimen147
-\l__siunitx_table_fill_pre_dim=\dimen148
-\l__siunitx_table_fill_post_dim=\dimen149
-\l__siunitx_table_fill_mid_dim=\dimen150
+\l__siunitx_table_exponent_dim=\dimen151
+\l__siunitx_table_integer_dim=\dimen152
+\l__siunitx_table_mantissa_dim=\dimen153
+\l__siunitx_table_marker_dim=\dimen154
+\l__siunitx_table_result_dim=\dimen155
+\l__siunitx_table_uncert_dim=\dimen156
+\l__siunitx_table_fill_pre_dim=\dimen157
+\l__siunitx_table_fill_post_dim=\dimen158
+\l__siunitx_table_fill_mid_dim=\dimen159
 \l__siunitx_table_pre_box=\box55
 \l__siunitx_table_post_box=\box56
 \l__siunitx_table_mantissa_box=\box57
@@ -159,75 +215,75 @@ Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_number_align_skip=\skip57
 \l__siunitx_table_text_align_skip=\skip58
 
-(c:/texlive/2020/texmf-dist/tex/latex/translator/translator.sty
-Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
+("D:\Program Files\MiKTeX\tex/latex/translator\translator.sty"
+Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+("D:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty"
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+("D:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty"
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+("D:\Program Files\MiKTeX\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+("D:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+("D:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen151
-\Gin@req@width=\dimen152
+\Gin@req@height=\dimen160
+\Gin@req@width=\dimen161
 )
-(c:/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
+("D:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty"
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen153
-\lightrulewidth=\dimen154
-\cmidrulewidth=\dimen155
-\belowrulesep=\dimen156
-\belowbottomsep=\dimen157
-\aboverulesep=\dimen158
-\abovetopsep=\dimen159
-\cmidrulesep=\dimen160
-\cmidrulekern=\dimen161
-\defaultaddspace=\dimen162
-\@cmidla=\count271
-\@cmidlb=\count272
-\@aboverulesep=\dimen163
-\@belowrulesep=\dimen164
-\@thisruleclass=\count273
-\@lastruleclass=\count274
-\@thisrulewidth=\dimen165
+\heavyrulewidth=\dimen162
+\lightrulewidth=\dimen163
+\cmidrulewidth=\dimen164
+\belowrulesep=\dimen165
+\belowbottomsep=\dimen166
+\aboverulesep=\dimen167
+\abovetopsep=\dimen168
+\cmidrulesep=\dimen169
+\cmidrulekern=\dimen170
+\defaultaddspace=\dimen171
+\@cmidla=\count281
+\@cmidlb=\count282
+\@aboverulesep=\dimen172
+\@belowrulesep=\dimen173
+\@thisruleclass=\count283
+\@lastruleclass=\count284
+\@thisrulewidth=\dimen174
 )
-(c:/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
+("D:\Program Files\MiKTeX\tex/latex/caption\caption.sty"
 Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 
-(c:/texlive/2020/texmf-dist/tex/latex/caption/caption3.sty
+("D:\Program Files\MiKTeX\tex/latex/caption\caption3.sty"
 Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen166
-\captionmargin@=\dimen167
-\captionwidth=\dimen168
-\caption@tempdima=\dimen169
-\caption@indent=\dimen170
-\caption@parindent=\dimen171
-\caption@hangindent=\dimen172
+\captionmargin=\dimen175
+\captionmargin@=\dimen176
+\captionwidth=\dimen177
+\caption@tempdima=\dimen178
+\caption@indent=\dimen179
+\caption@parindent=\dimen180
+\caption@hangindent=\dimen181
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count275
-\c@continuedfloat=\count276
+\c@caption@flags=\count285
+\c@continuedfloat=\count286
 Package caption Info: longtable package is loaded.
 
-(c:/texlive/2020/texmf-dist/tex/latex/caption/ltcaption.sty
+("D:\Program Files\MiKTeX\tex/latex/caption\ltcaption.sty"
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+("D:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty"
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-(c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+("D:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg"
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -241,33 +297,34 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+("D:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty"
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(c:/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+("D:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty"
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(c:/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+("D:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty"
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count277
-\Gm@cntv=\count278
-\c@Gm@tempcnt=\count279
-\Gm@bindingoffset=\dimen173
-\Gm@wd@mp=\dimen174
-\Gm@odd@mp=\dimen175
-\Gm@even@mp=\dimen176
-\Gm@layoutwidth=\dimen177
-\Gm@layoutheight=\dimen178
-\Gm@layouthoffset=\dimen179
-\Gm@layoutvoffset=\dimen180
-\Gm@dimlist=\toks19
-)
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrlayer-scrpage.sty
+\Gm@cnth=\count287
+\Gm@cntv=\count288
+\c@Gm@tempcnt=\count289
+\Gm@bindingoffset=\dimen182
+\Gm@wd@mp=\dimen183
+\Gm@odd@mp=\dimen184
+\Gm@even@mp=\dimen185
+\Gm@layoutwidth=\dimen186
+\Gm@layoutheight=\dimen187
+\Gm@layouthoffset=\dimen188
+\Gm@layoutvoffset=\dimen189
+\Gm@dimlist=\toks22
+
+("D:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg"))
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrlayer-scrpage.sty"
 Package: scrlayer-scrpage 2020/07/22 v3.31 KOMA-Script package (end user interf
 ace for scrlayer)
 
-(c:/texlive/2020/texmf-dist/tex/latex/koma-script/scrlayer.sty
+("D:\Program Files\MiKTeX\tex/latex/koma-script\scrlayer.sty"
 Package: scrlayer 2020/07/22 v3.31 KOMA-Script package (defining layers and pag
 e styles)
 \footheight=\skip59
@@ -286,95 +343,44 @@ Package scrlayer-scrpage Info: auto-selection of `pagestyleset=standard'.
 1: chapter
 1: chapter
 1: section
-) (c:/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
-)
-(c:/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-)
-(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2020/07/13 3.47 The Babel package
-
-(c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2020/07/13 3.47 Babel common definitions
-\babel@savecnt=\count280
-\U@D=\dimen181
-\l@babelnohyphens=\language86
-
-(c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read2
-)
-\bbl@dirlevel=\count281
-
-(c:/texlive/2020/texmf-dist/tex/generic/babel-french/french.ldf
-Language: french 2020/07/02 v3.5j French support from the babel system
-Package babel Info: \l@acadian = using hyphenrules for french
-(babel)             (\language28) on input line 91.
-Package babel Info: \l@canadien = using hyphenrules for french
-(babel)             (\language28) on input line 92.
-\FB@nonchar=\count282
-Package babel Info: Making : an active character on input line 428.
-Package babel Info: Making ; an active character on input line 429.
-Package babel Info: Making ! an active character on input line 430.
-Package babel Info: Making ? an active character on input line 431.
-\FBguill@level=\count283
-\FBold@everypar=\toks22
-\FB@Mht=\dimen182
-\mc@charclass=\count284
-\mc@charfam=\count285
-\mc@charslot=\count286
-\std@mcc=\count287
-\dec@mcc=\count288
-\c@FBcaption@count=\count289
-\listindentFB=\dimen183
-\descindentFB=\dimen184
-\labelindentFB=\dimen185
-\labelwidthFB=\dimen186
-\leftmarginFB=\dimen187
-\parindentFFN=\dimen188
-\FBfnindent=\dimen189
-))
-(c:/texlive/2020/texmf-dist/tex/latex/carlisle/scalefnt.sty)
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/mathpazo.sty
+) ("D:\Program Files\MiKTeX\tex/latex/psnfss\mathpazo.sty"
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
 )
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.sty
+("D:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.sty"
 Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
 
-(c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+("D:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty"
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+("D:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty"
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+("D:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+("D:\Program Files\MiKTeX\tex/latex/kvoptions\kvoptions.sty"
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 
-(c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+("D:\Program Files\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty"
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/logreq/logreq.sty
+("D:\Program Files\MiKTeX\tex/latex/logreq\logreq.sty"
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count290
 
-(c:/texlive/2020/texmf-dist/tex/latex/logreq/logreq.def
+("D:\Program Files\MiKTeX\tex/latex/logreq\logreq.def"
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+("D:\Program Files\MiKTeX\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
+("D:\Program Files\MiKTeX\tex/latex/url\url.sty"
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -429,14 +435,14 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip67
 \blx@bcfin=\read3
 \blx@bcfout=\write3
-\blx@langwohyphens=\language87
+\blx@langwohyphens=\language85
 \c@mincomprange=\count332
 \c@maxcomprange=\count333
 \c@mincompwidth=\count334
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-dm.def
+("D:\Program Files\MiKTeX\tex/latex/biblatex\blx-dm.def"
 File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
@@ -528,13 +534,13 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-compat.def
+("D:\Program Files\MiKTeX\tex/latex/biblatex\blx-compat.def"
 File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load BibTeX backend compatibility...
 Package biblatex Info: ... file 'blx-bibtex.def' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+("D:\Program Files\MiKTeX\tex/latex/biblatex\blx-bibtex.def"
 File: blx-bibtex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 
 
@@ -544,7 +550,7 @@ Package biblatex Warning: Using fall-back BibTeX(8) backend:
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
- (c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.def
+ ("D:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.def"
 File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 \c@textcitecount=\count403
 \c@textcitetotal=\count404
@@ -563,7 +569,7 @@ File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-natbib.def
+("D:\Program Files\MiKTeX\tex/latex/biblatex\blx-natbib.def"
 File: blx-natbib.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
  overwriting.
@@ -571,12 +577,12 @@ Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+("D:\Program Files\MiKTeX\tex/latex/biblatex/bbx\authoryear.bbx"
 File: authoryear.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+("D:\Program Files\MiKTeX\tex/latex/biblatex/bbx\standard.bbx"
 File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count412
 \c@bbx:relatedtotal=\count413
@@ -584,7 +590,7 @@ File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+("D:\Program Files\MiKTeX\tex/latex/biblatex/cbx\authoryear.cbx"
 File: authoryear.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
@@ -597,10 +603,10 @@ Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
 
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.cfg
+("D:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.cfg"
 File: biblatex.cfg 
 ))
-(c:/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.sty
+("D:\Program Files\MiKTeX\tex/latex/csquotes\csquotes.sty"
 Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
 \csq@reset=\count414
 \csq@gtype=\count415
@@ -610,48 +616,48 @@ Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
 \csq@tshold=\count419
 \csq@ltx@everypar=\toks23
 
-(c:/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.def
+("D:\Program Files\MiKTeX\tex/latex/csquotes\csquotes.def"
 File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 
-(c:/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.cfg
+("D:\Program Files\MiKTeX\tex/latex/csquotes\csquotes.cfg"
 File: csquotes.cfg 
 )
 Package csquotes Info: Enabling multilingual quotes.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+("D:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty"
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
-(c:/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+("D:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty"
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+("D:\Program Files\MiKTeX\tex/generic/pdfescape\pdfescape.sty"
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+("D:\Program Files\MiKTeX\tex/latex/hycolor\hycolor.sty"
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+("D:\Program Files\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty"
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+("D:\Program Files\MiKTeX\tex/latex/auxhook\auxhook.sty"
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen190
 \Hy@linkcounter=\count420
 \Hy@pagecounter=\count421
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+("D:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-(c:/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+("D:\Program Files\MiKTeX\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+("D:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count422
@@ -666,10 +672,10 @@ Package hyperref Info: Bookmarks ON on input line 4717.
 LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen191
 
-(c:/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+("D:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty"
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
-(c:/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+("D:\Program Files\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty"
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
@@ -686,7 +692,7 @@ Package hyperref Info: PDF/A mode OFF on input line 6377.
 LaTeX Info: Redefining \ref on input line 6417.
 LaTeX Info: Redefining \pageref on input line 6421.
 
-(c:/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+("D:\Program Files\MiKTeX\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 \Hy@abspage=\count425
@@ -695,22 +701,22 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 98.
+(scrhack)             need that hack, on input line 93.
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+("D:\Program Files\MiKTeX\tex/latex/hyperref\hpdftex.def"
 File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 
-(c:/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
+("D:\Program Files\MiKTeX\tex/latex/atveryend\atveryend.sty"
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
 \Fld@listcount=\count428
 \c@bookmark@seq@number=\count429
 
-(c:/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+("D:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
-(c:/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+("D:\Program Files\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty"
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -718,61 +724,62 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip82
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 98.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 98.
-Package hyperref Info: Option `colorlinks' set `true' on input line 98.
-Package hyperref Info: Option `unicode' set `true' on input line 98.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 93.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 93.
+Package hyperref Info: Option `colorlinks' set `true' on input line 93.
+Package hyperref Info: Option `unicode' set `true' on input line 93.
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
+("D:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def"
 File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 98.
+Package hyperref Info: Option `breaklinks' set `true' on input line 93.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (./rapport.aux
-(./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux)
-(./Chapters/Chapter4.aux) (./Chapters/Chapter5.aux) (./Chapters/Chapter6.aux)
-(./Chapters/Chapter7.aux) (./Appendices/AppendixA.aux))
+ (rapport.aux
+(Chapters/Chapter1.aux) (Chapters/Chapter2.aux) (Chapters/Chapter3.aux)
+(Chapters/Chapter4.aux) (Chapters/Chapter5.aux) (Chapters/Chapter6.aux)
+(Appendices/AppendixA.aux))
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 98
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 93
 .
-
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/t1ppl.fd
+ ("D:\Program Files\MiKTeX\tex/latex/psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-(c:/texlive/2020/texmf-dist/tex/latex/translator/translator-basic-dictionary-En
-glish.dict
+LaTeX Info: Redefining \degres on input line 93.
+LaTeX Info: Redefining \dots on input line 93.
+LaTeX Info: Redefining \up on input line 93.
+
+("D:\Program Files\MiKTeX\tex/latex/translator\translator-basic-dictionary-Engl
+ish.dict"
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(c:/texlive/2020/texmf-dist/tex/latex/translator/translator-basic-dictionary-Fr
-ench.dict
+("D:\Program Files\MiKTeX\tex/latex/translator\translator-basic-dictionary-Fren
+ch.dict"
 Dictionary: translator-basic-dictionary, Language: French 
-)
-(c:/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+) ("D:\Program Files\MiKTeX\tex/latex/siunitx\siunitx-abbreviations.cfg"
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
-)
-(c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+) ("D:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count430
 \scratchdimen=\dimen194
@@ -785,15 +792,11 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 \MPnumerator=\count434
 \makeMPintoPDFobject=\count435
 \everyMPtoPDFconversion=\toks25
-) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) ("D:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-
-(c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
+)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -834,26 +837,11 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 98.
-LaTeX Info: Redefining \degres on input line 98.
-
-Package french.ldf Warning: Figures' and tables' captions might look like
-(french.ldf)                `Figure 1:' in French instead of `Figure 1 :'.
-(french.ldf)                If you have loaded any of the packages caption,
-(french.ldf)                subcaption or floatrow BEFORE babel/french,
-(french.ldf)                please move them AFTER babel/french.
-(french.ldf)                If one of them is loaded by your class,
-(french.ldf)                you can still add AFTER babel/french
-(french.ldf)                \usepackage[labelsep=period]{caption} or
-(french.ldf)                \usepackage[labelsep=endash]{caption} or
-(french.ldf)                ... live with it; reported on input line 98.
-
-LaTeX Info: Redefining \dots on input line 98.
-LaTeX Info: Redefining \up on input line 98.
+(scrlayer)             \begin{document} on input line 93.
 \big@size=\dimen196
 Package biblatex Info: Trying to load language 'french'...
 Package biblatex Info: ... file 'french.lbx' found.
-(c:/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/french.lbx
+("D:\Program Files\MiKTeX\tex/latex/biblatex/lbx\french.lbx"
 File: french.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -866,59 +854,57 @@ Package biblatex Info: Data encoding 'utf8' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'rapport.bbl' found.
- (./rapport.bbl)
-Package biblatex Info: Reference section=0 on input line 98.
-Package biblatex Info: Reference segment=0 on input line 98.
+ (rapport.bbl)
+Package biblatex Info: Reference section=0 on input line 93.
+Package biblatex Info: Reference segment=0 on input line 93.
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 98.
+Package hyperref Info: Link coloring ON on input line 93.
 
-(c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+("D:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
-(c:/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+("D:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty"
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-(c:/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+("D:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count436
 )
-LaTeX Info: Redefining \ref on input line 98.
-LaTeX Info: Redefining \pageref on input line 98.
-LaTeX Info: Redefining \nameref on input line 98.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 
-(./rapport.out) (./rapport.out)
+(rapport.out) (rapport.out)
 \@outlinefile=\write4
 \openout4 = `rapport.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 9
-8.
-
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+3.
+ ("D:\Program Files\MiKTeX\tex/latex/psnfss\ot1ppl.fd"
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-98.
-
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omlzplm.fd
+93.
+ ("D:\Program Files\MiKTeX\tex/latex/psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-98.
+93.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omszplm.fd
+("D:\Program Files\MiKTeX\tex/latex/psnfss\omszplm.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-98.
+93.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/omxzplm.fd
+("D:\Program Files\MiKTeX\tex/latex/psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-98.
+93.
 
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+("D:\Program Files\MiKTeX\tex/latex/psnfss\ot1zplm.fd"
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 1: section
@@ -926,8 +912,8 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./rapport.toc)
+{C:/Users/Roussel/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+(rapport.toc)
 \tf@toc=\write5
 \openout5 = `rapport.toc'.
 
@@ -947,7 +933,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 1: section
 \openout2 = `Chapters/Chapter1.aux'.
 
-(./Chapters/Chapter1.tex
+(Chapters/Chapter1.tex
 Chapitre 1.
 )
 1: section
@@ -958,7 +944,7 @@ Chapitre 1.
 ]
 \openout2 = `Chapters/Chapter2.aux'.
 
- (./Chapters/Chapter2.tex
+ (Chapters/Chapter2.tex
 Chapitre 2.
 )
 1: section
@@ -969,7 +955,7 @@ Chapitre 2.
 ]
 \openout2 = `Chapters/Chapter3.aux'.
 
- (./Chapters/Chapter3.tex
+ (Chapters/Chapter3.tex
 Chapitre 3.
 )
 1: section
@@ -980,7 +966,7 @@ Chapitre 3.
 ]
 \openout2 = `Chapters/Chapter4.aux'.
 
- (./Chapters/Chapter4.tex
+ (Chapters/Chapter4.tex
 Chapitre 4.
 )
 1: section
@@ -991,7 +977,7 @@ Chapitre 4.
 ]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex
+ (Chapters/Chapter5.tex
 Chapitre 5.
 )
 1: section
@@ -1002,7 +988,7 @@ Chapitre 5.
 ]
 \openout2 = `Chapters/Chapter6.aux'.
 
- (./Chapters/Chapter6.tex
+ (Chapters/Chapter6.tex
 Chapitre 6.
 )
 1: section
@@ -1011,10 +997,10 @@ Chapitre 6.
 
 
 ]
-\openout2 = `Chapters/Chapter7.aux'.
+\openout2 = `Appendices/AppendixA.aux'.
 
- (./Chapters/Chapter7.tex
-Chapitre 7.
+ (Appendices/AppendixA.tex
+Annexe A.
 )
 1: section
 [7
@@ -1022,51 +1008,38 @@ Chapitre 7.
 
 
 ]
-\openout2 = `Appendices/AppendixA.aux'.
 
- (./Appendices/AppendixA.tex
-Annexe A.
-)
-1: section
-[8
+LaTeX Warning: Empty bibliography on input line 296.
 
-
-
-]
-
-LaTeX Warning: Empty bibliography on input line 302.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 306.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 306.
-(./rapport.aux (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux)
-(./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Chapters/Chapter5.aux)
-(./Chapters/Chapter6.aux) (./Chapters/Chapter7.aux) (./Appendices/AppendixA.aux
-))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 306.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 306.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
+(rapport.aux (Chapters/Chapter1.aux) (Chapters/Chapter2.aux)
+(Chapters/Chapter3.aux) (Chapters/Chapter4.aux) (Chapters/Chapter5.aux)
+(Chapters/Chapter6.aux) (Appendices/AppendixA.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 5EEB71E49F24C40206142DEC6B14370D;5403.
+(rerunfilecheck)             Checksum: E0C6E03A4B2118A1A5AE33EA5B780F22;4438.
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27422 strings out of 480906
- 560845 string characters out of 5912174
- 1041881 words of memory out of 5000000
- 42592 multiletter control sequences out of 15000+600000
- 579021 words of font info for 102 fonts, out of 8000000 for 9000
+ 27387 strings out of 481187
+ 562103 string characters out of 2914554
+ 1037232 words of memory out of 3000000
+ 42559 multiletter control sequences out of 15000+200000
+ 580627 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,19n,69p,796b,1796s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fo
-nts/type1/public/mathpazo/fplmri.pfb><c:/texlive/2020/texmf-dist/fonts/type1/ur
-w/palatino/uplb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr
-8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on rapport.pdf (12 pages, 79320 bytes).
+ 53i,19n,69p,798b,1797s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<D:/Program Files/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX/fonts/type1
+/public/mathpazo/fplmri.pfb><D:/Program Files/MiKTeX/fonts/type1/urw/palatino/u
+plb8a.pfb><D:/Program Files/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><D:/Prog
+ram Files/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on rapport.pdf (11 pages, 102816 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 255 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

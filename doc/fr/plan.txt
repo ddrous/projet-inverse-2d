@@ -22,12 +22,6 @@ PLAN de reapport
    - le secteur
    - les membres l'equipe MOCO
 
-- 1D
-   - (continuation du projet)
-   - formulation du schema
-   - implementation (c++, format de sauvegarde, ..)
-   - resultats
-
 - 2D
    - formulation du schema
    - implementation (c++, format de sauvegarde, ..)
@@ -68,3 +62,7 @@ LES CHOSES A FAIRE
 - erreurs de comprehension (mail en retard)
 
 (HUGE OR SMALL BATCH SIZE: This can have the effect of faster learning, but also adds instability to the learning process as the weights widely vary with each batch.)
+On utilise la RMSE il n'y a pas d'outlier dans notre jeu de donnees. La rmse est plus elevee que la mae quand il y a bcp les ouliers.
+
+Avoid saying deep nn because in the 90s, 2 layers was enough, nowadays, 12 is even small.. (p.286)
+rendre le modele performant sur les des dimensions quelquonques

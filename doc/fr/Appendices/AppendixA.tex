@@ -7,13 +7,30 @@
 
 \section{Execution du code 1D/2D}
 
-Pour compiler le code de resolution de l'EDP, on a deux options:
-
+Les codes de calculs 1D et 2D se trouvent dans deux repositoy different:
 \begin{itemize}
- \item Utiliser Cmake
- \item Utiliser Docker
+ \item 1D: LIEN
+ \item 2D: LIEN
 \end{itemize}
 
-\section{Sauvegarde des resulats}
 
-\section{Execution des notebook et apprentissage}
+Pour compiler le code dans les deux cas, il faut passer par CMake soit directemetn, soit par par un conteneur Docker:
+\begin{verbatim}
+rm -rf build
+cmake -H. -Bbuild
+cmake --build build
+\end{verbatim}
+
+\section{Lecture du format binaire}
+Les donnes peuvent etre sauvegardees au format binaires a l'aide du parametre \verb|export_type binary|. Lorsque c'est la cas, il faut se servir de la fonction ci-dessous en Python pour la lire.
+
+(FONCTION BINARY)
+
+\section{Execution des notebook}
+Deux categories de notebooks ont ete crees dans le repository. Les deux premiers sont executables directement apres clonage du repository. Il s'agit de:
+\begin{itemize}
+ \item Visualisation: Il permet de visualiser les resultats d'une simualtion exportee en CSV dans le fichier \verb|data/df_simu.csv|
+ \item Sauvegarde: Il permet de tranformer des donnes du foramt CSV au format binaire PARQUET rapidement lisible par Pandas.
+\end{itemize}
+
+Les autres notebook sont executables sur Google Colab. Il ne sont executables que si ont dispose des donnes d;entrainentment, de test et de train. Il faut alternativement telecharger le modele deja entraine. Du a leur tailles condiderable, ces donnes ne sont pas diposbles sur le repository et doivent etre telechargee separement sur (LIEN POUR ), 

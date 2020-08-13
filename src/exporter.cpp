@@ -153,7 +153,7 @@ void Exporter::write_binary(std::string file_name, std::string mode, std::string
     else if (mode == "truncate")
         file.open(file_name, ios_base::trunc | ios_base::binary);
     else
-        throw string ("ERREUR: Mode d'ouverture de fichier '" + mode + "' non reconnu");
+        throw string ("ERREUR: Mode d'ouverture de fichier '" + mode + "' non reconnu. Modes possibles: 'append' ou 'truncate'");
 
     if(!file)
         throw string ("ERREUR: Erreur d'ouverture du fichier '" + file_name + "'");

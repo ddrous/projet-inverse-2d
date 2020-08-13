@@ -45,8 +45,13 @@ int main(int argc, char * argv[]){
         /* Exportation */
         Exporter ex = Exporter(&s);
         cout << "\nExportation des resultats en cours ..." << endl;
-        ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
-        // ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
+        if (cfg.values["export_mode"] == "dataframe")
+            ex.write_dataframe(cfg.values["export_file"], cfg.values["write_mode"]);
+        else if (cfg.values["export_mode"] == "binary")
+            ex.write_binary(cfg.values["export_file"], cfg.values["write_mode"], cfg.values["simu_count"]);
+        else
+            throw string ("ERREUR: Mode d'export '"+cfg.values["export_mode"]+"' inconnu. Valeurs possibles: 'datafrane' ou 'binary'");
+        
         cout << "  -- Signaux exportés dans le fichier '" << cfg.values["export_file"] << "'"  << endl;
         cout << "Export OK !" << endl;
 

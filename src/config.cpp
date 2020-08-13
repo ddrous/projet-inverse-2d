@@ -59,6 +59,7 @@ Config::Config(string file_path){
     values["T_r"] = "";
 
     values["export_file"] = "";
+    values["export_mode"] = "";
     values["write_mode"] = "";
     values["simu_count"] = "";
 
