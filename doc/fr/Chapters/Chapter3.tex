@@ -71,6 +71,8 @@ Nous retournons donc sur le maillage disretise en definisant les different flux 
   \caption{Interaction entre deux mailles j et k}
   \label{fig:Interaction2D}
 \end{subfigure}
+% \centering
+\decoRule
 \caption{Dicretisation du maillage 2D. Sur la figure (A), on peut observer les mailles dites "fantomes" hachurees en rouge. Les quatre maille voisine d'une maille j sont indiquees en vert. Le volume de la maille j est definie par $\Omega_j$. Le nombre de mailles suivant l'rizontale $M$ est choisi telle que le maillage soir uniforme i.e $\Delta x = \frac{x_{max}-x_{min}}{N} = \frac{y_{max}-y_{min}}{M} = \Delta y$. Sur la figure (B), on observe la defintion de la normale sortante $n_{jk}$ de la mailles j. On peut aussi observer la longeur caracteristique $l_{jk}$}
 \label{fig:2DMesh}
 \end{figure}
@@ -87,13 +89,15 @@ L'executable se nomme \verb|transfer| et est disponible avec le reste du code su
 
 \subsection{Configuration du modele}
 
-L'executable necessite un fichier de Configuration pour s'excuter. Les parametres a definir sont indiques ci-dessous.
+L'executable necessite un fichier de Configuration pour s'excuter (.CFG, .TXT, etc.). Les parametres a definir sont indiques ci-dessous. Les details supplementaires sont donnes en annexe \ref{AppendixA}. La meniere dont un fichier de configuration pourrait est indiquee a la figure \ref{fig:SimuCFG}.
 
-(RAPPELLER L'ASPECT D'UN FICHIER CONFIG)
-
-Un exemple de fichier de configuration pourrait se predenter comme ceci:
-
-(IMAGE DF SIMU)
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\linewidth]{SimuCFG} 
+\decoRule
+\caption[SimuCFG]{Exemple d'un fichier de configuration au format texte. Ici ne sont representes que les 38 parametres obligatoires pour faire tourner une simualtion et l'exporter. Le resultat produit par ce fichier est presente aux figures \ref{fig:SimuCIR} et \ref{fig:EvolCIR}}
+\label{fig:SimuCFG}
+\end{figure}
 
 
 \subsection{Sauvegarde des données}
@@ -112,16 +116,51 @@ Comme mentione ci-haut, on dispose de deux options pour sauvegarder les resultat
 
 Queslques resultats obtenus sont presentes ici. Les images ci-bas sont obtenus avec le fichier de configuration (IMAGE DF SIMU). La source est une onde sinusoidale placee en $E$ sur la gauche. La densitee en particulier a la forme d'un signal en crenau egale a 0.1 en dehors du crenau et a 10 en dehors. Les opacites d'absorbes sont proportionelles a la densite.
 
-(ENERGIE ET FLUX OBSTACLE CIRCULAIRE - au temps final)
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\linewidth]{SimuCIR} 
+\decoRule
+\caption[SimuCIR]{Visualisation de l'energie et de l'intesite du flux des photons au temps final pour un domaine avec une densite en forme de crenau circulaire ((vu du haut)). Cette figure correspond aux resultat obtenus avec la simulation \ref{fig:SimuCFG}}
+\label{fig:SimuCIR}
+\end{figure}
 
-On peut observer une asorption presque totale du signal au niveau du crenau du a la forte valeur des opacite d'absorption et d'emission. En ce sens, le saut de densite agit comme un obstacle a la propagation du signal. l'evolution de l'energie et du flux sur les bords du domaine traduit l'effet qu'a la densite sur la propagation du signal. Sur les images, la cause du probleme direct (la densite) est affichee au centre des figures, et les effets sont presentes aux alentours.
+La figures \ref{fig:SimuCIR} permet d'observer une asorption presque totale du signal au niveau du crenau du a la forte valeur des opacite d'absorption et de dispersion. En ce sens, le saut de densite agit comme un obstacle a la propagation du signal. l'evolution de l'energie sur les bords  du domaine (figure \ref{fig:EvolCIR} ) traduit l'effet qu'a la densite sur la propagation du signal.
 
-(EVOLUTION SUR LES BORDS)
+\begin{figure}[H]
+\centering
+\includegraphics[width=.6\linewidth]{EvolCIR} 
+\decoRule
+\caption[EvolCIR]{Evolution de l'energie sur les bord. La cause du probleme diret (la densite) est illutree au milieu de l'image, et les effets (E) sont presntes aux alentours. Les indices x, y, et t representent repectivement l'abcisse, l'ordonne et le tempps. Les autres figures associees a ce cas sont \ref{fig:SimuCFG} et \ref{fig:SimuCIR}.  }
+\label{fig:EvolCIR}
+\end{figure}
 
-Nous testons ensuite notre modele sur le cas tres particulier de la limite de diffusion, un attout important du schema de splitting que nous avons implemente. Dans ce cas, les opacites en dehors de l'obstacle sont de l'ordre de $c$. Le bord gauche est continuement chauffe et l'obstacle est un crenau ayany la forme d;un rectangle vu du haut. (On se sert des lignes de niveau pour observer les variations du signal avec plus de precisions)
+Nous testons ensuite notre modele sur le cas tres particulier de la limite de diffusion (figures \ref{fig:SimuCFG2}, \ref{fig:SimuREC} et \ref{fig:EvolREC}) , un attout important du schema de splitting que nous avons implemente. Le bord gauche est continuement chauffe($E_{left} = a*(T_{left}^4)+10$). La densite est un signal en forme de crenau rectangulaire (vu du haut) valant 10. En debohrs de ce crenau, la densite vaut 0.1. Theoriquement, la limite de diffusion s'observe pour$\frac{c}{\sigma_c} = 1$ (voir EQUATION ...), mais en pratique cela pose des peoblemdes de visualisation avec les coefficients que nous avons choisi. On prend donc $\sigma_a = \sigma_c = 100 \times \rho$ ce qui donne environ $\frac{c}{\sigma_c} = 30$ en dehors de l'obstacle.
 
-(ENERGIE ET FLUX OBSTACLE RECTANGULAIRE - LIMITE DE DIFFUSION)
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.6\linewidth]{SimuCFG2} 
+\decoRule
+\caption[SimuCFG2]{Configurations utilisees pour illustrer la limite de diffusion. L'option necessaire pour obtenir un obstacle en forme de rectangule n'est pas inserable dans le fichier de configuration, cela se fait directement dans le code de calcul.}
+\label{fig:SimuCFG2}
+\end{figure}
 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.8\linewidth]{SimuREC} 
+\decoRule
+\caption[SimuREC]{Visualisation de la temperature et de l'intesite du flux des photons au temps final pour la limite de diffusion. La densite a une forme de crenau rectangulaire (vu du haut).}
+\label{fig:SimuREC}
+\end{figure}
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.8\linewidth]{EvolREC} 
+\decoRule
+\caption[EvolREC]{Evolution de la temperature sur les bord illustrant l'effet de diffusion. Tout comme a la figure \ref{fig:SimuREC}, l'expression des opacites pour ces simulation est $\sigma_a = \sigma_c = 100 \times \rho$ afin d'obtenir un maximum de diffusion au en dehors de l'obstacle et une absorption totale sur l'obstacle.}
+\label{fig:EvolREC}
+\end{figure}
 (EVOLUTION SUR LES BORDS)
 
 On confirme effectiment l'effet de diffusion du signal dans le domaine. Nous pouvons a present passer au probleme inverse proprement dit. 

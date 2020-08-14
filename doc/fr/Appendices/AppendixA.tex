@@ -9,7 +9,7 @@
 
 Les codes de calculs 1D et 2D se trouvent dans deux repositoy different:
 \begin{itemize}
- \item 1D: LIEN
+ \item 1D: LIEN (Developpe pendant le projet mais utilise pour l'appentissage durant ce stage)
  \item 2D: LIEN
 \end{itemize}
 
@@ -20,6 +20,10 @@ rm -rf build
 cmake -H. -Bbuild
 cmake --build build
 \end{verbatim}
+
+Ensuite il faut lancer l'executable avec un fichier de configuration (COMMANDE). La defintion des paramtres 1D et 2D sont definis sur leurs reposities respectifs. Nous rappelons ceux pour la 2D ci-dessous.
+
+(RAPPELLER L'ASPECT D'UN FICHIER CONFIG 2D)
 
 \section{Lecture du format binaire}
 Les donnes peuvent etre sauvegardees au format binaires a l'aide du parametre \verb|export_type binary|. Lorsque c'est la cas, il faut se servir de la fonction ci-dessous en Python pour la lire.
