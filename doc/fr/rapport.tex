@@ -51,11 +51,15 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 \usepackage{subcaption} %% Use to make subgraphics
 \usepackage{float} %% Use this to control where the images are placed compared to thier related text
 
+\usepackage{amsmath,bm,mathtools} %% Use this to include the "align" environment in witch equations can be made easier
+\usepackage{physics} %% To have physical terms like the divergence operator
+\newcommand{\bvec}[1]{\mathbf{#1}}  %% Use this for make you vectors look bolded
+
 \usepackage[backend=bibtex,style=authoryear,maxnames=2,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{bibliographie.bib} % The filename of the bibliography
 
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography 
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -170,7 +174,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
 %
-% \begin{declaration}
+% \begin{declaration}  
 % \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
 % \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
 %
@@ -236,38 +240,38 @@ Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \text
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
-
+% \begin{abbreviations}{11} % Include a list of abbreviations (a table of two columns)
+% 
 % \addchaptertocentry{\abbreviations} % Add the abbreviations to the table of contents
-\textbf{ETR} & \textbf{E}quation (du) \textbf{T}ransfert \textbf{R}adiatif\\
-\textbf{ETL} & \textbf{E}quilibre \textbf{T}hermique \textbf{L}ocal\\
-\textbf{UFR} & \textbf{U}nite de\textbf{F}ormation et de \textbf{R}echerche de l'Universite de Strasbourg
-
-\end{abbreviations}
+% \textbf{ETR} & \textbf{E}quation (du) \textbf{T}ransfert \textbf{R}adiatif\\
+% \textbf{ETL} & \textbf{E}quilibre \textbf{T}hermique \textbf{L}ocal\\
+% \textbf{UFR} & \textbf{U}nite de\textbf{F}ormation et de \textbf{R}echerche de l'Universite de Strasbourg
+% 
+% \end{abbreviations}
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
 %----------------------------------------------------------------------------------------
 
 % \begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
-%
+% 
 % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
-%
+% 
 % Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
 % Constant Name & $Symbol$ & $Constant Value$ with units\\
-%
+
 % \end{constants}
 
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
 
-\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+\begin{symbols}{rcc} % Include a list of Symbols (a three column table)
 
 $\rho$ & densite du milieu & \si{\kg\per\meter\cubed} \\
 $\sigma_a$ & opacite d'absorption & \si{\per\meter} \\
 $\sigma_c$ & opacite de diffusion (de scattering) & \si{\per\meter} \\
-%Symbol & Name & Unit \\
+% Symbol & Name & Unit \\
 
 \addlinespace % Gap to separate the Roman symbols from the Greek
 

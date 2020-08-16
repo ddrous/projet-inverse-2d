@@ -12,9 +12,9 @@ Les ressources utilisee durant le stage varient en nature et en fonction.
 
 \subsection{Ecriture du Code}
 \begin{itemize}
- \item VSCode: Pour l'edition du (principalemtn C++) grace a ses fonction 
- \item Google Colab: Facilitation de l'apprentissage sous Keras grace a ses GPU.
- \item Jupyter: Pour les taches en Python ne necessitant pas trop de resource (visualisation, sauvegarde en format PQT)
+ \item VSCode: Pour l'edition du (principalemtn C++) grace a ses fonction. L'extension majeure ici est CMake.
+ \item Google Colab: Facilitation de l'apprentissage sous Keras grace a ses GPU. Les libraries majeures ici sont Numpy, pandans, et Keras.
+ \item Jupyter: Pour les taches en Python ne necessitant pas trop de resource (visualisation, sauvegarde en format PQT). Les librairies majeures utilisees ici sont Numpy, Pandas et Matplotlib.
  \item Kile: Pour l'ecritude du rapport en Latex
  \item Draw.io: Pour les illustrations 
 \end{itemize}
@@ -70,12 +70,16 @@ Les communications se sont effectuees principalemtn par messagerie electronique.
 \section{Difficultés rencontrées et solutions apportées}
 
 \subsection{Apparition d'un crenau sur E}
-Au totu debut du stage, un crenau se formait puis se propageait sur l'energie E. Grace a mes encadrant, ce probleme a ete resolu par rajout d'un terme au niveau de la deuxieme equation du schema de splitting.
+Au totu debut du stage, un crenau se formait puis se propageait sur l'energie E, le flux F et la temperature T. Grace a mes encadrant, ce probleme a ete resolu par rajout d'un terme au niveau de la deuxieme equation du schema de splitting.
 
 \subsection{Detection de la position du crenau}
 La detection de la position du saut de densite a ete un probleme majeure durant le stage. A la fin stage, aucune solution (si elle existe) n'a ete trouvee pour le probleme inverse en 1D. 
 Cependant en 2D le probleme a ete resolu essentiellment par augmentation du nombre d'epoques et dimunution du taux d'appretissagee a 1e-5. Il est bien connu que les problemes de machine peuvent diverger si le taux d'apprentissage est trop eleve. Quand au nombre d'eqpoques, je n'en faisait pas suffisament pour voir le modele converger. Une solution bien plus rapide aurait ete d'automatiser la recherche des hyper-parametres, chose que je n'ai apprise qu'a la fin du stage.
 
+\subsection{Gestion du temps}
+La gestion du temps durant le stage n'a aps ete facile. Au moment d'imimpplementer le schema en 2D (ce qui n'etait pas initialement prevu), j'ai longement hesiter sur l'option la plus rapide. J'ai pu compter sur les conseils de M. Navoret pour surmonter cet obstacle. 
+
+Aussi, je me suis rendu compte des delais bien en retard, j'ai du me debrouiller pour ameliorer les resultat et terminer l'apprentissage. Cela dit, je n'ai pas reussi a faire une partie essentielle qui consiste a verfier comment un modele un modele avec MaxPooling se generalise mieux qu'un modele sans.
 
 %----------------------------------------------------------------------------------------
 
