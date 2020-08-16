@@ -66,3 +66,8 @@ On utilise la RMSE il n'y a pas d'outlier dans notre jeu de donnees. La rmse est
 
 Avoid saying deep nn because in the 90s, 2 layers was enough, nowadays, 12 is even small.. (p.286)
 rendre le modele performant sur les des dimensions quelquonques
+
+
+REduire le nombre de parametres du modele!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Peut-etre qu'il faut separer la 1D avant de continuer:;;;;;;;;;;
+Pas de normalisation 1D
