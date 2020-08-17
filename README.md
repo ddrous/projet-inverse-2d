@@ -44,7 +44,7 @@ Cette dernière étape peut être facilitée par l'utilisation des extensions __
 
 
 ## __2ème partie: Apprentissage__   
-- Régression: `src/notebook/regression_1d.ipynb` [(version Colab)](https://colab.research.google.com/drive/1kyPV7in4heCWPRQZh4iYFJSlx2lMZqmp?usp=sharing)  
+- Régression: `src/notebook/regression_1d.ipynb` [(version Colab)](https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing)  
 - Classification: `src/notebook/classification.ipynb` [(version Colab)](https://colab.research.google.com/drive/1acJNt3krkJ0rK-RZHzDmxEcn6zAlAv92?usp=sharing)  
 - Lecture du format CSV: `src/notebook/sauvegarde_2d.ipynb` [(version Jupyter)](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/sauvegarde_2d.ipynb)
 - Lecture du format SDS: `src/notebook/format_binaire.ipynb` [(version Colab)](https://colab.research.google.com/drive/1pbuw_aORnOMEFs824BE2jOz4rCTevC3K?usp=sharing).  
