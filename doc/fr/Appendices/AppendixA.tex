@@ -7,28 +7,26 @@
 
 \section{Execution du code 1D/2D}
 
-Les codes de calculs 1D et 2D se trouvent dans deux repositoy different:
+Les codes de calculs 1D (developpe durant le projet et utilise pour l'appentissage durant ce stage) et 2D se trouvent dans deux repositoy different:
 \begin{itemize}
- \item 1D: LIEN (Developpe pendant le projet mais utilise pour l'appentissage durant ce stage)
- \item 2D: LIEN
+ \item 1D: \url{https://github.com/desmond-rn/projet-inverse} 
+ \item 2D: \url{https://github.com/desmond-rn/projet-inverse-2d}
 \end{itemize}
 
 
-Pour compiler le code dans les deux cas, il faut passer par CMake soit directemetn, soit par par un conteneur Docker:
-\begin{verbatim}
-rm -rf build
-cmake -H. -Bbuild
-cmake --build build
-\end{verbatim}
-
-Ensuite il faut lancer l'executable avec un fichier de configuration (COMMANDE). La defintion des paramtres 1D et 2D sont definis sur leurs reposities respectifs. Nous rappelons ceux pour la 2D ci-dessous.
-
-(RAPPELLER L'ASPECT D'UN FICHIER CONFIG 2D)
+Pour compiler le code dans les deux cas, il faut idelamenet passer par DOcker. Cependant le compilation peut marcher si on passe par CMake directement.
+% \begin{verbatim}
+% rm -rf build
+% cmake -H. -Bbuild
+% cmake --build build
+% \end{verbatim}
+Ensuite il faut lancer l'executable \verb|transfer| avec un fichier de configuration. Les details ainsi que la defintion des parametres 1D/2D du fichier de configuration sont definis dans les fichiers \verb|README.md| des repositories 1D et 2D repectifs.
 
 \section{Lecture du format binaire}
-Les donnes peuvent etre sauvegardees au format binaires a l'aide du parametre \verb|export_type binary|. Lorsque c'est la cas, il faut se servir de la fonction ci-dessous en Python pour la lire.
+Pour passer d'une simulation (C++) a sa visualisation ou a l'apprentissage (Python), les donnees peuvent etre sauvegardees au format binaires a l'aide du parametre \verb|export_type binary|. Lorsque c'est la cas, il faut se servir de la fonction \verb|read_sds_version01| (disponible dans le notebook principal de \href{https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing}{Regression3.ipynb}) pour les lire.
 
-(FONCTION BINARY)
+Les donnees train, val et test que nous avons utilises sont ete resauvegardees sous le format binaire de Numpy. Ceci permet de faciliter la reproduction de l'apprentissage.
+
 
 \section{Execution des notebook}
 Deux categories de notebooks ont ete crees dans le repository. Les deux premiers sont executables directement apres clonage du repository. Il s'agit de:
@@ -37,4 +35,4 @@ Deux categories de notebooks ont ete crees dans le repository. Les deux premiers
  \item Sauvegarde: Il permet de tranformer des donnes du foramt CSV au format binaire PARQUET rapidement lisible par Pandas.
 \end{itemize}
 
-Les autres notebook sont executables sur Google Colab. Il ne sont executables que si ont dispose des donnes d;entrainentment, de test et de train. Il faut alternativement telecharger le modele deja entraine. Du a leur tailles condiderable, ces donnes ne sont pas diposbles sur le repository et doivent etre telechargee separement sur (LIEN POUR ), 
+Les autres notebook sont executables sur Google Colab. Il ne sont executables que si ont dispose des donnes d;entrainentment, de test et de train. Il faut alternativement telecharger le modele deja entraine. Du a leur tailles condiderable, ces donnes (ainsi que les notebooks pour l'apprentissage) ne sont pas pas disponible sur les repository et doivent etre telechargee separement sur \href{https://drive.google.com/drive/folders/1beYPm0n-GfyhcmAOO13HLm6GAQncAbTB?usp=sharing}{Google Drive}, 

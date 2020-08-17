@@ -4,16 +4,24 @@
 \chapter{Comment faire des predictions avec ce modele?} % Appendix B title
 
 \label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
-Pour faire des prediction, il suffit de disposer d'un donee ayant une forme bien particuliere decrite a la figure (). Ilf aut en suite charger le modele a l'aide de Keras et la compiler.
+Pour faire des prediction, il suffit de disposer d'un jeu de donnees ayant la forme bien particuliere decrite a la figure \ref{fig:Entrees1D} ou \ref{fig:Entrees2D}. Ilf aut en suite charger le modele a l'aide de Keras et la compiler.
 
 \section{Normalisation des donnnees}
-En plus d'avoir la forme .. , les donnes doivent etre normalisee. YToute les energies doivent etres divisees par leur maximum (en valeur absolue). Il en est de meme pour le flux et la temperature.
+En plus d'avoir la forme appropriee, les donnes doivent etre normalisee (en 2D uniquement). i.e toute les energies doivent etres divisees par leur maximum (en valeur absolue). Il en est de meme pour le flux et la temperature.
 
 \section{Chargement du modele}
-Le modele a ete sauvegarde sous sous la convention SavedModel de Tensorflow. Apres l'avoir charger, il faut inclure imperativement inclure la fonction de calculd du sore R2 indiquee ci-desous lors de la compilation. 
+Le modele a ete sauvegarde sous sous la convention HDF5 de Keras. Apres l'avoir charger, il faut le compiler avec l'optimiseur Adam (et le taux d'apprentissage \verb|1e-4| ou \verb|1e-5|). Pour que la compilation fonctionne, il faut imperativement inclure la fonction de calcul du sore R2 indiquee ci-desous.
 
-La commande est la suivante:
+\begin{verbatim}
+from keras import backend as K
+
+ def r2_score(y_true, y_pred):
+    SS_res =  K.sum(K.square(y_true - y_pred), axis=-1) 
+    SS_tot = K.sum(K.square(y_true - K.mean(y_true)), axis=-1)
+    return 1.0 - SS_res/(SS_tot + K.epsilon())
+\end{verbatim}
+
 
 \section{Entrainer le modele en continu}
-Le modele peut etre entrainer en continue. Apres l'avoir charger, on peut l'apprendre a detecter d'autre formes d'obstacles sous differentes conditions. Il suffit de disposer de telles donnees. Pour lapprentissage en continue, la (TRAIN ON BATCH) et peut etre interressante.
+Le modele peut etre entrainer en continue. Apres l'avoir charger, on peut l'apprendre a detecter d'autre formes d'obstacles sous differentes conditions. Il suffit deja de disposer de telles donnees. Pour lapprentissage en continue, On pourra utiliser la fonction \verb|train_on_batch| de Keras.
 

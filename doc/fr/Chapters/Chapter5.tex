@@ -26,6 +26,7 @@ Les communications se sont effectuees principalemtn par messagerie electronique.
 %----------------------------------------------------------------------------------------
 
 \section{Journal de bord}
+\label{sec:Journal}
 
 \subsection{Semaine 1 et 2}
 \begin{itemize}
@@ -58,16 +59,27 @@ Les communications se sont effectuees principalemtn par messagerie electronique.
  \item 25 juillet: ajustemetn de la gamme de couleurs pour les visualisations et passage a la generation des donnes sur 90x90 mailles.
 \end{itemize}
 
-\subsection{Semaine 7 et 8}
+\subsection{Semaine 7, 8, et 9}
 \begin{itemize}
  \item 5 aout: Rencontre avec M. Franck a la fac. Proposition de solutions pour la non dectection de la position du crenau en 2D par resolution d'un systeme proche de l'eq de la chaleur, apres affichage par ligne de niveau. La possibilite d'adopter un obstacle s'etendant sur toute la verticale est envidagee. Prise de connaissance des delains pour la redaction du rapport.
  \item 6 aout: Redaction et envoi du plan du rapport de stage. 
  \item 7 sout: Proposition de reduction drasque de resolution spatiale par M. Vigonm, et proposition de nouvelles idees par M. Vigon, entre autre la consideration d'un obstacle considerableme plus opaque.
  \item 8 sout: Nouvel apprentissage avec des simplification majeures qui fonctionnne. Melioration des resultats et continuation du rapport.
+ \item 15 aout: Soumission du premier brouillon du rapport
 \end{itemize}
 %----------------------------------------------------------------------------------------
 
 \section{Difficultés rencontrées et solutions apportées}
+
+Un resume du deroulement du stage est presente a la figure \ref{fig:MilestonesRoadmap}. Les points tounant les plus marquants du stage y sont representes. On peut aussi y voire les diffultes majeures auquelles j'ai ete confronte.
+
+\begin{figure}[H] 
+\centering
+\includegraphics[width=.8\linewidth]{MilestonesRoadmap} 
+\decoRule
+\caption[MilestonesRoadmap]{Resumes des etapes marquantes du stage. Les details du deroulement peuvent etre obtenues dans la section \ref{sec:Journal}.}
+\label{fig:MilestonesRoadmap}
+\end{figure}
 
 \subsection{Apparition d'un crenau sur E}
 Au totu debut du stage, un crenau se formait puis se propageait sur l'energie E, le flux F et la temperature T. Grace a mes encadrant, ce probleme a ete resolu par rajout d'un terme au niveau de la deuxieme equation du schema de splitting.
@@ -75,6 +87,21 @@ Au totu debut du stage, un crenau se formait puis se propageait sur l'energie E,
 \subsection{Detection de la position du crenau}
 La detection de la position du saut de densite a ete un probleme majeure durant le stage. A la fin stage, aucune solution (si elle existe) n'a ete trouvee pour le probleme inverse en 1D. 
 Cependant en 2D le probleme a ete resolu essentiellment par augmentation du nombre d'epoques et dimunution du taux d'appretissagee a 1e-5. Il est bien connu que les problemes de machine peuvent diverger si le taux d'apprentissage est trop eleve. Quand au nombre d'eqpoques, je n'en faisait pas suffisament pour voir le modele converger. Une solution bien plus rapide aurait ete d'automatiser la recherche des hyper-parametres, chose que je n'ai apprise qu'a la fin du stage.
+
+Pour revenir a l'apprentissage en 1D, il est important de mentionner quelques pistes d'etude qui, combinee, auraient pu ameliorer les resultats ():
+\begin{itemize}
+    \item deux apprentissage different: en creant un modele separes pour l'apprentissage de la postion  et de la hauteur
+    \item normalisation des entree: la normalisation a permis une convergence plus rapide en 2D, il serait jusdicieux de l'implementer en 1D aussi.
+    \item elimination des mauvais labels: on pourrait supprimer de l'appretissage tous les examples qui ont un label trop proche du bord du domaine (par exemple compris entre 0.2 et 0.8 comme en 2D).
+\end{itemize}
+
+Cela dit, la solution touvee en 2D est loin d'etre optimale; elle souffre de deux problemes majeures:
+\begin{itemize}
+ \item pas de generalisation: le modele finalement retenu ne comporte pas de couche de maxpooling
+ \item modle trop lourd: le nombre de parametres est tres eleve du a la taille des entree (168, 28, 48) ce qui conduit a un espace memoire tres important au moment de la sauvegarde des poids.
+\end{itemize}
+
+Toutes ces quatres pistes d'amelioration n'ont pas ete implemntee pour cause de temps. La gestion de temps a ete un vrai probleme lors du stage.
 
 \subsection{Gestion du temps}
 La gestion du temps durant le stage n'a aps ete facile. Au moment d'imimpplementer le schema en 2D (ce qui n'etait pas initialement prevu), j'ai longement hesiter sur l'option la plus rapide. J'ai pu compter sur les conseils de M. Navoret pour surmonter cet obstacle. 

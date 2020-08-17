@@ -4,7 +4,7 @@
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
-L'objectif de cette section est de reconstruire la densite en connaissant l'energie E, le flux F,et la temperature sur les bords du domaine aux cours du temps. Dans la suite, nous ferons une simplification majeure: la densite est supposee un signal en creanu (la forme du crenau vu du haut pouvant etre non connue). Aisni, reconstruire la densite revien juste a predire la position et la hauteur du crenau. La valeur de la densite en dehors du crenau sera aussi supposee connue. Nous recherchons une fonction $f^{-1}$ invese de $f$(fonction definisssant le probleme direct) telle que $y = f^{-1}(X)$. OU y represente la densite(plus precisement les attribut de son aut de densite), et X la les signaux sur les bords. Mais le caractere naturellement mal pose des problem inverse rend difficile la determination de $f^{-1}$. On procede donc a une approximation de $f^{-1}$ a l'aide d'un reseau de neurnoes artificiel (ANN) notee $\hat{f}^{-1}$. En notant $\theta$ les parametres de l'ANN, on cherche $\hat{y}$ telle que$$ \hat{y} = \hat{f}^{-1}(X, \theta). $$
+L'objectif de cette section est de reconstruire la densite en connaissant l'energie E, le flux F,et la temperature sur les bords du domaine aux cours du temps. Dans la suite, nous ferons une simplification majeure: la densite est supposee un signal en creanu cylinidrique (ayant la forme d'un cercle vu du haut). Il s'agit donc d'un probleme de regression. Aisni, reconstruire la densite revien juste a predire la position et la hauteur du crenau. La valeur de la densite en dehors du crenau sera aussi supposee connue. Nous recherchons une fonction $f^{-1}$ invese de $f$(fonction definisssant le probleme direct) telle que $y = f^{-1}(X)$. OU y represente la densite(plus precisement les attribut de son aut de densite), et X la les signaux sur les bords. Mais le caractere naturellement mal pose des problem inverse rend difficile la determination de $f^{-1}$. On procede donc a une approximation de $f^{-1}$ a l'aide d'un reseau de neurnoes artificiel (ANN) notee $\hat{f}^{-1}$. En notant $\theta$ les parametres de l'ANN, on cherche $\hat{y}$ telle que$$ \hat{y} = \hat{f}^{-1}(X, \theta). $$
 
 %----------------------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ La forme d'une entree est representee a la figure \ref{fig:Entrees2D}. Des jeux 
 
 Un reseau de neuronnes artificel \footnote{nous y fereons reference dans la suite juste par reseau de neurones} est un systeme computationnel base sur le reseau de neuronnes biologique. L'apprentissage profond\footnote{definition du nombre de couche} permet de resoudre des problemes en Machine Learning\footnote{definition} que les methodes telles que la regression ineaire, etc.. ne peuvent pas. Il reussit cela en introduisant des representations des donnes qui s'exprimes sous forme d'autres representations, plus simples cette fois. Les reseaux profonds en aval\footnote{en oposition a un reseau de neurones recurrent qui reutilisent els resultats des model pour s'ameliorer} (ou MLP) consitituent l'exemples typique en apprentissage profond. Il s'agit juste d'une fonction (composition de differentes fonctions) faisant correspondre une serie d'entree a une serie de sortie $f^{-1} = composition de f1, f2, etc.$.
 
-Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. precedentes) apprenant chacune un aspect particulier des donnnees (voir figure . On distingue une couche d'entree, une ou pleusieurs couches cachees, et une coche de sortie \ref{fig:MLP}).
+Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. precedentes) apprenant chacune un aspect particulier des donnnees (voir figure \ref{fig:MLP}. On distingue une couche d'entree, une ou pleusieurs couches cachees, et une coche de sortie).
 
 
 \begin{figure}[!h]
@@ -90,25 +90,52 @@ Les reseaux de neurones convolutifs sont une forme de MLP spcialises dans le tra
 % \label{fig:DRNN2}
 % \end{figure}
 
-% \newpage
+\newpage
 \begin{figure}[!ht]
    \begin{minipage}{0.6\textwidth}
      \centering
      \includegraphics[width=.2\linewidth]{DRNN1ROT}
      \decoRule
-     \caption[DRNN1]{Premeire architecture (nommee DRNN 1 \footnotemark ). Le nombre de neurones utilises pour chaque couches est indiques entre parentheses. Le nombre de neurnoes de la couche de sortie depend qu'on soit en 1D ou en 2D.}
-     \label{Fig:DRNN1}
+     \caption[DRNN1]{Premeire architecture (nommee DRNN 1 ). Le nombre de neurones utilises pour     
+     chaque couches est indiques entre parentheses. Le nombre de neurnoes de la couche de sortie 
+     depend qu'on soit en 1D ou en 2D.}
+     \label{fig:DRNN1}
    \end{minipage}\hfill
    \begin{minipage}{0.4\textwidth}
      \centering
      \includegraphics[width=.3\linewidth]{DRNN2ROT}
      \decoRule
-     \caption[DRNN2]{Deuxieme architecture utilisee (nommee DRNN 2). Ce modlee ne contient pas de couches de Pooling \footnotemark }
-     \label{Fig:DRNN2}
+     \caption[DRNN2]{Deuxieme architecture utilisee (nommee DRNN 2). Ce modlee ne contient pas de 
+     couches de Pooling \footnotemark }
+     \label{fig:DRNN2}
    \end{minipage}
 \end{figure}
-\footnotetext[6]{Density Reconstruction Neural Network}
-\footnotetext[7]{les details concernant le pooling seront donnes plus tard}
+\footnotetext[6]{Les details concernant l'operation de "pooling" seront donnes a la section \ref{subsec:MaxPoling}}
+
+% \begin{figure}[!ht]
+% \begin{subfigure}{.6\textwidth}
+%   \centering
+%   \includegraphics[width=.2\linewidth]{DRNN1ROT}  
+%   \caption[DRNN1]{CPremeire architecture (nommee DRNN 1 ). Le nombre de neurones utilises pour     
+%      chaque couches est indiques entre parentheses. Le nombre de neurnoes de la couche de sortie 
+%      depend qu'on soit en 1D ou en 2D.}
+%   \label{Fig:DRNN1}
+% \end{subfigure}
+% \begin{subfigure}{.4\textwidth}
+%   \centering
+%   \includegraphics[width=.3\linewidth]{DRNN2ROT}  
+%   \caption[Conv2D]{Deuxieme architecture utilisee (nommee DRNN 2). Ce modlee ne contient pas de 
+%      couches de Pooling \footnote{Les details concernant le pooling seront donnes a la section \ref{subsec:MaxPoling}}}
+%   \label{Fig:DRNN2}
+% \end{subfigure}
+% \label{Fig:DRNN}
+% 
+% \centering
+% \decoRule
+% \caption[DRNN]{Differents modeles de CNN utilises}
+% \end{figure}
+% 
+
 ----------------------------------------------------------------------------------------
 
 \section{Les couches utilisées}
@@ -383,15 +410,70 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     \caption[Loss 1D]{Comparaison de la vitesse de decroissiance de la loss en 1D}
     \end{figure}
 
-    Observons les meilleures predictions du modele ((saans null doute du au hazard)
+    Meme si aucun n'est capable de correctement predire la position du crenau, le modele sans MaxPooling semble mieux se comporter sur ce jeu de donnees particulier. Pour les illustrations qui vont suivre, nous utilisetons donc ce dernier modele. Nous commencons par une illustration de la correlation entre les labels (valeurs observees) et les predictions (figure \ref{fig:Illustration1D}).
     
-    (AFFICHER DES MEILLEURES PREDICTIONS 1D )
+    \begin{figure}[!h]
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Position1D}  
+    \caption[Pos1D]{Position}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{Hauteur1D}  
+    \caption[H1D]{Hauteur}
+    \end{subfigure}
     
-    Ci-dessous sont quelques unes des pires predictions du modele.
-    
-    (AFFICHER LES PIRES PREDICTIONS 1D)
+     \centering
+    \decoRule
+    \caption[Illustration 1D]{Illustration de la correlation entre les labels et les predictions obtenues par le modele sans max-pooling en 1D. On peut observer l'exactitude des predictions pour la hauteur mais un echec sur la position. En effet, les predictions de la postion du crenau sont concentree autour de la moyenne 0.5}
+    \label{fig:Illustration1D}
+    \end{figure}
 
+    Pour observer les meilleures et les pires predictions du modele, ils nous faut une mesure de la distance entre les predictions et les labels. On definit donc la norme ci-bas (en prenant soins de normaliser la hauteur). $$ \text{Norme} = \sqrt{\text{Position}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
+    
+    Observons donc les meilleures predictions du modele (sans Maxpooling) (figure \ref{fig:Meilleur1D}).
+    \begin{figure}[!h]
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Meilleur1D1}  
+    \caption[Meilleur1D1]{Label = [0.488 8.474] et Prediction = [0.49  8.486]}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Meilleur1D2}  
+    \caption[Meilleur1D2]{Label = [0.522 6.032]  et Prediction = [0.527 6.033]}
+    \end{subfigure}
+    
+     \centering
+    \decoRule
+    \caption[Meilleur 1D]{Les meilleures predictions 1D. Il s'agit ici d'une reconstruction manuelle de la densite a partir des vecteurs presentes en (A) et (B). La premiere coordonne indique la position du saut de densite, et la deuxieme sa hauteur. On confirme que les bonnes predictions des positions sont proches du mileieu du domaine}
+    \label{fig:Meilleur1D}
+    \end{figure}
+    
+    Les pires predictions du domaine permettent de mieux illustrer les problemes rencontre avec l'apprentissage 1D (\ref{fig:Pire1D}).
+    
+    \begin{figure}[H]
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Pire1D1}  
+    \caption[Pire1D1]{Label = [0.125 5.886] et Prediction = [0.524 5.925]}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Pire1D2}  
+    \caption[Pire1D2]{Label = [0.892 8.195]  et Prediction = [0.454 8.167]}
+    \end{subfigure}
+
+     \centering
+    \decoRule
+    \caption[Pire1D]{Les pires prediction du modele (sans MaxPooling) 1D. La diference se joue au niveau de la position du crenau comme indiquee a la figure \ref{fig:Illustration1D}. Les predictions les plus eloignees du mileiu sont les plus mauvaises.}
+    \label{fig:Pire1D}
+    \end{figure}
+%     - 3eme pire prediction: label [0.302 1.066]     prediction [0.503 1.144]
+    
     Le score personalise autour de 25\% indique que les prediction de la position se font quasiemnt aleatoirement. Pour remedier a ce probleme, il faut passer en 2D.  En effet, le probleme inverse est naturellement mal defini dans le sens ou plusieurs entree peuent donner la meme sortie. En 1D, on ne peut mesurer la sortie que sur un seul bord du domaine, ce qui limite beacoup notre aaprntissage.
+
     
     \subsubsection{En 2D}
     Comme attendu, le reseau est capable de detecter non seulment la hauteur de l'obstacle, mais aussi son abcisse et son ordonnee. Notre score personnalise nous permet de confirmer cela dans le tableau \ref{tab:Tab2D}.
@@ -423,25 +505,81 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     \includegraphics[width=.8\linewidth]{2DLossNoPool}  
     \caption[2DNoPool]{2D Sans Pooling}
     \end{subfigure}
-    \label{fig:2DLoss}
 
     \centering
     \decoRule
     \caption[Loss en 2D]{Comparaison de la vitesse de decroissiance de la loss en 2D}
+    \label{fig:2DLoss}
     \end{figure}
 
-    Pour observer les pires et meilleures predictions du modle, nous utilison naturelement le modele sans MaxPooling (voir figure).
+    COmme nous l'avons fait en 1D, Le modle sans max-pooling sera ulitlisee par la suite pour . Illustrons la correlation entre les predictions (de l'abcisse x, de l'ordonne y, et de la hauteur) et leurs labels repectifs (figure \ref{fig:Illustration2D}).
+    \begin{figure}[!h]
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{PositionX2D}  
+    \caption[PosX2D]{Abcisse}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{PositionY2D}  
+    \caption[PosY2D]{Ordonee}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=.7\linewidth]{Hauteur2D}  
+    \caption[H2D]{Hauteur}
+    \end{subfigure}
     
-    (AFFICHER LES MEilleure PREDICTIONS 2D)
-    - 1er: label [0.574 0.303 1.24 ]     prediction [0.58  0.302 1.157]
+     \centering
+    \decoRule
+    \caption[Illustration 2D]{Illustration de la correlation entre les labels et les predictions obtenues par le modele sans max-pooling en 2D. On peut observer que toutes les trois informations sont relativement bien correlee, d'ou le score R2 eleve (tableau \ref{tab:Tab2D}).}
+    \label{fig:Illustration2D}
+    \end{figure}
     
-    (AFFICHER LES PIRES PREDICTIONS 2D)
-    - 1er: label [0.2  0.65 0.1 ]     prediction [0.466 0.448 0.267]
-    - 2e: label [0.2   0.2   0.736]     prediction [0.407 0.298 0.494]
-    - 3e: label [0.674 0.358 7.096]     prediction [0.712 0.449 5.462]
+    Pour observer les meilleures et les pires predictions du modele, ils nous faut une mesure de la distance entre les predictions et les labels. On definit donc la norme ci-bas (en prenant soins de normaliser la hauteur). $$ \text{Norme} = \sqrt{\text{Abcisse}^2 + \text{Ordonee}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
     
+    \begin{figure}[!h]
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Meilleur2D1}  
+    \caption[Meilleur2D1]{Label = [0.574 0.303 1.24 ] \\ Prediction = [0.58  0.302 1.157]}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{Meilleur2D2}  
+    \caption[Meilleur2D2]{Label = [0.405 0.724 1.392]  \\  Prediction = [0.409 0.736 1.318]}
+    \end{subfigure}
     
-    En ce qui concerne la generalisation du modle a d'autres formes d'obstacles, je n'ai pas eu le temps de comparer les modeles avec et sans MaxPooling. Le modele sans couches de MaxPooling risque d'etre moins performant conformement a la theorie (voir paragraphe \ref{subsec:MaxPoling}). Sous Keras, le modele a prouver etre capable d'apprendre en continu, du moment que les entrees soient toutes normalisee et ayant la meme forme.
+     \centering
+    \decoRule
+    \caption[Meilleur 2D]{Les meilleures predictions 2D. Ces images ont ete reconstruite a partir des  vecteurs "Labels" et "Prediction" issus de l'apprentissage. La premiere coordonne indique l'abcisse x du saut de densite, la deuxieme son ordonee y, et la troisieme sa hauteur. L'interpolation bicubique a ete utilise pour obtenir des images plus nettes.}
+    \label{fig:Meilleur2D}
+    \end{figure}
+
+    \begin{figure}[H]
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{Pire2D1}  
+    \caption[Pire2D1]{Label = [0.2  0.65 0.1 ] \\ Prediction = [0.466 0.448 0.267]}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{Pire2D2}  
+    \caption[Pire2D2]{Label = [0.2   0.2   0.736]  \\ Prediction = [0.407 0.298 0.494]}
+    \end{subfigure}
+    \begin{subfigure}{.33\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{Pire2D3}  
+    \caption[Pire2D3]{Label = [0.674 0.358 7.096]  \\ Prediction = [0.712 0.449 5.462]}
+    \end{subfigure}
+
+     \centering
+    \decoRule
+    \caption[Pire2D]{Les pires prediction du modele 2D. Sans surprise la plus mauvaise des prediction s'obtient lorsque le crenau est absent (A). On remarque en general que les pires predictions sont faites lorsque le crenaus se situe tres proche de l'extremite (B).}
+    \label{fig:Pire2D}
+    \end{figure}
+    
+    En ce qui concerne la generalisation du modle a d'autres formes d'obstacles, je n'ai pas eu l'ocasion de comparer les modeles avec et sans max-Pooling. Le modele sans MaxPooling risque alors d'etre moins performant conformement a la theorie (voir paragraphe \ref{subsec:MaxPoling}). Sous Keras, le modele a prouver etre capable d'apprendre en continu, du moment que les entrees soient toutes normalisee et ayant la meme forme.
 
 \subsection{Classification}
 Durant le stage, il a fallu effectuer une classification mutilabel sur les donnes en 2D. QUi permet de placer l'obstacle dans une categorie definie a partir de la source. La classification petmet de detecter juste l;ordonne de l'obstacle. La structure des entrees est quasiment la meme que pour la regression, sauf qu'il manque les signaux sur la gauche (ou se trouve la source). En ce qui concerne les sorties, l'image ci-dessous decrit mieux leur structure:
@@ -481,15 +619,23 @@ Score severe apres seillage & 27.27 \% & 95.45 \%\\
 \includegraphics[width=.8\linewidth]{ClassNoPool}  
 \caption[2DNoPool]{2D Sans Pooling}
 \end{subfigure}
-\label{fig:ClassLoss}
 
 \centering
 \decoRule
 \caption[ClassLoss]{Comparaison de la vitesse de decroissiance de la loss (multilabel crossentropy) pour la classification en 2D}
+\label{fig:ClassLoss}
 \end{figure}
 
 
-Dans ce cas aussi, le modele sans Maxpooling seble meilleure. Cependant nous ne disposons pas d'axxez de donnes pour verifier celui qui se generalise mieux. Ceci etant une classifcation,  les meilleures prediction du meilleure modele sont exactement les labels attendus et les pires predictions ne varient que de peu (de 1) de leurs cibles. Il est interressnat de constater qu'il n'y a aucune prediction aberante, par exemple: un obstacle se trouve en face des sources 1 et 3 sans recontrer la source 2.
+\begin{figure}[H] 
+\centering
+\includegraphics[width=.8\linewidth]{ClassFiabilite} 
+\decoRule
+\caption[ClassFiabilite]{Confiance du modele sans max-pooling en ses prediction. En rouge la classe 0 qui indique l'abscence du crenau devant la source; et en vert la classe 1. Cette figure indique que le modle se trompre rarement, ce qui confirme le resultat abtenu a la table \ref{tab:Class}.}
+\label{fig:ClassFiabilite}
+\end{figure}
 
+
+Dans ce cas aussi, le modele sans Maxpooling seble meilleure (figures \ref{fig:ClassLoss} et \ref{fig:ClassFiabilite}). Cependant nous ne disposons pas d'axxez de donnes pour verifier celui qui se generalise mieux. Ceci etant une classifcation,  les meilleures prediction du meilleure modele sont exactement les labels attendus et les pires predictions ne varient que de peu (de 1) de leurs cibles. Il est interressnat de constater qu'il n'y a aucune prediction aberante, par exemple: un obstacle se trouve en face des sources 1 et 3 sans recontrer la source 2.
 
 %----------------------------------------------------------------------------------------
