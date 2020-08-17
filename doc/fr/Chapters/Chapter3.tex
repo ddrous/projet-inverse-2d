@@ -191,9 +191,7 @@ La condition de CFL $\Delta t < \dfrac{\Delta x}{c}$ est necessaite pour assurer
 
 \section{Implementation en C++}
 
-Le dode de calcul a ete develope durant la 4 eme semaine du stage. Etant donne des parametre du probleme, il permet d'exporter les signaux temporels $E, F \text{et} T$ sur les quatres bords du domaine. Pour raisons de visualisation, il permet aussi dd'exporter les signaux sur l'entierete du domaine en tout temps. Ces signaux peuvent ensuite etre visualiser sous forme d'une animation a l'aide d'un notebook construit a cet effet.
-
-L'executable se nomme \verb|transfer| et est disponible avec le reste du code sur le repository Github \href{https://github.com/desmond-rn/projet-inverse-2d}{projet-inverse-2d}.
+Le dode de calcul 2D a ete develope durant la 5 eme semaine du stage. Etant donne des parametre physiques et geometriques du probleme, il permet d'exporter les signaux temporels $E, F \text{et} T$ sur les quatres bords du domaine. Il permet aussi dd'exporter les signaux sur l'entierete du domaine en tout temps. Ces signaux peuvent ensuite etre visualiser sous forme d'une animation a l'aide d'un notebook construit a cet effet. L'executable pour effectuer des simulations se nomme \verb|transfer| et est disponible avec le reste du code sur le repository Github \href{https://github.com/desmond-rn/projet-inverse-2d}{projet-inverse-2d}.
 
 \subsection{Configuration du modele}
 
@@ -238,7 +236,7 @@ La figures \ref{fig:SimuCIR} permet d'observer une asorption presque totale du s
 \centering
 \includegraphics[width=.6\linewidth]{EvolCIR} 
 \decoRule
-\caption[EvolCIR]{Evolution de l'energie sur les bord (vue du haut). La cause du probleme diret (la densite) est illutree au milieu de l'image, et les effets (E) sont presntes aux alentours. Les indices x, y, et t representent repectivement l'abcisse, l'ordonne et le tempps. Les autres figures associees a ce cas sont \ref{fig:SimuCFG} et \ref{fig:SimuCIR}.  }
+\caption[EvolCIR]{Evolution de l'energie sur les bord (vue du haut). La cause du probleme diret (la densite) est illutree au milieu de l'image, et l'un de ses effets (E) est presntes aux alentours. Les indices x, y, et t representent repectivement l'abcisse, l'ordonne et le tempps. Les autres figures associees a ce cas sont \ref{fig:SimuCFG} et \ref{fig:SimuCIR}.  }
 \label{fig:EvolCIR}
 \end{figure}
 
@@ -259,7 +257,7 @@ On confirme effectiment l'effet de diffusion du signal dans le domaine. Nous pou
 \centering
 \includegraphics[width=.7\linewidth]{SimuREC} 
 \decoRule
-\caption[SimuREC]{Visualisation de la temperature et de l'intesite du flux des photons au temps final pour la limite de diffusion. La densite a une forme de crenau rectangulaire comme representee sur l'image du milieu de la figure \ref{fig:EvolREC}.}
+\caption[SimuREC]{Visualisation de la temperature du domaine et de l'intesite du flux des photons au temps final pour la limite de diffusion. La densite a une forme de crenau rectangulaire comme representee sur l'image du milieu de la figure \ref{fig:EvolREC}.}
 \label{fig:SimuREC}
 \end{figure}
 

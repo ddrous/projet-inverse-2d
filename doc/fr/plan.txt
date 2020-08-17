@@ -72,3 +72,8 @@ rendre le modele performant sur les des dimensions quelquonques
 REduire le nombre de parametres du modele!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Peut-etre qu'il faut separer la 1D avant de continuer:;;;;;;;;;;
 Pas de normalisation 1D
+
+
+
+RHO faible -> milieur transparent
+RHO fort -> milieu opaque

@@ -81,8 +81,8 @@ Un resume du deroulement du stage est presente a la figure \ref{fig:MilestonesRo
 \label{fig:MilestonesRoadmap}
 \end{figure}
 
-\subsection{Apparition d'un crenau sur E}
-Au totu debut du stage, un crenau se formait puis se propageait sur l'energie E, le flux F et la temperature T. Grace a mes encadrant, ce probleme a ete resolu par rajout d'un terme au niveau de la deuxieme equation du schema de splitting.
+\subsection{Apparition d'un crenau sur E, F, et T}
+Au commencement du stage, le code de calcul 1D n'etait pas au point. En effet, des qu'on placait un crenau sur la densite, un crenau correpondant se formait puis se propageait sur les signaux E, F, et T. Le probleme a ete resolu par rajout d'un terme au niveau de la deuxieme equation du schema de splitting.
 
 \subsection{Detection de la position du crenau}
 La detection de la position du saut de densite a ete un probleme majeure durant le stage. A la fin stage, aucune solution (si elle existe) n'a ete trouvee pour le probleme inverse en 1D. 
@@ -91,7 +91,6 @@ Cependant en 2D le probleme a ete resolu essentiellment par augmentation du nomb
 Pour revenir a l'apprentissage en 1D, il est important de mentionner quelques pistes d'etude qui, combinee, auraient pu ameliorer les resultats ():
 \begin{itemize}
     \item deux apprentissage different: en creant un modele separes pour l'apprentissage de la postion  et de la hauteur
-    \item normalisation des entree: la normalisation a permis une convergence plus rapide en 2D, il serait jusdicieux de l'implementer en 1D aussi.
     \item elimination des mauvais labels: on pourrait supprimer de l'appretissage tous les examples qui ont un label trop proche du bord du domaine (par exemple compris entre 0.2 et 0.8 comme en 2D).
 \end{itemize}
 

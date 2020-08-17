@@ -4,26 +4,30 @@
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
-L'objectif de cette section est de reconstruire la densite en connaissant l'energie E, le flux F,et la temperature sur les bords du domaine aux cours du temps. Dans la suite, nous ferons une simplification majeure: la densite est supposee un signal en creanu cylinidrique (ayant la forme d'un cercle vu du haut). Il s'agit donc d'un probleme de regression. Aisni, reconstruire la densite revien juste a predire la position et la hauteur du crenau. La valeur de la densite en dehors du crenau sera aussi supposee connue. Nous recherchons une fonction $f^{-1}$ invese de $f$(fonction definisssant le probleme direct) telle que $y = f^{-1}(X)$. OU y represente la densite(plus precisement les attribut de son aut de densite), et X la les signaux sur les bords. Mais le caractere naturellement mal pose des problem inverse rend difficile la determination de $f^{-1}$. On procede donc a une approximation de $f^{-1}$ a l'aide d'un reseau de neurnoes artificiel (ANN) notee $\hat{f}^{-1}$. En notant $\theta$ les parametres de l'ANN, on cherche $\hat{y}$ telle que$$ \hat{y} = \hat{f}^{-1}(X, \theta). $$
+L'objectif de cette section est de reconstruire la densite sur le domaine en connaissant l'energie E, le flux F,et la temperature T sur les bords du domaine aux cours du temps. Il s'agit donc d'un probleme inverse de regression\footnote{Une classification peut tout aussi etre implementee (voir paragraphe \ref{sec:Classif}). Sauf mention du contraire, l'apprentissage mentionee dans ce rapport designera le probleme de regression.}; la densite etant la cause du probleme direct et les signaux temporels l'effet. Nous ferons une simplification majeure: \textbf{la densite est un signal en creanu} \footnote{Un crenau sur la densite sera aussi appele saut de densite, ou pic de densite, ou obstacle sur la densite} (on utilisera un crenau cylinidrique i.e. ayant la forme d'un cercle vu du haut). Aisni, reconstruire la densite revien juste a predire la position et la hauteur du crenau. La valeur de la densite en dehors du crenau sera connue. 
+
+Nous recherchons donc une fonction $f^{-1}$ (invese de la fonction $f$ definisssant le probleme direct) telle que $y = f^{-1}(X)$. OU y represente la densite(plus precisement les attribut de son aut de densite), et X la les signaux sur les bords. Mais le caractere naturellement mal pose des problem inverse rend difficile la determination de $f^{-1}$. On procede donc a une approximation de $f^{-1}$ a l'aide d'un ANN \footnote{reseau de neurnoes artificiel } notee $\hat{f}^{-1}$. En notant $\theta$ les parametres de l'ANN, on cherche $\hat{y}$ telle que $ \hat{y} = \hat{f}^{-1}(X, \theta). $
 
 %----------------------------------------------------------------------------------------
 
 \section{Description des entrees/sorties}
 
 \subsection{En 1D}
-Les entree sont onpossee des signaux etmporels E, F, et T. A chaque fois, il faut normaliser avant de les nourir au reseau de neuronnes. Comme mentione plus hautm nous avons faitr quelques simplifications sur la nature des sorties. Il s'agit uniquement d'un vecteur de scalaires representants l'abcisse et de la hauteur du saut de densite.
-
-De facon visuelle, une entree et une sortie on l'aspect represente a la figure \ref{fig:EntreeSortie1D}.
+Les entree sont onpossee des signaux etmporels E, F, et T. A chaque fois, il faut normaliser avant de les nourir au reseau de neuronnes. Comme mentione plus hautm nous avons faitr quelques simplifications sur la nature des sorties. Il s'agit uniquement d'un vecteur de deux scalaires representants l'abcisse et de la hauteur du saut de densite. De facon visuelle, une entree et une sortie ont l'aspect represente a la figure \ref{fig:EntreeSortie1D}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=.6\linewidth]{EntreeSortie1D} 
 \decoRule
-\caption[EntreeSortie1D]{Visualisation d'une entree (en haut) et d'une sortie (en bas) en 1D. Seul le signal sur la droite est utilise. Les 3 canaux E, F et T sont representes ici.}
+\caption[EntreeSortie1D]{Visualisation d'une entree du l'ANN (en haut) et d'une sortie (en bas) en 1D. Seul le signal sur la droite est utilise. Les 3 canaux E, F et T sont representes ici.}
 \label{fig:EntreeSortie1D}
 \end{figure}
 
-En 1D, les entrees ne sont constituees que du signal recuperer sur le bord droit du domaine. La forme d'une example en presentee a la figure \ref{fig:Entrees1D}.
+En 1D, les entrees ne sont constituees que du signal recuperer sur le bord droit du domaine. La forme d'une example en presentee a la figure \ref{fig:Entrees1D}. Une sortie est un vecteur de taille 2:
+\begin{itemize}
+ \item Position: Il s'agit de l'abscise de l'obstacle choisi de facon a ce que le crenau se situe entierement dans le domaine (position comprise dans l'intervalle $[0.07,0.92]$).
+ \item Hauteur: comprise dans l'intervalle $[1.05, 9.99]$. La valeur de la densite en dehors du crenau est de 1.
+\end{itemize}
 
 \begin{figure}[!h]
 \centering
@@ -34,7 +38,7 @@ En 1D, les entrees ne sont constituees que du signal recuperer sur le bord droit
 \end{figure}
 
 \subsection{En 2D}
-Une entree 2D contient considerableme plus d'informatiosn. Les 3 signaux E, F et T sur les 4 bords y sont inclus. On y inclu aussi un signal correpondant a l'une des quatre positions de la source dans chacun de ces cas. En effet, une entree correspond a 4 simulations effectuees chacune avec la source a une position differente comme on peut le voire a la figure . Comparer a la 1D, il faut rajouter l'ordonnee du saut de densite pour obtenir la densite.
+Une entree 2D contient considerableme plus d'informatiosn. Les 3 signaux E, F et T sur les 4 bords y sont inclus. On y inclu aussi un signal correpondant a l'une des quatre positions de la source dans chacun de ces cas. En effet, une entree correspond a 4 simulations effectuees chacune avec la source a une position differente comme on peut le voire a la figure. Compare a la 1D, il faut rajouter l'ordonnee du saut de densite a la liste des scalaires predits. Une entree et une sortie ont l'aspect represente a la figure \ref{fig:EntreeSortie2D}.
 
 \begin{figure}[!h]
 \centering
@@ -44,24 +48,30 @@ Une entree 2D contient considerableme plus d'informatiosn. Les 3 signaux E, F et
 \label{fig:EntreeSortie2D}
 \end{figure}
 
-
-La forme d'une entree est representee a la figure \ref{fig:Entrees2D}. Des jeux de donnes complets 1D/2D ont ete sauvegardee et les details pour els recuperer et les traiter sont donnes en Anexe \ref{AppendixB}.
+La forme d'une entree est representee a la figure \ref{fig:Entrees2D}. Une sortie est un vecteur de taille 3. Afin d'eviter des cas trop extremes, les valeurs observees (labels) sont choisis de facon appropriees:
+\begin{itemize}
+ \item Abscisse: comprise dans l'intervalle $[0.2,0.8]$ afin de recuperer une reponse (non aberante) sur chacun des 4 bords du domaine.
+ \item Ordonee: comprise dans l'intervalle $[0.2,0.8]$
+ \item Hauteur: comprise dans l'intervalle $[0.1,10]$. La valeurs 0.1 est aussi la veleur de la densite en dehors du crenau (obstacle); elle permet d'eviter l'absorption complete de l'onde sur le domaine.
+\end{itemize}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=.5\linewidth]{Entrees2D} 
 \decoRule
-\caption[Entrees2D]{Forme d'une entree en 2D. Contrairement a la 1D, il faut tenir compte de la dimention spatiale qui correspond au nombre de mailles sur chaque bords du domaine (N=M=28). Le nombre de canaux augmente donc considerablement. On passe a 48 car il faut tenir compte des 3 canaux originaux (E, F, et T), ensuite de chacun de 4 bords du domaine, et enfin des 4 positions de la source.}
+\caption[Entrees2D]{Forme d'une entree en 2D. Contrairement a la 1D, il faut tenir compte de la dimention spatiale qui correspond au nombre de mailles sur chaque bords du domaine (N=M=28). Le nombre de canaux augmente considerablement. On passe a 48 car il faut tenir compte des 3 canaux originaux (E, F, et T), ensuite de chacun de 4 bords du domaine, et enfin des 4 positions de la source.}
 \label{fig:Entrees2D}
 \end{figure}
+
+Des jeux de donnes complets 1D/2D ont ete sauvegardee sur Google Drive; et les details pour les recuperer et les traiter sont donnes en Anexe \ref{AppendixB}.
 
 %----------------------------------------------------------------------------------------
 
 \section{Architecture generale}
 
-Un reseau de neuronnes artificel \footnote{nous y fereons reference dans la suite juste par reseau de neurones} est un systeme computationnel base sur le reseau de neuronnes biologique. L'apprentissage profond\footnote{definition du nombre de couche} permet de resoudre des problemes en Machine Learning\footnote{definition} que les methodes telles que la regression ineaire, etc.. ne peuvent pas. Il reussit cela en introduisant des representations des donnes qui s'exprimes sous forme d'autres representations, plus simples cette fois. Les reseaux profonds en aval\footnote{en oposition a un reseau de neurones recurrent qui reutilisent els resultats des model pour s'ameliorer} (ou MLP) consitituent l'exemples typique en apprentissage profond. Il s'agit juste d'une fonction (composition de differentes fonctions) faisant correspondre une serie d'entree a une serie de sortie $f^{-1} = composition de f1, f2, etc.$.
+Un reseau de neuronnes artificel \footnote{nous y fereons reference dans la suite juste par reseau de neurones} (ANN) est un systeme computationnel base sur le reseau de neuronnes biologique. L'apprentissage profond\footnote{definition du nombre de couche} (DNN) permet de resoudre des problemes en Machine Learning que les methodes telles que la regression ineaire, etc.. ne peuvent pas. Il reussit cela en introduisant des representations des donnes qui s'exprimes sous forme d'autres representations, plus simples cette fois. 
 
-Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. precedentes) apprenant chacune un aspect particulier des donnnees (voir figure \ref{fig:MLP}. On distingue une couche d'entree, une ou pleusieurs couches cachees, et une coche de sortie).
+Les reseaux profonds en aval\footnote{en oposition a un reseau de neurones recurrent qui reutilisent els resultats des model pour s'ameliorer} (ou MLP) consitituent l'exemples typique en apprentissage profond. Il s'agit juste d'une fonction (composition de differentes fonctions) faisant correspondre une serie d'entree a une serie de sortie $f^{-1} = composition de f1, f2, etc.$. Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. precedentes) apprenant chacune un aspect particulier des donnnees (voir figure \ref{fig:MLP}. On distingue une couche d'entree, une ou pleusieurs couches cachees, et une coche de sortie).
 
 
 \begin{figure}[!h]
@@ -72,7 +82,9 @@ Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. p
 \label{fig:MLP}
 \end{figure}
 
-Les reseaux de neurones convolutifs sont une forme de MLP spcialises dans le traitement des donnes qui ont une form de grille. Par exemple des series en temps qui peuvent etres vues comme des grilles 1D (l'axe de temps) prenant des donnes (vecteur de donnees) a interval de temps regulier \parencite{Reference5}. Ils sont donc particulieremt adaptes a la reconstruction de la densite partant des signaux temporels E, F, et T. L'archiytecture de base a ete proposee par M. Vigon. Nous utilisetons deux variantes: DRNN \footnote{Density Reconstruction Neural Network} 1 (figure \ref{fig:DRNN1}) et DRNN 2 (figure \ref{fig:DRNN2}).  Les architectures seront implemntee sous la librarie de machine leanring Keras (avec Tensorflow backend) Les differentes couches presentes seront detailles dans la suite. Nous indiquerons aussi en quoi elles sont importantes pour notre apprentissage.
+Les reseaux de neurones convolutifs (CNN) sont une forme de MLP spcialises dans le traitement des donnes qui ont une form de grille. Par exemple des series en temps qui peuvent etres vues comme des grilles 1D (l'axe de temps) prenant des donnes (vecteur de donnees) a interval de temps regulier \parencite{Reference5}. Ils sont donc particulieremt adaptes a la reconstruction de la densite partant des signaux temporels E, F, et T. 
+
+L'archiytecture CNN de base pour notre apprentissage a ete proposee par M. Vigon. Nous utilisetons deux variantes: DRNN \footnote{Density Reconstruction Neural Network} 1 (figure \ref{fig:DRNN1}) et DRNN 2 (figure \ref{fig:DRNN2}).  Les architectures seront implemntee sous la librarie de machine leanring Keras (avec Tensorflow backend) Les differentes couches presentes seront detailles dans la suite. Nous indiquerons aussi en quoi elles sont importantes pour notre apprentissage.
 
 % \begin{figure}[!h]
 % \centering
@@ -90,8 +102,8 @@ Les reseaux de neurones convolutifs sont une forme de MLP spcialises dans le tra
 % \label{fig:DRNN2}
 % \end{figure}
 
-\newpage
-\begin{figure}[!ht]
+\clearpage
+\begin{figure}[ht!]
    \begin{minipage}{0.6\textwidth}
      \centering
      \includegraphics[width=.2\linewidth]{DRNN1ROT}
@@ -137,7 +149,7 @@ Les reseaux de neurones convolutifs sont une forme de MLP spcialises dans le tra
 % 
 
 ----------------------------------------------------------------------------------------
-
+% \newpage
 \section{Les couches utilisées}
 
 \subsection{Les couches de convolution}
@@ -582,6 +594,7 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     En ce qui concerne la generalisation du modle a d'autres formes d'obstacles, je n'ai pas eu l'ocasion de comparer les modeles avec et sans max-Pooling. Le modele sans MaxPooling risque alors d'etre moins performant conformement a la theorie (voir paragraphe \ref{subsec:MaxPoling}). Sous Keras, le modele a prouver etre capable d'apprendre en continu, du moment que les entrees soient toutes normalisee et ayant la meme forme.
 
 \subsection{Classification}
+\label{sec:Classif}
 Durant le stage, il a fallu effectuer une classification mutilabel sur les donnes en 2D. QUi permet de placer l'obstacle dans une categorie definie a partir de la source. La classification petmet de detecter juste l;ordonne de l'obstacle. La structure des entrees est quasiment la meme que pour la regression, sauf qu'il manque les signaux sur la gauche (ou se trouve la source). En ce qui concerne les sorties, l'image ci-dessous decrit mieux leur structure:
 
 \begin{figure}[!h] 
