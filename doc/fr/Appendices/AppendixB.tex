@@ -1,16 +1,16 @@
 
 % Appendix B
 
-\chapter{Comment faire des predictions avec ce modele?} % Appendix B title
+\chapter{Comment faire des prédictions avec ce modèle ?} % Appendix B title
 
 \label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
-Pour faire des prediction, il suffit de disposer d'un jeu de donnees ayant la forme bien particuliere decrite a la figure \ref{fig:Entrees1D} ou \ref{fig:Entrees2D}. Ilf aut en suite charger le modele a l'aide de Keras et la compiler.
+Pour faire des prédications, il suffit de disposer d'un jeu de données ayant la forme bien particulière décrite à l'une des figures \ref{fig:Entrees1D} ou \ref{fig:Entrees2D}. Il faut ensuite charger le modèle à l'aide de Keras et ensuite compiler.
 
-\section{Normalisation des donnnees}
-En plus d'avoir la forme appropriee, les donnes doivent etre normalisee (en 2D uniquement). i.e toute les energies doivent etres divisees par leur maximum (en valeur absolue). Il en est de meme pour le flux et la temperature.
+\section{Normalisation des données}
+En plus d'avoir la forme appropriée, les données doivent être normalisées i.e toute les énergies doivent êtres divisées par leur maximum (en valeur absolue). Il en est de même pour le flux et la température.
 
-\section{Chargement du modele}
-Le modele a ete sauvegarde sous sous la convention HDF5 de Keras. Apres l'avoir charger, il faut le compiler avec l'optimiseur Adam (et le taux d'apprentissage \verb|1e-4| ou \verb|1e-5|). Pour que la compilation fonctionne, il faut imperativement inclure la fonction de calcul du sore R2 indiquee ci-desous.
+\section{Chargement du modèle}
+Le modèle a été sauvegardé sous la convention HDF5 de Keras. Après l'avoir chargé, il faut le compiler avec l'optimiseur Adam (et un taux d'apprentissage de \verb|1e-4| ou \verb|1e-5| suivant qu'on soit en 1D ou 2D). Pour que la compilation fonctionne, il faut impérativement inclure la fonction de calcul du sore $R^2$ indiquée ci-dessous.
 
 \begin{verbatim}
 from keras import backend as K
@@ -23,5 +23,5 @@ from keras import backend as K
 
 
 \section{Entrainer le modele en continu}
-Le modele peut etre entrainer en continue. Apres l'avoir charger, on peut l'apprendre a detecter d'autre formes d'obstacles sous differentes conditions. Il suffit deja de disposer de telles donnees. Pour lapprentissage en continue, On pourra utiliser la fonction \verb|train_on_batch| de Keras.
+Le modèle peut être entrainé en continu. Après l'avoir chargé, on peut l'apprendre à détecter d'autres formes d'obstacles sous différentes conditions. Il suffit déjà de disposer de telles données. Pour l'apprentissage en continu, on pourra utiliser la fonction \verb|train_on_batch| de Keras.
 

@@ -4,93 +4,93 @@
 
 \label{Chapter4} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
-L'objectif de cette section est de reconstruire la densite sur le domaine en connaissant l'energie E, le flux F,et la temperature T sur les bords du domaine aux cours du temps. Il s'agit donc d'un probleme inverse de regression\footnote{Une classification peut tout aussi etre implementee (voir paragraphe \ref{sec:Classif}). Sauf mention du contraire, l'apprentissage mentionee dans ce rapport designera le probleme de regression.}; la densite etant la cause du probleme direct et les signaux temporels l'effet. Nous ferons une simplification majeure: \textbf{la densite est un signal en creanu} \footnote{Un crenau sur la densite sera aussi appele saut de densite, ou pic de densite, ou obstacle sur la densite} (on utilisera un crenau cylinidrique i.e. ayant la forme d'un cercle vu du haut). Aisni, reconstruire la densite revien juste a predire la position et la hauteur du crenau. La valeur de la densite en dehors du crenau sera connue. 
+L'objectif de cette section est de reconstruire la densité en connaissant l'énergie $E$, le flux $F$, et la température $T$ sur les bords d'un domaine aux cours du temps. Il s'agit donc d'un problème inverse de régression \footnote{Une classification peut tout aussi être implémentée (voir paragraphe \ref{sec:Classif}). Sauf mention du contraire, lorsqu'on parlera d'apprentissage, il s'agira du problème de régression.}; la densité faisant partie de la cause du problème direct et les signaux temporels de l'effet. Nous ferons une simplification de taille : \textbf{la densité est un signal en créneau lissé} \footnote{Un créneau sur la densité sera aussi appelé saut de densité, ou pic de densité, ou obstacle sur la densité} (on utilisera un créneau cylindrique i.e ayant la forme d'un cercle vu du haut). Ainsi, reconstruire la densité revient juste à prédire la position et la hauteur du créneau. La valeur de la densité en dehors du créneau sera connue. 
 
-Nous recherchons donc une fonction $f^{-1}$ (invese de la fonction $f$ definisssant le probleme direct) telle que $y = f^{-1}(X)$. OU y represente la densite(plus precisement les attribut de son aut de densite), et X la les signaux sur les bords. Mais le caractere naturellement mal pose des problem inverse rend difficile la determination de $f^{-1}$. On procede donc a une approximation de $f^{-1}$ a l'aide d'un ANN \footnote{reseau de neurnoes artificiel } notee $\hat{f}^{-1}$. En notant $\theta$ les parametres de l'ANN, on cherche $\hat{y}$ telle que $ \hat{y} = \hat{f}^{-1}(X, \theta). $
+Nous recherchons donc une fonction $f^{-1}$ (inverse de la fonction $f$ définissant le problème direct) telle que $y = f^{-1}(X)$. Où $y$ représente la densité(plus précisément les attributs de son créneau), et $X$ les signaux sur les bords. Mais le caractère naturellement mal posé des problèmes inverses rend difficile la détermination de $f^{-1}$. On procède donc à une approximation de $f^{-1}$ notée $\hat{f}^{-1}$, à l'aide d'un ANN \footnote{Réseau de neurones artificiel}. En notant $\theta$ les paramètres de l'ANN, on cherche $\hat{y}$ telle que $ \hat{y} = \hat{f}^{-1}(X, \theta). $
 
 %----------------------------------------------------------------------------------------
 
-\section{Description des entrees/sorties}
+\section{Description des entrées/sorties}
 
 \subsection{En 1D}
-Les entree sont onpossee des signaux etmporels E, F, et T. A chaque fois, il faut normaliser avant de les nourir au reseau de neuronnes. Comme mentione plus hautm nous avons faitr quelques simplifications sur la nature des sorties. Il s'agit uniquement d'un vecteur de deux scalaires representants l'abcisse et de la hauteur du saut de densite. De facon visuelle, une entree et une sortie ont l'aspect represente a la figure \ref{fig:EntreeSortie1D}.
+L'aspect d'une entrée et d'une sortie 1D est représentée à la figure \ref{fig:entreesortie1D}. Les entrées sont composées des signaux temporels $E$, $F$, et $T$. Suivant chacun de ces canaux, il faut normaliser les entrées avant de les nourrir au réseau de neurones. Vu que le signal provient de la gauche, les entrées ne sont constituées que du signal récupéré sur le bord droit du domaine. La talle d'un exemple est présentée à la figure \ref{fig:entrees1D}. 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.6\linewidth]{EntreeSortie1D} 
+\includegraphics[width=.6\linewidth]{entreesortie1D} 
 \decoRule
-\caption[EntreeSortie1D]{Visualisation d'une entree du l'ANN (en haut) et d'une sortie (en bas) en 1D. Seul le signal sur la droite est utilise. Les 3 canaux E, F et T sont representes ici.}
-\label{fig:EntreeSortie1D}
+\caption[entreesortie1D]{Visualisation d'une entrée de l'ANN (en haut) et d'une sortie (en bas) en 1D. Seul le signal sur la droite du domaine est utilisé. Tout les 3 canaux $E$, $F$ et $T$ sont représentés ici.}
+\label{fig:entreesortie1D}
 \end{figure}
 
-En 1D, les entrees ne sont constituees que du signal recuperer sur le bord droit du domaine. La forme d'une example en presentee a la figure \ref{fig:Entrees1D}. Une sortie est un vecteur de taille 2:
+Comme mentionné plus haut, nous avons fait quelques simplifications sur la nature de la sortie. Il s'agit d'un vecteur de seulement deux scalaires représentant la position et la hauteur du saut de densité :
 \begin{itemize}
- \item Position: Il s'agit de l'abscise de l'obstacle choisi de facon a ce que le crenau se situe entierement dans le domaine (position comprise dans l'intervalle $[0.07,0.92]$).
- \item Hauteur: comprise dans l'intervalle $[1.05, 9.99]$. La valeur de la densite en dehors du crenau est de 1.
+ \item \textbf{Position} : il s'agit de l'abscisse de l'obstacle choisi de façon à ce que le créneau se situe entièrement dans le domaine (position de son centre comprise dans l'intervalle $[0.07,0.92]$).
+ \item \textbf{Hauteur} : comprise dans l'intervalle $[1.05, 9.99]$. La valeur de la densité en dehors du créneau est de 1.
 \end{itemize}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=.4\linewidth]{Entrees1D} 
+\includegraphics[width=.4\linewidth]{entrees1D} 
 \decoRule
-\caption[Entrees1D]{Forme d'une entree en 1D. La dimension spatialle a ete reechantillonne de 907 a 50 iterations. Les 3 canaux designent les signaux E, F et T.}
-\label{fig:Entrees1D}
+\caption[entrees1D]{Taille d'une entrée en 1D. La dimension spatiale a été échantillonnée de 907 à 50 itérations. Les 3 canaux désignent les signaux $E$, $F$ et $T$.}
+\label{fig:entrees1D}
 \end{figure}
 
 \subsection{En 2D}
-Une entree 2D contient considerableme plus d'informatiosn. Les 3 signaux E, F et T sur les 4 bords y sont inclus. On y inclu aussi un signal correpondant a l'une des quatre positions de la source dans chacun de ces cas. En effet, une entree correspond a 4 simulations effectuees chacune avec la source a une position differente comme on peut le voire a la figure. Compare a la 1D, il faut rajouter l'ordonnee du saut de densite a la liste des scalaires predits. Une entree et une sortie ont l'aspect represente a la figure \ref{fig:EntreeSortie2D}.
+Une entrée 2D contient considérablement plus d'information. Les 3 signaux $E$, $F$ et $T$ sur les 4 bords y sont inclus. On y inclut aussi chacun des groupes de signaux correspondants aux 4 positions de la source sur la gauche. En effet, une entrée correspond à 4 simulations effectuées chacune avec la source à une position différente comme on peut le voire à la figure \ref{fig:entreesortie2D}. La taille d'une entrée est donnée à la figure \ref{fig:entrees2D}.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=.95\linewidth]{EntreeSortie2D} 
+\includegraphics[width=.95\linewidth]{entreesortie2D} 
 \decoRule
-\caption[EntreeSortie2D]{Visualisation d'une entree (aux alentours des quatre images) et d'une sortie (aux mileiux) en 2D. On peut voire les postions des 4 sources utilisees a tour de role pour former une seule entree. Ici n'est representee que l'energie (qui constitue 1/3 des canaux) sur les 4 bords. Les images des densites presentee ci-contre ont ete obtenue par interpolation bilineaires d'une image initiale (28x28) moins fine.}
-\label{fig:EntreeSortie2D}
+\caption[entreesortie2D]{Visualisation d'une entrée (aux alentours des quatre images) et d'une sortie (aux milieux) en 2D. On peut voire les postions des 4 sources utilisées à tour de rôle pour former une seule entrée. Ici n'est représentée que l'énergie (qui constitue 1/3 des canaux) sur les 4 bords. Les images des densités ci-contre ont été obtenues par interpolation bilinéaire d'une image initiale très grossière (28×28).}
+\label{fig:entreesortie2D}
 \end{figure}
 
-La forme d'une entree est representee a la figure \ref{fig:Entrees2D}. Une sortie est un vecteur de taille 3. Afin d'eviter des cas trop extremes, les valeurs observees (labels) sont choisis de facon appropriees:
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=.5\linewidth]{entrees2D} 
+  \decoRule
+  \caption[entrees2D]{Taille d'une entrée en 2D. Contrairement à la 1D, il faut tenir compte de la dimension spatiale qui correspond au nombre de mailles sur chaque bord du domaine rectangulaire ($N=M=28$). Le nombre de canaux passe à 48 car il faut dejà tenir compte des 3 canaux originaux ($E$, $F$, et $T$), ensuite de chacun de 4 bords du domaine, et enfin des 4 positions de la source.}
+  \label{fig:entrees2D}
+\end{figure}
+
+Compare à la 1D, il faut rajouter l'ordonnée du saut de densité à la liste des scalaires prédits. Une sortie est un vecteur de taille 3. Afin d'éviter des cas trop extrêmes, les valeurs observées (ou labels pour l'apprentissage) sont convenablement choisies au moment de la génération des données :
 \begin{itemize}
- \item Abscisse: comprise dans l'intervalle $[0.2,0.8]$ afin de recuperer une reponse (non aberante) sur chacun des 4 bords du domaine.
- \item Ordonee: comprise dans l'intervalle $[0.2,0.8]$
- \item Hauteur: comprise dans l'intervalle $[0.1,10]$. La valeurs 0.1 est aussi la veleur de la densite en dehors du crenau (obstacle); elle permet d'eviter l'absorption complete de l'onde sur le domaine.
+ \item \textbf{Abscisse} : comprise dans l'intervalle $[0.2,0.8]$ afin de récupérer une réponse non aberrante sur chacun des 4 bords du domaine.
+ \item \textbf{Ordonnée} : comprise aussi dans l'intervalle $[0.2,0.8]$.
+ \item \textbf{Hauteur} : comprise dans l'intervalle $[0.1,10]$. La valeur 0.1 est aussi la valeur de la densité en dehors de son créneau ; sa faible valeur permet d'éviter l'absorption complète de l'onde sur le domaine.
 \end{itemize}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=.5\linewidth]{Entrees2D} 
-\decoRule
-\caption[Entrees2D]{Forme d'une entree en 2D. Contrairement a la 1D, il faut tenir compte de la dimention spatiale qui correspond au nombre de mailles sur chaque bords du domaine (N=M=28). Le nombre de canaux augmente considerablement. On passe a 48 car il faut tenir compte des 3 canaux originaux (E, F, et T), ensuite de chacun de 4 bords du domaine, et enfin des 4 positions de la source.}
-\label{fig:Entrees2D}
-\end{figure}
-
-Des jeux de donnes complets 1D/2D ont ete sauvegardee sur Google Drive; et les details pour les recuperer et les traiter sont donnes en Anexe \ref{AppendixB}.
+Des jeux de données complets 1D/2D ont été sauvegardés sur Google Drive; et les détails pour les récupérer et les traiter sont donnés en Annexe \ref{AppendixB}.
 
 %----------------------------------------------------------------------------------------
 
-\section{Architecture generale}
+\section{Architecture générale}
 
-Un reseau de neuronnes artificel \footnote{nous y fereons reference dans la suite juste par reseau de neurones} (ANN) est un systeme computationnel base sur le reseau de neuronnes biologique. L'apprentissage profond\footnote{definition du nombre de couche} (DNN) permet de resoudre des problemes en Machine Learning que les methodes telles que la regression ineaire, etc.. ne peuvent pas. Il reussit cela en introduisant des representations des donnes qui s'exprimes sous forme d'autres representations, plus simples cette fois. 
+Un réseau de neurones artificiel \footnote{Ou juste réseau de neurones dorénavant} (ANN) est un système computationnel base sur le réseau de neurones biologique. L'apprentissage profond\footnote{Réseaux de neurones composé d'un nombre relativement élevé de couches cachées} (DNN) permet de résoudre des problèmes en Machine Learning que les méthodes telles que la régression linéaire, SVM, etc. ne peuvent pas. Il réussit cela en introduisant des représentations des données qui s'expriment sous forme d'autres représentations, plus simples cette fois. 
 
-Les reseaux profonds en aval\footnote{en oposition a un reseau de neurones recurrent qui reutilisent els resultats des model pour s'ameliorer} (ou MLP) consitituent l'exemples typique en apprentissage profond. Il s'agit juste d'une fonction (composition de differentes fonctions) faisant correspondre une serie d'entree a une serie de sortie $f^{-1} = composition de f1, f2, etc.$. Un MLP est constitue de plusieurs couche (assimilables aux fonction f1, f2, .. precedentes) apprenant chacune un aspect particulier des donnnees (voir figure \ref{fig:MLP}. On distingue une couche d'entree, une ou pleusieurs couches cachees, et une coche de sortie).
+Les réseaux profonds en aval\footnote{En opposition à un réseau de neurones récurrent qui réutilisent les résultats de son modèle pour s'améliorer.} (ou MLP \footnote{Multi-Layer Perceptron}) constituent l'exemple de choix en apprentissage profond. Il s'agit juste d'une fonction (composition de différentes fonctions) faisant correspondre une série d'entrée à une sérié de sortie ($f^{-1} = f_1 \text{o} f_2 \text{o} \cdots \text{o} f_n(X))$. Un MLP est constitué de plusieurs couches (assimilables aux fonctions $f_1$, $f_2$, .., $f_n$ précédentes) apprenant chacune un aspect particulier des données. On distingue une couche d'entrée, une ou plusieurs couches cachées, et une coche de sortie (voir figure \ref{fig:MLP}).
 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=.6\linewidth]{MLP} 
 \decoRule
-\caption[MLP]{Illustration d'un MLP avec une couche dense comme couche cachee. Le noombre de couche cachee peut etre elevee ce qui conduit aux reseaux de neurones profonds. Le 1 represente le biais \parencite[286]{Reference8}.}
+\caption[MLP]{Illustration d'un MLP avec une couche dense comme couche cachée. Le nombre de couches cachées peut être élevée ce qui conduit aux réseaux profonds. Le 1 représente le biais \parencite[286]{Reference8}.}
 \label{fig:MLP}
 \end{figure}
 
-Les reseaux de neurones convolutifs (CNN) sont une forme de MLP spcialises dans le traitement des donnes qui ont une form de grille. Par exemple des series en temps qui peuvent etres vues comme des grilles 1D (l'axe de temps) prenant des donnes (vecteur de donnees) a interval de temps regulier \parencite{Reference5}. Ils sont donc particulieremt adaptes a la reconstruction de la densite partant des signaux temporels E, F, et T. 
+Les réseaux de neurones convolutifs (CNN) sont une forme de MLP spécialisés dans le traitement des données en forme de grille. Par exemple des séries en temps qui peuvent êtres vues comme des grilles 1D (l'axe de temps) prenant des données (vecteur de données) à intervalle de temps régulier \parencite{Reference5}. Ils sont donc particulièrement adaptés à la reconstruction de la densité partant des signaux temporels $E$, $F$, et $T$. 
 
-L'archiytecture CNN de base pour notre apprentissage a ete proposee par M. Vigon. Nous utilisetons deux variantes: DRNN \footnote{Density Reconstruction Neural Network} 1 (figure \ref{fig:DRNN1}) et DRNN 2 (figure \ref{fig:DRNN2}).  Les architectures seront implemntee sous la librarie de machine leanring Keras (avec Tensorflow backend) Les differentes couches presentes seront detailles dans la suite. Nous indiquerons aussi en quoi elles sont importantes pour notre apprentissage.
+L'architecture CNN de base pour notre apprentissage a été proposée par M. \textsc{Vigon}. Nous utiliserons deux variantes : DRNN \footnote{Density Reconstruction Neural Network} 1 (figure \ref{fig:DRNN1}) et DRNN 2 (figure \ref{fig:DRNN2}). Les architectures seront implémentées sous la librairie de Machine Learning Keras (avec le « backend » TensorFlow). Les différentes couches présentées seront détaillés dans la suite. Nous indiquerons aussi en quoi elles sont importantes pour notre apprentissage.
 
 % \begin{figure}[!h]
 % \centering
 % \includegraphics[width=.95\linewidth]{DRNN1} 
 % \decoRule
-% \caption[DRNN1]{Premeire architecture (nommee DRNN 1). Le nombre de neurnoes de la couche de sortie depend qu'on soit en 1D ou en 2D. Ce modlee contient pas des couche de Pooling\footnote{les details concernant le pooling seront donnes plus tard}. Le nombre de neurones utilises pour chaque couches est indiques entre parentheses}
+% \caption[DRNN1]{Premeire architecture (nommee DRNN 1). Le nombre de neurnoes de la couche de sortie depend qu'on soit en 1D ou en 2D. Ce modlee contient pas des couche de Pooling\footnote{les details concernant le pooling seront données plus tard}. Le nombre de neurones utilises pour chaque couches est indiques entre parentheses}
 % \label{fig:DRNN1}
 % \end{figure}
 % 
@@ -108,21 +108,21 @@ L'archiytecture CNN de base pour notre apprentissage a ete proposee par M. Vigon
      \centering
      \includegraphics[width=.2\linewidth]{DRNN1ROT}
      \decoRule
-     \caption[DRNN1]{Premeire architecture (nommee DRNN 1 ). Le nombre de neurones utilises pour     
-     chaque couches est indiques entre parentheses. Le nombre de neurnoes de la couche de sortie 
-     depend qu'on soit en 1D ou en 2D.}
+     \caption[DRNN1]{Première architecture (nommée DRNN 1). Le nombre de neurones utilisés pour     
+     chaque couche est indiqué entre parenthèses. Le nombre de neurones de la couche de sortie 
+     dépend qu'on soit en 1D ou en 2D.}
      \label{fig:DRNN1}
    \end{minipage}\hfill
    \begin{minipage}{0.4\textwidth}
      \centering
      \includegraphics[width=.3\linewidth]{DRNN2ROT}
      \decoRule
-     \caption[DRNN2]{Deuxieme architecture utilisee (nommee DRNN 2). Ce modlee ne contient pas de 
-     couches de Pooling \footnotemark }
+     \caption[DRNN2]{Deuxième architecture utilisée (nommée DRNN 2). Ce modèle ne contient pas de 
+     couche de « pooling » \footnotemark }
      \label{fig:DRNN2}
    \end{minipage}
 \end{figure}
-\footnotetext[6]{Les details concernant l'operation de "pooling" seront donnes a la section \ref{subsec:MaxPoling}}
+\footnotetext[6]{Les détails concernant l'opération de « pooling » seront donnés à la section \ref{subsec:MaxPoling}}
 
 % \begin{figure}[!ht]
 % \begin{subfigure}{.6\textwidth}
@@ -137,7 +137,7 @@ L'archiytecture CNN de base pour notre apprentissage a ete proposee par M. Vigon
 %   \centering
 %   \includegraphics[width=.3\linewidth]{DRNN2ROT}  
 %   \caption[Conv2D]{Deuxieme architecture utilisee (nommee DRNN 2). Ce modlee ne contient pas de 
-%      couches de Pooling \footnote{Les details concernant le pooling seront donnes a la section \ref{subsec:MaxPoling}}}
+%      couches de Pooling \footnote{Les details concernant le pooling seront données a la section \ref{subsec:MaxPoling}}}
 %   \label{Fig:DRNN2}
 % \end{subfigure}
 % \label{Fig:DRNN}
@@ -153,30 +153,30 @@ L'archiytecture CNN de base pour notre apprentissage a ete proposee par M. Vigon
 \section{Les couches utilisées}
 
 \subsection{Les couches de convolution}
-la convolution est l'operation fondamentale d'un CNN. Il s'agit d'une operation lineaire qui combine deux signaux pour en extraire un troisieme. En general, une operation de convolution se definit par la formule suivante (i est le ssignal d'entree et k est le noyau de la convolution)
+La convolution est l'opération fondamentale d'un CNN. Il s'agit d'une opération linéaire qui combine deux signaux pour en extraire un troisième. En général, une opération de convolution se définit par la formule suivante ($i$ est le signal d'entrée et $k$ est le noyau de la convolution) :
 $$ s(t) = (i * k)(t) = \int i(x)k(t-x) \, dx $$
 
-En pratique, les signaux temporels ne sont pas continus, ils sont discretises par interval de temps $\Delta t$. Dans ce contexte, la convolution 1D se definit par la formule:
+En pratique, les signaux temporels ne sont pas continus, ils sont discrétisés par intervalles de temps $\Delta t$. Dans ce contexte, la convolution 1D se définit par la formule :
 \begin{equation}
  s(t) = \sum_{x=-\infty}^{\infty} i(x)k(t-x)
  \label{eqn:Conv1D}
 \end{equation}
 
-Cette formule doit aussi etre adaptee en 2D vu que nos inputs sont 2D. La formule devient donc:
+Cette formule doit être adaptée en 2D vu qu'on fera aussi un apprentissage 2D. La formule devient donc :
 \begin{equation}
  S(i,j) = (I * K)(i,j) = \sum_{m}\sum_{n} I(m,n)K(i-m,j-n)
  \label{eqn:Conv2D}
 \end{equation}
 
-L'operation de convolution est commutative grace a l'inversion du noyaux relativement au siganal d'entree. Cette propriete, bien qu'importante d'un point de vu therique, ne prensente pas d'avantages majeure du point de vu computationnel. C'est la raison pour laquelle on dispose de l'operation de cross-correlation qui est convolution sans inversion du noyau. En 2D elle se presente comme ceci:
+L'opération de convolution est commutative grâce à l'inversion du noyaux relativement par rapport au signal d'entrée. Cette propriété, bien qu'importante d'un point de vue théorique, ne présente pas d'avantages du point de vue computationnel. C'est la raison pour laquelle on dispose de l'opération de cross-corrélation qui est une convolution sans inversion du noyau. En 2D elle se présente comme ceci :
 \begin{equation}
  S(i,j) = (I * K)(i,j) = \sum_{m}\sum_{n} I(i+m,j+n)K(m,n)
  \label{eqn:Corr2D}
 \end{equation}
 
-On remarque aussi que le parcours des indices se fait suivant l'input. Il se trouve que c'est plus direct et rapide ainsi, parcequ'il y a moins de varaition dans la plage de valeurs valides pour $n$ et $m$. 
+On remarque aussi que le parcours des indices se fait suivant l'input. Il se trouve que c'est plus direct et rapide ainsi, parce qu'il y a moins de variation dans la plage de valeurs valides pour $n$ et $m$. 
 
-Plueieurs libraries de machine leanring implementent la cross-corelation mais l'appellent convolution. C'est le cas de Keras lorsqu'elle utilise le backend Tensorflow \footnote{Lorsqu'on utilise Theano, les convolutions sont effectivement des convolution comme definie en \ref{eqn:Conv1D} et \ref{eqn:Conv2D}} \parencite{Reference6}.
+Plusieurs librairies de Machine Leanring implémentent la cross-corrélation mais l'appellent convolution. C'est le cas de Keras lorsqu'elle utilise le « backend » TensorFlow \footnote{Lorsqu'on utilise Theano, les convolutions sont effectivement des convolution comme definie en \ref{eqn:Conv1D} et \ref{eqn:Conv2D}.} \parencite{Reference6}.
 % 
 % \begin{figure}[!h]
 %     \subfloat[Convolution 1D]{
@@ -213,7 +213,7 @@ Plueieurs libraries de machine leanring implementent la cross-corelation mais l'
 
 \centering
 \decoRule
-\caption[Convolution1D2D]{Illustration d'une convolution (cros-corelation) 1D/2D en mode "valide" (aucun padding de 0 ne sera ajoute et la sortie S aura une taille inferieure a l'entree I). La taille du noyaux que nous utiliserons sera de 3 (1D) et (6,2) (2D) . Un autre paramtre important pour reduire la taille de la sortie est le "stride", il s'agit de l'ecart entre deux applications du noyaux de convolution K. Nous le prenons egale a 1 (1D) et (1,1) (2D) de facon a couvrir tous les indices valides de l'entree I.}
+\caption[Convolution1D2D]{Illustration d'une convolution (cros-corrélation) 1D/2D en mode "valid" (aucun « padding » de 0 ne sera ajouté et la sortie $S$ aura une taille inferieure a l'entree $I$). La taille du noyaux que nous utiliserons sera de 3 (en 1D) et (6,2) (en 2D). Un autre paramètre important pour réduire la taille de la sortie est le "stride"; il caractérise de l'écart entre deux applications consécutives du noyaux de convolution $K$. Nous le prenons égale à 1 (en 1D) et (1,1) (en 2D) de façon à couvrir tous les indices valides de l'entrée I.}
 \end{figure}
 
 
@@ -229,101 +229,101 @@ Plueieurs libraries de machine leanring implementent la cross-corelation mais l'
 % \end{itemize}
 
 
-Dans les architecture de CNN typiques, la couche de convolution est generalement suivi d'une etape dite de detection. Dans cette etape, les resultas lineaires de la convolution sont passes a une fonction non lineaire auniveau d'une couche de d'activaiotn. Nous detaillerons les details de l'activation dans les sections suivantes. Apres cette etape de detection, le Pooling est generalement applique pour modifier les resulats encore plus profoncdement.
+Dans les architecture de CNN typiques, la couche de convolution est généralement suivi d'une étape dite de détection. Dans cette étape, les résultats de la convolution (linéaires) sont passés à une fonction non linéaire au niveau d'une couche d'activation. Nous détaillerons la notion d'activation dans les sections suivantes. Après cette étape de détection, le Pooling est généralement appliqué pour modifier les résultats encore plus profondément.
 
-\subsection{Le MaxPoling}
+\subsection{Le max-pooling}
 \label{subsec:MaxPoling}
-L'operation de Pooling permet de reduire la taille des donnees (downsampling). Une fonction de pooling tranforme les entres voisines par une fonction d'aggregation statistique. Plusieurs fonctions d'aggregations peuvent etres utlisees. Par examples, le maxpooling renvoi le maximum parmis les entrees sur un domaine (rectigne en 1D et rectangulaire en 2D). 
+L'opération de Pooling permet de réduite la taille des données (« downsampling »). Une fonction de Pooling transforme les entrées voisines par une fonction d'agrégation statistique. Plusieurs fonctions d'agrégations peuvent êtres utilisées. Par exemple, le Max-pooling renvoi le maximum parmi les entrées sur un domaine appelé « pool-size » (rectiligne en 1D et rectangulaire en 2D). 
 
 
 \begin{figure}[!h]
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.95\linewidth]{MaxPool1D}  
-  \caption[MaxPool1D]{Maxpooling 1D}
+  \caption[MaxPool1D]{Max-pooling 1D}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.95\linewidth]{MaxPool2D}  
-  \caption[MaxPool2D]{Maxpooling 2D}
+  \caption[MaxPool2D]{Max-pooling 2D}
 \end{subfigure}
 \label{fig:MaxPool1D2D}
 
 \centering
 \decoRule
-\caption[MaxPoling]{Operatioon de maxpooling en 1D/2D avec un "pool size" de 2 (en 1D) et de 2x2 (en 2D)}
+\caption[MaxPoling]{Opération de Max-pooling en 1D/2D avec un « pool size » de 2 (en 1D) et de 2×2 (en 2D).}
 \end{figure}
 
 
-En general, l'operation de pooling permet de rendre la representation approximativemtn invariante aux petite variatons dans l'input. Parlant de l'identifcation d'objects dans une image par exemple, \textit{l'invarianve par translations locales (petites tranalations) peut etre utile si on est plus interresse par la presence de l'object que par sa localisation exacte}\parencite[321ff.]{Reference5}.
+En général, l'opération de Pooling permet de rendre la représentation approximativement invariante aux petites variations dans l'input. Parlant de l'identification d'objets dans une image par exemple, "\textit{L'invariance par translations locales (petites translations) peut être utile si on est plus intéressé par la présence de l'objet que par sa localisation exacte.}"\parencite[321ff.]{Reference5}.
 
-Dans le probleme inverse que nous resolvons, on est aimerais non seulement detecter la presence du saut de densite, mais aussi ses coordonnes exactes. Cela nous amenera donc a considerer dans un premier temps une architecture avec pooling (figure \ref{fig:DRNN1}), et dans un dexieme temps, sans Pooling (figure \ref{fig:DRNN2}).
+Dans le problème inverse que nous résolvons, on aimerait non seulement détecter la présence du saut de densité, mais aussi ses coordonnées exactes. Cela nous amène donc à considérer dans un premier temps une architecture avec Max-pooling (figure \ref{fig:DRNN1}), et dans un deuxième temps, sans Max-pooling (figure \ref{fig:DRNN2}).
  
 \subsection{Flatten}
-L'operation d;applattissage permet de transformer les donnees en quittant de la forme tensorielle (2D avec plusieurs canaux) a une forme vectorielle. Il s'agit en realite d'une etape de preparation a une couche complement connectee.
+L'opération d'aplatissage (ou Flatten) permet de transformer les données en quittant de la forme tensorielle (2D avec plusieurs canaux) à une forme vectorielle. Il s'agit en réalité d'une étape de préparation pour les couches denses (complètement connectées).
 
 \begin{figure}[!h] 
 \centering
 \includegraphics[width=.5\linewidth]{Flatten}
 \decoRule
-\caption[Flatten]{Illustration d'une operation de flatten). Qu'on soit en 1D ou en 2D, le flatten assure que la sortie est un vecteur sur lequel une couhe Dense peut operer.}
+\caption[Flatten]{Illustration d'une opération de Flatten). Qu'on soit en 1D ou en 2D, le Flatten assure que la sortie est un vecteur sur lequel une couche Dense peut opérer.}
 \label{fig:Flatten}
 \end{figure} 
 
 \subsection{Les couches denses}
-Dans cette couche, tous les neurones sont connectes a tous les neurones de la couche precedente. Une couche dense prend les resultats d'une convolution/pooling et en resort des poinds. Les couches de convolution ayant apris des aspects particuliers des donnees, la couche est un moyen facile d'apprndre des combinaisons non lineaires de ces dernieres.
+Dans ces couches, tous les neurones d'une couche sont connectés à tous les neurones de la couche précédente. Une couche dense (ou « fully connected ») prend les résultats d'une convolution/Pooling et en ressort des poids. Les couches de convolution ayant appris des aspects particuliers des données, la couche dense est un moyen facile d'apprendre des combinaisons non linéaires de ces dernières.
 
-Si $f_2$ designe la fonction representant une couche dense. l'operation efffectuee est la suivante: $f_2=\phi(XW+b)$, ou $X$ represente les entrees de la couche, $b$ le bias , $W$ la matrice des poinds (une ligne par neurone d'entree et une colone par neurone de cette couche, excepte ceux du biais), et $\phi$ designe la fonction d'activation que nous detaillerons plus tard. \parencite[286]{Reference8}
+Si $f_i$ désigne la fonction représentant une couche dense, l'opération effectuée est la suivante : $f_i(X)=\phi(XW+b)$, ou $X$ représente les entrées de la couche, $b$ le biais, $W$ la matrice des poids (une ligne par neurone d'entrée et une colonne par neurone de cette couche, excepté ceux du biais), et $\phi$ désigne la fonction d'activation que nous détaillerons plus tard. \parencite[286]{Reference8}
 
 \begin{figure}[!h] 
 \centering
 \includegraphics[width=.5\linewidth]{Dense} 
 \decoRule
-\caption[Dense]{Serie de 3 couches denses "fully connected". La couche (en vert) represent le resultat de l'opeation de Flatten. L'utilisation des couches denses constitue la derniere etape des reseax en figures \ref{fig:DRNN1} et \ref{fig:DRNN2}(Image adaptee de \parencite{Reference9})}
+\caption[Dense]{Série de 3 couches denses « fully connected ». La couche en vert représente le résultat de l'opération de Flatten. L'utilisation des couches denses constitue la dernière étape des réseaux en figures \ref{fig:DRNN1} et \ref{fig:DRNN2}(Image adaptée de \parencite{Reference9})}
 \label{fig:Dense}
 \end{figure}
 
 %----------------------------------------------------------------------------------------
 
 \section{Configurations de l'entrainement sous Keras}
-Keras proposent une multitude d'otions et d'hyperparatres pour tuner le modele. Les plus importants sont detailles dans les sections suivantes.
+Keras propose une multitude d'options et d'hyper-paramètres pour tuner le modèle et son entrainement. Ceux qui ont été utilisés sont indiqués dans les sections suivantes.
 
-\subsection{Les hyper-parametres}
+\subsection{Les hyper-paramètres}
 
 \subsubsection{L'optimiseur}
-L'optimization est une methode d'acceleration de l'entrainement. L'optimiseur Adam\footnote{Adaptative moment estimation} combine les proprietes de deux autres algorithmes d'entrainement (AdaGrad et RMSProp).
+L'optimisation est une méthode d'accélération de l'entrainement. L'optimiseur Adam\footnote{Adaptative moment estimation} combine les propriétés de deux autres algorithmes d'entrainement (AdaGrad et RMSProp) pour offrir une performance de taille.
 
 \subsubsection{Activation RELU}
-La fonction d'activation introduit une non-linearite entre les couche. L'avatage majeure de l'activation ReLU\footnote{Rectified Linear Unit} par rapport aux autres fonctions d;activation c'est qu'il n'active pas tous les neurones en meme temps. D'un pooint de vue computationel, elle est tres eficace tout en produidant des resulats satisfaisants.
+La fonction d'activation introduit une non-linéaire entre les couche. L'avantage majeur de l'activation ReLU\footnote{Rectified Linear Unit} par rapport aux autres fonctions d'activation c'est qu'elle n'active pas tous les neurones en même temps. D'un point de vue computationnel, elle est très efficace tout en produisant des résultats satisfaisants.
 
-\subsubsection{le taux d'apprentissage}
-Il s'agit du parametre le plus influant pour notre apprentissage. Il controle a quelle vitesse le modele \footnote{les poids des neurones sont initialises de facon aleatoire} s'adapte au probleme en determinant de quelle quantite les poids des neurones seront mis a jour apres l'agorithme de backpropagation. S'il est tres eleve, il raoidement conduire a solution non optimale; s'il est tres faible, le modele peut reste fige (il fadra alors un nombre eleve d'epoques pour le debloquer).
+\subsubsection{Le taux d'apprentissage}
+Il s'agit du paramètre le plus influant pour notre apprentissage. Il contrôle à quelle vitesse le modèle s'adapte au problème en déterminant de quelle quantité les poids des neurones seront mis à jour \footnote{Les poids des neurones ayant été initialisés de façon aléatoire} après l'algorithme de « backpropagation ». S'il est très élevé, il peut rapidement conduire à solution non optimale ; s'il est très faible, le modèle peut reste figé (il faudra alors un nombre élevé d'époques pour potentiellement le débloquer).
 
-Avec un taux d'apprentissage egale a 1e-4, nous n'avons ete capable que de detecter la hauteur du crenau en 1D; et une reduction supplementaire entraine la divergence du modele. En 2D, il a fallu descendre jusqua 1e-5 pour determiner avec precision l'abcisse, l'ordonne, et la hauteur du crenau.
+Avec un taux d'apprentissage égale à \verb|1e-4|, nous n'avons été capable que de détecter la hauteur du créneau en 1D; et une réduction supplémentaire entraine une moins bonne convergence du modèle. En 2D, il a fallu descendre jusqu'à \verb|1e-5| pour déterminer avec précision l'abscisse, l'ordonnée, et la hauteur du créneau.
 
-\subsubsection{le batch size}
-Il s'agit de la taille de chauque paquet de donnnes \footnote{nombre d'instaces d;entrainement selectiones aleatoiremetn} passes au modele durant un epoque. Un batch size faible apporte du bruit au modele vu qu'une partie aleatoire des donnes est tulisee pour mettre ajour les poids des neurones. Ceci permet une meilleure generalisation du modele tout en permettant une limiter la quantite de donnees chargee dans la RAM a chaque epoque.
+\subsubsection{Le « batch size »}
+Il s'agit de la taille de chaque paquet de données \footnote{Nombre d'instances d'entrainement sélectionnés aléatoirement} passés au modèle durant une époque. Un « batch size » faible apporte du bruit au modèle vu qu'une portion aléatoire des données est utilisée pour mettre ajour les poids des neurones. Ceci assure une meilleure généralisation du modèle tout en limitant la quantité de données chargées dans la RAM à chaque époque.
 
 % 
 % \subsubsection{le coefficient de reglarisation L2}
 % Le penalisation permet d;eviter le surapprentissage. Sous Keras, on peut soit penaliser les poids d'une couche (kernel optimizer), ou bien penaliser les resultats de la fonction d'activation de cette couche (activity optimizer). la deuxieme option a offert les meilleures resultats, c'est pourquoi l'avons appliquee a nos deux couches de neuronnes denses  de nos modeles avec un coefficient de 1e-5.
 % 
 
-\subsubsection{Early stopping}
-La technique d'early sera notre moyen primaire de lutte contre le sur-appretisage. Pour l'implementer de facon efficace sous Keras, il nous faut une \verb|patience|. Il s'agit du nombre d'epoques a attendre avant d'areter d'areter l'apprentissage de facon precosse. Nous arreterons nos entrainement des que le score R2 (voir paragraphe \ref{subsub:R2}) sur le jeu de validation n'aura pas augmente pendant 10 epoques. 
+\subsubsection{Early-stopping}
+La technique d' Early-stopping sera notre moyen primaire de lutte contre le sur-apprentissage. Pour l'implémenter de façon efficace sous Keras, il nous faut une variable appelée \verb|patience|. Il s'agit du nombre d'époques à attendre avant d'arrêter l'apprentissage de façon précoce. Nous arrêterons nos entrainements dès que le score $R^2$ (voir paragraphe \ref{subsub:R2}) sur le jeu de validation n'aura pas augmenté pendant 10 époques. 
 
-\subsection{Les metriques}
+\subsection{Les métriques}
 
 \subsubsection{Loss MSE}
-Pendant la generation des donnees, on a pris soin de pas introduire de donnes aberantes. La MSE qui est plus elevee sur les valeurs aberantes que la MAE est dont plus adaptee ici. Si les $\hat{y}_i$ designent les predictions et $y_i$ les veritables cibles (valeurs observees), la MSE se definit par:
+Pendant la génération des données, on a pris soin de ne pas introduire de données aberrantes. La MSE(Mean Squared Error) qui est plus élevée sur les valeurs aberrantes que la MAE (Mean Absolute Error) est dont plus adaptée ici. Si les $\hat{y}_i$ désignent les prédictions et $y_i$ les véritables cibles (valeurs observées), la MSE se définit par :
 \begin{equation}
  MSE = \frac{1}{n} \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2
  \label{eqn:MSE}
 \end{equation}
 
-\subsubsection{Coefficient de determination R2}
+\subsubsection{Coefficient de détermination $R^2$}
 \label{subsub:R2}
-Le Coefficient de determination R2 est tres important en statistique. On peut l'obtenir par la formule:
+Le coefficient de détermination $R^2$ est très important en statistique. On peut l'obtenir par la formule :
 \begin{align}
  R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
  \label{eqn:R2}
@@ -332,74 +332,71 @@ Avec
 \begin{align*}
  \quad SS_{res} =  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad \text{et} \quad SS_{tot} =  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2 
 \end{align*}
-Ou $ \bar{y} = \sum_{i=1}^{n} y_i $ represente la moyenne des valeurs observees.
+Ou $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.
 
-On peut remarquer que:
+On peut remarquer que :
 \begin{itemize}
- \item Si le modele predit les valeurs attendues (observees), le score R2 vaut 1. 
- \item SI le modele predit toujours la valeur moyenne $\bar{y}$, le score R2 vaut 0
- \item Si les predictions sont pires que la moyenne, le score R2 est negatif
+ \item Si le modèle prédit les valeurs attendues (observées), le score $R^2$ vaut 1. 
+ \item SI le modèle prédit toujours la valeur moyenne $\bar{y}$, le score $R^2$ vaut 0.
+ \item Si les prédictions sont pires que la moyenne, le score $R^2$ est négatif.
 \end{itemize}
 
-En generalOn voit que si les predictions et les valeurs observees sont tres correles (sans etre egaux), on aura un score R2 ce qui n'est pas carateritique des resultats. En effet, pour des taches de regression il se definit comme etant le caree du coefficient de correlation entre les valeurs predites et les valeurs observees.
+En général, on voit que si les prédiction et les valeurs observées sont très corrélées (sans être égales), on aura un score $R^2$ ce qui n'est pas caractéristique des résultats. En effet, pour des taches de régression il se définit comme étant le carré du coefficient de corrélation entre les valeurs prédites et les valeurs observées.
 
-Dans la suite de ce rapport, le score R2 sera presente sous forme de pourcentage. 
+Dans la suite de ce rapport, le score R2 sera présenté sous forme de pourcentage. 
 
-\subsubsection{Un score personalise}
-On definit donc un nouveau score particulieremtn adapte a nos donnees. On decalre qu'une prediction est correcte si elle est suffisament proche du label:
+\subsubsection{Un score personnalisé}
+On définit donc un nouveau score particulièrement adapté a nos données. On déclare qu'une prédiction est correcte si elle est suffisamment proche du label :
 \begin{itemize}
- \item au dizième près pour la position (suivant x ou y) car le domaine de d'etude est $[0,1] \times [0,1]$
- \item à l'unité près pour la hauteur car les hauteurs observees sont comprises entre 0 et 10
+ \item au \textbf{dixième} près pour la position (suivant $x$ ou $y$) car le domaine d'étude est $[0,1]$ en 1D et $[0,1] \times [0,1]$ en 2D
+ \item à l'\textbf{unité} près pour la hauteur car les hauteurs observées sont comprises entre 1 et 10 (en 1D) et 0.1 et 10 (en 2D) 
 \end{itemize}
 
-Le score personalise est un score severe (pourcentage de prediction correctes) qui qui recompense les prediction qui sont a la fois precisent en hauteurs et en position. La prediction de la position etant le probleme majeure auquel nous avons fait face, il cause generalement des valeurs faibles pour le score personalise.
+Le score personnalisé est un score sévère (pourcentage des prédictions correctes) qui récompense les prédictions qui sont à la fois précisent en hauteurs et en position. La prédiction de la position est un problème majeur auquel nous avons fait face, elle cause généralement des valeurs faibles pour le score personnalisé.
 
 %----------------------------------------------------------------------------------------
 
-\section{Resultats}
+\section{Résultats}
 
-Nous resumons la sections precedentes en specifiant les paramtres (et leurs noms) utilises pour entrainer le modele sous Keras.
+Nous résumons la section précédente en spécifiant les paramètres (et leurs définitions) utilises pour entrainer le modèle sous Keras.
 
 \begin{table}[h!]
-\caption{Liste des parametres majeurs utilises pour l'entrainement. L'activation relu est utilisee sur les couches cachees et "linear" sur la couche de sortie}
+\caption{Liste des paramètres majeurs utilises pour l'entrainement. L'activation "relu" est utilisée sur les couches cachées et "linear" sur la couche de sortie}
 \label{tab:Parametres}
 \centering
 \begin{tabular}{l l l}
 \toprule
-\tabhead{Parametre} & \tabhead{Definition} & \tabhead{Valeur 1D / 2D} \\
+\tabhead{Paramètre} & \tabhead{Définition} & \tabhead{Valeur 1D / 2D} \\
 \midrule
-\verb|learning_rate| & taux d'appentissage & 1e-4 / 1e-5\\
-\verb|batch_size| & taille d'un batch a chaque epoque  & 32\\
+\verb|learning_rate| & taux d'apprentissage & 1e-4 / 1e-5\\
+\verb|batch_size| & taille d'un batch a chaque époque  & 32\\
 \verb|optimizer| & algorithme d'optimisation & Adam\\
 \verb|activation| & type de fonction d'activation  & "relu" ou "linear"\\
 \verb|patience| & patience pour l'\verb|early_stopping| & 10\\
-\verb|epochs| & nombre d'epoques & 100\\
+\verb|epochs| & nombre d'époques & 100\\
 \verb|kernel_size| & taille du noyau de convolution & 3 / (6,2)\\
 \bottomrule\\
 \end{tabular}
 \end{table}
 
 
-Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig ...) en ajustant les dimensions des coushes de neurones connablement.
+Nous avons entrainé les architectures en 1D en ajustant les dimensions des couches de neurones convenablement. Observons à présent les résultats obtenus sur le jeu de données test.
 
 \subsection{Régression}
 % 
     \subsubsection{En 1D}
-    On obtient de tres bonnes predictions sur la hateur de l'obstacle qui affecte directement l'amplitude des signaux sur le bord droit du domaine. Ce score n'est pas assez indicatif vu que les predictions sur la position du crenaux ne sont pas assez precises. Le score personalise permet de capturer ce defaut et donne environ 25\%.
-    
-    Le modele avec MaxPoling correspond a la figure \ref{fig:DRNN1}, et celui sans MaxPooling a la figure \ref{fig:DRNN2}.
-    
+    On obtient de très bonnes prédictions sur la hauteur de l'obstacle car celui-ci affecte directement l'amplitude des signaux sur le bord droit du domaine. Cela se traduit par un score $R^2$ très élevé. Ce score n'est pas assez indicatif vu que les prédictions sur la position du créneaux ne sont pas bonnes \footnote{Le score $R^2$ élevé pourrait s'expliquer par le fait que le poids de la hauteur dans la corrélation est plus fort que celui de la position}. Le score personnalisé permet de capturer ce défaut et donne environ 25 \%.
     
     \begin{table}[h!]
-    \caption{Resultats obtenus sur le jeur de test en 1D. Ces valeurs representent une moyenne obtenue sur plusieurs cycles d'entrainement/prediction}
+    \caption{Résultats obtenus sur le jeu test en 1D. Le modèle avec Max-poling correspond à la figure \ref{fig:DRNN1}, et celui sans Max-pooling à la figure \ref{fig:DRNN2}, tous adaptés à la 1D. Ces valeurs représentent une moyenne obtenue sur plusieurs cycles d'entrainement/prédiction}
     \label{tab:Tab1D}
     \centering
     \begin{tabular}{l l l}
     \toprule
-    \tabhead{Score} & \tabhead{Avec MaxPooling} & \tabhead{Sans MaxPooling} \\
+    \tabhead{Score} & \tabhead{Avec Max-pooling} & \tabhead{Sans Max-pooling} \\
     \midrule
-    R2 & 99.49 \% & 99.50 \%\\
-    personalise & 26.50 \% & 28.21 \%\\
+    $R^2$ & 99.49 \% & 99.50 \%\\
+    Personnalisé & 26.50 \% & 28.21 \%\\
     \bottomrule\\
     \end{tabular}
     \end{table}
@@ -408,21 +405,21 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{1DPool}  
-    \caption[2DPool]{1D Avec Pooling}
+    \caption[2DPool]{1D svec Max-pooling}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{1DNoPool}  
-    \caption[2DNoPool]{1D Sans Pooling}
+    \caption[2DNoPool]{1D sans Max-pooling}
     \end{subfigure}
     \label{fig:1DLoss}
 
     \centering
     \decoRule
-    \caption[Loss 1D]{Comparaison de la vitesse de decroissiance de la loss en 1D}
+    \caption[Loss 1D]{Comparaison de la vitesse de décroissance de la loss en 1D}
     \end{figure}
 
-    Meme si aucun n'est capable de correctement predire la position du crenau, le modele sans MaxPooling semble mieux se comporter sur ce jeu de donnees particulier. Pour les illustrations qui vont suivre, nous utilisetons donc ce dernier modele. Nous commencons par une illustration de la correlation entre les labels (valeurs observees) et les predictions (figure \ref{fig:Illustration1D}).
+    Même si aucun n'est capable de correctement prédire la position du créneau, le modèle sans Max-pooling semble mieux se comporter sur ce jeu de données. Pour les illustrations qui vont suivre, nous utiliserons donc ce dernier modèle (sans Max-pooling). Nous commençons par une illustration de la corrélation entre les labels (valeurs observées) et les prédictions (figure \ref{fig:Illustration1D}).
     
     \begin{figure}[!h]
     \begin{subfigure}{.5\textwidth}
@@ -438,103 +435,103 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     
      \centering
     \decoRule
-    \caption[Illustration 1D]{Illustration de la correlation entre les labels et les predictions obtenues par le modele sans max-pooling en 1D. On peut observer l'exactitude des predictions pour la hauteur mais un echec sur la position. En effet, les predictions de la postion du crenau sont concentree autour de la moyenne 0.5}
+    \caption[Illustration 1D]{Illustration de la corrélation entre les labels et les prédictions obtenues par le modèle sans Max-pooling en 1D. On peut observer l'exactitude des prédictions pour la hauteur mais un échec sur la position. En effet, les prédictions de la position du créneau sont concentrée autour de la moyenne 0.5.}
     \label{fig:Illustration1D}
     \end{figure}
 
-    Pour observer les meilleures et les pires predictions du modele, ils nous faut une mesure de la distance entre les predictions et les labels. On definit donc la norme ci-bas (en prenant soins de normaliser la hauteur). $$ \text{Norme} = \sqrt{\text{Position}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
+    Pour observer les meilleures et les pires prédictions du modèle, il nous faut une mesure de la distance entre les prédiction et les labels. On définit donc la norme ci-bas (en prenant soins de normaliser la hauteur). $$ \text{Norme} = \sqrt{\text{Position}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
     
-    Observons donc les meilleures predictions du modele (sans Maxpooling) (figure \ref{fig:Meilleur1D}).
+    Observons donc les meilleures prédictions du modèle (sans Max-pooling) (figure \ref{fig:Meilleur1D}).
     \begin{figure}[!h]
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Meilleur1D1}  
-    \caption[Meilleur1D1]{Label = [0.488 8.474] et Prediction = [0.49  8.486]}
+    \caption[Meilleur1D1]{Label = [0.488 8.474] \\ Prédiction = [0.49  8.486]}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Meilleur1D2}  
-    \caption[Meilleur1D2]{Label = [0.522 6.032]  et Prediction = [0.527 6.033]}
+    \caption[Meilleur1D2]{Label = [0.522 6.032]  \\ Prédiction = [0.527 6.033]}
     \end{subfigure}
     
      \centering
     \decoRule
-    \caption[Meilleur 1D]{Les meilleures predictions 1D. Il s'agit ici d'une reconstruction manuelle de la densite a partir des vecteurs presentes en (A) et (B). La premiere coordonne indique la position du saut de densite, et la deuxieme sa hauteur. On confirme que les bonnes predictions des positions sont proches du mileieu du domaine}
+    \caption[Meilleur 1D]{Les meilleures prédictions 1D. Il s'agit ici d'une reconstruction manuelle de la densité à partir des vecteurs en titre de figure en (A) et (B). La première coordonnée indique la position du saut de densité, et la deuxième sa hauteur. On confirme que les bonnes prédictions des positions sont proches du milieu du domaine.}
     \label{fig:Meilleur1D}
     \end{figure}
     
-    Les pires predictions du domaine permettent de mieux illustrer les problemes rencontre avec l'apprentissage 1D (\ref{fig:Pire1D}).
+    Les pires prédictions du modèle permettent de mieux illustrer les problèmes rencontrés avec l'apprentissage 1D (\ref{fig:Pire1D}).
     
     \begin{figure}[H]
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Pire1D1}  
-    \caption[Pire1D1]{Label = [0.125 5.886] et Prediction = [0.524 5.925]}
+    \caption[Pire1D1]{Label = [0.125 5.886] \\ Prédiction = [0.524 5.925]}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Pire1D2}  
-    \caption[Pire1D2]{Label = [0.892 8.195]  et Prediction = [0.454 8.167]}
+    \caption[Pire1D2]{Label = [0.892 8.195]  \\ Prédiction = [0.454 8.167]}
     \end{subfigure}
 
      \centering
     \decoRule
-    \caption[Pire1D]{Les pires prediction du modele (sans MaxPooling) 1D. La diference se joue au niveau de la position du crenau comme indiquee a la figure \ref{fig:Illustration1D}. Les predictions les plus eloignees du mileiu sont les plus mauvaises.}
+    \caption[Pire1D]{Les pires prédictions du modèle (sans Max-pooling) 1D. La différence se joue au niveau de la position du créneau comme indiquée à la figure \ref{fig:Illustration1D}. Les labels les plus éloignés du milieu conduisent aux prédictions les plus mauvaises.}
     \label{fig:Pire1D}
     \end{figure}
 %     - 3eme pire prediction: label [0.302 1.066]     prediction [0.503 1.144]
     
-    Le score personalise autour de 25\% indique que les prediction de la position se font quasiemnt aleatoirement. Pour remedier a ce probleme, il faut passer en 2D.  En effet, le probleme inverse est naturellement mal defini dans le sens ou plusieurs entree peuent donner la meme sortie. En 1D, on ne peut mesurer la sortie que sur un seul bord du domaine, ce qui limite beacoup notre aaprntissage.
+    Pour améliorer ce score personnalisé, il faut passer en 2D. En effet, le problème inverse n'est pas forcément bien posé dans le sens ou plusieurs entrées peuvent donner la même sortie. En 1D, on ne peut mesurer la sortie que sur un seul bord du domaine, ce qui limite beaucoup notre apprentissage.
 
     
     \subsubsection{En 2D}
-    Comme attendu, le reseau est capable de detecter non seulment la hauteur de l'obstacle, mais aussi son abcisse et son ordonnee. Notre score personnalise nous permet de confirmer cela dans le tableau \ref{tab:Tab2D}.
+    Comme attendu, le réseau est capable de détecter non seulement la hauteur de l'obstacle, mais aussi son abscisse et son ordonnée. Notre score personnalisé nous permet de confirmer cela dans le tableau \ref{tab:Tab2D}.
     
     \begin{table}[h!]
-    \caption{Resultats obtenus sur le jeur de test en 2D}
+    \caption{Résultats obtenus sur le jeu test en 2D}
     \label{tab:Tab2D}
     \centering
     \begin{tabular}{l l l}
     \toprule
-    \tabhead{Score} & \tabhead{Avec MaxPooling} & \tabhead{Sans MaxPooling} \\
+    \tabhead{Score} & \tabhead{Avec Max-pooling} & \tabhead{Sans Max-pooling} \\
     \midrule
-    R2 & 94.80 \% & 98.81 \%\\
-    personalise & 55.75 \% & 93.50 \%\\
+    $R^2$ & 94.80 \% & 98.81 \%\\
+    Personnalisé & 55.75 \% & 93.50 \%\\
     \bottomrule\\
     \end{tabular}
     \end{table}
 
-    On constate que les modele sans l'operation de MaxPooling est globalement meileure que son homologue avec MaxPooling du a l'application de l'early stopping. La figure \ref{fig:2DLoss} permet d'observer cela a travers la vitesse de convergence du modele.
+    On constate que le modèles sans l'opération de Max-pooling est globalement meilleure que son homologue avec Max-pooling du à l'application de l'Early-stopping. La figure \ref{fig:2DLoss} permet d'observer cela à travers la vitesse de convergence du modèle.
     
     \begin{figure}[!h]
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{2DLossPool}  
-    \caption[2DPool]{2D Avec Pooling}
+    \caption[2DPool]{2D avec Max-pooling}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{2DLossNoPool}  
-    \caption[2DNoPool]{2D Sans Pooling}
+    \caption[2DNoPool]{2D sans Max-pooling}
     \end{subfigure}
 
     \centering
     \decoRule
-    \caption[Loss en 2D]{Comparaison de la vitesse de decroissiance de la loss en 2D}
+    \caption[Loss en 2D]{Comparaison de la vitesse de décroissance de la loss en 2D}
     \label{fig:2DLoss}
     \end{figure}
 
-    COmme nous l'avons fait en 1D, Le modle sans max-pooling sera ulitlisee par la suite pour . Illustrons la correlation entre les predictions (de l'abcisse x, de l'ordonne y, et de la hauteur) et leurs labels repectifs (figure \ref{fig:Illustration2D}).
+    Comme nous l'avons fait en 1D, Le modèle sans Max-pooling sera utilisé par la suite pour illustrer la corrélation entre les prédictions (de l'abscisse $x$, de l'ordonne $y$, et de la hauteur) et leurs labels respectifs (figure \ref{fig:Illustration2D}).
     \begin{figure}[!h]
     \begin{subfigure}{.33\textwidth}
     \centering
     \includegraphics[width=.7\linewidth]{PositionX2D}  
-    \caption[PosX2D]{Abcisse}
+    \caption[PosX2D]{Abscisse}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
     \centering
     \includegraphics[width=.7\linewidth]{PositionY2D}  
-    \caption[PosY2D]{Ordonee}
+    \caption[PosY2D]{Ordonnée}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
     \centering
@@ -544,27 +541,27 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     
      \centering
     \decoRule
-    \caption[Illustration 2D]{Illustration de la correlation entre les labels et les predictions obtenues par le modele sans max-pooling en 2D. On peut observer que toutes les trois informations sont relativement bien correlee, d'ou le score R2 eleve (tableau \ref{tab:Tab2D}).}
+    \caption[Illustration 2D]{Illustration de la corrélation entre les labels et les prédictions obtenues par le modèle sans Max-pooling en 2D. On peut observer que toutes les trois informations sont relativement bien corrélées, d'où le score R2 élevé (tableau \ref{tab:Tab2D}).}
     \label{fig:Illustration2D}
     \end{figure}
     
-    Pour observer les meilleures et les pires predictions du modele, ils nous faut une mesure de la distance entre les predictions et les labels. On definit donc la norme ci-bas (en prenant soins de normaliser la hauteur). $$ \text{Norme} = \sqrt{\text{Abcisse}^2 + \text{Ordonee}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
+    Pour observer les meilleures et les pires prédictions du modèle, on définit donc la norme ci-bas. $$ \text{Norme} = \sqrt{\text{Abcisse}^2 + \text{Ordonee}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
     
     \begin{figure}[!h]
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Meilleur2D1}  
-    \caption[Meilleur2D1]{Label = [0.574 0.303 1.24 ] \\ Prediction = [0.58  0.302 1.157]}
+    \caption[Meilleur2D1]{Label = [0.574 0.303 1.24 ] \\ Prédiction = [0.58  0.302 1.157]}
     \end{subfigure}
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{Meilleur2D2}  
-    \caption[Meilleur2D2]{Label = [0.405 0.724 1.392]  \\  Prediction = [0.409 0.736 1.318]}
+    \caption[Meilleur2D2]{Label = [0.405 0.724 1.392]  \\  Prédiction = [0.409 0.736 1.318]}
     \end{subfigure}
     
      \centering
     \decoRule
-    \caption[Meilleur 2D]{Les meilleures predictions 2D. Ces images ont ete reconstruite a partir des  vecteurs "Labels" et "Prediction" issus de l'apprentissage. La premiere coordonne indique l'abcisse x du saut de densite, la deuxieme son ordonee y, et la troisieme sa hauteur. L'interpolation bicubique a ete utilise pour obtenir des images plus nettes.}
+    \caption[Meilleur 2D]{Les meilleures prédictions 2D. Ces images ont été reconstruites à partir des vecteurs "Labels" et "Prédiction" issus de l'apprentissage. La première coordonnée indique l'abscisse $x$ du saut de densité, la deuxième son ordonnée $y$, et la troisième sa hauteur. L'interpolation bicubique a été utilisée pour obtenir des images plus nettes.}
     \label{fig:Meilleur2D}
     \end{figure}
 
@@ -572,51 +569,51 @@ Nous avons entraine les architectures en 1D (fig ...) et par la suite en 2D (fig
     \begin{subfigure}{.33\textwidth}
     \centering
     \includegraphics[width=1\linewidth]{Pire2D1}  
-    \caption[Pire2D1]{Label = [0.2  0.65 0.1 ] \\ Prediction = [0.466 0.448 0.267]}
+    \caption[Pire2D1]{Label = [0.2  0.65 0.1 ] \\ Prédiction = [0.466 0.448 0.267]}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
     \centering
     \includegraphics[width=1\linewidth]{Pire2D2}  
-    \caption[Pire2D2]{Label = [0.2   0.2   0.736]  \\ Prediction = [0.407 0.298 0.494]}
+    \caption[Pire2D2]{Label = [0.2   0.2   0.736]  \\ Prédiction = [0.407 0.298 0.494]}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
     \centering
     \includegraphics[width=1\linewidth]{Pire2D3}  
-    \caption[Pire2D3]{Label = [0.674 0.358 7.096]  \\ Prediction = [0.712 0.449 5.462]}
+    \caption[Pire2D3]{Label = [0.674 0.358 7.096]  \\ Prédication = [0.712 0.449 5.462]}
     \end{subfigure}
 
      \centering
     \decoRule
-    \caption[Pire2D]{Les pires prediction du modele 2D. Sans surprise la plus mauvaise des prediction s'obtient lorsque le crenau est absent (A). On remarque en general que les pires predictions sont faites lorsque le crenaus se situe tres proche de l'extremite (B).}
+    \caption[Pire2D]{Les pires prédictions du modèle 2D. Sans surprise la plus mauvaise des prédictions s'obtient lorsque le créneau est absent (A). On remarque en général que les pires prédictions sont faites lorsque le créneau se situe très proche de L'extrémité (B).}
     \label{fig:Pire2D}
     \end{figure}
     
-    En ce qui concerne la generalisation du modle a d'autres formes d'obstacles, je n'ai pas eu l'ocasion de comparer les modeles avec et sans max-Pooling. Le modele sans MaxPooling risque alors d'etre moins performant conformement a la theorie (voir paragraphe \ref{subsec:MaxPoling}). Sous Keras, le modele a prouver etre capable d'apprendre en continu, du moment que les entrees soient toutes normalisee et ayant la meme forme.
+    En ce qui concerne la généralisation du modèle à d'autres formes d'obstacles, je n'ai pas eu l'occasion de comparer les modèles avec et sans Max-pooling. Le modèle sans Max-pooling risque alors d'être moins performant conformément à la théorie (voir paragraphe \ref{subsec:MaxPoling}). Sous Keras, le modèle à prouver être capable d'apprendre en continu, du moment que les entrées sont toutes normalisées et ont la même forme.
 
 \subsection{Classification}
 \label{sec:Classif}
-Durant le stage, il a fallu effectuer une classification mutilabel sur les donnes en 2D. QUi permet de placer l'obstacle dans une categorie definie a partir de la source. La classification petmet de detecter juste l;ordonne de l'obstacle. La structure des entrees est quasiment la meme que pour la regression, sauf qu'il manque les signaux sur la gauche (ou se trouve la source). En ce qui concerne les sorties, l'image ci-dessous decrit mieux leur structure:
+Durant le stage, il a fallu effectuer une classification mutilabel sur les données en 2D. Elle permet de placer l'obstacle dans une catégorie définie à partir de la source. La classification permet de détecter juste l'ordonnée de l'obstacle. La structure des entrées est quasiment la même que pour la régression en 2D, sauf qu'il manque les signaux sur la gauche (ou se trouve la source). En ce qui concerne les sorties, l'image ci-dessous décrit mieux leur structure :
 
 \begin{figure}[!h] 
 \centering
 \includegraphics[width=.8\linewidth]{Classification} 
 \decoRule
-\caption[Classification]{Description des labels pour la classification multilabel en 2D. Un label est marque 1 si l'obstacle se touve dans le champ de la source correpondante}
+\caption[Classification]{Description des labels pour la classification multilabel en 2D. Un label est marque 1 si l'obstacle se trouve dans le champ de la source correspondante}
 \label{fig:Classification}
 \end{figure}
 
-Les donnnes utilisee pour la classification ont une shape differente des autre. On a moins d'iterations en temps (40 au lieu de 168) mais mais un maille beacoup plus fin (90x90 au lieu de 28x28). L'architecture du modle utilise ressemble celle de la regression. Une majeure difference est qu'on utilise une activation "sigmoid" a la place de l'activation "lineaire". On obtient donc en sortie des probabilites qu'il faut classer par categories. Le modele est entraine avec des hyper-parametres identiques a ceux utilisees durant les regression. Les resultats sont presentes a la table \ref{tab:Class}
+Les données utilisées pour la classification ont une taille différente des autre. On a moins d'itérations en temps (40 au lieu de 168) mais un maillage beaucoup plus fin (90×90 au lieu de 28×28). Lu modèle de CNN utilisé ressemble à celui pour la régression. Une importante différence est qu'on utilise une activation "sigmoid" à la place de l'activation "linear" au niveau de la couche de sortie. On obtient donc en sortie des probabilités qu'il faut classer par catégories. Le modèle est entrainé avec des hyper-paramètres identiques à ceux utilisés durant la régression. Les résultats sont présentés dans la table \ref{tab:Class}
 
 \begin{table}[h!]
-\caption{Resultats obtenus pour la classification en 2D. Le score severe favorise les predictions qui sont exactes au veritable sur tous les 4 colones . Le seuillage permet d'augmenter la precision des resultats en se fixant un nouveu seuil a partir duquel les interpreter les sorties du reseau de neurones. Le score de Binary Accuracy procure par keras est calcule avant seuillage.}
+\caption{Résultats obtenus pour la classification en 2D. Le score sévère favorise les prédictions qui sont exactes au véritable label sur toutes les 4 colonnes. Le seuillage permet d'augmenter la précision des résultats en se fixant un nouveau seuil à partir duquel classer les sorties du réseau de neurones. Le score de « Binary accuracy » procuré par Keras est calculé avant le seuillage.}
 \label{tab:Class}
 \centering
 \begin{tabular}{l l l}
 \toprule
-\tabhead{Score} & \tabhead{Avec MaxPooling} & \tabhead{Sans MaxPooling} \\
+\tabhead{Score} & \tabhead{Avec Max-pooling} & \tabhead{Sans Max-pooling} \\
 \midrule
 Binary accuracy & 75.00 \% & 98.86 \%\\
-Score severe apres seillage & 27.27 \% & 95.45 \%\\
+Score sévère après seuillage & 27.27 \% & 95.45 \%\\
 \bottomrule\\
 \end{tabular}
 \end{table}
@@ -625,17 +622,17 @@ Score severe apres seillage & 27.27 \% & 95.45 \%\\
 \begin{subfigure}{.5\textwidth}
 \centering
 \includegraphics[width=.8\linewidth]{ClassPool}  
-\caption[2DPool]{2D Avec Pooling}
+\caption[2DPool]{2D avec Max-pooling}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
 \includegraphics[width=.8\linewidth]{ClassNoPool}  
-\caption[2DNoPool]{2D Sans Pooling}
+\caption[2DNoPool]{2D sans Max-pooling}
 \end{subfigure}
 
 \centering
 \decoRule
-\caption[ClassLoss]{Comparaison de la vitesse de decroissiance de la loss (multilabel crossentropy) pour la classification en 2D}
+\caption[ClassLoss]{Comparaison de la vitesse de décroissance de la loss (Multilabel Crossentropy) pour la classification en 2D}
 \label{fig:ClassLoss}
 \end{figure}
 
@@ -644,11 +641,11 @@ Score severe apres seillage & 27.27 \% & 95.45 \%\\
 \centering
 \includegraphics[width=.8\linewidth]{ClassFiabilite} 
 \decoRule
-\caption[ClassFiabilite]{Confiance du modele sans max-pooling en ses prediction. En rouge la classe 0 qui indique l'abscence du crenau devant la source; et en vert la classe 1. Cette figure indique que le modle se trompre rarement, ce qui confirme le resultat abtenu a la table \ref{tab:Class}.}
+\caption[ClassFiabilite]{Confiance du modèle sans Max-pooling en ses prédication. En rouge la classe 0 qui indique l'absence du créneau devant la source ; et en vert la classe 1. Cette figure indique que le modèle se trompe très rarement, ce qui confirme le résultat obtenu à la table \ref{tab:Class}.}
 \label{fig:ClassFiabilite}
 \end{figure}
 
 
-Dans ce cas aussi, le modele sans Maxpooling seble meilleure (figures \ref{fig:ClassLoss} et \ref{fig:ClassFiabilite}). Cependant nous ne disposons pas d'axxez de donnes pour verifier celui qui se generalise mieux. Ceci etant une classifcation,  les meilleures prediction du meilleure modele sont exactement les labels attendus et les pires predictions ne varient que de peu (de 1) de leurs cibles. Il est interressnat de constater qu'il n'y a aucune prediction aberante, par exemple: un obstacle se trouve en face des sources 1 et 3 sans recontrer la source 2.
+Dans ce cas aussi, le modèle sans Max-pooling semble meilleure (figures \ref{fig:ClassLoss} et \ref{fig:ClassFiabilite}). Cependant nous ne disposons pas d'assez de données pour vérifier celui qui se généralise mieux. Ceci étant une classification, les meilleures prédictions du modèle sont exactement les labels attendus et les pires prédictions ne diffèrent que de peu (de 1) de leurs cibles. Il est intéressant de constater qu'il n'y a aucune prédiction aberante, par exemple : un obstacle se trouve en face des sources 1 et 3 sans recontrer la source 2.
 
 %----------------------------------------------------------------------------------------

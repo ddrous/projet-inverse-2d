@@ -1,0 +1,361 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{Reference9}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FKM}{%
+         family={Fauske},
+         familyi={F\bibinitperiod},
+         given={Kjell\bibnamedelima Magne},
+         giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FKM1}
+    \strng{fullhash}{FKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    Example: Neural network%
+    }
+    \field{title}{Example: Neural network}
+    \verb{url}
+    \verb https://texample.net/tikz/examples/neural-network/
+    \endverb
+    \field{month}{12}
+    \field{year}{2006}
+  \endentry
+
+  \entry{Reference2}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FE}{%
+         family={Franck},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FE1}
+    \strng{fullhash}{FE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2012}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    Construction et analyse numérique de schéma asymptotic preserving sur
+  maillages non structurés. Application au transport linéaire et aux
+  systèmes de Friedrichs%
+    }
+    \field{pages}{12, 160\bibrangedash 161}
+    \field{title}{Construction et analyse numérique de schéma asymptotic
+  preserving sur maillages non structurés. Application au transport linéaire
+  et aux systèmes de Friedrichs}
+    \verb{url}
+    \verb https://www.nytimes.com/2015/12/11/science/an-advance-in-artificial-i
+    \verb ntelligence-rivals-human-vision-abilities.html
+    \endverb
+    \field{journaltitle}{Archive ouverte HAL}
+    \field{month}{10}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Reference4}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FE}{%
+         family={Franck},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FE1}
+    \strng{fullhash}{FE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    Schema de splitting en 2D%
+    }
+    \field{title}{Notes personnelles recus de la part de M. Franck concernat
+  l'impelmentation du schema de splitting en 2D}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Reference10}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GP}{%
+         family={Ganesh},
+         familyi={G\bibinitperiod},
+         given={Prakhar},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GP1}
+    \strng{fullhash}{GP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    Types of Convolution Kernels : Simplified%
+    }
+    \field{title}{Types of Convolution Kernels : Simplified}
+    \verb{url}
+    \verb https://towardsdatascience.com/types-of-convolution-kernels-simplifie
+    \verb d-f040cb307c37
+    \endverb
+    \field{month}{10}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Reference8}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GA}{%
+         family={Geron},
+         familyi={G\bibinitperiod},
+         given={Aurelien},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc}%
+    }
+    \strng{namehash}{GA1}
+    \strng{fullhash}{GA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{pages}{227\bibrangedash 325}
+    \field{title}{Hands-On Machine Learning with Scikit-Learn, Keras, and
+  TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems}
+    \verb{url}
+    \verb https://books.google.fr/books/about/Hands_On_Machine_Learning_with_Sc
+    \verb ikit_Le.html?id=HnetDwAAQBAJ&printsec=frontcover&source=kp_read_butto
+    \verb n&redir_esc=y
+    \endverb
+    \field{year}{2017}
+  \endentry
+
+  \entry{Reference5}{book}{}
+    \name{author}{3}{}{%
+      {{hash=GI}{%
+         family={Goodfellow},
+         familyi={G\bibinitperiod},
+         given={Ian},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Courville},
+         familyi={C\bibinitperiod},
+         given={Aaron},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{GI+1}
+    \strng{fullhash}{GIBYCA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{pages}{5\bibrangedash 6, 321\bibrangedash 361, 417}
+    \field{title}{Deep Learning}
+    \verb{url}
+    \verb http://www.deeplearningbook.org
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{Reference7}{article}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IRMA},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{abstract}{%
+    Institut de Recherche Mathématique Avancée, Unité Mixte de Recherche
+  7501 du CNRS et de l’Université de Strasbourg%
+    }
+    \field{title}{Organigramme}
+    \verb{url}
+    \verb https://irma.math.unistra.fr/article816.html
+    \endverb
+    \field{month}{03}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Reference6}{article}{}
+    \name{author}{1}{}{%
+      {{hash=Kt}{%
+         family={Keras-team},
+         familyi={K\bibinithyphendelim t\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{Kt1}
+    \strng{fullhash}{Kt1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{abstract}{%
+    If you want to load pre-trained weights that include convolutions (layers
+  Convolution2D or Convolution1D), be mindful of this: Theano and TensorFlow
+  implement convolution in different ways (TensorFlow actually implements
+  correlation, much like Caffe), and thus, convolution kernels trained with
+  Theano (resp. TensorFlow) need to be converted before being with TensorFlow
+  (resp. Theano). Here's how.%
+    }
+    \field{title}{Converting convolution kernels from Theano to TensorFlow and
+  vice versa}
+    \verb{url}
+    \verb https://github.com/keras-team/keras/wiki/Converting-convolution-kerne
+    \verb ls-from-Theano-to-TensorFlow-and-vice-versa
+    \endverb
+    \field{month}{06}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Reference1}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MJ}{%
+         family={Markoff},
+         familyi={M\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJ1}
+    \strng{fullhash}{MJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{abstract}{%
+    Computer researchers reported artificial-intelligence advances on Thursday
+  that surpassed human capabilities for a narrow set of vision-related tasks.%
+    }
+    \field{title}{A Learning Advance in Artificial Intelligence Rivals Human
+  Abilities}
+    \verb{url}
+    \verb https://www.nytimes.com/2015/12/11/science/an-advance-in-artificial-i
+    \verb ntelligence-rivals-human-vision-abilities.html
+    \endverb
+    \field{journaltitle}{The New York Times}
+    \field{month}{10}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Reference11}{article}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={Packt},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{P1}
+    \strng{fullhash}{P1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{s.d}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{abstract}{%
+    Convolutional neural networks%
+    }
+    \field{title}{Convolutional neural networks}
+    \verb{url}
+    \verb https://subscription.packtpub.com/book/game_development/9781789138139
+    \verb /4/ch04lvl1sec31/convolutional-neural-networks
+    \endverb
+    \field{year}{s.d}
+  \endentry
+
+  \entry{Reference3}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TR}{%
+         family={Turpault},
+         familyi={T\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TR1}
+    \strng{fullhash}{TR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{abstract}{%
+    Modelisation, approximation numerique et applicationsdu transfert radiatif
+  en desequilibre spectral couple avec l’hydrodynamique%
+    }
+    \field{pages}{13\bibrangedash 22}
+    \field{title}{Modelisation, approximation numerique et applicationsdu
+  transfert radiatif en desequilibre spectral couple avec l’hydrodynamique}
+    \verb{url}
+    \verb http://docplayer.fr/177010094-Modelisation-approximation-numerique-et
+    \verb -applications-du-transfert-radiatif-en-desequilibre-spectral-couple-a
+    \verb vec-l-hydrodynamique.html
+    \endverb
+    \field{journaltitle}{Archive ouverte HAL}
+    \field{month}{02}
+    \field{year}{2004}
+  \endentry
+\enddatalist
+\endinput
