@@ -42,6 +42,7 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 
 \usepackage{mathpazo} % Use the Palatino font by default
 % \usepackage[light,condensed,math]{iwona}  %% Comment above and uncomment this to use the Iwona font
+\renewcommand{\emph}[1]{\textbf{\textit{#1}}} %% Use this to make \emph text bold (you lose all other properties of the command)
 
 % \setcounter{tocdepth}{4} %% Use this to set numbering depth for sections in the toc (already set in the Class)
 \setcounter{secnumdepth}{3} %% Use this to set numbering depth for sections in the whole document
@@ -61,6 +62,14 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography 
 
+%% Stupid characters to declare if you your code to compile
+\DeclareUnicodeCharacter{25CF}{$\bullet$}
+\DeclareUnicodeCharacter{251C}{\mbox{\kern.23em
+  \vrule height2.2exdepth1exwidth.4pt\vrule height2.2ptdepth-1.8ptwidth.23em}}
+\DeclareUnicodeCharacter{2500}{\mbox{\vrule height2.2ptdepth-1.8ptwidth.5em}}
+\DeclareUnicodeCharacter{2514}{\mbox{\kern.23em
+  \vrule height2.2exdepth-1.8ptwidth.4pt\vrule height2.2ptdepth-1.8ptwidth.23em}}
+\DeclareUnicodeCharacter{202F}{FIX ME!!!!}
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -79,10 +88,10 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Modélisation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones} % Your thesis title, ths is used in the title and abstract, print it elsewhere with \ttitle
-\supervisor{Emmanuel \textsc{Franck} \\ Laurent \textsc{Navoret} \\ Vincent \textsc{Vigon}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\thesistitle{Simulation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones} % Your thesis title, ths is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{\href{http://irma.math.unistra.fr/~franck/index.html}{Emmanuel \textsc{Franck}} \\ \href{https://irma.math.unistra.fr/~navoret/}{Laurent \textsc{Navoret}} \\ \href{https://irma.math.unistra.fr/~vigon/}{Vincent \textsc{Vigon}}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{Christophe \textsc{PRUD'HOMME}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-\degree{Master CSMI} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\degree{master 1 CSMI} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Roussel Desmond \textsc{Nzoyem}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
@@ -138,26 +147,26 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \vspace{7mm}
-\emph{Auteur}\\
-\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\emph{Stagiaire}\\
+\href{https://github.com/desmond-rn}{\authorname} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushright} \large
-\emph{Maitres de stage} \\
-\href{http://www.jamessmith.com}{\supname} % Supervisor names - remove the \href bracket to remove the link
+\emph{Maîtres de stage} \\
+\href{http://irma.math.unistra.fr/}{\supname} % Supervisor names - remove the \href bracket to remove the link
 \\ \vspace{5mm}
 \emph{Enseignant référent} \\
-\href{http://www.jamessmith.com}{\examname} % Examiner's name - remove the \href bracket to remove the link
+\href{http://www.feelpp.org/team/prudhomm/}{\examname} % Examiner's name - remove the \href bracket to remove the link
 \end{flushright}
 \end{minipage}\\[2cm]
 
 % \vfill
 
-\large \textit{Stage réalisé dans le cadre du \degreename}\\[0.2cm] % University requirement text
-\textit{du 15 juin 2020 au 15 août 2020}\\[0.2cm]
+\large \textit{Stage réalisé dans le cadre du \href{https://docs.google.com/document/d/10JbbXeqqu5J2BjMkSQRNQ8Gx7xBPOClLKpvd7EBZT8U/edit}{master 1 CSMI}}\\[0.2cm] % University requirement text
+\textit{du 15 juin au 15 août 2020}\\[0.2cm]
 \textit{à l'initiative de l'\groupname}\\[0.2cm] % Research group
-\textit{au sein de l'\deptname}\\[2cm] % Department name
+\textit{au sein du service \href{http://irma.math.unistra.fr/}{IRMA} à l'\href{https://mathinfo.unistra.fr/}{UFR Math-Info} de l'\href{http://www.unistra.fr}{Unistra}}\\[2cm] % Department name
 
 \large Année académique 2019 - 2020
 
@@ -221,9 +230,11 @@ openany, %% Use this option to make chapters start on the next page, irrespectiv
 
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
-\qquad Je tiens à remercier dans un premier temps mes maîtres de stages MM. Emmanuel \textsc{Franck}, Laurent \textsc{Navoret}, et Vincent \textsc{Vigon} de m’avoir permis d’effectuer un stage scientifique très enrichissant dans les meilleurs conditions possibles, compte tenu de la situation sanitaires liée au COVID-19.
+\qquad Je tiens à remercier dans un premier temps mes maîtres de stage MM. Emmanuel \textsc{Franck}, Laurent \textsc{Navoret}, et Vincent \textsc{Vigon} de m’avoir permis d’effectuer un stage scientifique très enrichissant dans les meilleures conditions possibles. Étant donné la situation sanitaire de COVID-19, ils ont su me transmettre tous les enseignements nécessaires pour effectuer mes différentes missions (et bien plus encore), à distance comme en présentiel.
 
-Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \textsc{Bois} pour leurs conseils qui ont été instrumental dans l'amélioration de mes résultats.
+\qquad J'étends mes remerciements à M. Christophe \textsc{PRUD'HOMME} dont l'aide a été précieuse dans le rétablissement des ressources de calcul nécessaires pour les tâches de simulation.
+
+\qquad Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \textsc{Bois} pour leurs conseils. Les outils et méthodes de travail qu'ils ont recommandé (format binaire, clarification des paramètres, etc.) m'ont permis d'augmenter ma vitesse de travail et d'améliorer mes résultats.
 \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
@@ -271,10 +282,10 @@ Je remercie aussi mes camarades de CSMI Guillaume \textsc{Steimer} et Léo \text
 \textbf{Symbole} & \textbf{Définition} & \textbf{Unité} \\
 \addlinespace % Gap to separate the Roman symbols from the Greek
 
-$x$ & Abscisse & \si{\m} \\
-$y$ & Ordonnée & \si{\m} \\
-$\bm{x}$ & Vecteur position & \si{\m} \\
-$\bm{\Omega}$ & Vecteur direction de propagation des photons & \si{\m^2 \per \m^2} \\
+$x$ & Abscisse & \si{\cm} \\
+$y$ & Ordonnée & \si{\cm} \\
+$\bvec{x}$ & Vecteur position & \si{\cm} \\
+$\bm{\Omega}$ & Vecteur direction de propagation des photons & \si{\cm^2 \per \cm^2} \\
 $\nu$ & Fréquence & \si{Hz} \\
 $p$ & Fonction de distribution angulaire de « scattering » &  \\
 $I$ & Intensité spécifique de radiation & \si{W \per m^2 \per sr  \per Hz} \\
@@ -282,22 +293,22 @@ $B$ & Fonction de Planck & \si{W \per m^2 \per sr  \per Hz} \\
 
 \addlinespace % Gap with real SI dimensions
 
-$\rho$ & Densité du milieu & \si{\g\per\cm\cubed} \\
+$\rho$ & Densité du milieu & \si{\g \per \cm\cubed} \\
 $\sigma_a$ & Opacité d'absorption & \si{\per\cm} \\
-$\sigma_c$ & Opacité de dispersion (de « scattering ») & \si{\per\cm} \\
+$\sigma_c$ & Opacité de « scattering » (ou de dispersion) & \si{\per\cm} \\
 
 \addlinespace % Gap to separate inputs
 
 $t$ & Temps & \si{sh} \\
 $C_v$ & Capacité thermique du milieu & \si{Jerk \per\g \per keV} \\
-$a$ & Constante de radiation ($E = aT^4$)& \si{g \per cm \per sh^2  \per keV } \\
+$a$ & Constante radiative (ou de rayonnement)& \si{g \per cm \per sh^2  \per keV } \\
 $c$ & Vitesse de la lumière & \si{\cm \per sh} \\
 
 \addlinespace % Gap to separate output
 
 $T$ & Température matière & \si{keV} \\
 $E$ & Energie des photons & \si{g \per \cm \per sh^2} \\
-$F$ & Flux de photons & \si{g \per sh^2} \\
+$\bvec{F}$ & Flux de photons & \si{g \per sh^2} \\
 
 \end{symbols}
 

@@ -80,32 +80,6 @@
     \field{year}{2012}
   \endentry
 
-  \entry{Reference4}{article}{}
-    \name{author}{1}{}{%
-      {{hash=FE}{%
-         family={Franck},
-         familyi={F\bibinitperiod},
-         given={E.},
-         giveni={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FE1}
-    \strng{fullhash}{FE1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2020}
-    \field{labeldatesource}{}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
-    \field{abstract}{%
-    Schema de splitting en 2D%
-    }
-    \field{title}{Notes personnelles recus de la part de M. Franck concernat
-  l'impelmentation du schema de splitting en 2D}
-    \field{month}{07}
-    \field{year}{2020}
-  \endentry
-
   \entry{Reference10}{article}{}
     \name{author}{1}{}{%
       {{hash=GP}{%
@@ -342,7 +316,7 @@
     \field{sortinit}{T}
     \field{sortinithash}{T}
     \field{abstract}{%
-    Modelisation, approximation numerique et applicationsdu transfert radiatif
+    Modelisation, approximation numerique et applications du transfert radiatif
   en desequilibre spectral couple avec l’hydrodynamique%
     }
     \field{pages}{13\bibrangedash 22}

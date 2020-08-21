@@ -1,13 +1,13 @@
 
 % Appendix A
 
-\chapter{Comment reproduire les resultats ?} % Main appendix title
+\chapter{Comment reproduire les resultats?} % Main appendix title
 
 \label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
 \section{Exécution du code 1D/2D}
 
-Les codes de calculs 1D (développé durant le projet et utilise pour l'apprentissage durant ce stage) et 2D se trouvent dans deux dépôts Github différents :
+Les codes de calculs 1D (développé durant le projet et utilise pour l'apprentissage durant ce stage) et 2D se trouvent sur deux dépôts Github différents :
 \begin{itemize}
  \item 1D: \url{https://github.com/desmond-rn/projet-inverse} 
  \item 2D: \url{https://github.com/desmond-rn/projet-inverse-2d}
@@ -19,19 +19,19 @@ Pour compiler le code dans les deux cas, il faut idéalement passer par un conte
 % cmake -H. -Bbuild
 % cmake --build build
 % \end{verbatim}
-Ensuite il faut lancer l'exécutable \verb|transfer| avec un fichier de configuration. Les détails ainsi que la définition des paramètres 1D/2D du fichier de configuration sont définis dans les fichiers \verb|README.md| des dépôts 1D et 2D respectif.
+Ensuite il faut lancer l'exécutable "\verb|transfer|" avec un fichier de configuration. Les détails ainsi que la définition des paramètres 1D/2D du fichier de configuration sont définis dans les fichiers \verb|README.md| des dépôts 1D et 2D respectifs.
 
 \section{Lecture du format binaire}
-Pour passer d'une simulation (C++) à sa visualisation ou à l'apprentissage (Python), les données peuvent être sauvegardées au format binaire à l'aide du paramètre \verb|export_type binary|. Lorsque c'est le cas, il faut se servir de la fonction \verb|read_sds_version01| (disponible dans le notebook principal de tout l'apprentissage \href{https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing}{Regression3.ipynb}) pour les lire.
+Pour passer d'une simulation (C++) à sa visualisation ou à l'apprentissage (Python), les données peuvent être sauvegardées au format binaire à l'aide du paramètre "\verb|export_type|". Lorsque c'est le cas, il faut se servir de la fonction \verb|read_sds_version01| (disponible dans le notebook principal de tout l'apprentissage \href{https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing}{Regression3.ipynb}) pour les lire.
 
 Les données \textbf{train}, \textbf{val} et \textbf{test} que nous avons utilisé ont été sauvegardées sous le format binaire de Numpy. Ceci permet de faciliter la reproduction de l'apprentissage.
 
 
 \section{Exécution des notebooks}
-Deux catégories de notebooks ont été créés dans les dépôts github. Les deux premiers sont exécutables directement après clonage du dépôts. Il s'agit de :
+Deux catégories de notebooks ont été créés dans les dépôts github. Les deux premiers sont exécutables directement après clonage du dépôts. Ils sont :
 \begin{itemize}
- \item Visualisation : Il permet de visualiser les résultats d'une simulation exportée en CSV dans le fichier \verb|data/df_simu.csv|
- \item Sauvegarde : Il permet de transformer des données du format CSV au format binaire PARQUET rapidement lisible par Pandas.
+ \item Visualisation.ipynb : Il permet de visualiser les résultats d'une simulation exportée en CSV dans le fichier \verb|data/df_simu.csv|.
+ \item Sauvegarde.ipynb : Il permet de transformer des données du format CSV au format binaire PARQUET rapidement lisible par Pandas.
 \end{itemize}
 
-Les autres notebooks sont exécutables sur Google Colab. Ils ne sont exécutables que si on dispose des données train, val et test. Il faut alternativement télécharger le modèle déjà entrainé. Dû à leur taille considérable, ces données (ainsi que les notebooks pour l'apprentissage) ne sont pas disponible sur les dépôts et doivent être téléchargés séparément sur \href{https://drive.google.com/drive/folders/1beYPm0n-GfyhcmAOO13HLm6GAQncAbTB?usp=sharing}{Google Drive}, 
+Les autres notebooks sont exécutables sur Google Colab. Ils ne sont exécutables que si on dispose des données train, val et test. On peut alternativement télécharger le modèle déjà entrainé depuis les dépôts Github.

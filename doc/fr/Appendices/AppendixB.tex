@@ -1,10 +1,10 @@
 
 % Appendix B
 
-\chapter{Comment faire des prédictions avec ce modèle ?} % Appendix B title
+\chapter{Comment faire des prédictions avec ce modèle?} % Appendix B title
 
 \label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
-Pour faire des prédications, il suffit de disposer d'un jeu de données ayant la forme bien particulière décrite à l'une des figures \ref{fig:Entrees1D} ou \ref{fig:Entrees2D}. Il faut ensuite charger le modèle à l'aide de Keras et ensuite compiler.
+Pour faire des prédications, il suffit de disposer d'un jeu de données ayant la forme bien particulière décrite à l'une des figures \ref{fig:entrees1D} ou \ref{fig:entrees2D}. Il faut ensuite charger le modèle à l'aide de Keras et ensuite le compiler.
 
 \section{Normalisation des données}
 En plus d'avoir la forme appropriée, les données doivent être normalisées i.e toute les énergies doivent êtres divisées par leur maximum (en valeur absolue). Il en est de même pour le flux et la température.
@@ -22,6 +22,6 @@ from keras import backend as K
 \end{verbatim}
 
 
-\section{Entrainer le modele en continu}
-Le modèle peut être entrainé en continu. Après l'avoir chargé, on peut l'apprendre à détecter d'autres formes d'obstacles sous différentes conditions. Il suffit déjà de disposer de telles données. Pour l'apprentissage en continu, on pourra utiliser la fonction \verb|train_on_batch| de Keras.
+\section{Entrainer le modelé en continu}
+Le modèle peut être entraîné en continu. Après l'avoir chargé, on peut l'apprendre à détecter d'autres formes d'obstacles sous différentes conditions. Il suffit déjà de disposer de telles données. Pour l'apprentissage en continu, on pourra utiliser la fonction \verb|train_on_batch| de Keras.
 
