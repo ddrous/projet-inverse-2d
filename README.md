@@ -46,7 +46,7 @@ Cette dernière étape peut être facilitée par l'utilisation des extensions __
 ## __2ème partie: Reconstruction de la densité__   
 ### Préparation des données  
 - Lecture du format CSV: [`src/notebook/sauvegarde_2d.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/sauvegarde_2d.ipynb)
-- Lecture du format SDS: [`src/notebook/format_binaire.ipynb`](https://colab.research.google.com/drive/1pbuw_aORnOMEFs824BE2jOz4rCTevC3K?usp=sharing).  
+- Lecture du format SDS: [`src/notebook/format_binaire.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/format_binaire.ipynb).  
 
 ### Apprentissage  
 - Régression : [`src/notebook/regression_1d.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
