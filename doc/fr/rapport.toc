@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.2}Les équipes}{2}{section.15}%
 \contentsline {chapter}{\numberline {3}Simulation 2D}{4}{chapter.17}%
 \contentsline {section}{\numberline {3.1}Le transfert radiatif}{4}{section.18}%
-\contentsline {section}{\numberline {3.2}Schéma de splitting}{6}{section.29}%
+\contentsline {section}{\numberline {3.2}Schéma de « splitting »}{6}{section.29}%
 \contentsline {subsection}{\numberline {3.2.1}Étape 1}{6}{subsection.31}%
 \contentsline {subsection}{\numberline {3.2.2}Étape 2}{7}{subsection.34}%
 \contentsline {section}{\numberline {3.3}Implémentation en C++}{9}{section.42}%

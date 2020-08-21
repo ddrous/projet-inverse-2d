@@ -22,7 +22,7 @@
       {{hash=FKM}{%
          family={Fauske},
          familyi={F\bibinitperiod},
-         given={Kjell\bibnamedelima Magne},
+         given={K.\bibnamedelima M.},
          giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
       }}%
     }
@@ -72,8 +72,8 @@
   preserving sur maillages non structurés. Application au transport linéaire
   et aux systèmes de Friedrichs}
     \verb{url}
-    \verb https://www.nytimes.com/2015/12/11/science/an-advance-in-artificial-i
-    \verb ntelligence-rivals-human-vision-abilities.html
+    \verb https://tel.archives-ouvertes.fr/file/index/docid/744371/filename/the
+    \verb seFranckv3.pdf
     \endverb
     \field{journaltitle}{Archive ouverte HAL}
     \field{month}{10}
@@ -320,7 +320,7 @@
   en desequilibre spectral couple avec l’hydrodynamique%
     }
     \field{pages}{13\bibrangedash 22}
-    \field{title}{Modelisation, approximation numerique et applicationsdu
+    \field{title}{Modelisation, approximation numerique et applications du
   transfert radiatif en desequilibre spectral couple avec l’hydrodynamique}
     \verb{url}
     \verb http://docplayer.fr/177010094-Modelisation-approximation-numerique-et

@@ -78,7 +78,7 @@ Comme on peut le voir à travers cette définition de $E$ et $\bvec{F}$, notre m
 
 %----------------------------------------------------------------------------------------
 
-\section{Schéma de splitting}
+\section{Schéma de « splitting »}
 
 Le modèle P1 tend vers une équation de diffusion lorsque les opacités d'absorption ($\sigma_a$) et de dispersion ($\sigma_c$) sont élevées (de façon à ce que $c/\sigma_a \approx 1$). Ce cas limite est appelé \textbf{approximation de diffusion} (équation \ref{eqn:Diff}). Un schéma pour l'ETR qui préserve ce régime est dit « asymptotic preserving ».
 \begin{equation}
@@ -172,7 +172,7 @@ Nous devons maintenant retourner sur le maillage en discrétisant les intégrale
 \begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.8\linewidth]{Interaction2D}  
-  \caption{Interaction entre deux mailles $j$ et $k$}
+  \caption{Interaction entre une maille $j$ et sa voisine de droite $k$}
   \label{fig:Interaction2D}
 \end{subfigure}
 
@@ -201,7 +201,7 @@ Avec :
  \sigma_{jk} &= \frac{1}{2} \left( \sigma_c(\rho_j,T_j^n) + \sigma_c(\rho_k,T_k^n) \right)
 \end{align*}
 
-À l'itération $n$, l'étape 2 du schéma de « splitting » s'écrit donc sous la forme :
+À l'itération $n$, l'étape 2 du schéma de « splitting » se définit finalement comme suit \parencite[161]{Reference2} :
 \begin{equation*} 
     \begin{dcases}
     \frac{E_j^{n+1} - E_j^*}{\Delta t} + \frac{c}{\left| \Omega_j \right|} \sum_k \left( \bvec F_{jk}, \bvec n_{jk} \right) = 0 \\
@@ -213,7 +213,7 @@ Avec :
     \bvec S_j &= - \left( \sum_k M_{jk} \sigma_{jk} \right) \bvec F_{j}^{n+1} \\
     \bvec S_j^{\prime} &= \frac{1}{\left| \Omega_j \right|} \left( \sum_k l_{jk} M_{jk} \bvec n_{jk} \right) E_j^n \\
 \end{align*}
-Qui se réécrit comme suit :
+Qui se réécrit sous la forme :
 \begingroup
 \Large
 \begin{equation} 

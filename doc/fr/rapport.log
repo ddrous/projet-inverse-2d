@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  21 AUG 2020 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  21 AUG 2020 22:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1035,7 +1035,7 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 166--178
  []
 
 [8 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Dicretisation2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Interaction2D.png>]
-<./Figures/SimuCFG.png, id=522, 344.78813pt x 377.91188pt>
+<./Figures/SimuCFG.png, id=523, 344.78813pt x 377.91188pt>
 File: ./Figures/SimuCFG.png Graphic file (type png)
 <use ./Figures/SimuCFG.png>
 Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 248.
@@ -1045,29 +1045,29 @@ Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 248.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9]
-<./Figures/SimuCIR.png, id=539, 703.87968pt x 309.40594pt>
+<./Figures/SimuCIR.png, id=540, 703.87968pt x 309.40594pt>
 File: ./Figures/SimuCIR.png Graphic file (type png)
 <use ./Figures/SimuCIR.png>
 Package pdftex.def Info: ./Figures/SimuCIR.png  used on input line 272.
 (pdftex.def)             Requested size: 284.9288pt x 125.24261pt.
  [10 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/SimuCFG.png>]
-<./Figures/EvolCIR.png, id=550, 743.77875pt x 738.50906pt>
+<./Figures/EvolCIR.png, id=551, 743.77875pt x 738.50906pt>
 File: ./Figures/EvolCIR.png Graphic file (type png)
 <use ./Figures/EvolCIR.png>
 Package pdftex.def Info: ./Figures/EvolCIR.png  used on input line 280.
 (pdftex.def)             Requested size: 284.9288pt x 282.91264pt.
  [11 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/SimuCIR.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/EvolCIR.png>]
-<./Figures/SimuCFG2.png, id=569, 325.96782pt x 381.67593pt>
+<./Figures/SimuCFG2.png, id=570, 325.96782pt x 381.67593pt>
 File: ./Figures/SimuCFG2.png Graphic file (type png)
 <use ./Figures/SimuCFG2.png>
 Package pdftex.def Info: ./Figures/SimuCFG2.png  used on input line 292.
 (pdftex.def)             Requested size: 237.43825pt x 278.02707pt.
-<./Figures/SimuREC.png, id=570, 721.94719pt x 313.17pt>
+<./Figures/SimuREC.png, id=571, 721.94719pt x 313.17pt>
 File: ./Figures/SimuREC.png Graphic file (type png)
 <use ./Figures/SimuREC.png>
 Package pdftex.def Info: ./Figures/SimuREC.png  used on input line 300.
 (pdftex.def)             Requested size: 284.9288pt x 123.59804pt.
-<./Figures/EvolREC.png, id=573, 746.03719pt x 740.0147pt>
+<./Figures/EvolREC.png, id=574, 746.03719pt x 740.0147pt>
 File: ./Figures/EvolREC.png Graphic file (type png)
 <use ./Figures/EvolREC.png>
 Package pdftex.def Info: ./Figures/EvolREC.png  used on input line 308.
@@ -1083,51 +1083,51 @@ Chapitre 4.
 
 
 ]
-<./Figures/entreesortie1D.png, id=611, 644.4075pt x 319.1925pt>
+<./Figures/entreesortie1D.png, id=612, 644.4075pt x 319.1925pt>
 File: ./Figures/entreesortie1D.png Graphic file (type png)
 <use ./Figures/entreesortie1D.png>
 Package pdftex.def Info: ./Figures/entreesortie1D.png  used on input line 39.
 (pdftex.def)             Requested size: 284.9288pt x 141.13673pt.
-<./Figures/entrees1D.png, id=612, 967.615pt x 373.395pt>
+<./Figures/entrees1D.png, id=613, 967.615pt x 373.395pt>
 File: ./Figures/entrees1D.png Graphic file (type png)
 <use ./Figures/entrees1D.png>
 Package pdftex.def Info: ./Figures/entrees1D.png  used on input line 47.
 (pdftex.def)             Requested size: 189.9477pt x 73.29886pt.
  [15 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/entreesortie1D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/entrees1D.png>]
-<./Figures/entreesortie2D.png, id=626, 864.22874pt x 210.7875pt>
+<./Figures/entreesortie2D.png, id=627, 864.22874pt x 210.7875pt>
 File: ./Figures/entreesortie2D.png Graphic file (type png)
 <use ./Figures/entreesortie2D.png>
 Package pdftex.def Info: ./Figures/entreesortie2D.png  used on input line 65.
 (pdftex.def)             Requested size: 451.13123pt x 110.03146pt.
-<./Figures/entrees2D.png, id=627, 1369.115pt x 453.695pt>
+<./Figures/entrees2D.png, id=628, 1369.115pt x 453.695pt>
 File: ./Figures/entrees2D.png Graphic file (type png)
 <use ./Figures/entrees2D.png>
 Package pdftex.def Info: ./Figures/entrees2D.png  used on input line 73.
 (pdftex.def)             Requested size: 237.43825pt x 78.67784pt.
  [16 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/entreesortie2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/entrees2D.png>]
-<./Figures/MLP.png, id=643, 583.17876pt x 387.4475pt>
+<./Figures/MLP.png, id=644, 583.17876pt x 387.4475pt>
 File: ./Figures/MLP.png Graphic file (type png)
 <use ./Figures/MLP.png>
 Package pdftex.def Info: ./Figures/MLP.png  used on input line 106.
 (pdftex.def)             Requested size: 284.9288pt x 189.30112pt.
  [17 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/MLP.png>]
-<./Figures/DRNN1.png, id=662, 1104.125pt x 302.12875pt>
+<./Figures/DRNN1.png, id=663, 1104.125pt x 302.12875pt>
 File: ./Figures/DRNN1.png Graphic file (type png)
 <use ./Figures/DRNN1.png>
 Package pdftex.def Info: ./Figures/DRNN1.png  used on input line 118.
 (pdftex.def)             Requested size: 451.13123pt x 123.44484pt.
-<./Figures/DRNN2.png, id=663, 1104.125pt x 302.12875pt>
+<./Figures/DRNN2.png, id=664, 1104.125pt x 302.12875pt>
 File: ./Figures/DRNN2.png Graphic file (type png)
 <use ./Figures/DRNN2.png>
 Package pdftex.def Info: ./Figures/DRNN2.png  used on input line 126.
 (pdftex.def)             Requested size: 451.13123pt x 123.44484pt.
  [18 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/DRNN1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/DRNN2.png>]
-<./Figures/Conv1D.png, id=683, 3110.62125pt x 798.985pt>
+<./Figures/Conv1D.png, id=684, 3110.62125pt x 798.985pt>
 File: ./Figures/Conv1D.png Graphic file (type png)
 <use ./Figures/Conv1D.png>
 Package pdftex.def Info: ./Figures/Conv1D.png  used on input line 232.
 (pdftex.def)             Requested size: 225.5656pt x 57.93407pt.
-<./Figures/Conv2D.png, id=686, 164.25pt x 77.307pt>
+<./Figures/Conv2D.png, id=687, 164.25pt x 77.307pt>
 File: ./Figures/Conv2D.png Graphic file (type png)
 <use ./Figures/Conv2D.png>
 Package pdftex.def Info: ./Figures/Conv2D.png  used on input line 237.
@@ -1138,12 +1138,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 230--241
  []
 
 [19 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Conv1D.png (PNG copy)> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Conv2D.png>]
-<./Figures/MaxPool1D.png, id=703, 967.615pt x 365.365pt>
+<./Figures/MaxPool1D.png, id=704, 967.615pt x 365.365pt>
 File: ./Figures/MaxPool1D.png Graphic file (type png)
 <use ./Figures/MaxPool1D.png>
 Package pdftex.def Info: ./Figures/MaxPool1D.png  used on input line 268.
 (pdftex.def)             Requested size: 225.5656pt x 85.16948pt.
-<./Figures/MaxPool2D.png, id=704, 925.4575pt x 327.2225pt>
+<./Figures/MaxPool2D.png, id=705, 925.4575pt x 327.2225pt>
 File: ./Figures/MaxPool2D.png Graphic file (type png)
 <use ./Figures/MaxPool2D.png>
 Package pdftex.def Info: ./Figures/MaxPool2D.png  used on input line 273.
@@ -1153,7 +1153,7 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 266--277
 []$[]$ $[]$
  []
 
-<./Figures/Flatten.png, id=708, 1971.365pt x 1288.815pt>
+<./Figures/Flatten.png, id=709, 1971.365pt x 1288.815pt>
 File: ./Figures/Flatten.png Graphic file (type png)
 <use ./Figures/Flatten.png>
 Package pdftex.def Info: ./Figures/Flatten.png  used on input line 293.
@@ -1164,7 +1164,7 @@ Overfull \hbox (6.89902pt too wide) in paragraph at lines 300--301
  []
 
 [20 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/MaxPool1D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/MaxPool2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Flatten.png>]
-<./Figures/Dense.png, id=719, 773.89125pt x 453.695pt>
+<./Figures/Dense.png, id=720, 773.89125pt x 453.695pt>
 File: ./Figures/Dense.png Graphic file (type png)
 <use ./Figures/Dense.png>
 Package pdftex.def Info: ./Figures/Dense.png  used on input line 306.
@@ -1179,12 +1179,12 @@ Overfull \hbox (7.72719pt too wide) in paragraph at lines 381--382
  []
 
 [23]
-<./Figures/1DPool.png, id=772, 260.47313pt x 153.57375pt>
+<./Figures/1DPool.png, id=773, 260.47313pt x 153.57375pt>
 File: ./Figures/1DPool.png Graphic file (type png)
 <use ./Figures/1DPool.png>
 Package pdftex.def Info: ./Figures/1DPool.png  used on input line 433.
 (pdftex.def)             Requested size: 189.95131pt x 111.9954pt.
-<./Figures/1DNoPool.png, id=773, 263.48438pt x 154.32657pt>
+<./Figures/1DNoPool.png, id=774, 263.48438pt x 154.32657pt>
 File: ./Figures/1DNoPool.png Graphic file (type png)
 <use ./Figures/1DNoPool.png>
 Package pdftex.def Info: ./Figures/1DNoPool.png  used on input line 438.
@@ -1194,12 +1194,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 431--442
 []$[]$ $[]$
  []
 
-<./Figures/Position1D.png, id=775, 191.21437pt x 313.17pt>
+<./Figures/Position1D.png, id=776, 191.21437pt x 313.17pt>
 File: ./Figures/Position1D.png Graphic file (type png)
 <use ./Figures/Position1D.png>
 Package pdftex.def Info: ./Figures/Position1D.png  used on input line 453.
 (pdftex.def)             Requested size: 118.71912pt x 194.44054pt.
-<./Figures/Hauteur1D.png, id=776, 197.23688pt x 313.17pt>
+<./Figures/Hauteur1D.png, id=777, 197.23688pt x 313.17pt>
 File: ./Figures/Hauteur1D.png Graphic file (type png)
 <use ./Figures/Hauteur1D.png>
 Package pdftex.def Info: ./Figures/Hauteur1D.png  used on input line 458.
@@ -1212,12 +1212,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 451--461
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures/Meilleur1D1.png, id=778, 389.20406pt x 270.25969pt>
+<./Figures/Meilleur1D1.png, id=779, 389.20406pt x 270.25969pt>
 File: ./Figures/Meilleur1D1.png Graphic file (type png)
 <use ./Figures/Meilleur1D1.png>
 Package pdftex.def Info: ./Figures/Meilleur1D1.png  used on input line 474.
 (pdftex.def)             Requested size: 189.95131pt x 131.90466pt.
-<./Figures/Meilleur1D2.png, id=779, 402.00188pt x 271.76532pt>
+<./Figures/Meilleur1D2.png, id=780, 402.00188pt x 271.76532pt>
 File: ./Figures/Meilleur1D2.png Graphic file (type png)
 <use ./Figures/Meilleur1D2.png>
 Package pdftex.def Info: ./Figures/Meilleur1D2.png  used on input line 479.
@@ -1230,12 +1230,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 472--482
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures/Pire1D1.png, id=781, 401.24907pt x 258.21469pt>
+<./Figures/Pire1D1.png, id=782, 401.24907pt x 258.21469pt>
 File: ./Figures/Pire1D1.png Graphic file (type png)
 <use ./Figures/Pire1D1.png>
 Package pdftex.def Info: ./Figures/Pire1D1.png  used on input line 494.
 (pdftex.def)             Requested size: 189.95131pt x 122.23953pt.
-<./Figures/Pire1D2.png, id=782, 385.44pt x 272.51813pt>
+<./Figures/Pire1D2.png, id=783, 385.44pt x 272.51813pt>
 File: ./Figures/Pire1D2.png Graphic file (type png)
 <use ./Figures/Pire1D2.png>
 Package pdftex.def Info: ./Figures/Pire1D2.png  used on input line 499.
@@ -1249,12 +1249,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 492--502
 Overfull \vbox (44.34714pt too high) has occurred while \output is active []
 
  [25 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Position1D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Hauteur1D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Meilleur1D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Meilleur1D2.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Pire1D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Pire1D2.png>]
-<./Figures/2DLossPool.png, id=805, 266.49562pt x 157.33781pt>
+<./Figures/2DLossPool.png, id=806, 266.49562pt x 157.33781pt>
 File: ./Figures/2DLossPool.png Graphic file (type png)
 <use ./Figures/2DLossPool.png>
 Package pdftex.def Info: ./Figures/2DLossPool.png  used on input line 536.
 (pdftex.def)             Requested size: 189.95131pt x 112.14996pt.
-<./Figures/2DLossNoPool.png, id=806, 270.25969pt x 155.07938pt>
+<./Figures/2DLossNoPool.png, id=807, 270.25969pt x 155.07938pt>
 File: ./Figures/2DLossNoPool.png Graphic file (type png)
 <use ./Figures/2DLossNoPool.png>
 Package pdftex.def Info: ./Figures/2DLossNoPool.png  used on input line 541.
@@ -1264,17 +1264,17 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 534--544
 []$[]$ $[]$ 
  []
 
-<./Figures/PositionX2D.png, id=808, 197.23688pt x 313.17pt>
+<./Figures/PositionX2D.png, id=809, 197.23688pt x 313.17pt>
 File: ./Figures/PositionX2D.png Graphic file (type png)
 <use ./Figures/PositionX2D.png>
 Package pdftex.def Info: ./Figures/PositionX2D.png  used on input line 555.
 (pdftex.def)             Requested size: 109.6966pt x 174.17456pt.
-<./Figures/PositionY2D.png, id=809, 194.97844pt x 313.17pt>
+<./Figures/PositionY2D.png, id=810, 194.97844pt x 313.17pt>
 File: ./Figures/PositionY2D.png Graphic file (type png)
 <use ./Figures/PositionY2D.png>
 Package pdftex.def Info: ./Figures/PositionY2D.png  used on input line 560.
 (pdftex.def)             Requested size: 109.6966pt x 176.19113pt.
-<./Figures/Hauteur2D.png, id=810, 195.73125pt x 313.17pt>
+<./Figures/Hauteur2D.png, id=811, 195.73125pt x 313.17pt>
 File: ./Figures/Hauteur2D.png Graphic file (type png)
 <use ./Figures/Hauteur2D.png>
 Package pdftex.def Info: ./Figures/Hauteur2D.png  used on input line 565.
@@ -1282,12 +1282,12 @@ Package pdftex.def Info: ./Figures/Hauteur2D.png  used on input line 565.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures/Meilleur2D1.png, id=813, 478.03593pt x 358.33875pt>
+<./Figures/Meilleur2D1.png, id=814, 478.03593pt x 358.33875pt>
 File: ./Figures/Meilleur2D1.png Graphic file (type png)
 <use ./Figures/Meilleur2D1.png>
 Package pdftex.def Info: ./Figures/Meilleur2D1.png  used on input line 580.
 (pdftex.def)             Requested size: 189.95131pt x 142.38702pt.
-<./Figures/Meilleur2D2.png, id=814, 481.8pt x 353.82187pt>
+<./Figures/Meilleur2D2.png, id=815, 481.8pt x 353.82187pt>
 File: ./Figures/Meilleur2D2.png Graphic file (type png)
 <use ./Figures/Meilleur2D2.png>
 Package pdftex.def Info: ./Figures/Meilleur2D2.png  used on input line 585.
@@ -1300,17 +1300,17 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 578--588
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures/Pire2D1.png, id=815, 475.7775pt x 359.09157pt>
+<./Figures/Pire2D1.png, id=816, 475.7775pt x 359.09157pt>
 File: ./Figures/Pire2D1.png Graphic file (type png)
 <use ./Figures/Pire2D1.png>
 Package pdftex.def Info: ./Figures/Pire2D1.png  used on input line 598.
 (pdftex.def)             Requested size: 156.71011pt x 118.27592pt.
-<./Figures/Pire2D2.png, id=816, 488.57532pt x 362.85562pt>
+<./Figures/Pire2D2.png, id=817, 488.57532pt x 362.85562pt>
 File: ./Figures/Pire2D2.png Graphic file (type png)
 <use ./Figures/Pire2D2.png>
 Package pdftex.def Info: ./Figures/Pire2D2.png  used on input line 603.
 (pdftex.def)             Requested size: 156.71011pt x 116.38747pt.
-<./Figures/Pire2D3.png, id=817, 481.8pt x 344.03531pt>
+<./Figures/Pire2D3.png, id=818, 481.8pt x 344.03531pt>
 File: ./Figures/Pire2D3.png Graphic file (type png)
 <use ./Figures/Pire2D3.png>
 Package pdftex.def Info: ./Figures/Pire2D3.png  used on input line 608.
@@ -1319,17 +1319,17 @@ Package pdftex.def Info: ./Figures/Pire2D3.png  used on input line 608.
 Overfull \vbox (20.55585pt too high) has occurred while \output is active []
 
  [27 <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/PositionX2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/PositionY2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Hauteur2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Meilleur2D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Meilleur2D2.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Pire2D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Pire2D2.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/./Figures/Pire2D3.png>]
-<./Figures/Classification.png, id=840, 1186.4325pt x 483.8075pt>
+<./Figures/Classification.png, id=841, 1186.4325pt x 483.8075pt>
 File: ./Figures/Classification.png Graphic file (type png)
 <use ./Figures/Classification.png>
 Package pdftex.def Info: ./Figures/Classification.png  used on input line 626.
 (pdftex.def)             Requested size: 379.90265pt x 154.91753pt.
-<./Figures/ClassPool.png, id=843, 271.0125pt x 158.84344pt>
+<./Figures/ClassPool.png, id=844, 271.0125pt x 158.84344pt>
 File: ./Figures/ClassPool.png Graphic file (type png)
 <use ./Figures/ClassPool.png>
 Package pdftex.def Info: ./Figures/ClassPool.png  used on input line 651.
 (pdftex.def)             Requested size: 189.95131pt x 111.33507pt.
-<./Figures/ClassNoPool.png, id=844, 272.51813pt x 155.83218pt>
+<./Figures/ClassNoPool.png, id=845, 272.51813pt x 155.83218pt>
 File: ./Figures/ClassNoPool.png Graphic file (type png)
 <use ./Figures/ClassNoPool.png>
 Package pdftex.def Info: ./Figures/ClassNoPool.png  used on input line 656.
@@ -1342,7 +1342,7 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 649--659
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures/ClassFiabilite.png, id=845, 536.0025pt x 152.82094pt>
+<./Figures/ClassFiabilite.png, id=846, 536.0025pt x 152.82094pt>
 File: ./Figures/ClassFiabilite.png Graphic file (type png)
 <use ./Figures/ClassFiabilite.png>
 Package pdftex.def Info: ./Figures/ClassFiabilite.png  used on input line 669.
@@ -1363,7 +1363,7 @@ Overfull \hbox (5.74684pt too wide) in paragraph at lines 70--71
  []
 
 [32]
-<./Figures/MilestonesRoadmap.png, id=881, 905.63344pt x 302.63063pt>
+<./Figures/MilestonesRoadmap.png, id=882, 905.63344pt x 302.63063pt>
 File: ./Figures/MilestonesRoadmap.png Graphic file (type png)
 <use ./Figures/MilestonesRoadmap.png>
 Package pdftex.def Info: ./Figures/MilestonesRoadmap.png  used on input line 82.
@@ -1414,7 +1414,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 361.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 361.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 361.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: B933B646492B5D6378665EE630DDF4F2;9692.
+(rerunfilecheck)             Checksum: A346A3F813D9884A247710C529F1705A;9724.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1424,20 +1424,20 @@ Package logreq Info: Writing requests to 'rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30629 strings out of 480893
- 619721 string characters out of 5905096
- 1118135 words of memory out of 5000000
- 45503 multiletter control sequences out of 15000+600000
+ 30630 strings out of 480893
+ 619732 string characters out of 5905096
+ 1118183 words of memory out of 5000000
+ 45504 multiletter control sequences out of 15000+600000
  647976 words of font info for 280 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,82p,1224b,2581s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.79} has been referenced but does not exist, replaced by a fixed one
 
 {d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/mathpazo/fplmb.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/rapport.pdf" (44 pages, 2243923 bytes).
+Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/fr/rapport.pdf" (44 pages, 2244366 bytes).
 PDF statistics:
- 1047 PDF objects out of 1200 (max. 8388607)
- 857 compressed objects within 9 object streams
+ 1048 PDF objects out of 1200 (max. 8388607)
+ 858 compressed objects within 9 object streams
  220 named destinations out of 1000 (max. 500000)
  729 words of extra memory for PDF output out of 10000 (max. 10000000)
 

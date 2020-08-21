@@ -26,7 +26,7 @@ Il s'agit dans cette partie de décrire les entrées et les sorties qui ont ét�
   \item $\bvec{F}_0 = \bvec{0}$ [\si{g \per sh^2}]
 \end{itemize}
 
-La situation initiale pour chacune des simulations effectuées correspond à l'équilibre radiatif ($E_0=aT_0^4$, i.e température initiale de la matière ($T_0$) = température initiale de la radiation ($Tr_0$) = $(E_0/a)^{1/4}$). La situation sur une portion de la gauche correspond à cet équilibre perturbé par une source sinusoïdale ($ E_{gauche} = aT_{0}^4 + 5 \sin (2 k \pi t) $)\footnote{Toute la gauche est naturellement couverte par la source en 1D, avec $k=1000$. En 2D, $k=500$.} (condition de Dirichlet). Sur le reste de la gauche (en 2D), l'équilibre radiatif est maintenu (condition de Dirichlet). Les situations sur les autres bords (1 en 1D et 3 en 2D) correspondent à des sorties libres (condition de Neumann).
+La situation initiale pour chacune des simulations effectuées correspond à l'équilibre radiatif ($E_0=aT_0^4$, i.e température initiale de la matière ($T_0$) = température initiale de la radiation ($Tr_0$) = $(E_0/a)^{1/4}$). La situation sur une portion de la gauche correspond à cet équilibre perturbé par une source sinusoïdale ($ E_{gauche} = aT_{0}^4 + 5 \sin (2 k \pi t) $)\footnote{Toute la gauche est naturellement couverte par la source en 1D, avec $k=1000$. En 2D, $k=500$.} (condition de Dirichlet). Sur le reste de la gauche (en 2D), l'équilibre radiatif est maintenu (condition de Dirichlet). Les situations sur les autres bords (1 seul en 1D et 3 en 2D) correspondent à des sorties libres (condition de Neumann).
 
 À quelques différences près (nombre de mailles, position de la source sur la gauche), la figure \ref{fig:SimuCFG} représente un exemple typique de configuration utilisé en 2D (les paramètres physiques applicables en 1D peuvent aussi être observés). La définition des fichiers de configurations pour la 1D et la 2D est définie sur leur dépôt Github respectifs (voir annexe \ref{AppendixA}).
 
@@ -46,7 +46,7 @@ L'aspect d'une entrée et d'une sortie 1D est représentée à la figure \ref{fi
 \centering
 \includegraphics[width=.4\linewidth]{entrees1D} 
 \decoRule
-\caption[entrees1D]{Taille d'une entrée 1D. La dimension temporelle (nombre d'itérations) a été ré-échantillonnée de 907 à 50. Les 3 canaux désignent les signaux $E$, $\bvec{F}$ et $T$.}
+\caption[entrees1D]{Taille d'une entrée 1D. La dimension temporelle (nombre d'itérations) a été ré-échantillonnée à 50. Les 3 canaux désignent les signaux $E$, $\bvec{F}$ et $T$.}
 \label{fig:entrees1D}
 \end{figure}
 
@@ -128,7 +128,7 @@ L'architecture de CNN de base pour notre apprentissage a été proposée par M. 
 \caption[DRNN2]{Deuxième architecture utilisée (nommée DRNN 2). Ce modèle ne contient pas de couche de « pooling » \footnotemark.}
 \label{fig:DRNN2}
 \end{figure}
-\footnotetext[6]{Les détails concernant l'opération de « pooling » seront donnés à la section \ref{subsec:MaxPoling}}
+\footnotetext[13]{Les détails concernant l'opération de « pooling » seront donnés au paragraphe \ref{subsec:MaxPoling}}
 
 % \clearpage
 % \begin{figure}[h!]
@@ -572,7 +572,7 @@ Nous avons entrainé les architectures en 1D et 2D en ajustant convenablement le
     \label{fig:Illustration2D}
     \end{figure}
     
-    Pour observer les meilleures et les pires prédictions du modèle, on définit donc la norme ci-bas. $$ \text{Norme} = \sqrt{\text{Abcisse}^2 + \text{Ordonee}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
+    Pour observer les meilleures et les pires prédictions du modèle, on définit donc la norme ci-bas. $$ \text{Norme} = \sqrt{\text{Abscisse}^2 + \text{Ordonée}^2 + \left( \frac{\text{Hauteur}}{10} \right)^2}$$
     
     \begin{figure}[!h]
     \begin{subfigure}{.5\textwidth}
