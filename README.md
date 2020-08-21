@@ -5,7 +5,7 @@ Résolution du problème de propagation de la lumière par la méthode des volum
 
 ### Documents
 - Indications et travail à faire: `doc/guidelines/projetM1.pdf`  
-- Rapport de stage en français: `doc/fr/rapport.pdf`  
+- Rapport de stage en français: `Rapport.pdf` ou `doc/fr/rapport.pdf`  
 - Rapport en anglais: `doc/eng/report.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
