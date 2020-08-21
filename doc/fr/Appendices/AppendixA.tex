@@ -22,7 +22,7 @@ Pour compiler le code dans les deux cas, il faut idéalement passer par un conte
 Ensuite il faut lancer l'exécutable "\verb|transfer|" avec un fichier de configuration. Les détails ainsi que la définition des paramètres 1D/2D du fichier de configuration sont définis dans les fichiers \verb|README.md| des dépôts 1D et 2D respectifs.
 
 \section{Lecture du format binaire}
-Pour passer d'une simulation (C++) à sa visualisation ou à l'apprentissage (Python), les données peuvent être sauvegardées au format binaire à l'aide du paramètre "\verb|export_type|". Lorsque c'est le cas, il faut se servir de la fonction \verb|read_sds_version01| (disponible dans le notebook principal de tout l'apprentissage \href{https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing}{Regression3.ipynb}) pour les lire.
+Pour passer d'une simulation (C++) à sa visualisation ou à l'apprentissage (Python), les données peuvent être sauvegardées au format binaire à l'aide du paramètre "\verb|export_type|". Lorsque c'est le cas, il faut se servir de la fonction \verb|read_sds_version01| (disponible dans le notebook principal de tout l'apprentissage \href{https://colab.research.google.com/drive/18oCXoZzY0_7XnEmHBzHH40vVVnIacoVc?usp=sharing}{Regression.ipynb}) pour les lire.
 
 Les données \textbf{train}, \textbf{val} et \textbf{test} que nous avons utilisé ont été sauvegardées sous le format binaire de Numpy. Ceci permet de faciliter la reproduction de l'apprentissage.
 

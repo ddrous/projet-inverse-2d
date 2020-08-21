@@ -7,7 +7,7 @@
 Pour faire des prédications, il suffit de disposer d'un jeu de données ayant la forme bien particulière décrite à l'une des figures \ref{fig:entrees1D} ou \ref{fig:entrees2D}. Il faut ensuite charger le modèle à l'aide de Keras et ensuite le compiler.
 
 \section{Normalisation des données}
-En plus d'avoir la forme appropriée, les données doivent être normalisées i.e toute les énergies doivent êtres divisées par leur maximum (en valeur absolue). Il en est de même pour le flux et la température.
+En plus d'avoir la forme appropriée, les données doivent être normalisées i.e toutes les énergies doivent êtres divisées par leur maximum (en valeur absolue). Il en est de même pour le flux et la température.
 
 \section{Chargement du modèle}
 Le modèle a été sauvegardé sous la convention HDF5 de Keras. Après l'avoir chargé, il faut le compiler avec l'optimiseur Adam (et un taux d'apprentissage de \verb|1e-4| ou \verb|1e-5| suivant qu'on soit en 1D ou 2D). Pour que la compilation fonctionne, il faut impérativement inclure la fonction de calcul du sore $R^2$ indiquée ci-dessous.
