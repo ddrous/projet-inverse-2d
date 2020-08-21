@@ -49,7 +49,7 @@ Cette dernière étape peut être facilitée par l'utilisation des extensions __
 - Lecture du format SDS: [`src/notebook/format_binaire.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/format_binaire.ipynb).  
 
 ### Apprentissage  
-- Régression : [`src/notebook/regression_1d.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
+- Régression : [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
 - Classification : [`src/notebook/classification.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Classification.ipynb)  
 
 ## Ressources utilisées:
