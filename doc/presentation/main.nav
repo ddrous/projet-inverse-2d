@@ -1,0 +1,71 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{L'IRMA}}
+\headcommand {\slideentry {1}{1}{1}{3/4}{L'IRMA}{0}}
+\headcommand {\beamer@framepages {3}{4}}
+\headcommand {\slideentry {1}{1}{2}{5/6}{L'IRMA}{0}}
+\headcommand {\beamer@framepages {5}{6}}
+\headcommand {\beamer@subsectionpages {3}{6}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{7}{Le sujet du stage}}
+\headcommand {\slideentry {1}{2}{1}{7/8}{Le sujet du stage}{0}}
+\headcommand {\beamer@framepages {7}{8}}
+\headcommand {\slideentry {1}{2}{2}{9/9}{Le sujet du stage}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{2}{3}{10/10}{Le sujet du stage}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@sectionpages {3}{10}}
+\headcommand {\beamer@subsectionpages {7}{10}}
+\headcommand {\sectionentry {2}{Principe}{11}{Principe}{0}}
+\headcommand {\beamer@subsectionpages {11}{10}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{11}{Simulation de l'ETR}}
+\headcommand {\slideentry {2}{1}{1}{11/11}{Simulation de l'ETR}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {2}{1}{2}{12/12}{Simulation de l'ETR}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{1}{3}{13/13}{Simulation de l'ETR}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {2}{1}{4}{14/14}{Simulation de l'ETR}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {2}{1}{5}{15/15}{Simulation de l'ETR}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {11}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{16}{L'architecture de reseau de neurones}}
+\headcommand {\slideentry {2}{2}{1}{16/16}{L'architecture de reseau de neurones}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@sectionpages {11}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\sectionentry {3}{Le probleme en 1D}{17}{Le probleme en 1D}{0}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{17}{Simulation}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{17}{Apprentissage}}
+\headcommand {\beamer@sectionpages {17}{16}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\sectionentry {4}{Le probleme en 2D}{17}{Le probleme en 2D}{0}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{17}{Simulation}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{17}{Apprentissage}}
+\headcommand {\beamer@sectionpages {17}{16}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\sectionentry {5}{Conclusion}{17}{Conclusion}{0}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{17}{Sur l'apprentissage}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{17}{Sur le stage}}
+\headcommand {\beamer@sectionpages {17}{16}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\sectionentry {6}{5D}{17}{5D}{0}}
+\headcommand {\slideentry {6}{0}{1}{17/17}{}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@sectionpages {17}{17}}
+\headcommand {\beamer@documentpages {17}}
+\headcommand {\gdef \inserttotalframenumber {14}}

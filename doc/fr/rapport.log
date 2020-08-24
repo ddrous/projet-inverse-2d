@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  21 AUG 2020 22:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  24 AUG 2020 15:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1424,11 +1424,11 @@ Package logreq Info: Writing requests to 'rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30630 strings out of 480893
- 619732 string characters out of 5905096
+ 30628 strings out of 480893
+ 619719 string characters out of 5905096
  1118183 words of memory out of 5000000
  45504 multiletter control sequences out of 15000+600000
- 647976 words of font info for 280 fonts, out of 8000000 for 9000
+ 647348 words of font info for 278 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,82p,1224b,2581s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.79} has been referenced but does not exist, replaced by a fixed one

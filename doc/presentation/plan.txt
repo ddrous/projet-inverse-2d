@@ -1,0 +1,30 @@
+- Ne pas oublier la clarification de la notion de signal
+
+- Le score R2 est meilelur pour indiquer l'echec 
+- la 1D na pas marcher parceque  .. et puis j'ai pas automatiser les choses
+
+- La 2D ne devrait pas marcher CAR l'onde travers trop facilement l'obstacle  !!!!!!!!!!
+
+- Montrer que j'ai ocmpris les cours de C++, de Traitenament et fouille, de calcul scientifique . etc.. Rappeler ces ocurs chaque fois durant la [resentation
+
+- presenter de maniere chronologique. le dire!!
+
+--- deuxxieme titel:
+   sooutenance de stage
+   anee acedemique
+
+
+- intro (Moi, l'IRMA, suite du projet (IA+EDP, mes profs (leur background), ) )
+- IRMA
+- ETR
+- SImu 1D
+- Appren 1D
+- Simu 2D
+- Appre 2D
+- Conclusion sur lápprentissage
+- COnclusion (IA+EDP)
+
+
+Ajouter l'image des signaux medicaux dans la conclusion peut-etre
+
+Remplacer les rectangles dans l'image de discretisation 2D

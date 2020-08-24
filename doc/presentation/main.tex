@@ -1,0 +1,443 @@
+%-------------------------------------------------------------------------------
+%							PREAMBULE
+%-------------------------------------------------------------------------------
+
+\documentclass[xcolor=dvipsnames]{beamer} % dvipsnames gives more built-in colors
+
+\usetheme{Szeged}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split, smoothbars, smoothtree, shadow
+\useinnertheme{rectangles}
+
+% \usepackage{iwona}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\graphicspath{ {./Figures/} }
+\usepackage[utf8]{inputenc}
+\newcommand{\bvec}[1]{\mathbf{#1}} 
+\usepackage{amsmath,bm,mathtools}
+\usepackage{siunitx}
+
+\usepackage{docmute}
+
+
+\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+
+\definecolor{MyGreen}{RGB}{0, 50, 0}
+
+% \usecolortheme[named=UBCblue]{structure}
+\usecolortheme[named=MyGreen]{structure} % Sample dvipsnames color
+
+% \definecolor{darkred}{rgb}{0.4,0.5,0}
+% \setbeamercolor{titlelike}{parent=structure,bg=yellow!85!orange}
+
+
+%-------------------------------------------------------------------------------
+%							A CUSTOM FOOTLINE
+%-------------------------------------------------------------------------------
+
+\makeatletter
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+	\end{beamercolorbox}
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	% \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+	\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+
+}
+\makeatother
+
+%-------------------------------------------------------------------------------
+%							FIRST TITLE PAGE
+%-------------------------------------------------------------------------------
+
+\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Problème Inverse : Transfert Radiatif et Apprentissage}
+\date{\today}
+\author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM}
+
+\institute[Université de Strasbourg]{Université de Strasbourg\\UFR de mathématiques et d'informatque\\Master 1 CSMI}
+
+\begin{document}
+
+\begingroup
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{\vspace{0.5cm}%
+  \hspace*{0.8cm}%
+  \includegraphics[width=3cm]{LogoUnistra}
+  \hfill\raisebox{.2cm}{\normalsize Soutenance de stage}\hfill%
+  \includegraphics[width=2.2cm]{LogoIRMA}
+  \hspace*{0.8cm}%
+}
+\begin{frame}
+\maketitle
+\end{frame}
+\endgroup
+
+%-------------------------------------------------------------------------------
+%							SECOND TITLE PAGE
+%-------------------------------------------------------------------------------
+
+%------------ Intro Part 1
+% - Moi (Nom-prenom-classe)
+% - Remerciement des profs, qui ont ausi encadrer le projer
+% - Parler du projet
+
+\begingroup  % A new griou whose informations are not cannon., just for convenience
+
+\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Simulation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones}
+
+\author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM\\[2mm]{\small \textbf{ \hspace*{0.1mm} Ensignant referent} \hspace*{11mm} \textbf{Maitre de stage} \\ \footnotesize Christophe PRUD'HOMME \hspace*{6mm} Emmanuel FRANCK \\ \hspace*{44.5mm} Laurent NAVORET \\ \hspace*{44.5mm} Vincent VIGON}}
+
+\institute[Université de Strasbourg]{}
+\date[\today]{\footnotesize Annee Academique 2019/2020}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{\vspace{0.5cm}%
+  \hspace*{0.8cm}%
+  \includegraphics[width=3cm]{LogoUnistra}
+  \hfill\raisebox{.6cm}{}\hfill%
+  \includegraphics[width=2.2cm]{LogoIRMA}
+  \hspace*{0.8cm}%
+}
+\begin{frame}
+\maketitle
+\end{frame}
+\endgroup
+
+%-------------------------------------------------------------------------------
+%							FIRST SECTION
+%-------------------------------------------------------------------------------
+
+%------------ Intro Part 2
+% - le site de l'IRMA est riche et complet
+% - De M.NAVORET et FRANCK vers l'equipe MOCO (leurs travaux, etc..):
+% - l'equipe probabilite
+
+\section{Introduction}    % L'IRMA
+
+\subsection{L'IRMA}
+	
+\begin{frame}
+  % MM. Franck et Navoret
+	L'equipe MOCO compte plusieurs membres parmi lesquels MM.: % M. Prud'homme aussi
+	\begin{itemize}
+		\item Emmanuel FRANCK % Dernier expose: Base de modèles épidémiologiques, covid et contrôle (2020)
+		\item Laurent NAVORET % Dernier expose: Modèle macroscopique pour un système de particules discoïdales en interactions d'alignement (2015)
+  \end{itemize}
+  Responsables des seminaires en EDP
+
+  \pause
+  % L'equipe MOCO en general (analyse des EDP, de la théorie du contrôle, du calcul scientifique et haute performance, et des statistiques.)
+	\begin{itemize}
+		\item Partenariats internationaux (Portugal, Allemagne, USA, etc.)  % Projets (Examag Spexxa, MAToS, projet EUROFUSION)
+		\item Partenariats indutriels  % 
+		\item Modélisation des plasmas  % L’équipe projet INRIA TONUS qui lui est adossee
+  \end{itemize}
+
+\end{frame}
+
+% \subsection{L'équipe Probabilités}
+	
+\begin{frame}
+  % MM. Franck et Navoret
+	L'equipe Probabilités compte plusieurs membres parmi lesquels M.: % M. Prud'homme aussi
+	\begin{itemize}
+		\item Vincent VIGON
+  \end{itemize}
+
+  \pause
+  % L'equipe Probabilites en general
+  Des activites diverses:
+	\begin{itemize}
+		\item Partenariats internationaux (Allemagne, Autralie, Chine, etc)  % Actuariat, Transport optimal, Matrrice Aleatoire
+		\item Séminaire (de calcul) stochastique.  % 
+  \end{itemize}
+
+% You get the point, ce sint de grosses equipes de recherches tres actives! Et des que j'ai vu qu'elles allait encadrer le projet, j'ai saute sur l'occasion
+
+\end{frame}
+
+\subsection{Le sujet du stage}
+
+\begin{frame}
+
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+  \centering
+    Probleme direct \\ (\scriptsize Resolution de l'EDP du transfer radiatif)
+    % Image de densite -> signal sur les bords
+ \end{column}
+ \pause
+ \begin{column}{0.5\textwidth}
+    \centering
+    Probleme inverse \\ (\scriptsize Reconstruction de la densite par un ANN)
+    %Image de signal sur les bords -> densite
+ \end{column}
+\end{columns}
+
+\end{frame}
+
+%-------- Vrai debut de l'introduction (PB INVERSE)
+\begin{frame}
+  Trois point cles pour situer le stage:
+  \begin{enumerate}
+    \item Explosion du deep learning % Depuis le debut de la decenie 2010, le Machine Learning a considerablement pris de l’ampleur (2015 a l’ILSVRC, etc..)
+    %%%%%% IMAGE DU DEEP LEARNING
+    \item APplications dans le secteur medical (Imagerie medicale) % Avant de soigner les cancers, on doit detecter les tumeurs sont plus denses que les tissus sains (Chercher d'autres applications)
+    %%%%%% IMAGE DU MEDICAL
+    \item Reevaluation des methode de resolution de problemes inverse % Les problemes inverses sont difficiles. ... Les algo d'optimisation classiques marchent tres bien. En fait on s'est referer aux travaux de Maya et Guillaume Dolle. L'avantage que peuvent offrir les ANN c'est juste la simplicite, et la rapidite, et une generalisation (non specificite aux probleme)
+    %%%%%% IMAGE DU PB INVERSE
+  \end{enumerate}
+  
+\end{frame}
+
+\begin{frame}
+  \scriptsize
+  \frametitle{Sommaire}
+  \tableofcontents
+\end{frame}
+
+%-------------------------------------------------------------------------------
+%							SECOND SECTION
+%-------------------------------------------------------------------------------
+\section{Principe}
+
+\subsection{Simulation de l'ETR}
+
+\begin{frame}
+  \frametitle{Le transfer radiatif}
+
+Lorsque la photons se trouvent en presence de la matière, Trois phenomènes majeures (caratises par leurs opacites) se produisent:
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \footnotesize
+   \begin{itemize}
+     \item Emission ($\sigma_e$): Plus la temperature matiere est elevee, plus l'emission est importante % Typiquement on ne vas pas retrouver sigma_e dans nos equations car on va se placer dans l'ETL, et on Planck.
+     \item Absorption ($\sigma_a$): Lorsqu'on est a l'equilibre thermique, $\sigma_a = \sigma_e$ % On va considerer en plus l'equilibre chimique ce qui donne l'ETL
+     \item Scattering ($\sigma_c$): Il faut aussi tenir compte de la fonction de distribution angulaire de « scattering » $p(\bm{\Omega^\prime \rightarrow \bm{\Omega}})$.
+   \end{itemize}
+  \end{column}
+  % \pause
+  \begin{column}{0.5\textwidth}
+     \begin{center}
+      \includegraphics[width=6cm]{TransferRadiatif}       
+     \end{center}
+  \end{column}
+ \end{columns}
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{L'ETR}
+  L'equation du transfert radiatif est bilan d'energie lie au rayonnement au niveau mesoscopique. 
+
+  \begingroup
+  \scriptsize
+  \begin{gather*}
+      \begin{aligned}
+      \frac{1}{c} \frac{\partial}{\partial t}I(t,\bvec{x},\bm{\Omega},\nu) &+\bm{\Omega}\cdot\nabla_{\bvec{x}} I(t,\bvec{x},\bm{\Omega},\nu) \\
+      &= \sigma_a(\rho,\bm{\Omega},\nu)\left(B(\nu,T)-I(t,\bvec{x},\bm{\Omega},\nu)\right) \\
+      &+ \frac{1}{4\pi} \int_{0}^{\infty} \int_{S^2}\sigma_c(\rho,\bm{\Omega},\nu)p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\left(I(t,\bvec{x},\bm{\Omega}^\prime,\nu)-I(t,\bvec{x},\bm{\Omega},\nu)\right) \, d\bm{\Omega}^\prime \, d\nu
+      \end{aligned}
+  % \label{eqn:ETR}
+  \end{gather*}
+  \endgroup
+Où 
+\begin{itemize}
+  \item $I(t,\bvec{x},\bm{\Omega},\nu)$ designe l'intensité radiative specifique;
+  \item $B(\nu,T)$ la fonction de Planck;
+  \item $\oint p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\, d\bm{\Omega}^\prime=1$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le modele P1}
+  % Le modele P1: % Modèle macroscopique 5 aux moments (d’ordre 2), linéaire et hyperbolique. Le terme 1/3
+  \begingroup
+  \large
+  \begin{equation*}
+      \begin{cases}
+       \partial_tE + c \ \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)\\
+       \partial_t\bvec{F} + c \ \nabla E = -c\sigma_c \bvec{F} \\
+       \rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right)
+      \end{cases}
+  % \label{eqn:P1}
+  \end{equation*}
+  \endgroup
+Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
+\begin{align*}
+  E(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu \\
+  \bvec{F}(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu 
+  % \label{eqn:EFT}
+\end{align*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le schema de « splitting »: Etape 1}
+  % Reglage de la temperature 
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      On pose $\Theta = aT^4$
+
+      \begingroup
+      \normalsize
+      \begin{equation*} 
+        \begin{dcases}
+         E_j^{q+1} = \dfrac{\alpha E_j^n + \beta \gamma \Theta_j^n}{1 - \beta \delta} \\
+         \Theta_j^{q+1} = \dfrac{\gamma \Theta_j^n + \alpha \delta E_j^n}{1 - \beta \delta} 
+        \end{dcases}
+    \label{eqn:Step1}
+    \end{equation*}
+      \endgroup
+      En posant
+      \scriptsize
+      $\mu_q = \dfrac{1}{T^{3,n} + T^{n}T^{2,q} + T^{q}T^{2,n} + T^{3,q}}$
+      \normalsize
+      On a
+    \end{column}
+    % \pause
+    \begin{column}{0.5\textwidth}
+       \begin{center}
+        \includegraphics[width=4.5cm]{Dicretisation2D}       
+       \end{center}
+    \end{column}
+   \end{columns}
+   \tiny
+  $\quad  \alpha = \dfrac{1}{\Delta t \left( \frac{1}{\Delta t} + c \sigma_a \right)} ,\quad 
+   \beta = \dfrac{c \sigma_a}{\frac{1}{\Delta t} + c \sigma_a} ,\quad 
+   \gamma = \dfrac{\rho_j C_v \mu_q}{\Delta t \left( \frac{\rho_j C_v \mu_q}{\Delta t} + c \sigma_a \right)} \quad \text{et} \quad  
+   \delta = \dfrac{c \sigma_a}{\frac{\rho_j C_v \mu_q}{\Delta t} + c \sigma_a}.$
+
+   \normalsize
+   COnvergence ver $E_j^*$ et $\Theta_j^*$. $\bvec F_j$ reste constant egale a $F_j^*$.
+   
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Le schema de « splitting »: Etape 2}   % Adaptable aussi en 2D
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begingroup
+      \normalsize
+      \begin{equation*} 
+          \begin{dcases}
+          E_j^{n+1} = E_j^* + \alpha \sum_k \left( \bvec F_{jk}, \bvec n_{jk} \right) \\
+          \bvec F_j^{n+1} = \beta \bvec F_j^* + \bm{\gamma} E_j^n + \delta \sum_k E_{jk} \bvec n_{jk}
+          \end{dcases}   
+      % \label{eqn:Step2}
+      \end{equation*}
+      Avec :
+      % \begingroup
+      \scriptsize
+    
+      % \begin{gather*}    
+      % \begin{aligned} 
+        $\alpha = -\frac{c \Delta t}{\left| \Omega_j \right|}, \linebreak
+        \beta = \frac{1}{\Delta t} \left( \frac{1}{\Delta t} + c \sum_k M_{jk} \sigma_{jk} \right)^{-1}, \linebreak
+        \bm{\gamma} = \frac{c}{\left| \Omega_j \right|} \left( \frac{1}{\Delta t} + c \sum_k M_{jk} \sigma_{jk} \right)^{-1} \left( \sum_k l_{jk} M_{jk} \bvec n_{jk} \right) \linebreak
+        \delta = -\frac{c}{\left| \Omega_j \right|} \left( \frac{1}{\Delta t} + c \sum_k M_{jk} \sigma_{jk} \right)^{-1}$
+    %   \end{aligned}
+    % \end{gather*}
+
+    \endgroup
+      
+    \end{column}
+    % \pause
+    \begin{column}{0.4\textwidth}
+       \begin{center}
+        \includegraphics[width=5cm]{Interaction2D}       
+        \begingroup
+        \tiny
+        \begin{align*}
+          \left(\bvec F_{jk}, \bvec n_{jk} \right) &= l_{jk} M_{jk} \left( \frac{\bvec F_j^n \cdot \bvec n_{jk} + \bvec F_k^n \cdot \bvec n_{jk}}{2} - \frac{E_k^n - E_j^n}{2} \right) \\
+          E_{jk} \bvec n_{jk} &= l_{jk} M_{jk} \left( \frac{E_j^n + E_k^n}{2} - \frac{\bvec F_k^n \cdot \bvec n_{jk} - \bvec F_j^n \cdot \bvec n_{jk}}{2} \right) \bvec n_{jk} \\
+        %  \end{align*}
+        %  \begin{align*}
+          M_{jk} &= \frac{2}{2 + \Delta x \sigma_{jk}}  \\
+          \sigma_{jk} &= \frac{1}{2} \left( \sigma_c(\rho_j,T_j^n) + \sigma_c(\rho_k,T_k^n) \right)
+         \end{align*}
+        \endgroup
+       \end{center}
+    \end{column}
+   \end{columns}
+\end{frame}
+
+\subsection{L'architecture de reseau de neurones}
+
+\begin{frame}
+  \frametitle{Implementation C++}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \scriptsize
+      \begin{itemize}
+        \item Temps final = 0.01 \si{sh} %\textit{(1 shake (\si{sh}) = $10^{-8}$ secondes)}
+        \item $c = 299$ [\si{\cm \per sh}]
+        \item $a = 0.01372$ [\si{g \per cm \per sh^2  \per keV }]
+        \item $C_v = 0.14361$ [\si{Jerk \per\g \per keV}] % \textit{(1 \si{Jerk} = 1\si{m \per \s\cubed})}
+        \item La densité $\rho$ est un signal créneau [\si{\g\per\cm\cubed}]
+        \item $\sigma_a = \rho T$ [\si{\per\cm}]
+        \item $\sigma_c = \rho T$ [\si{\per\cm}]
+        \item $T_0, T_{gauche} = 5$ [\si{keV}] % \textit{(en termes de température, 1 \si{keV} = 11605 \si{K})}
+        \item $E_0 = aT_0^4$ [\si{g \per \cm \per sh^2}]
+        \item $E_{gauche^*} = aT_{0}^4 + 5 \sin (2 k \pi t)$ [\si{g \per \cm \per sh^2}]
+        \item $\bvec{F}_0, \bvec{F}_{gauche} = \bvec{0}$ [\si{g \per sh^2}]
+        \item Sorties libres sur les autres bords
+      \end{itemize}
+    \end{column}
+    % \pause
+    \begin{column}{0.4\textwidth}
+      %  \begin{center}
+        \includegraphics[width=4.5cm]{SimuCFG}   % EN 2D    
+      %  \end{center}
+    \end{column}
+   \end{columns}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+%							THIRD SECTION
+%-------------------------------------------------------------------------------
+\section{Le probleme en 1D}
+
+\subsection{Simulation}
+
+\subsection{Apprentissage}
+
+%-------------------------------------------------------------------------------
+%							FOURTH SECTION
+%-------------------------------------------------------------------------------
+\section{Le probleme en 2D}
+
+\subsection{Simulation}
+
+\subsection{Apprentissage}
+
+
+
+
+
+% \include{Chapters/Chapter1}
+% \include{Chapters/Chapter2}
+% \include{Chapters/Chapter3}
+% \include{Chapters/Chapter4}
+% \include{Chapters/Section5}
+
+\input{Chapters/Chapter5}
+
+\end{document}
