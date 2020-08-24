@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  24 AUG 2020 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  24 AUG 2020 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -914,12 +914,12 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 7
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \docmute@nestinglevel=\count354
-<./Figures/LogoUnistra.png, id=96, 600.74437pt x 218.31563pt>
+<./Figures/LogoUnistra.png, id=87, 600.74437pt x 218.31563pt>
 File: ./Figures/LogoUnistra.png Graphic file (type png)
 <use ./Figures/LogoUnistra.png>
 Package pdftex.def Info: ./Figures/LogoUnistra.png  used on input line 86.
 (pdftex.def)             Requested size: 85.35826pt x 31.01701pt.
-<./Figures/LogoIRMA.png, id=98, 1043.39813pt x 645.91313pt>
+<./Figures/LogoIRMA.png, id=89, 1043.39813pt x 645.91313pt>
 File: ./Figures/LogoIRMA.png Graphic file (type png)
 <use ./Figures/LogoIRMA.png>
 Package pdftex.def Info: ./Figures/LogoIRMA.png  used on input line 86.
@@ -961,7 +961,7 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 
 [2
 
-]
+] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section1.tex
 Overfull \hbox (23.88118pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1017,26 +1017,26 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 
 [10
 
-]
+]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 242.
+(Font)              <9> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 242.
+(Font)              <5> on input line 36.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 242.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 242.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 242.
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 242.
-<./Figures/TransferRadiatif.png, id=507, 835.12pt x 511.9125pt>
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 36.
+<./Figures/TransferRadiatif.png, id=489, 835.12pt x 511.9125pt>
 File: ./Figures/TransferRadiatif.png Graphic file (type png)
 <use ./Figures/TransferRadiatif.png>
-Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 242.
+Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 36.
 (pdftex.def)             Requested size: 170.71652pt x 104.64592pt.
 
-Overfull \hbox (17.0716pt too wide) in paragraph at lines 242--242
+Overfull \hbox (17.0716pt too wide) in paragraph at lines 36--36
  [] 
  []
 
@@ -1049,18 +1049,18 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png>]
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 266.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 266.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 266.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 60.
 
-Overfull \hbox (22.20515pt too wide) detected at line 266
+Overfull \hbox (22.20515pt too wide) detected at line 60
 []
  []
 
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 266.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 60.
 
 Overfull \hbox (23.88118pt too wide) has occurred while \output is active
  [][][][]  
@@ -1070,13 +1070,13 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 289.
+(Font)              <12> on input line 83.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 289.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <12> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 289.
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <12> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 289.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 83.
 
 Overfull \hbox (23.88118pt too wide) has occurred while \output is active
  [][][][]  
@@ -1085,35 +1085,35 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 [13
 
 ]
-<./Figures/Dicretisation2D.png, id=661, 314.17375pt x 244.915pt>
+<./Figures/Dicretisation2D.png, id=640, 314.17375pt x 244.915pt>
 File: ./Figures/Dicretisation2D.png Graphic file (type png)
 <use ./Figures/Dicretisation2D.png>
-Package pdftex.def Info: ./Figures/Dicretisation2D.png  used on input line 330.
+Package pdftex.def Info: ./Figures/Dicretisation2D.png  used on input line 124.
 (pdftex.def)             Requested size: 128.0374pt x 99.81038pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 330.
+(Font)              <14.4> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 330.
+(Font)              <10> on input line 124.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 330.
+(Font)              <7> on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <14.4> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/bx/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/sl' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 124.
 LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 330.
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 124.
 
 Overfull \hbox (23.88118pt too wide) has occurred while \output is active
  [][][][]  
@@ -1122,18 +1122,18 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 [14
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png>]
-<./Figures/Interaction2D.png, id=711, 364.36125pt x 123.46124pt>
+<./Figures/Interaction2D.png, id=689, 364.36125pt x 123.46124pt>
 File: ./Figures/Interaction2D.png Graphic file (type png)
 <use ./Figures/Interaction2D.png>
-Package pdftex.def Info: ./Figures/Interaction2D.png  used on input line 380.
+Package pdftex.def Info: ./Figures/Interaction2D.png  used on input line 174.
 (pdftex.def)             Requested size: 142.26378pt x 48.20432pt.
 
-Overfull \hbox (19.34972pt too wide) in paragraph at lines 380--380
- [] 
+Overfull \hbox (19.34972pt too wide) in paragraph at lines 174--174
+[][]  
  []
 
 
-Overfull \hbox (44.76884pt too wide) detected at line 380
+Overfull \hbox (44.76884pt too wide) detected at line 174
 []
  []
 
@@ -1145,13 +1145,13 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 [15
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png>]
-<./Figures/SimuCFG.png, id=759, 344.78813pt x 377.91188pt>
+<./Figures/SimuCFG.png, id=736, 344.78813pt x 377.91188pt>
 File: ./Figures/SimuCFG.png Graphic file (type png)
 <use ./Figures/SimuCFG.png>
-Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 411.
+Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 205.
 (pdftex.def)             Requested size: 128.0374pt x 140.33841pt.
 
-Overfull \hbox (5.12334pt too wide) in paragraph at lines 411--411
+Overfull \hbox (5.12334pt too wide) in paragraph at lines 205--205
 [][]  
  []
 
@@ -1162,14 +1162,25 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 
 [16
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png>] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Chapters/Chapter5.tex
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png>]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section4.tex) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section5.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (23.88118pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [17
 
-])
+]
+Overfull \vbox (27.72914pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (23.88118pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[18])
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1179,27 +1190,27 @@ Overfull \hbox (23.88118pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 50F5DA2806DDF55D0AE9867540619636;936.
+(rerunfilecheck)             Checksum: A48404B67FD884226551E95AAEDC2BBE;835.
  ) 
 Here is how much of TeX's memory you used:
- 23188 strings out of 480893
- 469818 string characters out of 5905096
- 737395 words of memory out of 5000000
+ 23199 strings out of 480893
+ 470825 string characters out of 5905096
+ 737369 words of memory out of 5000000
  38181 multiletter control sequences out of 15000+600000
  679300 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,19n,67p,865b,1232s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbsy7.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmex10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmib10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss12.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsso10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsso12.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsso8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsso9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy7.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (17 pages, 531290 bytes).
+Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (18 pages, 533043 bytes).
 PDF statistics:
- 953 PDF objects out of 1000 (max. 8388607)
- 861 compressed objects within 9 object streams
- 53 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 971 PDF objects out of 1000 (max. 8388607)
+ 879 compressed objects within 9 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

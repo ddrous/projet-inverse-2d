@@ -13,5 +13,3 @@
 \beamer@subsectionintoc {4}{2}{Apprentissage}{17}{0}{4}
 \beamer@sectionintoc {5}{Conclusion}{17}{0}{5}
 \beamer@subsectionintoc {5}{1}{Sur l'apprentissage}{17}{0}{5}
-\beamer@subsectionintoc {5}{2}{Sur le stage}{17}{0}{5}
-\beamer@sectionintoc {6}{5D}{17}{0}{6}
