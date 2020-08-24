@@ -1,0 +1,75 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{Reference10}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GP}{%
+         family={Ganesh},
+         familyi={G\bibinitperiod},
+         given={Prakhar},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GP1}
+    \strng{fullhash}{GP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{abstract}{%
+    Types of Convolution Kernels : Simplified%
+    }
+    \field{title}{Types of Convolution Kernels : Simplified}
+    \verb{url}
+    \verb https://towardsdatascience.com/types-of-convolution-kernels-simplifie
+    \verb d-f040cb307c37
+    \endverb
+    \field{month}{10}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Reference11}{article}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={Packt},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{P1}
+    \strng{fullhash}{P1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{s.d}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{abstract}{%
+    Convolutional neural networks%
+    }
+    \field{title}{Convolutional neural networks}
+    \verb{url}
+    \verb https://subscription.packtpub.com/book/game_development/9781789138139
+    \verb /4/ch04lvl1sec31/convolutional-neural-networks
+    \endverb
+    \field{year}{s.d}
+  \endentry
+\enddatalist
+\endinput

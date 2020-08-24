@@ -173,8 +173,6 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
    \end{columns}
 \end{frame}
 
-\subsection{L'architecture de reseau de neurones}
-
 \begin{frame}
   \frametitle{Implementation C++}
   \begin{columns}
@@ -202,6 +200,130 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
       %  \end{center}
     \end{column}
    \end{columns}
+\end{frame}
+
+\subsection{Reseau de neurones}
+
+\begin{frame}
+    \frametitle{L'architecture sous Keras}
+    \begin{center}
+        %%% Ajouter l'image des hierarchie de machine learning
+        \begin{figure}
+        \includegraphics[width=.95\textwidth]{DRNN2}    % Modifier la sortie pour avoir 1D/Class2D/Reg 2D
+        \caption{Architecture generale utilisee}
+        \end{figure}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Les couches utilisees: Convolutions (Cross-correlation)}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \scriptsize
+            \begin{equation*}
+                S(i) = (I * K)(i) = \sum_{m} I(i+m)K(m)
+                \label{eqn:Corr2D}
+            \end{equation*}
+            \begin{figure}
+                \includegraphics[width=.95\textwidth]{Conv1D}
+                \caption{En 1D \parencite{Reference10}}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \scriptsize
+            \begin{equation*}
+                S(i,j) = (I * K)(i,j) = \sum_{m}\sum_{n} I(i+m,j+n)K(m,n)
+                \label{eqn:Corr2D}
+            \end{equation*}
+            \begin{figure}
+                \includegraphics[width=.95\textwidth]{Conv2D}
+                \caption{En 2D \parencite{Reference11}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Les couches utilisees: Flatten et Dense}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[width=.95\textwidth]{Flatten}
+                \caption{Flatten}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[width=.95\textwidth]{Dense}
+                \caption{Des couches denses}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Les metriques}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Coefficient de determination}
+        \begingroup
+        \begin{align*}
+            R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+            \label{eqn:R2}
+        \end{align*}
+        Avec
+        \scriptsize
+        \begin{align*}
+            SS_{res} &=  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad \\
+            SS_{tot} &=  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2 
+        \end{align*}
+        Ou $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.
+        \endgroup
+        % On peut remarquer que :
+        % \begin{itemize}
+        %  \item Si le modèle prédit les valeurs attendues (observées), le score $R^2$ vaut 1. 
+        %  \item SI le modèle prédit toujours la valeur moyenne $\bar{y}$, le score $R^2$ vaut 0.
+        %  \item Si les prédictions sont pires que la moyenne, le score $R^2$ est négatif.
+        % \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \textbf{Score personalise}\\
+        Pourcentage des prédiction correcte si la prediction et le label sont suffsament proche:
+        \begin{itemize}
+         \item \textbf{au dixième près} pour la position (suivant $x$ ou $y$) 
+         \item \textbf{à l'unité près} pour la hauteur 
+        \end{itemize}
+
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Les hyper-parametres}
+
+    \begin{table}[h!]
+        \scriptsize
+        \caption{Liste des paramètres les plus influents pour l'entrainement}
+        \label{tab:Parametres}
+        \centering
+        \begin{tabular}{l l l}
+        \toprule
+        \textbf{Hyper-paramètre} & \textbf{Définition} & \textbf{Valeur 1D / 2D} \\
+        \midrule
+        learning rate & taux d'apprentissage & 1e-4 / 1e-5\\
+        batch size & taille d'un batch a chaque epoque & 32\\
+        optimizer & algorithme d'optimisation & Adam\\
+        activation & type de fonction d'activation  & relu, linear, sigmoid\\
+        patience & patience pour l'early stopping & 10\\
+        epochs & nombre d'époques & 100\\
+        kernel size & taille du noyau de convolution & 3 / (6,2)\\
+        \bottomrule\\
+        \end{tabular}
+    \end{table}
+
 \end{frame}
 
 

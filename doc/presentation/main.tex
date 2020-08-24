@@ -17,8 +17,16 @@
 \usepackage{amsmath,bm,mathtools}
 \usepackage{siunitx}
 
-\usepackage{docmute}
+\usepackage{docmute} % To include multiple files
 
+\usepackage[backend=bibtex,style=authoryear,maxnames=2,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\addbibresource{bibliographie.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography 
+\renewcommand*{\bibfont}{\scriptsize} % Pour reduire la taille des references
+
+\usepackage[font=scriptsize]{caption}
+
+\usepackage{booktabs}
 
 \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
 
@@ -126,5 +134,11 @@
 \input{Sections/Section3}
 \input{Sections/Section4}
 \input{Sections/Section5}
+
+%-------------------------------------------------------------------------------
+%							THE BIBLIOGRAPHY
+%-------------------------------------------------------------------------------
+\appendix   % Pour retirer les references de la bare de navigation
+\printbibliography
 
 \end{document}
