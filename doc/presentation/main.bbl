@@ -17,6 +17,41 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global}
+  \entry{Reference2}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FE}{%
+         family={Franck},
+         familyi={F\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FE1}
+    \strng{fullhash}{FE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2012}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    Construction et analyse numérique de schéma asymptotic preserving sur
+  maillages non structurés. Application au transport linéaire et aux
+  systèmes de Friedrichs%
+    }
+    \field{pages}{12, 160\bibrangedash 161}
+    \field{title}{Construction et analyse numérique de schéma asymptotic
+  preserving sur maillages non structurés. Application au transport linéaire
+  et aux systèmes de Friedrichs}
+    \verb{url}
+    \verb https://tel.archives-ouvertes.fr/file/index/docid/744371/filename/the
+    \verb seFranckv3.pdf
+    \endverb
+    \field{journaltitle}{Archive ouverte HAL}
+    \field{month}{10}
+    \field{year}{2012}
+  \endentry
+
   \entry{Reference10}{article}{}
     \name{author}{1}{}{%
       {{hash=GP}{%
@@ -70,6 +105,40 @@
     \verb /4/ch04lvl1sec31/convolutional-neural-networks
     \endverb
     \field{year}{s.d}
+  \endentry
+
+  \entry{Reference3}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TR}{%
+         family={Turpault},
+         familyi={T\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TR1}
+    \strng{fullhash}{TR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{abstract}{%
+    Modelisation, approximation numerique et applications du transfert radiatif
+  en desequilibre spectral couple avec l’hydrodynamique%
+    }
+    \field{pages}{13\bibrangedash 22}
+    \field{title}{Modelisation, approximation numerique et applications du
+  transfert radiatif en desequilibre spectral couple avec l’hydrodynamique}
+    \verb{url}
+    \verb http://docplayer.fr/177010094-Modelisation-approximation-numerique-et
+    \verb -applications-du-transfert-radiatif-en-desequilibre-spectral-couple-a
+    \verb vec-l-hydrodynamique.html
+    \endverb
+    \field{journaltitle}{Archive ouverte HAL}
+    \field{month}{02}
+    \field{year}{2004}
   \endentry
 \enddatalist
 \endinput

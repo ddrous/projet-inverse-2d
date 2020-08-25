@@ -1,0 +1,20 @@
+\frametitle{Meilleures/pires predictions du reseau de neurones}
+
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{figure}
+        \includegraphics[width=3cm]{Meilleur2D1}
+        \includegraphics[width=3cm]{Meilleur2D2}
+        \caption{Les meilleures predictions}
+        \end{figure}
+     \end{column}
+     \begin{column}{0.5\textwidth}
+        \begin{figure}
+        \includegraphics[width=2.5cm]{Pire2D1}
+        \includegraphics[width=2.5cm]{Pire2D2}
+        \includegraphics[width=2.5cm]{Pire2D2}
+        \caption{Les pires predictions}
+        \end{figure}
+     \end{column}
+    \end{columns}
+

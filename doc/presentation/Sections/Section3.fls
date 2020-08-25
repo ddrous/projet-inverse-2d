@@ -1,0 +1,6 @@
+PWD c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections
+INPUT d:/Program Files/texlive/2020/texmf.cnf
+INPUT d:/Program Files/texlive/2020/texmf-dist/web2c/texmf.cnf
+INPUT d:/Program Files/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
+OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.log

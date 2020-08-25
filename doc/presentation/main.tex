@@ -8,16 +8,24 @@
 \useoutertheme{miniframes} % Alternatively: miniframes, infolines, split, smoothbars, smoothtree, shadow
 \useinnertheme{rectangles}
 
-% \usepackage{iwona}
-\usepackage{lmodern}
-\usepackage[french]{babel}
+\usepackage{media9}
+\usepackage{graphicx}
+
+\usepackage{docmute} % To include multiple files
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,arrows}
+\usetikzlibrary{babel}      % Utiliser ce Babel pour eviter les problemes avec les animations TIKX
+% \usepackage{csquotes}
+
+\usepackage{iwona}
+% \usepackage{lmodern}
+% \usepackage[french]{babel}
 \graphicspath{ {./Figures/} }
 \usepackage[utf8]{inputenc}
 \newcommand{\bvec}[1]{\mathbf{#1}} 
 \usepackage{amsmath,bm,mathtools}
 \usepackage{siunitx}
-
-\usepackage{docmute} % To include multiple files
 
 \usepackage[backend=bibtex,style=authoryear,maxnames=2,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \addbibresource{bibliographie.bib} % The filename of the bibliography
@@ -25,16 +33,18 @@
 \renewcommand*{\bibfont}{\scriptsize} % Pour reduire la taille des references
 
 \usepackage[font=scriptsize]{caption}
+\captionsetup{labelformat=empty,labelsep=none}    % Pour retirer le terme figure des titres
 
 \usepackage{booktabs}
 
 \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
 
 \definecolor{MyGreen}{RGB}{0, 50, 0}
+\definecolor{MyRed}{RGB}{100, 0, 0}
 
 % \usecolortheme[named=UBCblue]{structure}
 \usecolortheme[named=MyGreen]{structure} % Sample dvipsnames color
-
+\setbeamercolor{alerted text}{fg=MyRed}
 % \definecolor{darkred}{rgb}{0.4,0.5,0}
 % \setbeamercolor{titlelike}{parent=structure,bg=yellow!85!orange}
 
@@ -72,7 +82,7 @@
 %							FIRST TITLE PAGE
 %-------------------------------------------------------------------------------
 
-\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Problème Inverse : Transfert Radiatif et Apprentissage}
+\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Problème Inverse : Transfert Radiatif et Apprentissage}
 \date{\today}
 \author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM}
 
@@ -105,7 +115,7 @@
 
 \begingroup  % A new griou whose informations are not cannon., just for convenience
 
-\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Simulation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones}
+\title[Problème Inverse : Transfert Radiatif et Apprentissage]{Simulation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones}
 
 \author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM\\[2mm]{\small \textbf{ \hspace*{0.1mm} Ensignant referent} \hspace*{11mm} \textbf{Maitre de stage} \\ \footnotesize Christophe PRUD'HOMME \hspace*{6mm} Emmanuel FRANCK \\ \hspace*{44.5mm} Laurent NAVORET \\ \hspace*{44.5mm} Vincent VIGON}}
 
@@ -130,14 +140,49 @@
 %-------------------------------------------------------------------------------
 
 \input{Sections/Section1}
+
 \input{Sections/Section2}
+
+% \documentclass{beamer}
+% \usepackage{media9}
+% \usepackage{graphicx}
+
+% \begin{document}
+
+% \begin{frame}{Blank page}[fragile]
+% Go ahead!
+% \end{frame}
+
+% La muraille de chine << text >>
+
+% \begin{frame}[fragile]
+%   \begin{center}
+%     \includemedia[
+%       width=0.5\linewidth,
+%       activate=pageopen,
+%       addresource=cube.mp4,
+%       flashvars={
+%          source=cube.mp4
+%         &autoPlay=true
+%       },
+%       passcontext, % enable VPlayer's right-click menue
+%     ]{\includegraphics{cubeposter.png}}{VPlayer.swf}%
+%   \end{center}
+% \end{frame}
+
 \input{Sections/Section3}
+
+
+% \end{document}
+
+
+
 \input{Sections/Section4}
 \input{Sections/Section5}
 
-%-------------------------------------------------------------------------------
-%							THE BIBLIOGRAPHY
-%-------------------------------------------------------------------------------
+% %-------------------------------------------------------------------------------
+% %							THE BIBLIOGRAPHY
+% %-------------------------------------------------------------------------------
 \appendix   % Pour retirer les references de la bare de navigation
 \printbibliography
 

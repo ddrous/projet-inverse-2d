@@ -1,0 +1,12 @@
+\begin{center}
+    \includemedia[
+      width=0.5\linewidth,
+      activate=pageopen,
+      addresource=cube.mp4,
+      flashvars={
+         source=cube.mp4
+        &autoPlay=true
+      },
+      passcontext, % enable VPlayer's right-click menue
+    ]{\includegraphics{cubeposter.png}}{VPlayer.swf}%
+  \end{center}

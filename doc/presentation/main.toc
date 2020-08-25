@@ -1,17 +1,16 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {french}{}
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{L'IRMA}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Le sujet du stage}{7}{0}{1}
 \beamer@sectionintoc {2}{Principe}{11}{0}{2}
 \beamer@subsectionintoc {2}{1}{Simulation de l'ETR}{11}{0}{2}
 \beamer@subsectionintoc {2}{2}{Reseau de neurones}{17}{0}{2}
-\beamer@sectionintoc {3}{Resultats 1D}{22}{0}{3}
+\beamer@sectionintoc {3}{Le problème en 1D}{22}{0}{3}
 \beamer@subsectionintoc {3}{1}{Simulation}{22}{0}{3}
-\beamer@subsectionintoc {3}{2}{Apprentissage}{22}{0}{3}
-\beamer@sectionintoc {4}{Resultats 2D}{22}{0}{4}
-\beamer@subsectionintoc {4}{1}{Simulation}{22}{0}{4}
-\beamer@subsectionintoc {4}{2}{Apprentissage}{22}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{22}{0}{5}
-\beamer@subsectionintoc {5}{1}{Sur l'apprentissage}{22}{0}{5}
-\beamer@subsectionintoc {5}{2}{Sur le stage}{24}{0}{5}
+\beamer@subsectionintoc {3}{2}{Apprentissage}{24}{0}{3}
+\beamer@sectionintoc {4}{Le problème en 2D}{27}{0}{4}
+\beamer@subsectionintoc {4}{1}{Simulation}{27}{0}{4}
+\beamer@subsectionintoc {4}{2}{Apprentissage}{29}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{33}{0}{5}
+\beamer@subsectionintoc {5}{1}{Sur l'apprentissage}{33}{0}{5}
+\beamer@subsectionintoc {5}{2}{Generale}{34}{0}{5}
