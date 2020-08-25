@@ -44,9 +44,9 @@ Lorsque la photons se trouvent en presence de la matière, Trois phenomènes maj
   \scriptsize
   \begin{gather*}
       \begin{aligned}
-      \frac{1}{c} \frac{\partial}{\partial t}I(t,\bvec{x},\bm{\Omega},\nu) &+\bm{\Omega}\cdot\nabla_{\bvec{x}} I(t,\bvec{x},\bm{\Omega},\nu) \\
-      &= \sigma_a(\rho,\bm{\Omega},\nu)\left(B(\nu,T)-I(t,\bvec{x},\bm{\Omega},\nu)\right) \\
-      &+ \frac{1}{4\pi} \int_{0}^{\infty} \int_{S^2}\sigma_c(\rho,\bm{\Omega},\nu)p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\left(I(t,\bvec{x},\bm{\Omega}^\prime,\nu)-I(t,\bvec{x},\bm{\Omega},\nu)\right) \, d\bm{\Omega}^\prime \, d\nu
+        \alert<1>{\frac{1}{c} \frac{\partial}{\partial t}I(t,\bvec{x},\bm{\Omega},\nu)} &\alert<1>{+\bm{\Omega}\cdot\nabla_{\bvec{x}} I(t,\bvec{x},\bm{\Omega},\nu)} \\
+      &\alert<2>{= \sigma_a(\rho,\bm{\Omega},\nu)\left(B(\nu,T)-I(t,\bvec{x},\bm{\Omega},\nu)\right)} \\
+      &\alert<3>{+ \frac{1}{4\pi} \int_{0}^{\infty} \int_{S^2}\sigma_c(\rho,\bm{\Omega},\nu)p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\left(I(t,\bvec{x},\bm{\Omega}^\prime,\nu)-I(t,\bvec{x},\bm{\Omega},\nu)\right) \, d\bm{\Omega}^\prime \, d\nu}
       \end{aligned}
   % \label{eqn:ETR}
   \end{gather*}
@@ -68,9 +68,9 @@ Où
   \large
   \begin{equation*}
       \begin{cases}
-       \partial_tE + c \ \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)\\
-       \partial_t\bvec{F} + c \ \nabla E = -c\sigma_c \bvec{F} \\
-       \rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right)
+        \alert<1->{\partial_tE + c \ \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)}\\
+        \alert<1->{\partial_t\bvec{F} + c \ \nabla E = -c\sigma_c \bvec{F}} \\
+        \alert<1->{\rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right)}
       \end{cases}
   % \label{eqn:P1}
   \end{equation*}
@@ -89,7 +89,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
   % Reglage de la temperature 
   \begin{columns}
     \begin{column}{0.5\textwidth}
-     A l'iteration $n$, On pose $\Theta = aT^4$
+     A l'iteration $n$, on pose $\Theta = aT^4$
 
       \begingroup
       \normalsize
@@ -109,18 +109,25 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
     % \pause
     \begin{column}{0.5\textwidth}
        \begin{center}
-        \includegraphics[width=4cm]{Dicretisation2D}       
+        \includegraphics[width=4.5cm]{Dicretisation2D}       
        \end{center}
     \end{column}
    \end{columns}
    \tiny
   $\quad  \alpha = \dfrac{1}{\Delta t \left( \frac{1}{\Delta t} + c \sigma_a \right)} ,\quad 
    \beta = \dfrac{c \sigma_a}{\frac{1}{\Delta t} + c \sigma_a} ,\quad 
-   \gamma = \dfrac{\rho_j C_v \mu_q}{\Delta t \left( \frac{\rho_j C_v \mu_q}{\Delta t} + c \sigma_a \right)} \quad \text{et} \quad  
+   \gamma = \dfrac{\rho_j C_v \mu_q}{\Delta t \left( \frac{\rho_j C_v \mu_q}{\Delta t} + c \sigma_a \right)} \quad , \quad  
    \delta = \dfrac{c \sigma_a}{\frac{\rho_j C_v \mu_q}{\Delta t} + c \sigma_a}.$
 
    \normalsize
-   COnvergence ver $E_j^*$ et $\Theta_j^*$. $\bvec F_j$ reste constant egale a $F_j^*$.
+   \begin{columns}
+    \begin{column}{1.0\textwidth} 
+      \\
+      Itération sur $q$. Convergence vers $E_j^*$ et $\Theta_j^*$. $\bvec F_j = \bvec F_j^*$ constant.
+    \end{column}
+    \begin{column}{0.0\textwidth} 
+    \end{column}
+  \end{columns}
    
 \end{frame}
 
@@ -200,7 +207,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
     % \pause
     \begin{column}{0.4\textwidth}
        \begin{figure}
-        \includegraphics[width=4.5cm]{SimuCFG}   % EN 2D    
+        \includegraphics[width=4cm]{SimuCFG}   % EN 2D    
         \caption{Exemple de configuration}
       \end{figure}
     \end{column}
@@ -260,7 +267,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         \begin{column}{0.6\textwidth}
             \begin{figure}
                 \includegraphics[width=.95\textwidth]{Dense}
-                \caption{Des couches denses}
+                \caption{Des couches denses (Regression 2D)}
             \end{figure}
         \end{column}
     \end{columns}
@@ -271,7 +278,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
     \frametitle{Les metriques}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \textbf{Coefficient de determination}
+            \textbf{Coefficient de determination R2}
         \begingroup
         \begin{align*}
             R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
