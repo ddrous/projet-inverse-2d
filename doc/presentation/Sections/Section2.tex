@@ -12,18 +12,25 @@
 \subsection{Simulation de l'ETR}
 
 \begin{frame}
+  \large
+  \centering
+  Simulation de l'ETR
+\end{frame}
+
+\begin{frame}
   \frametitle{Le transfert radiatif}
 
-  \footnotesize
+  \scriptsize
 Lorsque les photons se trouvent en présence de la matière, trois phénomènes majeurs (caractérisés par leurs opacités) se produisent :
 
 \begin{columns}
   \begin{column}{0.55\textwidth}
-    \footnotesize
+    \scriptsize
    \begin{itemize}[<+>]
-     \item \textbf{Émission} ($\sigma_e$) : Plus la température matière est élevée, plus l'émission est importante % Typiquement on ne vas pas retrouver sigma_e dans nos equations car on va se placer dans l'ETL, et on Planck.
-     \item \textbf{Absorption} ($\sigma_a$) : Lorsqu'on est à l'équilibre thermique, $\sigma_a = \sigma_e$ % On va considerer en plus l'equilibre chimique ce qui donne l'ETL
-     \item \textbf{Dispersion} ($\sigma_c$) : Il faut aussi tenir compte de la fonction de distribution angulaire de "scattering" $p(\bm{\Omega^\prime \rightarrow \bm{\Omega}})$ \parencite{Reference3}.
+     \item \textbf{Émission} ($\sigma_e$) : des photons sont émis en réponse aux électrons excités descendants à des niveaux d’énergie plus bas. Plus la température matière est élevée, plus l'émission est importante % Typiquement on ne vas pas retrouver sigma_e dans nos equations car on va se placer dans l'ETL, et on Planck.
+     \item \textbf{Absorption} ($\sigma_a$) : à l’inverse, certains photons sont absorbés, les électrons deviennent plus excités (ou se libèrent complètement de leurs atomes), et la matière se réchauffe. À l'équilibre thermique, $\sigma_a = \sigma_e$ % On va considerer en plus l'equilibre chimique ce qui donne l'ETL
+     \item \textbf{Dispersion} ($\sigma_c$) : certains photons sont déviés de
+     leur trajectoire originale par la matière. Il faut aussi tenir compte de la fonction de distribution angulaire de "scattering" $p(\bm{\Omega^\prime \rightarrow \bm{\Omega}})$ \parencite{Reference3}.
    \end{itemize}
   \end{column}
   % \pause
@@ -39,7 +46,7 @@ Lorsque les photons se trouvent en présence de la matière, trois phénomènes 
 
 \begin{frame}
   \frametitle{L'ETR}
-  L'équation du transfert radiatif est un bilan d'énergie lié au rayonnement au niveau mésoscopique (dans la direction $\bm{\Omega}$). 
+  L'équation du transfert radiatif (ETR) est un bilan d'énergie lié au rayonnement au niveau mésoscopique (dans la direction $\bm{\Omega}$). 
 
   \begingroup
   \scriptsize
@@ -66,24 +73,57 @@ Où :
   % Le modele P1: % Modèle macroscopique 5 aux moments (d’ordre 2), linéaire et hyperbolique. Le terme 1/3
   D'après \parencite{Reference2} :
   \begingroup
-  \large
+  \normalsize
   \begin{equation*}
       \begin{cases}
-        \alert<1->{\partial_tE + c \ \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)}\\
-        \alert<1->{\partial_t\bvec{F} + c \ \nabla E = -c\sigma_c \bvec{F}} \\
+        \alert<1->{\partial_tE + c \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)}\\
+        \alert<1->{\partial_t\bvec{F} + c \nabla E = -c\sigma_c \bvec{F}} \\
         \alert<1->{\rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right)}
       \end{cases}
   % \label{eqn:P1}
   \end{equation*}
   \endgroup
 Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
-\begin{align*}
-  E(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu \\
-  \bvec{F}(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu 
+\footnotesize
+% \begin{align*}
+  $E(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$ \\
+  \hspace*{8mm} $\bvec{F}(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$ 
   % \label{eqn:EFT}
-\end{align*}
+% \end{align*}
+\pause
+\normalsize
+\begin{itemize}[<+>]
+  \item Modèle macroscopique aux moments (d’ordre 2), dit "gris"
+  \item Modèle linéaire et hyperbolique
+  \item Moins précis qu'un modèle résolut par Monte-Carlo, mais peu couteux et rapide à implémenter
+\end{itemize}
 
 \end{frame}
+
+\setbeamercovered{invisible}
+
+\begin{frame}
+  \frametitle{Le schéma de "splitting"}
+  Le principe :
+  \footnotesize
+  \begin{enumerate}
+    \item<1-> On sépare le problème en temps en deux
+    \item<2-> On résout l'étape 1 (réglage de la température) : sur une maille, Euler implicite + Point fixe
+    $$     \begin{cases}
+      \partial_tE + \alert{c \operatorname {div} \bvec F} = c\sigma_a\left(aT^4-E\right)\\
+      \rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right) 
+     \end{cases} $$
+    \item<3-> On résout l'étape 2 (partie hyperbolique) : volume finis 2D, mais aussi 1D
+    $$     \begin{cases}
+      \only<3->{\partial_tE + c \operatorname {div} \bvec F = \alert{c\sigma_a\left(aT^4-E\right)}}\\
+      \only<3->{\partial_t\bvec{F} + c \ \nabla E = -c\sigma_c \bvec{F}} \\
+     \end{cases} $$
+    \item<4> \alert {Tout ceci se fait sur le meme pas de temps}
+  \end{enumerate}
+
+\end{frame}
+\setbeamercovered{transparent}
+
 
 \begin{frame}
   \frametitle{Le schéma de "splitting" : Étape 1}
@@ -142,7 +182,7 @@ Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et
       \begin{equation*} 
           \begin{dcases}
           \alert<1->{E_j^{n+1} = E_j^* + \alpha \sum_k \left( \bvec F_{jk}, \bvec n_{jk} \right)} \\
-          \alert<1->{\bvec F_j^{n+1} = \beta \bvec F_j^* + \bm{\gamma} E_j^n + \delta \sum_k E_{jk} \bvec n_{jk}}
+          \alert<1->{\bvec{F}_j^{n+1} = \beta \bvec F_j^* + \bm{\gamma} E_j^n + \delta \sum_k E_{jk} \bvec n_{jk}}
           \end{dcases}   
       % \label{eqn:Step2}
       \end{equation*}
@@ -218,7 +258,48 @@ Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et
    \end{columns}
 \end{frame}
 
-\subsection{Réseau de neurones}
+\subsection{Réseaux de neurones}
+
+\begin{frame}
+  \large
+  \centering
+  Réseaux de neurones
+\end{frame}
+
+\begin{frame}
+  \frametitle{Le principe des réseaux de neurones}
+  \scriptsize
+  On désigne par $\bvec{X}$ le signal sur les bords du domaine et $\bvec{y}$ la densité du milieu.
+  \begin{itemize}
+    \item $f$ définit le problème direct : $\bvec{X} = f(\bvec{y})$ 
+    \item $f^{-1}$ définit le problème inverse : $\bvec{y} = f^{-1}(\bvec{X})$ 
+    \item On va se contenter de $\hat{f}$ telle que $\hat{\bvec{y}} = \hat{f}^{-1}(\bvec{X}, \bm{\theta})$, où $\bm{\theta}$ représente les paramètres du réseau de neurones 
+  \end{itemize}
+
+  \pause
+  \vspace*{2mm}
+  L'apprentissage : $IA \rightarrow ML \rightarrow ANN \rightarrow MLP \rightarrow CNN $
+  \tiny
+  \begin{columns}
+  \begin{column}{0.4\textwidth}
+    \begin{itemize}
+      \item<2-> IA : Intelligence Artificielle
+      \item<2-> ML : Machine Learning
+      \item<2-> ANN : Artificial Neural Network
+      \item<2-> MLP : Multi-Layer Perceptron
+      \item<2-> CNN : Convoluted Neural Network
+    \end{itemize}
+
+ \end{column}
+ \begin{column}{0.6\textwidth}
+  \begin{figure}
+    \includegraphics<3>[width=4cm]{MLP}   % EN 2D    
+    \only<3>{\caption{Exemple de MLP \parencite{Reference8}}}
+  \end{figure}
+ \end{column}
+\end{columns}
+
+\end{frame}
 
 \begin{frame}
     \frametitle{L'architecture sous Keras}

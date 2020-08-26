@@ -481,7 +481,14 @@ INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/m
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoUnistra.png
@@ -491,17 +498,6 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
 INPUT d:/Program Files/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoUnistra.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoUnistra.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section1.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section1.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
@@ -515,28 +511,17 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.toc
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi8.tfm
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
@@ -545,49 +530,53 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi12.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi12.tfm
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
-INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MLP.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MLP.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MLP.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
 OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
@@ -652,6 +641,11 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur1D.png
+OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section4.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section4.tex
 OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
@@ -730,10 +724,12 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section5.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section5.tex
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2MAX.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2MAX.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2MAX.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonari.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar-sc.tfm
 OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.nav
@@ -747,15 +743,15 @@ OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona-sc.enc
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona.enc
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy9.pfb
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
@@ -763,17 +759,16 @@ INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb

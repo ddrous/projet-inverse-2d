@@ -81,6 +81,37 @@
     \field{year}{2019}
   \endentry
 
+  \entry{Reference8}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GA}{%
+         family={Geron},
+         familyi={G\bibinitperiod},
+         given={Aurelien},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc}%
+    }
+    \strng{namehash}{GA1}
+    \strng{fullhash}{GA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{pages}{227\bibrangedash 325}
+    \field{title}{Hands-On Machine Learning with Scikit-Learn, Keras, and
+  TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems}
+    \verb{url}
+    \verb https://books.google.fr/books/about/Hands_On_Machine_Learning_with_Sc
+    \verb ikit_Le.html?id=HnetDwAAQBAJ&printsec=frontcover&source=kp_read_butto
+    \verb n&redir_esc=y
+    \endverb
+    \field{year}{2017}
+  \endentry
+
   \entry{Reference11}{article}{}
     \name{author}{1}{}{%
       {{hash=P}{%

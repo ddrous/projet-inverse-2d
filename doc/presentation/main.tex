@@ -23,14 +23,15 @@
 % \usepackage[french]{babel}
 \graphicspath{ {./Figures/} }
 \usepackage[utf8]{inputenc}
-\newcommand{\bvec}[1]{\mathbf{#1}} 
+\newcommand{\bvec}[1]{\textbf{#1}} 
 \usepackage{amsmath,bm,mathtools}
+% \usepackage{unicode-math}
 \usepackage{siunitx}
 
 \usepackage[backend=bibtex,style=authoryear,maxnames=2,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \addbibresource{bibliographie.bib} % The filename of the bibliography
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography 
-\renewcommand*{\bibfont}{\scriptsize} % Pour reduire la taille des references
+\renewcommand*{\bibfont}{\tiny} % Pour reduire la taille des references
 
 \usepackage[font=scriptsize]{caption}
 \captionsetup{labelformat=empty,labelsep=none}    % Pour retirer le terme figure des titres
@@ -100,9 +101,9 @@
   \includegraphics[width=2.2cm]{LogoIRMA}
   \hspace*{0.8cm}%
 }
-\begin{frame}
-\maketitle
-\end{frame}
+% \begin{frame}
+% \maketitle
+% \end{frame}
 \endgroup
 
 %-------------------------------------------------------------------------------
@@ -161,5 +162,6 @@
 % %-------------------------------------------------------------------------------
 \appendix   % Pour retirer les references de la bare de navigation
 \printbibliography
+
 
 \end{document}

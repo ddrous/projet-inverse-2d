@@ -106,14 +106,25 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Conclusion sur la régression 1D}
 Les cause de l'échec :
 \pause
-\begin{itemize}[<+>]
+\begin{itemize}
     \item Le problème inverse est probablement mal posé  % EN supposant que je n'ai commise aucune erreur
     \item Le score R2 est mal calculé % Non prise en compte des poinds 10:1. 
 \end{itemize}
+\scriptsize
+
+\begin{verbatim}
+    from keras import backend as K
+    
+     def r2_score(y_true, y_pred):
+        SS_res =  K.sum(K.square(y_true - y_pred), axis=-1) 
+        SS_tot = K.sum(K.square(y_true - K.mean(y_true)), axis=-1)
+        return 1.0 - SS_res/(SS_tot + K.epsilon())
+\end{verbatim}
+
 \end{frame}
 
 
