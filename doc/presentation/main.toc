@@ -1,16 +1,16 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{L'IRMA}{2}{0}{1}
-\beamer@subsectionintoc {1}{2}{Le sujet du stage}{9}{0}{1}
-\beamer@sectionintoc {2}{Principe et méthode}{16}{0}{2}
-\beamer@subsectionintoc {2}{1}{Simulation de l'ETR}{16}{0}{2}
-\beamer@subsectionintoc {2}{2}{Réseaux de neurones}{35}{0}{2}
-\beamer@sectionintoc {3}{Le problème en 1D}{55}{0}{3}
-\beamer@subsectionintoc {3}{1}{Simulation}{55}{0}{3}
-\beamer@subsectionintoc {3}{2}{Apprentissage}{58}{0}{3}
-\beamer@sectionintoc {4}{Le problème en 2D}{65}{0}{4}
-\beamer@subsectionintoc {4}{1}{Simulation}{65}{0}{4}
-\beamer@subsectionintoc {4}{2}{Apprentissage}{68}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{78}{0}{5}
-\beamer@subsectionintoc {5}{1}{Sur l'apprentissage}{78}{0}{5}
-\beamer@subsectionintoc {5}{2}{Sur le stage}{84}{0}{5}
+\beamer@subsectionintoc {1}{2}{Le sujet du stage}{10}{0}{1}
+\beamer@sectionintoc {2}{Principe et méthode}{18}{0}{2}
+\beamer@subsectionintoc {2}{1}{Simulation de l'ETR}{18}{0}{2}
+\beamer@subsectionintoc {2}{2}{Réseaux de neurones}{38}{0}{2}
+\beamer@sectionintoc {3}{Le problème en 1D}{58}{0}{3}
+\beamer@subsectionintoc {3}{1}{Simulation}{58}{0}{3}
+\beamer@subsectionintoc {3}{2}{Apprentissage}{61}{0}{3}
+\beamer@sectionintoc {4}{Le problème en 2D}{68}{0}{4}
+\beamer@subsectionintoc {4}{1}{Simulation}{68}{0}{4}
+\beamer@subsectionintoc {4}{2}{Apprentissage}{71}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{81}{0}{5}
+\beamer@subsectionintoc {5}{1}{Sur l'apprentissage}{81}{0}{5}
+\beamer@subsectionintoc {5}{2}{Sur le stage}{87}{0}{5}

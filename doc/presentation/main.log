@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  26 AUG 2020 17:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  26 AUG 2020 20:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1242,12 +1242,12 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 Overfull \vbox (0.25232pt too high) detected at line 137
  []
 
-<./Figures/LogoUnistra.png, id=128, 600.74437pt x 218.31563pt>
+<./Figures/LogoUnistra.png, id=130, 600.74437pt x 218.31563pt>
 File: ./Figures/LogoUnistra.png Graphic file (type png)
 <use ./Figures/LogoUnistra.png>
 Package pdftex.def Info: ./Figures/LogoUnistra.png  used on input line 137.
 (pdftex.def)             Requested size: 85.35826pt x 31.01701pt.
-<./Figures/LogoIRMA.png, id=130, 1043.39813pt x 645.91313pt>
+<./Figures/LogoIRMA.png, id=132, 1043.39813pt x 645.91313pt>
 File: ./Figures/LogoIRMA.png Graphic file (type png)
 <use ./Figures/LogoIRMA.png>
 Package pdftex.def Info: ./Figures/LogoIRMA.png  used on input line 137.
@@ -1312,24 +1312,13 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [8
 
 ]
-<./Figures/PBInverse.png, id=721, 906.38625pt x 906.38625pt>
-File: ./Figures/PBInverse.png Graphic file (type png)
-<use ./Figures/PBInverse.png>
-Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 94.
-(pdftex.def)             Requested size: 113.81102pt x 113.80972pt.
-
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [9
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png>]
-File: ./Figures/PBInverse.png Graphic file (type png)
-<use ./Figures/PBInverse.png>
-Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 94.
-(pdftex.def)             Requested size: 113.81102pt x 113.80972pt.
-
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1337,9 +1326,10 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [10
 
 ]
+<./Figures/PBInverse.png, id=895, 906.38625pt x 906.38625pt>
 File: ./Figures/PBInverse.png Graphic file (type png)
 <use ./Figures/PBInverse.png>
-Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 94.
+Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 106.
 (pdftex.def)             Requested size: 113.81102pt x 113.80972pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
@@ -1348,7 +1338,12 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [11
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png>]
+File: ./Figures/PBInverse.png Graphic file (type png)
+<use ./Figures/PBInverse.png>
+Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 106.
+(pdftex.def)             Requested size: 113.81102pt x 113.80972pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1356,6 +1351,11 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [12
 
 ]
+File: ./Figures/PBInverse.png Graphic file (type png)
+<use ./Figures/PBInverse.png>
+Package pdftex.def Info: ./Figures/PBInverse.png  used on input line 106.
+(pdftex.def)             Requested size: 113.81102pt x 113.80972pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1369,49 +1369,28 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [14
 
-]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.toc)
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [15
 
-] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [16
 
-]
-<./Figures/TransferRadiatif.png, id=1352, 1056.94875pt x 767.86874pt>
-File: ./Figures/TransferRadiatif.png Graphic file (type png)
-<use ./Figures/TransferRadiatif.png>
-Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 45.
-(pdftex.def)             Requested size: 142.26378pt x 103.35316pt.
-
-Overfull \hbox (3.98428pt too wide) in paragraph at lines 45--45
- [] 
- []
-
-
+]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.toc)
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [17
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png>]
-File: ./Figures/TransferRadiatif.png Graphic file (type png)
-<use ./Figures/TransferRadiatif.png>
-Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 45.
-(pdftex.def)             Requested size: 142.26378pt x 103.35316pt.
-
-Overfull \hbox (3.98428pt too wide) in paragraph at lines 45--45
- [] 
- []
-
-
+] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1419,6 +1398,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [18
 
 ]
+<./Figures/TransferRadiatif.png, id=1542, 1056.94875pt x 767.86874pt>
 File: ./Figures/TransferRadiatif.png Graphic file (type png)
 <use ./Figures/TransferRadiatif.png>
 Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 45.
@@ -1435,9 +1415,14 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [19
 
-]
-Overfull \hbox (18.75137pt too wide) detected at line 69
-[]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png>]
+File: ./Figures/TransferRadiatif.png Graphic file (type png)
+<use ./Figures/TransferRadiatif.png>
+Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 45.
+(pdftex.def)             Requested size: 142.26378pt x 103.35316pt.
+
+Overfull \hbox (3.98428pt too wide) in paragraph at lines 45--45
+ [] 
  []
 
 
@@ -1448,8 +1433,13 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [20
 
 ]
-Overfull \hbox (18.75137pt too wide) detected at line 69
-[]
+File: ./Figures/TransferRadiatif.png Graphic file (type png)
+<use ./Figures/TransferRadiatif.png>
+Package pdftex.def Info: ./Figures/TransferRadiatif.png  used on input line 45.
+(pdftex.def)             Requested size: 142.26378pt x 103.35316pt.
+
+Overfull \hbox (3.98428pt too wide) in paragraph at lines 45--45
+ [] 
  []
 
 
@@ -1472,6 +1462,11 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [22
 
 ]
+Overfull \hbox (18.75137pt too wide) detected at line 69
+[]
+ []
+
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1479,6 +1474,11 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [23
 
 ]
+Overfull \hbox (18.75137pt too wide) detected at line 69
+[]
+ []
+
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1528,31 +1528,52 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [30
 
 ]
-<./Figures/Dicretisation2D.png, id=2457, 942.52126pt x 734.745pt>
-File: ./Figures/Dicretisation2D.png Graphic file (type png)
-<use ./Figures/Dicretisation2D.png>
-Package pdftex.def Info: ./Figures/Dicretisation2D.png  used on input line 173.
-(pdftex.def)             Requested size: 128.0374pt x 99.8029pt.
-
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [31
 
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[32
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[33
+
+]
+<./Figures/Dicretisation2D.png, id=2756, 942.52126pt x 734.745pt>
+File: ./Figures/Dicretisation2D.png Graphic file (type png)
+<use ./Figures/Dicretisation2D.png>
+Package pdftex.def Info: ./Figures/Dicretisation2D.png  used on input line 175.
+(pdftex.def)             Requested size: 128.0374pt x 99.8029pt.
+
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[34
+
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dicretisation2D.png>]
-<./Figures/Interaction2D.png, id=2539, 485.815pt x 164.615pt>
+<./Figures/Interaction2D.png, id=2839, 485.815pt x 164.615pt>
 File: ./Figures/Interaction2D.png Graphic file (type png)
 <use ./Figures/Interaction2D.png>
-Package pdftex.def Info: ./Figures/Interaction2D.png  used on input line 227.
+Package pdftex.def Info: ./Figures/Interaction2D.png  used on input line 229.
 (pdftex.def)             Requested size: 142.26378pt x 48.20432pt.
 
-Overfull \hbox (19.34972pt too wide) in paragraph at lines 227--227
+Overfull \hbox (19.34972pt too wide) in paragraph at lines 229--229
 [][]  
  []
 
 
-Overfull \hbox (41.3006pt too wide) detected at line 227
+Overfull \hbox (41.3006pt too wide) detected at line 229
 []
  []
 
@@ -1561,36 +1582,9 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[32
-
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png>]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[33
-
-]
-<./Figures/SimuCFG.png, id=2695, 344.78813pt x 377.91188pt>
-File: ./Figures/SimuCFG.png Graphic file (type png)
-<use ./Figures/SimuCFG.png>
-Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 259.
-(pdftex.def)             Requested size: 113.81102pt x 124.7459pt.
-
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[34
-
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png>]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
 [35
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Interaction2D.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1598,74 +1592,45 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [36
 
 ]
+<./Figures/SimuCFG.png, id=2999, 344.78813pt x 377.91188pt>
+File: ./Figures/SimuCFG.png Graphic file (type png)
+<use ./Figures/SimuCFG.png>
+Package pdftex.def Info: ./Figures/SimuCFG.png  used on input line 261.
+(pdftex.def)             Requested size: 113.81102pt x 124.7459pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [37
 
-]
-<./Figures/MLP.png, id=3003, 583.17876pt x 387.4475pt>
-File: ./Figures/MLP.png Graphic file (type png)
-<use ./Figures/MLP.png>
-Package pdftex.def Info: ./Figures/MLP.png  used on input line 302.
-(pdftex.def)             Requested size: 113.81102pt x 75.60811pt.
-
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/SimuCFG.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [38
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MLP.png>]
-<./Figures/DRNN2.png, id=3084, 3390.6675pt x 1297.84875pt>
-File: ./Figures/DRNN2.png Graphic file (type png)
-<use ./Figures/DRNN2.png>
-Package pdftex.def Info: ./Figures/DRNN2.png  used on input line 313.
-(pdftex.def)             Requested size: 291.92444pt x 111.73163pt.
-
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [39
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png>]
-Overfull \hbox (5.5599pt too wide) detected at line 342
-\OT1/mathkerncmss/m/sl/8 S\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = (\OT1/mathkerncmss/m/sl/8 I \OMS/cmsy/m/n/8 ^^C \OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 )(\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = [] \OT1/mathkerncmss/m/sl/8 I\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i \OT1/cmss/m/n/8 + \OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )\OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )[][][]
- []
-
-<./Figures/Conv1D.png, id=3162, 3110.62125pt x 798.985pt>
-File: ./Figures/Conv1D.png Graphic file (type png)
-<use ./Figures/Conv1D.png>
-Package pdftex.def Info: ./Figures/Conv1D.png  used on input line 342.
-(pdftex.def)             Requested size: 116.76797pt x 29.99112pt.
-
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [40
 
-pdfTeX warning (ext4): destination with the same identifier (name{eqn:Corr2D}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.342 \end{frame}
-                  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png (PNG copy)>]
-Overfull \hbox (5.5599pt too wide) detected at line 342
-\OT1/mathkerncmss/m/sl/8 S\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = (\OT1/mathkerncmss/m/sl/8 I \OMS/cmsy/m/n/8 ^^C \OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 )(\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = [] \OT1/mathkerncmss/m/sl/8 I\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i \OT1/cmss/m/n/8 + \OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )\OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )[]
- []
-
-File: ./Figures/Conv1D.png Graphic file (type png)
-<use ./Figures/Conv1D.png>
-Package pdftex.def Info: ./Figures/Conv1D.png  used on input line 342.
-(pdftex.def)             Requested size: 116.76797pt x 29.99112pt.
-<./Figures/Conv2D.png, id=3245, 164.25pt x 77.307pt>
-File: ./Figures/Conv2D.png Graphic file (type png)
-<use ./Figures/Conv2D.png>
-Package pdftex.def Info: ./Figures/Conv2D.png  used on input line 342.
-(pdftex.def)             Requested size: 175.15643pt x 82.44753pt.
+]
+<./Figures/MLP.png, id=3315, 583.17876pt x 387.4475pt>
+File: ./Figures/MLP.png Graphic file (type png)
+<use ./Figures/MLP.png>
+Package pdftex.def Info: ./Figures/MLP.png  used on input line 304.
+(pdftex.def)             Requested size: 113.81102pt x 75.60811pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
@@ -1673,12 +1638,12 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [41
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png>]
-<./Figures/Flatten.png, id=3326, 1971.365pt x 1288.815pt>
-File: ./Figures/Flatten.png Graphic file (type png)
-<use ./Figures/Flatten.png>
-Package pdftex.def Info: ./Figures/Flatten.png  used on input line 360.
-(pdftex.def)             Requested size: 116.76797pt x 76.3226pt.
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MLP.png>]
+<./Figures/DRNN2.png, id=3398, 3390.6675pt x 1297.84875pt>
+File: ./Figures/DRNN2.png Graphic file (type png)
+<use ./Figures/DRNN2.png>
+Package pdftex.def Info: ./Figures/DRNN2.png  used on input line 315.
+(pdftex.def)             Requested size: 291.92444pt x 111.73163pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
@@ -1686,16 +1651,16 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [42
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png>]
-File: ./Figures/Flatten.png Graphic file (type png)
-<use ./Figures/Flatten.png>
-Package pdftex.def Info: ./Figures/Flatten.png  used on input line 360.
-(pdftex.def)             Requested size: 116.76797pt x 76.3226pt.
-<./Figures/Dense.png, id=3405, 753.81625pt x 453.695pt>
-File: ./Figures/Dense.png Graphic file (type png)
-<use ./Figures/Dense.png>
-Package pdftex.def Info: ./Figures/Dense.png  used on input line 360.
-(pdftex.def)             Requested size: 175.15643pt x 105.41376pt.
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2.png>]
+Overfull \hbox (5.5599pt too wide) detected at line 344
+\OT1/mathkerncmss/m/sl/8 S\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = (\OT1/mathkerncmss/m/sl/8 I \OMS/cmsy/m/n/8 ^^C \OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 )(\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = [] \OT1/mathkerncmss/m/sl/8 I\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i \OT1/cmss/m/n/8 + \OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )\OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )[][][]
+ []
+
+<./Figures/Conv1D.png, id=3478, 3110.62125pt x 798.985pt>
+File: ./Figures/Conv1D.png Graphic file (type png)
+<use ./Figures/Conv1D.png>
+Package pdftex.def Info: ./Figures/Conv1D.png  used on input line 344.
+(pdftex.def)             Requested size: 116.76797pt x 29.99112pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
@@ -1703,28 +1668,63 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [43
 
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{eqn:Corr2D}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.344 \end{frame}
+                  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png (PNG copy)>]
+Overfull \hbox (5.5599pt too wide) detected at line 344
+\OT1/mathkerncmss/m/sl/8 S\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = (\OT1/mathkerncmss/m/sl/8 I \OMS/cmsy/m/n/8 ^^C \OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 )(\OT1/mathkerncmss/m/sl/8 i\OT1/cmss/m/n/8 ) = [] \OT1/mathkerncmss/m/sl/8 I\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 i \OT1/cmss/m/n/8 + \OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )\OT1/mathkerncmss/m/sl/8 K\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 m\OT1/cmss/m/n/8 )[]
+ []
+
+File: ./Figures/Conv1D.png Graphic file (type png)
+<use ./Figures/Conv1D.png>
+Package pdftex.def Info: ./Figures/Conv1D.png  used on input line 344.
+(pdftex.def)             Requested size: 116.76797pt x 29.99112pt.
+<./Figures/Conv2D.png, id=3565, 164.25pt x 77.307pt>
+File: ./Figures/Conv2D.png Graphic file (type png)
+<use ./Figures/Conv2D.png>
+Package pdftex.def Info: ./Figures/Conv2D.png  used on input line 344.
+(pdftex.def)             Requested size: 175.15643pt x 82.44753pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [44
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png>]
+<./Figures/Flatten.png, id=3647, 1971.365pt x 1288.815pt>
+File: ./Figures/Flatten.png Graphic file (type png)
+<use ./Figures/Flatten.png>
+Package pdftex.def Info: ./Figures/Flatten.png  used on input line 362.
+(pdftex.def)             Requested size: 116.76797pt x 76.3226pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [45
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png>]
+File: ./Figures/Flatten.png Graphic file (type png)
+<use ./Figures/Flatten.png>
+Package pdftex.def Info: ./Figures/Flatten.png  used on input line 362.
+(pdftex.def)             Requested size: 116.76797pt x 76.3226pt.
+<./Figures/Dense.png, id=3728, 753.81625pt x 453.695pt>
+File: ./Figures/Dense.png Graphic file (type png)
+<use ./Figures/Dense.png>
+Package pdftex.def Info: ./Figures/Dense.png  used on input line 362.
+(pdftex.def)             Requested size: 175.15643pt x 105.41376pt.
+
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [46
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1780,7 +1780,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [54
 
-]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1788,10 +1788,31 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [55
 
 ]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[56
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[57
+
+]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[58
+
+]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/Thumbnail1D.png, id=4408, 878.53218pt x 333.49594pt>
+<./Figures/Thumbnail1D.png, id=4756, 878.53218pt x 333.49594pt>
 File: ./Figures/Thumbnail1D.png Graphic file (type png)
 <use ./Figures/Thumbnail1D.png>
 Package pdftex.def Info: ./Figures/Thumbnail1D.png  used on input line 12.
@@ -1801,13 +1822,13 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[56
+[59
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Thumbnail1D.png>]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/EntreeSortie1D.png, id=4503, 644.4075pt x 319.1925pt>
+<./Figures/EntreeSortie1D.png, id=4853, 644.4075pt x 319.1925pt>
 File: ./Figures/EntreeSortie1D.png Graphic file (type png)
 <use ./Figures/EntreeSortie1D.png>
 Package pdftex.def Info: ./Figures/EntreeSortie1D.png  used on input line 6.
@@ -1817,7 +1838,7 @@ Overfull \hbox (12.52008pt too wide) in paragraph at lines 6--7
  [] 
  []
 
-<./Figures/Entrees1D.png, id=4504, 967.615pt x 373.395pt>
+<./Figures/Entrees1D.png, id=4854, 967.615pt x 373.395pt>
 File: ./Figures/Entrees1D.png Graphic file (type png)
 <use ./Figures/Entrees1D.png>
 Package pdftex.def Info: ./Figures/Entrees1D.png  used on input line 12.
@@ -1827,18 +1848,18 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[57
+[60
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/EntreeSortie1D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Entrees1D.png>]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/Meilleur1D2.png, id=4581, 402.00188pt x 271.76532pt>
+<./Figures/Meilleur1D2.png, id=4934, 402.00188pt x 271.76532pt>
 File: ./Figures/Meilleur1D2.png Graphic file (type png)
 <use ./Figures/Meilleur1D2.png>
 Package pdftex.def Info: ./Figures/Meilleur1D2.png  used on input line 6.
 (pdftex.def)             Requested size: 113.81102pt x 76.93971pt.
-<./Figures/Meilleur1D1.png, id=4582, 389.20406pt x 270.25969pt>
+<./Figures/Meilleur1D1.png, id=4935, 389.20406pt x 270.25969pt>
 File: ./Figures/Meilleur1D1.png Graphic file (type png)
 <use ./Figures/Meilleur1D1.png>
 Package pdftex.def Info: ./Figures/Meilleur1D1.png  used on input line 7.
@@ -1852,7 +1873,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[58
+[61
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D2.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png>] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
 File: ./Figures/Meilleur1D2.png Graphic file (type png)
@@ -1863,12 +1884,12 @@ File: ./Figures/Meilleur1D1.png Graphic file (type png)
 <use ./Figures/Meilleur1D1.png>
 Package pdftex.def Info: ./Figures/Meilleur1D1.png  used on input line 7.
 (pdftex.def)             Requested size: 113.81102pt x 79.02898pt.
-<./Figures/Pire1D1.png, id=4662, 401.24907pt x 258.21469pt>
+<./Figures/Pire1D1.png, id=5018, 401.24907pt x 258.21469pt>
 File: ./Figures/Pire1D1.png Graphic file (type png)
 <use ./Figures/Pire1D1.png>
 Package pdftex.def Info: ./Figures/Pire1D1.png  used on input line 13.
 (pdftex.def)             Requested size: 113.81102pt x 73.24127pt.
-<./Figures/Pire1D2.png, id=4663, 385.44pt x 272.51813pt>
+<./Figures/Pire1D2.png, id=5019, 385.44pt x 272.51813pt>
 File: ./Figures/Pire1D2.png Graphic file (type png)
 <use ./Figures/Pire1D2.png>
 Package pdftex.def Info: ./Figures/Pire1D2.png  used on input line 14.
@@ -1882,17 +1903,17 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[59
+[62
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D2.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[60
+[63
 
 ]
-<./Figures/Position1D.png, id=4820, 159.59625pt x 149.05687pt>
+<./Figures/Position1D.png, id=5179, 159.59625pt x 149.05687pt>
 File: ./Figures/Position1D.png Graphic file (type png)
 <use ./Figures/Position1D.png>
 Package pdftex.def Info: ./Figures/Position1D.png  used on input line 111.
@@ -1902,14 +1923,14 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[61
+[64
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png>]
 File: ./Figures/Position1D.png Graphic file (type png)
 <use ./Figures/Position1D.png>
 Package pdftex.def Info: ./Figures/Position1D.png  used on input line 111.
 (pdftex.def)             Requested size: 56.9055pt x 53.14641pt.
-<./Figures/Hauteur1D.png, id=4898, 157.33781pt x 149.05687pt>
+<./Figures/Hauteur1D.png, id=5259, 157.33781pt x 149.05687pt>
 File: ./Figures/Hauteur1D.png Graphic file (type png)
 <use ./Figures/Hauteur1D.png>
 Package pdftex.def Info: ./Figures/Hauteur1D.png  used on input line 111.
@@ -1919,7 +1940,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[62
+[65
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur1D.png>]
 \openout4 = `main.vrb'.
@@ -1929,27 +1950,27 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[63
+[66
 
 ] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb)
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[64
+[67
 
 ]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section4.tex
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[65
+[68
 
 ]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/Thumbnail2D.png, id=5205, 849.1725pt x 359.09157pt>
+<./Figures/Thumbnail2D.png, id=5575, 849.1725pt x 359.09157pt>
 File: ./Figures/Thumbnail2D.png Graphic file (type png)
 <use ./Figures/Thumbnail2D.png>
 Package pdftex.def Info: ./Figures/Thumbnail2D.png  used on input line 12.
@@ -1959,13 +1980,13 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[66
+[69
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Thumbnail2D.png>]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/EntreeSortie2D.png, id=5294, 1606.50188pt x 395.97937pt>
+<./Figures/EntreeSortie2D.png, id=5666, 1606.50188pt x 395.97937pt>
 File: ./Figures/EntreeSortie2D.png Graphic file (type png)
 <use ./Figures/EntreeSortie2D.png>
 Package pdftex.def Info: ./Figures/EntreeSortie2D.png  used on input line 4.
@@ -1975,7 +1996,7 @@ Overfull \hbox (5.69043pt too wide) in paragraph at lines 4--5
  [] 
  []
 
-<./Figures/Entrees2D.png, id=5295, 1369.115pt x 453.695pt>
+<./Figures/Entrees2D.png, id=5667, 1369.115pt x 453.695pt>
 File: ./Figures/Entrees2D.png Graphic file (type png)
 <use ./Figures/Entrees2D.png>
 Package pdftex.def Info: ./Figures/Entrees2D.png  used on input line 8.
@@ -1985,18 +2006,18 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[67
+[70
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/EntreeSortie2D.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Entrees2D.png>]
 \openout4 = `main.vrb'.
 
  (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
-<./Figures/Meilleur2D1.png, id=5375, 478.03593pt x 358.33875pt>
+<./Figures/Meilleur2D1.png, id=5748, 478.03593pt x 358.33875pt>
 File: ./Figures/Meilleur2D1.png Graphic file (type png)
 <use ./Figures/Meilleur2D1.png>
 Package pdftex.def Info: ./Figures/Meilleur2D1.png  used on input line 6.
 (pdftex.def)             Requested size: 85.35826pt x 63.9842pt.
-<./Figures/Meilleur2D2.png, id=5376, 481.8pt x 353.82187pt>
+<./Figures/Meilleur2D2.png, id=5749, 481.8pt x 353.82187pt>
 File: ./Figures/Meilleur2D2.png Graphic file (type png)
 <use ./Figures/Meilleur2D2.png>
 Package pdftex.def Info: ./Figures/Meilleur2D2.png  used on input line 7.
@@ -2006,7 +2027,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[68
+[71
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png>] (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
 File: ./Figures/Meilleur2D1.png Graphic file (type png)
@@ -2017,17 +2038,17 @@ File: ./Figures/Meilleur2D2.png Graphic file (type png)
 <use ./Figures/Meilleur2D2.png>
 Package pdftex.def Info: ./Figures/Meilleur2D2.png  used on input line 7.
 (pdftex.def)             Requested size: 85.35826pt x 62.68098pt.
-<./Figures/Pire2D1.png, id=5456, 475.7775pt x 359.09157pt>
+<./Figures/Pire2D1.png, id=5830, 475.7775pt x 359.09157pt>
 File: ./Figures/Pire2D1.png Graphic file (type png)
 <use ./Figures/Pire2D1.png>
 Package pdftex.def Info: ./Figures/Pire2D1.png  used on input line 13.
 (pdftex.def)             Requested size: 71.13188pt x 53.68607pt.
-<./Figures/Pire2D2.png, id=5457, 488.57532pt x 362.85562pt>
+<./Figures/Pire2D2.png, id=5831, 488.57532pt x 362.85562pt>
 File: ./Figures/Pire2D2.png Graphic file (type png)
 <use ./Figures/Pire2D2.png>
 Package pdftex.def Info: ./Figures/Pire2D2.png  used on input line 14.
 (pdftex.def)             Requested size: 71.13188pt x 52.82588pt.
-<./Figures/Pire2D3.png, id=5458, 481.8pt x 344.03531pt>
+<./Figures/Pire2D3.png, id=5832, 481.8pt x 344.03531pt>
 File: ./Figures/Pire2D3.png Graphic file (type png)
 <use ./Figures/Pire2D3.png>
 Package pdftex.def Info: ./Figures/Pire2D3.png  used on input line 15.
@@ -2037,17 +2058,17 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[69
+[72
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D1.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D2.png> <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D3.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[70
+[73
 
 ]
-<./Figures/PositionX2D.png, id=5615, 155.07938pt x 146.04562pt>
+<./Figures/PositionX2D.png, id=5995, 155.07938pt x 146.04562pt>
 File: ./Figures/PositionX2D.png Graphic file (type png)
 <use ./Figures/PositionX2D.png>
 Package pdftex.def Info: ./Figures/PositionX2D.png  used on input line 112.
@@ -2057,14 +2078,14 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[71
+[74
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png>]
 File: ./Figures/PositionX2D.png Graphic file (type png)
 <use ./Figures/PositionX2D.png>
 Package pdftex.def Info: ./Figures/PositionX2D.png  used on input line 112.
 (pdftex.def)             Requested size: 56.9055pt x 53.59032pt.
-<./Figures/PositionY2D.png, id=5694, 150.5625pt x 146.79843pt>
+<./Figures/PositionY2D.png, id=6076, 150.5625pt x 146.79843pt>
 File: ./Figures/PositionY2D.png Graphic file (type png)
 <use ./Figures/PositionY2D.png>
 Package pdftex.def Info: ./Figures/PositionY2D.png  used on input line 112.
@@ -2074,7 +2095,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[72
+[75
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png>]
 File: ./Figures/PositionX2D.png Graphic file (type png)
@@ -2085,7 +2106,7 @@ File: ./Figures/PositionY2D.png Graphic file (type png)
 <use ./Figures/PositionY2D.png>
 Package pdftex.def Info: ./Figures/PositionY2D.png  used on input line 112.
 (pdftex.def)             Requested size: 56.9055pt x 55.48383pt.
-<./Figures/Hauteur2D.png, id=5772, 155.07938pt x 146.79843pt>
+<./Figures/Hauteur2D.png, id=6156, 155.07938pt x 146.79843pt>
 File: ./Figures/Hauteur2D.png Graphic file (type png)
 <use ./Figures/Hauteur2D.png>
 Package pdftex.def Info: ./Figures/Hauteur2D.png  used on input line 112.
@@ -2095,24 +2116,24 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[73
+[76
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur2D.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[74
+[77
 
 ]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[75
+[78
 
 ]
-<./Figures/Classification.png, id=6003, 587.94656pt x 529.98pt>
+<./Figures/Classification.png, id=6392, 587.94656pt x 529.98pt>
 File: ./Figures/Classification.png Graphic file (type png)
 <use ./Figures/Classification.png>
 Package pdftex.def Info: ./Figures/Classification.png  used on input line 151.
@@ -2122,7 +2143,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[76
+[79
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png>]
 File: ./Figures/Classification.png Graphic file (type png)
@@ -2134,30 +2155,9 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[77
-
-]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section5.tex
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[78
-
-]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[79
-
-]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
 [80
 
-]
+]) (c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section5.tex
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2172,7 +2172,28 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 [82
 
 ]
-<./Figures/DRNN2MAX.png, id=6539, 3390.6675pt x 1358.07375pt>
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[83
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[84
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[85
+
+]
+<./Figures/DRNN2MAX.png, id=6943, 3390.6675pt x 1358.07375pt>
 File: ./Figures/DRNN2MAX.png Graphic file (type png)
 <use ./Figures/DRNN2MAX.png>
 Package pdftex.def Info: ./Figures/DRNN2MAX.png  used on input line 39.
@@ -2182,17 +2203,17 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[83
+[86
 
  <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/DRNN2MAX.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[84
+[87
 
 ]
-<./Figures/MilestonesRoadmap.png, id=6693, 905.63344pt x 302.63063pt>
+<./Figures/MilestonesRoadmap.png, id=7101, 905.63344pt x 302.63063pt>
 File: ./Figures/MilestonesRoadmap.png Graphic file (type png)
 <use ./Figures/MilestonesRoadmap.png>
 Package pdftex.def Info: ./Figures/MilestonesRoadmap.png  used on input line 55.
@@ -2202,30 +2223,9 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[85
-
- <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png>]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[86
-
-]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[87
-
-]
-Overfull \hbox (17.85104pt too wide) has occurred while \output is active
- [][][][]  
- []
-
 [88
 
-]
+ <c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png>]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2260,6 +2260,27 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [93
 
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[94
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[95
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[96
+
 ])
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -2270,7 +2291,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[94
+[97
 
  <d:/Program Files/texlive/2020/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write7
@@ -2288,7 +2309,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 167.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1B9FCBE91187B243A9CBD759069C58F0;1000.
+(rerunfilecheck)             Checksum: 1266ADDFCAD01ED15E830999FA6928F9;1001.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2298,18 +2319,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37044 strings out of 480893
- 788866 string characters out of 5905096
- 1265379 words of memory out of 5000000
- 51682 multiletter control sequences out of 15000+600000
+ 37056 strings out of 480893
+ 788980 string characters out of 5905096
+ 1265384 words of memory out of 5000000
+ 51688 multiletter control sequences out of 15000+600000
  604540 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,19n,82p,904b,2114s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona-sc.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona.enc}<d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonari.pfb>
-Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (94 pages, 5193307 bytes).
+Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (97 pages, 5211100 bytes).
 PDF statistics:
- 7582 PDF objects out of 8907 (max. 8388607)
- 7246 compressed objects within 73 object streams
- 215 named destinations out of 1000 (max. 500000)
+ 8012 PDF objects out of 8907 (max. 8388607)
+ 7667 compressed objects within 77 object streams
+ 221 named destinations out of 1000 (max. 500000)
  477 words of extra memory for PDF output out of 10000 (max. 10000000)
 

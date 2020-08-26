@@ -71,9 +71,10 @@ Où :
 \begin{frame}
   \frametitle{Le modèle P1}
   % Le modele P1: % Modèle macroscopique 5 aux moments (d’ordre 2), linéaire et hyperbolique. Le terme 1/3
+  \footnotesize
   D'après \parencite{Reference2} :
   \begingroup
-  \normalsize
+  \footnotesize
   \begin{equation*}
       \begin{cases}
         \alert<1->{\partial_tE + c \operatorname {div} \bvec F = c\sigma_a\left(aT^4-E\right)}\\
@@ -83,19 +84,20 @@ Où :
   % \label{eqn:P1}
   \end{equation*}
   \endgroup
-Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
-\footnotesize
-% \begin{align*}
-  $E(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$ \\
-  \hspace*{8mm} $\bvec{F}(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$ 
+  Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
+\begin{itemize}
+  \item Energie des photons : $E(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$
+  \item Flux des photons :    $\bvec{F}(t,\bvec{x}) = \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu$  
   % \label{eqn:EFT}
-% \end{align*}
+\end{itemize}
 \pause
-\normalsize
+% \normalsize
+Ce modèle est :
 \begin{itemize}[<+>]
-  \item Modèle macroscopique aux moments (d’ordre 2), dit "gris"
-  \item Modèle linéaire et hyperbolique
-  \item Moins précis qu'un modèle résolut par Monte-Carlo, mais peu couteux et rapide à implémenter
+  \item Linéaire et hyperbolique
+  \item Macroscopique aux moments (d’ordre 2), dit "gris"
+  \item Moins précis qu'un modèle résolut par la méthode de Monte-Carlo 
+  \item Peu coûteux et rapide à implémenter
 \end{itemize}
 
 \end{frame}
@@ -273,7 +275,7 @@ Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et
   \begin{itemize}
     \item $f$ définit le problème direct : $\bvec{X} = f(\bvec{y})$ 
     \item $f^{-1}$ définit le problème inverse : $\bvec{y} = f^{-1}(\bvec{X})$ 
-    \item On va se contenter de $\hat{f}$ telle que $\hat{\bvec{y}} = \hat{f}^{-1}(\bvec{X}, \bm{\theta})$, où $\bm{\theta}$ représente les paramètres du réseau de neurones 
+    \item On va se contenter de $\hat{f}^{-1}$ telle que $\hat{\bvec{y}} = \hat{f}^{-1}(\bvec{X}, \bm{\theta})$, où $\bm{\theta}$ représente les paramètres du réseau de neurones 
   \end{itemize}
 
   \pause
