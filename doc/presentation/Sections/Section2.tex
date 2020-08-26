@@ -363,23 +363,23 @@ Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et
 \setbeamercovered{invisible}
 \begin{frame}
     \frametitle{Les métriques}
-    \only<1>{\textbf{Coefficient de détermination R2}}  \hspace*{65mm}           
+    \only<1->{\textbf{Coefficient de détermination R2}}  \hspace*{65mm}           
     \only<2->{\textbf{Score personalisé}}      
 
     \begin{columns}
         \begin{column}{0.5\textwidth}      
         \begingroup
         \begin{align*}
-          \only<1>{Score \, R2 = 1 - \frac{SS_{res}}{SS_{tot}}}
+          \only<1->{Score \, R2 = 1 - \frac{SS_{res}}{SS_{tot}}}
             \label{eqn:R2}
         \end{align*}
-        \only<1>{Avec}
+        \only<1->{Avec}
         \scriptsize
         \begin{align*}
-          \only<1>{SS_{res} &=  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad} \\
-          \only<1>{SS_{tot} &=  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2} 
+          \only<1->{SS_{res} &=  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad} \\
+          \only<1->{SS_{tot} &=  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2} 
         \end{align*}
-        \only<1>{Où $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.}
+        \only<1->{Où $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.}
         \endgroup
         % On peut remarquer que :
         % \begin{itemize}
