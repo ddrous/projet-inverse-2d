@@ -30,19 +30,19 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Entree sortie 1D}
+    \frametitle{Entrées/sorties 1D}
 
     \begin{columns}
     \begin{column}{0.7\textwidth}
         \begin{figure}
         \includegraphics[width=8cm]{EntreeSortie1D}       
-        \caption{Entrees/sortie pour le reseau de neurones}
+        \caption{Une entrée du réseau de neurones et la sortie attendue}
         \end{figure}
      \end{column}
      \begin{column}{0.3\textwidth}
         \begin{figure}
         \includegraphics[width=3cm]{Entrees1D}       
-        \caption{Taille d'une entree}
+        \caption{Taille d'une entrée}
         \end{figure}
      \end{column}
     \end{columns}
@@ -52,21 +52,21 @@
 \subsection{Apprentissage}
 
 \begin{frame}[fragile]
-    \frametitle{Meilleures/pires predictions du reseau de neurones}
+    \frametitle{Meilleures/pires prédictions du CNN}
 
     \begin{columns}
     \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=4cm]{Meilleur1D2}       
-        \includegraphics[width=4cm]{Meilleur1D1}       
-        \caption{Les meilleures predictions}
+        \includegraphics<1->[width=4cm]{Meilleur1D2}       
+        \includegraphics<1->[width=4cm]{Meilleur1D1}       
+        \only<1->{\caption{Les meilleures prédictions}}
         \end{figure}
      \end{column}
      \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=4cm]{Pire1D1}       
-        \includegraphics[width=4cm]{Pire1D2}       
-        \caption{Les pires predictions}
+        \includegraphics<2>[width=4cm]{Pire1D1}       
+        \includegraphics<2>[width=4cm]{Pire1D2}       
+        \only<2>{\caption{Les pires prédictions}}
         \end{figure}
      \end{column}
     \end{columns}
@@ -74,10 +74,9 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Scores 1D}
+    \frametitle{Les scores obtenus en 1D}
 
     \begin{table}[h!]
-        \caption{Scores 1D}
         \centering
         \begin{tabular}{l l}
         \toprule
@@ -92,14 +91,14 @@
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
-            \includegraphics[width=2cm]{Position1D}       
-            \caption{Correlation des position}
+            \includegraphics<2->[width=2cm]{Position1D}       
+            \only<2->{\caption{Correlation des positions}}
             \end{figure}
          \end{column}
          \begin{column}{0.5\textwidth}
             \begin{figure}
-            \includegraphics[width=2cm]{Hauteur1D}       
-            \caption{Correlation des hauteur}
+            \includegraphics<3>[width=2cm]{Hauteur1D}       
+            \only<3>{\caption{Correlation des hauteurs}}
             \end{figure}
          \end{column}
     \end{columns}
@@ -109,10 +108,11 @@
 
 \begin{frame}
     \frametitle{Conclusion sur la régression 1D}
-Les cause de l'echec:
-\begin{itemize}
-    \item Le probleme inverse est probablement mal pose  % EN supposant que je n'ai commise aucune erreur
-    \item Le score R2 est mal calcule % Non prise en compte des poinds 10:1. 
+Les cause de l'échec :
+\pause
+\begin{itemize}[<+>]
+    \item Le problème inverse est probablement mal posé  % EN supposant que je n'ai commise aucune erreur
+    \item Le score R2 est mal calculé % Non prise en compte des poinds 10:1. 
 \end{itemize}
 \end{frame}
 

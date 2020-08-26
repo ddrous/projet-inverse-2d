@@ -4,6 +4,12 @@
     ],
     "spellright.documentTypes": [
         "markdown",
-        "plaintext"
-    ]
+        "plaintext",
+        "latex"
+    ],
+    "ltex.disabledRules": {
+        "fr": [
+            "FR_SPELLING_RULE"
+        ]
+    }
 }

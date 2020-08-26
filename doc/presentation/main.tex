@@ -48,6 +48,7 @@
 % \definecolor{darkred}{rgb}{0.4,0.5,0}
 % \setbeamercolor{titlelike}{parent=structure,bg=yellow!85!orange}
 
+\setbeamercovered{transparent}    %% Pour avoir de la tranparence
 
 %-------------------------------------------------------------------------------
 %							A CUSTOM FOOTLINE
@@ -86,7 +87,7 @@
 \date{\today}
 \author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM}
 
-\institute[Université de Strasbourg]{Université de Strasbourg\\UFR de mathématiques et d'informatque\\Master 1 CSMI}
+\institute[Université de Strasbourg]{Université de Strasbourg\\UFR de mathématiques et d'informatique\\Master 1 CSMI}
 
 \begin{document}
 
@@ -95,7 +96,7 @@
 \setbeamertemplate{headline}{\vspace{0.5cm}%
   \hspace*{0.8cm}%
   \includegraphics[width=3cm]{LogoUnistra}
-  \hfill\raisebox{.2cm}{\normalsize Soutenance de stage}\hfill%
+  \hfill\raisebox{.2cm}{}\hfill%
   \includegraphics[width=2.2cm]{LogoIRMA}
   \hspace*{0.8cm}%
 }
@@ -117,20 +118,20 @@
 
 \title[Problème Inverse : Transfert Radiatif et Apprentissage]{Simulation 2D de l’équation du transfert radiatif et reconstruction de la densité par un réseau de neurones}
 
-\author[Roussel Desmond NZOYEM]{Roussel Desmond NZOYEM\\[2mm]{\small \textbf{ \hspace*{0.1mm} Ensignant referent} \hspace*{11mm} \textbf{Maitre de stage} \\ \footnotesize Christophe PRUD'HOMME \hspace*{6mm} Emmanuel FRANCK \\ \hspace*{44.5mm} Laurent NAVORET \\ \hspace*{44.5mm} Vincent VIGON}}
+\institute[Université de Strasbourg]{\small \textbf{ \hspace*{0.1mm} Enseignant réfèrent} \hspace*{11mm} \textbf{Maîtres de stage} \\ \footnotesize Christophe PRUD'HOMME \hspace*{6mm} Emmanuel FRANCK \\ \hspace*{44.5mm} Laurent NAVORET \\ \hspace*{44.5mm} Vincent VIGON}
 
-\institute[Université de Strasbourg]{}
-\date[\today]{\footnotesize Annee Academique 2019/2020}
+\author[Roussel Desmond NZOYEM]{\textbf{Stagiaire} \\ Roussel Desmond NZOYEM}
+\date[\today]{\footnotesize Année académique 2019/2020}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{\vspace{0.5cm}%
   \hspace*{0.8cm}%
   \includegraphics[width=3cm]{LogoUnistra}
-  \hfill\raisebox{.6cm}{}\hfill%
+  \hfill\raisebox{.2cm}{\normalsize Soutenance de stage}\hfill%
   \includegraphics[width=2.2cm]{LogoIRMA}
   \hspace*{0.8cm}%
 }
-\begin{frame}
+\begin{frame}[fragile]
 \maketitle
 \end{frame}
 \endgroup
@@ -141,43 +142,18 @@
 
 \input{Sections/Section1}
 
+\begin{frame}
+  \scriptsize
+  \frametitle{Sommaire}
+  \tableofcontents
+\end{frame}
+
 \input{Sections/Section2}
-
-% \documentclass{beamer}
-% \usepackage{media9}
-% \usepackage{graphicx}
-
-% \begin{document}
-
-% \begin{frame}{Blank page}[fragile]
-% Go ahead!
-% \end{frame}
-
-% La muraille de chine << text >>
-
-% \begin{frame}[fragile]
-%   \begin{center}
-%     \includemedia[
-%       width=0.5\linewidth,
-%       activate=pageopen,
-%       addresource=cube.mp4,
-%       flashvars={
-%          source=cube.mp4
-%         &autoPlay=true
-%       },
-%       passcontext, % enable VPlayer's right-click menue
-%     ]{\includegraphics{cubeposter.png}}{VPlayer.swf}%
-%   \end{center}
-% \end{frame}
 
 \input{Sections/Section3}
 
-
-% \end{document}
-
-
-
 \input{Sections/Section4}
+
 \input{Sections/Section5}
 
 % %-------------------------------------------------------------------------------

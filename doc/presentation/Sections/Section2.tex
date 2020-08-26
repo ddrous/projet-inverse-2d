@@ -7,28 +7,29 @@
 %-------------------------------------------------------------------------------
 %							SECOND SECTION
 %-------------------------------------------------------------------------------
-\section{Principe}
+\section{Principe et méthode}
 
 \subsection{Simulation de l'ETR}
 
 \begin{frame}
-  \frametitle{Le transfer radiatif}
+  \frametitle{Le transfert radiatif}
 
-Lorsque la photons se trouvent en presence de la matière, Trois phenomènes majeures (caratises par leurs opacites) se produisent:
+  \footnotesize
+Lorsque les photons se trouvent en présence de la matière, trois phénomènes majeurs (caractérisés par leurs opacités) se produisent :
 
 \begin{columns}
-  \begin{column}{0.5\textwidth}
+  \begin{column}{0.55\textwidth}
     \footnotesize
-   \begin{itemize}
-     \item Emission ($\sigma_e$): Plus la temperature matiere est elevee, plus l'emission est importante % Typiquement on ne vas pas retrouver sigma_e dans nos equations car on va se placer dans l'ETL, et on Planck.
-     \item Absorption ($\sigma_a$): Lorsqu'on est a l'equilibre thermique, $\sigma_a = \sigma_e$ % On va considerer en plus l'equilibre chimique ce qui donne l'ETL
-     \item Scattering ($\sigma_c$): Il faut aussi tenir compte de la fonction de distribution angulaire de "scattering" $p(\bm{\Omega^\prime \rightarrow \bm{\Omega}})$ \parencite{Reference3}.
+   \begin{itemize}[<+>]
+     \item \textbf{Émission} ($\sigma_e$) : Plus la température matière est élevée, plus l'émission est importante % Typiquement on ne vas pas retrouver sigma_e dans nos equations car on va se placer dans l'ETL, et on Planck.
+     \item \textbf{Absorption} ($\sigma_a$) : Lorsqu'on est à l'équilibre thermique, $\sigma_a = \sigma_e$ % On va considerer en plus l'equilibre chimique ce qui donne l'ETL
+     \item \textbf{Dispersion} ($\sigma_c$) : Il faut aussi tenir compte de la fonction de distribution angulaire de "scattering" $p(\bm{\Omega^\prime \rightarrow \bm{\Omega}})$ \parencite{Reference3}.
    \end{itemize}
   \end{column}
   % \pause
-  \begin{column}{0.5\textwidth}
+  \begin{column}{0.45\textwidth}
      \begin{figure}       
-      \includegraphics[width=6cm]{TransferRadiatif}       
+      \includegraphics[width=5cm]{TransferRadiatif}       
       \caption{Interaction entre matière et radiation}
     \end{figure}
   \end{column}
@@ -38,7 +39,7 @@ Lorsque la photons se trouvent en presence de la matière, Trois phenomènes maj
 
 \begin{frame}
   \frametitle{L'ETR}
-  L'equation du transfert radiatif est bilan d'energie lie au rayonnement au niveau mesoscopique. 
+  L'équation du transfert radiatif est un bilan d'énergie lié au rayonnement au niveau mésoscopique (dans la direction $\bm{\Omega}$). 
 
   \begingroup
   \scriptsize
@@ -51,19 +52,19 @@ Lorsque la photons se trouvent en presence de la matière, Trois phenomènes maj
   % \label{eqn:ETR}
   \end{gather*}
   \endgroup
-Où 
+Où :
 \begin{itemize}
-  \item $I(t,\bvec{x},\bm{\Omega},\nu)$ designe l'intensité radiative specifique;
-  \item $B(\nu,T)$ la fonction de Planck;
+  \item $I(t,\bvec{x},\bm{\Omega},\nu)$ désigne l'intensité radiative spécifique
+  \item $B(\nu,T)$ la fonction de Planck
   \item $\oint p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\, d\bm{\Omega}^\prime=1$
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{Le modele P1}
+  \frametitle{Le modèle P1}
   % Le modele P1: % Modèle macroscopique 5 aux moments (d’ordre 2), linéaire et hyperbolique. Le terme 1/3
-  D'apres \parencite{Reference2}
+  D'après \parencite{Reference2} :
   \begingroup
   \large
   \begin{equation*}
@@ -75,7 +76,7 @@ Où
   % \label{eqn:P1}
   \end{equation*}
   \endgroup
-Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
+Où :   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et suddisant; sigma
 \begin{align*}
   E(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu \\
   \bvec{F}(t,\bvec{x}) &= \frac{4\pi}{c} \int_{0}^{\infty} \int_{S^2} \bm{\Omega}I(t,\bvec{x},\bm{\Omega},\nu) \, d\bm{\Omega} \, d\nu 
@@ -85,11 +86,11 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
 \end{frame}
 
 \begin{frame}
-  \frametitle{Le schema de << splitting >>: Etape 1}
+  \frametitle{Le schéma de "splitting" : Étape 1}
   % Reglage de la temperature 
   \begin{columns}
     \begin{column}{0.5\textwidth}
-     A l'iteration $n$, on pose $\Theta = aT^4$
+     À l'itération $n$, on pose $\Theta = aT^4$
 
       \begingroup
       \normalsize
@@ -101,7 +102,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
     \label{eqn:Step1}
     \end{equation*}
       \endgroup
-      Ou
+      Où
       \tiny
       $\mu_q = \dfrac{1}{T^{3,n} + T^{n}T^{2,q} + T^{q}T^{2,n} + T^{3,q}}$
       \normalsize
@@ -123,7 +124,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
    \begin{columns}
     \begin{column}{1.0\textwidth} 
       \\
-      Itération sur $q$. Convergence vers $E_j^*$ et $\Theta_j^*$. $\bvec F_j = \bvec F_j^*$ constant.
+      Itération sur $q$ ; convergence vers $E_j^*$ et $\Theta_j^*$ ; $\bvec F_j = \bvec F_j^*$ constant.
     \end{column}
     \begin{column}{0.0\textwidth} 
     \end{column}
@@ -133,7 +134,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
 
 
 \begin{frame}
-  \frametitle{Le schema de << splitting >>: Etape 2}   % Adaptable aussi en 2D
+  \frametitle{Le schéma de "splitting" : Étape 2}   % Adaptable aussi en 2D
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begingroup
@@ -146,6 +147,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
       % \label{eqn:Step2}
       \end{equation*}
       Avec :
+      \newline
       % \begingroup
       \scriptsize
     
@@ -185,7 +187,7 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
 \end{frame}
 
 \begin{frame}
-  \frametitle{Implementation C++}
+  \frametitle{Implémentation C++}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \scriptsize
@@ -204,17 +206,19 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         \item Sorties libres sur les autres bords
       \end{itemize}
     \end{column}
-    % \pause
+
+    \pause
+
     \begin{column}{0.4\textwidth}
        \begin{figure}
-        \includegraphics[width=4cm]{SimuCFG}   % EN 2D    
-        \caption{Exemple de configuration}
+        \includegraphics<2>[width=4cm]{SimuCFG}   % EN 2D    
+        \only<2>{\caption{Exemple de configuration}}
       \end{figure}
     \end{column}
    \end{columns}
 \end{frame}
 
-\subsection{Reseau de neurones}
+\subsection{Réseau de neurones}
 
 \begin{frame}
     \frametitle{L'architecture sous Keras}
@@ -222,41 +226,42 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         %%% Ajouter l'image des hierarchie de machine learning
         \begin{figure}
         \includegraphics[width=.95\textwidth]{DRNN2}    % Modifier la sortie pour avoir 1D/Class2D/Reg 2D
-        \caption{Architecture generale utilisee}
+        \caption{Architecture générale utilisée (CNN)}
         \end{figure}
     \end{center}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Les couches utilisees: Convolutions (Cross-correlation)}
+    \frametitle{Les couches utilisées : Convolution (cross-corrélation)}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \scriptsize
             \begin{equation*}
-                S(i) = (I * K)(i) = \sum_{m} I(i+m)K(m)
+              \only<1-> {S(i) = (I * K)(i) = \sum_{m} I(i+m)K(m)}
                 \label{eqn:Corr2D}
             \end{equation*}
             \begin{figure}
-                \includegraphics[width=.95\textwidth]{Conv1D}
-                \caption{En 1D \parencite{Reference10}}
+                \includegraphics<1->[width=.95\textwidth]{Conv1D}
+                \only<1-> {\caption{En 1D \parencite{Reference10}}}
             \end{figure}
         \end{column}
+        % \pause
         \begin{column}{0.6\textwidth}
             \scriptsize
             \begin{equation*}
-                S(i,j) = (I * K)(i,j) = \sum_{m}\sum_{n} I(i+m,j+n)K(m,n)
+              \only<2>{S(i,j) = (I * K)(i,j) = \sum_{m}\sum_{n} I(i+m,j+n)K(m,n)}
                 \label{eqn:Corr2D}
             \end{equation*}
             \begin{figure}
-                \includegraphics[width=.95\textwidth]{Conv2D}
-                \caption{En 2D \parencite{Reference11}}
+                \includegraphics<2>[width=.95\textwidth]{Conv2D}
+                \only<2> {\caption{En 2D \parencite{Reference11}}}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Les couches utilisees: Flatten et Dense}
+    \frametitle{Les couches utilisées : Flatten et Dense}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{figure}
@@ -266,31 +271,34 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         \end{column}
         \begin{column}{0.6\textwidth}
             \begin{figure}
-                \includegraphics[width=.95\textwidth]{Dense}
-                \caption{Des couches denses (Regression 2D)}
+                \includegraphics<2>[width=.95\textwidth]{Dense}
+                \only<2>{\caption{Des couches denses (Regression 2D)}}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
 
+\setbeamercovered{invisible}
 \begin{frame}
-    \frametitle{Les metriques}
+    \frametitle{Les métriques}
+    \only<1>{\textbf{Coefficient de détermination R2}}  \hspace*{65mm}           
+    \only<2->{\textbf{Score personalisé}}      
+
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \textbf{Coefficient de determination R2}
+        \begin{column}{0.5\textwidth}      
         \begingroup
         \begin{align*}
-            R^2 = 1 - \frac{SS_{res}}{SS_{tot}}
+          \only<1>{Score \, R2 = 1 - \frac{SS_{res}}{SS_{tot}}}
             \label{eqn:R2}
         \end{align*}
-        Avec
+        \only<1>{Avec}
         \scriptsize
         \begin{align*}
-            SS_{res} &=  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad \\
-            SS_{tot} &=  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2 
+          \only<1>{SS_{res} &=  \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 \quad} \\
+          \only<1>{SS_{tot} &=  \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2} 
         \end{align*}
-        Ou $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.
+        \only<1>{Où $ \bar{y} = \sum_{i=1}^{n} y_i $ représente la moyenne des valeurs observées.}
         \endgroup
         % On peut remarquer que :
         % \begin{itemize}
@@ -299,22 +307,24 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         %  \item Si les prédictions sont pires que la moyenne, le score $R^2$ est négatif.
         % \end{itemize}
         \end{column}
+        \pause
         \begin{column}{0.5\textwidth}
-        \textbf{Score personalise}\\
-        Pourcentage des prédiction correcte si la prediction et le label sont suffsament proche:
+        \only<2->{Pourcentage des prédictions correctes :} % si la prediction et le label sont suffsament proche
+        \pause
         \begin{itemize}
-         \item \textbf{au dixième près} pour la position (suivant $x$ ou $y$) 
-         \item \textbf{à l'unité près} pour la hauteur 
+         \item<+-> \textbf{au dixième près} pour la position (suivant $x$ ou $y$) 
+         \item<+-> \textbf{à l'unité près} pour la hauteur 
         \end{itemize}
 
         \end{column}
     \end{columns}
 \end{frame}
 
+\setbeamercovered{transparent}
 
 
 \begin{frame}
-    \frametitle{Les hyper-parametres}
+    \frametitle{Les hyper-paramètres}
 
     \begin{table}[h!]
         \scriptsize
@@ -323,15 +333,16 @@ Ou:   % Moins precis que Monte-Carlo ou ordonne discretes; Mais plus rapide et s
         \centering
         \begin{tabular}{l l l}
         \toprule
-        \textbf{Hyper-paramètre} & \textbf{Définition} & \textbf{Valeur 1D / 2D} \\
+        \textbf{Hyper-paramètre} & \hspace*{10mm}\textbf{Définition} & \hspace*{2mm}\textbf{Valeur 1D / 2D} \\
         \midrule
-        optimizer & algorithme d'optimisation & Adam\\
-        learning rate & taux d'apprentissage & 1e-4 / 1e-5\\
-        batch size & taille d'un batch a chaque epoque & 32\\
-        epochs & nombre d'époques & 100\\
-        patience & patience pour l'early stopping & 10\\
-        kernel size & taille du noyau de convolution & 3 / (6,2)\\
-        activation & type de fonction d'activation  & relu, linear, sigmoid\\
+        \onslide<+>
+        optimizer & algorithme d'optimisation & Adam \onslide<+>\\
+        learning rate & taux d'apprentissage & 1e-4 / 1e-5 \onslide<+>\\
+        batch size & taille d'un batch à chaque époque & 32 \onslide<+>\\
+        epochs & nombre d'époques & 100 \onslide<+>\\
+        patience & patience pour l'early stopping & 10 \onslide<+>\\
+        kernel size & taille du noyau de convolution & 3 / (6,2) \onslide<+>\\
+        activation & type de fonction d'activation  & relu, linear, sigmoid \\
         \bottomrule\\
         \end{tabular}
     \end{table}

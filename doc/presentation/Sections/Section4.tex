@@ -30,15 +30,15 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Entree sortie 2D}
+    \frametitle{Entrées/sorties 2D}
 
         \begin{figure}
         \includegraphics[width=11cm]{EntreeSortie2D}       
-        \caption{Entrees sortie pour le reseau de neurones}
+        \caption{Une entrée du réseau de neurones et la sortie attendue}
         \end{figure}
         \begin{figure}
         \includegraphics[width=3cm]{Entrees2D}       
-        \caption{Taille d'une entree}
+        \caption{Taille d'une entrée}
         \end{figure}
 
 \end{frame}
@@ -46,22 +46,22 @@
 \subsection{Apprentissage}
 
 \begin{frame}[fragile]
-    \frametitle{Meilleures/pires predictions du reseau de neurones}
+    \frametitle{Meilleures/pires prédictions du CNN}
 
     \begin{columns}
     \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=3cm]{Meilleur2D1}       
-        \includegraphics[width=3cm]{Meilleur2D2}       
-        \caption{Les meilleures predictions}
+        \includegraphics<1->[width=3cm]{Meilleur2D1}       
+        \includegraphics<1->[width=3cm]{Meilleur2D2}       
+        \only<1-> {\caption{Les meilleures prédictions}}
         \end{figure}
      \end{column}
      \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=2.5cm]{Pire2D1}       
-        \includegraphics[width=2.5cm]{Pire2D2}       
-        \includegraphics[width=2.5cm]{Pire2D3}       
-        \caption{Les pires predictions}
+        \includegraphics<2>[width=2.5cm]{Pire2D1}       
+        \includegraphics<2>[width=2.5cm]{Pire2D2}       
+        \includegraphics<2>[width=2.5cm]{Pire2D3}       
+        \only<2>{\caption{Les pires prédictions}}
         \end{figure}
      \end{column}
     \end{columns}
@@ -69,10 +69,9 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Scores 2D}
+    \frametitle{Les scores obtenus en 2D}
 
     \begin{table}[h!]
-        \caption{Scores 2D}
         \centering
         \begin{tabular}{l l}
         \toprule
@@ -87,20 +86,20 @@
     \begin{columns}
         \begin{column}{0.333\textwidth}
             \begin{figure}
-            \includegraphics[width=2cm]{PositionX2D}       
-            \caption{Correlation de l'abscisse}
+            \includegraphics<2->[width=2cm]{PositionX2D}       
+            \only<2->{\caption{Corrélation des abscisses}}
             \end{figure}
          \end{column}
          \begin{column}{0.333\textwidth}
             \begin{figure}
-            \includegraphics[width=2cm]{PositionY2D}       
-            \caption{Correlation de l'ordonee}
+            \includegraphics<3->[width=2cm]{PositionY2D}       
+            \only<3->{\caption{Corrélation des ordonnées}}
             \end{figure}
          \end{column}
          \begin{column}{0.333\textwidth}
             \begin{figure}
-            \includegraphics[width=2cm]{Hauteur2D}       
-            \caption{Correlation des hauteur}
+            \includegraphics<4->[width=2cm]{Hauteur2D}       
+            \only<4->{\caption{Corrélation des hauteurs}}
             \end{figure}
          \end{column}
     \end{columns}
@@ -110,15 +109,17 @@
 
 \begin{frame}
     \frametitle{Conclusion sur la régression 2D}
-Detection de toutes les variables:
-\begin{itemize}
-    \item L'abscisse, l'ordonee, et la hauteur: reconstruction complete de la densite
-    \item La valeur de la densite en dehors du crenau est connue
+Détection de toutes les variables :
+\begin{itemize}[<+>]
+    \item L'abscisse, l'ordonnée, et la hauteur sont relativement bien prédits
+    \item La valeur de la densité en dehors du créneau est connue : \textbf{reconstruction complète de la densité du milieu}
 \end{itemize}
 \end{frame}
 
+\setbeamercovered{invisible}
+
 \begin{frame}
-    \frametitle{CLassification 2D}
+    \frametitle{Classification 2D}
     \begin{columns}
         \begin{column}{0.7\textwidth}
             \begin{figure}
@@ -126,9 +127,10 @@ Detection de toutes les variables:
             \caption{Labels pour la classification}
             \end{figure}
          \end{column}
+         \pause
          \begin{column}{0.3\textwidth}
             \begin{table}[h!]
-                \caption{Scores de classification}
+                \caption{Les scores obtenus}
                 \centering
                 \begin{tabular}{l l}
                 \toprule
@@ -143,5 +145,6 @@ Detection de toutes les variables:
     \end{columns}
 \end{frame}
 
+\setbeamercovered{transparent}
 
 % \end{document}

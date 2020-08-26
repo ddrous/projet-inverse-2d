@@ -491,6 +491,10 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/LogoIRMA.png
 INPUT d:/Program Files/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
@@ -505,10 +509,13 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PBInverse.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.toc
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.toc
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section2.tex
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
@@ -531,6 +538,10 @@ INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi9.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssxi8.tfm
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/TransferRadiatif.png
@@ -563,16 +574,19 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Conv2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Flatten.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Dense.png
-INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonab.tfm
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/Sections/Section3.tex
@@ -618,12 +632,20 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D2.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D2.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire1D2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Position1D.png
@@ -671,6 +693,12 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.vrb
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D1.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D1.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Meilleur2D2.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D1.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Pire2D1.png
@@ -683,12 +711,20 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionX2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/PositionY2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur2D.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Hauteur2D.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
+INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/Classification.png
@@ -697,6 +733,7 @@ INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
 INPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/./Figures/MilestonesRoadmap.png
+INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonari.tfm
 INPUT d:/Program Files/texlive/2020/texmf-dist/fonts/tfm/nowacki/iwona/rm-iwonar-sc.tfm
 OUTPUT c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.nav

@@ -1,19 +1,19 @@
-\frametitle{Meilleures/pires predictions du reseau de neurones}
+\frametitle{Meilleures/pires prédictions du CNN}
 
     \begin{columns}
     \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=3cm]{Meilleur2D1}
-        \includegraphics[width=3cm]{Meilleur2D2}
-        \caption{Les meilleures predictions}
+        \includegraphics<1->[width=3cm]{Meilleur2D1}
+        \includegraphics<1->[width=3cm]{Meilleur2D2}
+        \only<1-> {\caption{Les meilleures prédictions}}
         \end{figure}
      \end{column}
      \begin{column}{0.5\textwidth}
         \begin{figure}
-        \includegraphics[width=2.5cm]{Pire2D1}
-        \includegraphics[width=2.5cm]{Pire2D2}
-        \includegraphics[width=2.5cm]{Pire2D3}
-        \caption{Les pires predictions}
+        \includegraphics<2>[width=2.5cm]{Pire2D1}
+        \includegraphics<2>[width=2.5cm]{Pire2D2}
+        \includegraphics<2>[width=2.5cm]{Pire2D3}
+        \only<2>{\caption{Les pires prédictions}}
         \end{figure}
      \end{column}
     \end{columns}
