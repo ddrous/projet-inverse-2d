@@ -9,7 +9,7 @@
 %-------------------------------------------------------------------------------
 %							THIRD SECTION
 %-------------------------------------------------------------------------------
-\section{Le problème en 1D}
+\section{Les résultats en 1D}
 
 \subsection{Simulation}
 \begin{frame}
@@ -113,14 +113,15 @@
 
 \begin{frame}[fragile]
     \frametitle{Conclusion sur la régression 1D}
-Les cause de l'échec :
-\pause
+Les cause de l'échec sur la position de l'obstacle :
+% \pause
 \begin{itemize}
     \item Le problème inverse est probablement mal posé  % EN supposant que je n'ai commise aucune erreur
-    \item Le score R2 est mal calculé % Non prise en compte des poinds 10:1. 
+\pause
+    \item Le score R2 est mal calculé (sans influence sur le résultat de l'apprentissage) % Non prise en compte des poinds 10:1. 
 \end{itemize}
-\scriptsize
 
+\scriptsize
 \begin{verbatim}
     from keras import backend as K
     

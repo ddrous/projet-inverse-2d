@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  26 AUG 2020 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.8.20)  27 AUG 2020 09:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2137,7 +2137,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 File: ./Figures/Classification.png Graphic file (type png)
 <use ./Figures/Classification.png>
 Package pdftex.def Info: ./Figures/Classification.png  used on input line 151.
-(pdftex.def)             Requested size: 170.71652pt x 153.88434pt.
+(pdftex.def)             Requested size: 142.26378pt x 128.2329pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
@@ -2149,7 +2149,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 File: ./Figures/Classification.png Graphic file (type png)
 <use ./Figures/Classification.png>
 Package pdftex.def Info: ./Figures/Classification.png  used on input line 151.
-(pdftex.def)             Requested size: 170.71652pt x 153.88434pt.
+(pdftex.def)             Requested size: 142.26378pt x 128.2329pt.
 
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
@@ -2274,12 +2274,26 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
 
 [95
 
-])
+]
 Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [96
+
+]
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[97
+
+])
+Overfull \hbox (17.85104pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[98
 
 ]
 
@@ -2291,7 +2305,7 @@ Overfull \hbox (17.85104pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[97
+[99
 
  <d:/Program Files/texlive/2020/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write7
@@ -2309,7 +2323,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 178.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1266ADDFCAD01ED15E830999FA6928F9;1001.
+(rerunfilecheck)             Checksum: 02DD8AB3C13CDED7169955847F162B70;1005.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2319,18 +2333,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37056 strings out of 480893
- 788980 string characters out of 5905096
- 1265384 words of memory out of 5000000
- 51688 multiletter control sequences out of 15000+600000
+ 37086 strings out of 480893
+ 789842 string characters out of 5905096
+ 1266384 words of memory out of 5000000
+ 51714 multiletter control sequences out of 15000+600000
  604540 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,19n,82p,904b,2114s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona-sc.enc}{d:/Program Files/texlive/2020/texmf-dist/fonts/enc/dvips/iwona/rm-iwona.enc}<d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb><d:/Program Files/texlive/2020/texmf-dist/fonts/type1/nowacki/iwona/iwonari.pfb>
-Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (97 pages, 5212920 bytes).
+Output written on "c:/Users/Roussel/Dropbox/Unistra/SEMESTRE 2/Projet & Stage/Inverse/REPO_2D/doc/presentation/main.pdf" (99 pages, 5222530 bytes).
 PDF statistics:
- 8012 PDF objects out of 8907 (max. 8388607)
- 7667 compressed objects within 77 object streams
- 221 named destinations out of 1000 (max. 500000)
+ 8171 PDF objects out of 8907 (max. 8388607)
+ 7822 compressed objects within 79 object streams
+ 225 named destinations out of 1000 (max. 500000)
  477 words of extra memory for PDF output out of 10000 (max. 10000000)
 

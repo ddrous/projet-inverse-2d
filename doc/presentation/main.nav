@@ -60,7 +60,7 @@
 \headcommand {\beamer@framepages {51}{57}}
 \headcommand {\beamer@sectionpages {18}{57}}
 \headcommand {\beamer@subsectionpages {38}{57}}
-\headcommand {\sectionentry {3}{Le problème en 1D}{58}{Le problème en 1D}{0}}
+\headcommand {\sectionentry {3}{Les résultats en 1D}{58}{Les résultats en 1D}{0}}
 \headcommand {\beamer@subsectionpages {58}{57}}
 \headcommand {\beamer@subsectionentry {0}{3}{1}{58}{Simulation}}
 \headcommand {\slideentry {3}{1}{1}{58/58}{Simulation}{0}}
@@ -79,7 +79,7 @@
 \headcommand {\beamer@framepages {66}{67}}
 \headcommand {\beamer@sectionpages {58}{67}}
 \headcommand {\beamer@subsectionpages {61}{67}}
-\headcommand {\sectionentry {4}{Le problème en 2D}{68}{Le problème en 2D}{0}}
+\headcommand {\sectionentry {4}{Les résultats en 2D}{68}{Les résultats en 2D}{0}}
 \headcommand {\beamer@subsectionpages {68}{67}}
 \headcommand {\beamer@subsectionentry {0}{4}{1}{68}{Simulation}}
 \headcommand {\slideentry {4}{1}{1}{68/68}{Simulation}{0}}
@@ -117,21 +117,21 @@
 \headcommand {\beamer@framepages {88}{88}}
 \headcommand {\slideentry {5}{2}{3}{89/92}{Sur le stage}{0}}
 \headcommand {\beamer@framepages {89}{92}}
-\headcommand {\slideentry {5}{2}{4}{93/95}{Sur le stage}{0}}
-\headcommand {\beamer@framepages {93}{95}}
-\headcommand {\slideentry {5}{2}{5}{96/96}{Sur le stage}{0}}
-\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\slideentry {5}{2}{4}{93/97}{Sur le stage}{0}}
+\headcommand {\beamer@framepages {93}{97}}
+\headcommand {\slideentry {5}{2}{5}{98/98}{Sur le stage}{0}}
+\headcommand {\beamer@framepages {98}{98}}
 \headcommand {\gdef \insertmainframenumber {44}}
 \headcommand {\partentry {\translate {Appendix}}{1}}
-\headcommand {\beamer@partpages {1}{96}}
-\headcommand {\beamer@sectionpages {81}{96}}
-\headcommand {\beamer@subsectionpages {87}{96}}
-\headcommand {\beamer@appendixpages {97}}
-\headcommand {\beamer@sectionpages {97}{96}}
-\headcommand {\beamer@subsectionpages {97}{96}}
-\headcommand {\sectionentry {6}{References}{97}{References}{1}}
-\headcommand {\beamer@partpages {97}{97}}
-\headcommand {\beamer@subsectionpages {97}{97}}
-\headcommand {\beamer@sectionpages {97}{97}}
-\headcommand {\beamer@documentpages {97}}
+\headcommand {\beamer@partpages {1}{98}}
+\headcommand {\beamer@sectionpages {81}{98}}
+\headcommand {\beamer@subsectionpages {87}{98}}
+\headcommand {\beamer@appendixpages {99}}
+\headcommand {\beamer@sectionpages {99}{98}}
+\headcommand {\beamer@subsectionpages {99}{98}}
+\headcommand {\sectionentry {6}{References}{99}{References}{1}}
+\headcommand {\beamer@partpages {99}{99}}
+\headcommand {\beamer@subsectionpages {99}{99}}
+\headcommand {\beamer@sectionpages {99}{99}}
+\headcommand {\beamer@documentpages {99}}
 \headcommand {\gdef \inserttotalframenumber {44}}

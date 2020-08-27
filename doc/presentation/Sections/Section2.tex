@@ -62,7 +62,7 @@ Lorsque les photons se trouvent en présence de la matière, trois phénomènes 
 Où :
 \begin{itemize}
   \item $I(t,\bvec{x},\bm{\Omega},\nu)$ désigne l'intensité radiative spécifique
-  \item $B(\nu,T)$ la fonction de Planck
+  \item $B(\nu,T)$ la fonction de Planck, caractérise l'émission à l'ETL
   \item $\oint p(\bm{\Omega}^\prime\rightarrow\bm{\Omega})\, d\bm{\Omega}^\prime=1$
 \end{itemize}
 
@@ -110,7 +110,7 @@ Ce modèle est :
   \footnotesize
   \begin{enumerate}
     \item<1-> On sépare le problème en temps en deux
-    \item<2-> On résout l'étape 1 (réglage de la température) : sur une maille, Euler implicite + Point fixe
+    \item<2-> On résout l'étape 1 (réglage de la température) : sur une maille, schéma d'Euler implicite et méthode du point fixe
     $$     \begin{cases}
       \partial_tE + \alert{c \operatorname {div} \bvec F} = c\sigma_a\left(aT^4-E\right)\\
       \rho C_v \partial_t T = c \sigma_a \left(E-aT^4\right) 

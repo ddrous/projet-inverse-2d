@@ -9,7 +9,7 @@
 %-------------------------------------------------------------------------------
 %							FOURTH SECTION
 %-------------------------------------------------------------------------------
-\section{Le problème en 2D}
+\section{Les résultats en 2D}
 
 \subsection{Simulation}
 \begin{frame}
@@ -117,7 +117,7 @@
 Détection de toutes les variables :
 \begin{itemize}[<+>]
     \item L'abscisse, l'ordonnée, et la hauteur sont relativement bien prédits
-    \item La valeur de la densité en dehors du créneau est connue : \textbf{reconstruction complète de la densité du milieu}
+    \item La valeur de la densité en dehors du créneau est connue : \alert {\textbf{reconstruction complète de la densité du milieu}}
 \end{itemize}
 \end{frame}
 
@@ -126,14 +126,14 @@ Détection de toutes les variables :
 \begin{frame}
     \frametitle{Classification 2D}
     \begin{columns}
-        \begin{column}{0.7\textwidth}
+        \begin{column}{0.65\textwidth}
             \begin{figure}
-            \includegraphics[width=6cm]{Classification}       
+            \includegraphics[width=5cm]{Classification}       
             \caption{Labels pour la classification}
             \end{figure}
          \end{column}
          \pause
-         \begin{column}{0.3\textwidth}
+         \begin{column}{0.35\textwidth}
             \begin{table}[h!]
                 \caption{Les scores obtenus}
                 \centering
@@ -141,8 +141,8 @@ Détection de toutes les variables :
                 \toprule
                 \textbf{Nom} & \textbf{Valeur} \\
                 \midrule
-                R2 & 98.86 \%\\
-                Pers. & 95.45 \%\\
+                Bin. Acc. & 98.86 \%\\
+                Pers. Sév. & 95.45 \%\\
                 \bottomrule\\
                 \end{tabular}
             \end{table}
