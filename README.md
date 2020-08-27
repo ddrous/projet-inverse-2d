@@ -50,9 +50,9 @@ Cette dernière étape peut être facilitée par l'utilisation des extensions __
 - Lecture du format SDS: [`src/notebook/format_binaire.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/format_binaire.ipynb).  
 
 ### Apprentissage  
-- Régression sur un maillage 28x28 et sigma_a=sigma_c=rho*T (Régression principale, aussi appelée __Regression3.ipynb__): [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
-- Régression sur un maillage 28x28 et sigma_a=sigma_c=T*(10*rho)^3: [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression28x28.ipynb)  
-- Régression sur un maillage 90x90 et sigma_a=sigma_c=rho*T: [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression90x90.ipynb)  
+- Régression sur un maillage 28x28 et sigma_a=sigma_c=rho*T (régression principale, aussi appelée __Regression3.ipynb__ comme mentionné dans le rapport): [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
+- Régression sur un maillage 28x28 et sigma_a=sigma_c=T*(10*rho)^3: [`src/notebook/Regression28x28.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression28x28.ipynb)  
+- Régression sur un maillage 90x90 et sigma_a=sigma_c=rho*T: [`src/notebook/Regression90x90.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression90x90.ipynb)  
 - Classification : [`src/notebook/classification.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Classification.ipynb)  
 
 ## Ressources utilisées:
