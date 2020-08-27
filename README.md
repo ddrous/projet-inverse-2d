@@ -7,6 +7,7 @@ Résolution du problème de propagation de la lumière par la méthode des volum
 - Indications et travail à faire: `doc/guidelines/projetM1.pdf`  
 - Rapport de stage en français: `Rapport.pdf` ou `doc/fr/rapport.pdf`  
 - Rapport en anglais: `doc/eng/report.pdf`  
+- Présentation et résumé: `Presentation.pdf` ou `doc/presentation/main.pdf`  
 
 ## __1ère partie: Résolution de l'EDP__    
 _Les commandes indiquées sont à exécuter à partir du répertoire racine du projet._
@@ -49,7 +50,9 @@ Cette dernière étape peut être facilitée par l'utilisation des extensions __
 - Lecture du format SDS: [`src/notebook/format_binaire.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/format_binaire.ipynb).  
 
 ### Apprentissage  
-- Régression : [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
+- Régression sur un maillage 28x28 et sigma_a=sigma_c=rho*T: [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression.ipynb)  
+- Régression sur un maillage 28x28 et sigma_a=sigma_c=T*(10*rho)^3: [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression28x28.ipynb)  
+- Régression sur un maillage 90x90 et sigma_a=sigma_c=rho*T: [`src/notebook/Regression.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Regression90x90.ipynb)  
 - Classification : [`src/notebook/classification.ipynb`](https://github.com/desmond-rn/projet-inverse-2d/blob/master/src/notebook/Classification.ipynb)  
 
 ## Ressources utilisées:
